@@ -17,6 +17,9 @@
         <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
              <asp:Button ID="AllAdvisorsWithStudents" runat="server" OnClick="get_AdvisorsWithStudents" Text="Show All Advisors With Students " />
         </div>
+        <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
+             <asp:Button ID="AllPendingRequests" runat="server" OnClick="get_AllPendingRequests" Text="Show All Pending Requests " />
+        </div>
 
     </form>
 </body>

@@ -11,43 +11,34 @@ namespace Advising_System
 {
 
 
-    public partial class AdminHome
+    public partial class Admin__ListAllPendingRequests
     {
 
         /// <summary>
-        /// AdminHomeForm control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm AdminHomeForm;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// AllAdvisors control.
+        /// BackAdminHome3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AllAdvisors;
+        protected global::System.Web.UI.WebControls.Button BackAdminHome3;
 
         /// <summary>
-        /// AllAdvisorsWithStudents control.
+        /// AllPendingRequestTable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AllAdvisorsWithStudents;
-
-        /// <summary>
-        /// AllPendingRequests control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AllPendingRequests;
+        protected global::System.Web.UI.WebControls.GridView AllPendingRequestTable;
     }
 }

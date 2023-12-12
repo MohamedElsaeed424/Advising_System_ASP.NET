@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminHome.aspx" />
+    <Content Include="Admin_ListAllPendingRequests.aspx" />
     <Content Include="Admin_ListAllStudentsAdvisors.aspx" />
     <Content Include="Advisor_All_AdvisingStudents.aspx" />
     <Content Include="Advisor_InsertGradPlan.aspx" />
@@ -82,6 +83,13 @@
     </Compile>
     <Compile Include="AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_ListAllPendingRequests.aspx.cs">
+      <DependentUpon>Admin_ListAllPendingRequests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_ListAllPendingRequests.aspx.designer.cs">
+      <DependentUpon>Admin_ListAllPendingRequests.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin_ListAllStudentsAdvisors.aspx.cs">
       <DependentUpon>Admin_ListAllStudentsAdvisors.aspx</DependentUpon>

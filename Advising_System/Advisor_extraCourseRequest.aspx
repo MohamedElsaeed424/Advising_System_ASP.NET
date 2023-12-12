@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Advisor_extraCHRequest.aspx.cs" Inherits="Advising_System.Advisor_extraCHRequest" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Advisor_extraCourseRequest.aspx.cs" Inherits="Advising_System.Advisor_extraCourse" %>
 
 <!DOCTYPE html>
 
@@ -8,18 +8,18 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <h2>Approve / Reject Credit Hours Requests</h2>
-        <div style="display: flex; align-items: center; justify-content: right; margin: 20px; resize: vertical;">
+        <h2>Approve / Reject Course Requests</h2>
+         <div style="display: flex; align-items: center; justify-content: right; margin: 20px; resize: vertical;">
             <asp:Button ID="BackHome" runat="server" OnClick="BackAdvisorHome" Text="Back" />
-        </div>
+         </div>
         <div>
-            <asp:GridView ID="CHRequests" runat="server" AutoGenerateColumns="False" OnRowDataBound="CHRequests_RowDataBound">
+            <asp:GridView ID="CourseRequests" runat="server" AutoGenerateColumns="False" OnRowDataBound="CHRequests_RowDataBound">
                 <Columns>
                      <asp:BoundField DataField="request_id" HeaderText="Request ID" />
                      <asp:BoundField DataField="type" HeaderText="Type" />
                      <asp:BoundField DataField="comment" HeaderText="Comment" />
                      <asp:BoundField DataField="status" HeaderText="Status" />
-                     <asp:BoundField DataField="credit_hours" HeaderText="Credit hours" />
+                     <asp:BoundField DataField="course_id" HeaderText="Course ID" />
                      <asp:BoundField DataField="student_id" HeaderText="Student ID" />
                      <asp:BoundField DataField="advisor_id" HeaderText="Advisor ID" />
                     <asp:TemplateField HeaderText="Approve/Reject">
@@ -28,7 +28,7 @@
                     </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
-            </asp:GridView>
+        </asp:GridView>
         </div>
     </form>
 </body>

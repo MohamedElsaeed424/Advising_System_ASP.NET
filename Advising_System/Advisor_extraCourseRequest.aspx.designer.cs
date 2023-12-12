@@ -11,7 +11,7 @@ namespace Advising_System
 {
 
 
-    public partial class Advisor_extraCHRequest
+    public partial class Advisor_extraCourse
     {
 
         /// <summary>
@@ -33,12 +33,12 @@ namespace Advising_System
         protected global::System.Web.UI.WebControls.Button BackHome;
 
         /// <summary>
-        /// CHRequests control.
+        /// CourseRequests control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView CHRequests;
+        protected global::System.Web.UI.WebControls.GridView CourseRequests;
     }
 }

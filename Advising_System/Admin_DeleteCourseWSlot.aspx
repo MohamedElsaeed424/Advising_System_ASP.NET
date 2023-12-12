@@ -14,7 +14,6 @@
             <asp:TextBox ID="CourseID" runat="server"></asp:TextBox> <br/>
             <div style="margin-bottom: 20px;"></div>
             <input id="Button1" type="button" onclick = "DeleteCourse" value="Delete" /> <br/>
-            
         </div>
     </form>
 </body>

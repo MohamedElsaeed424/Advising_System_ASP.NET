@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="AdminHome.aspx" />
     <Content Include="Admin_DeleteCourseWSlot.aspx" />
+    <Content Include="Admin_fetchActiveStudents.aspx" />
     <Content Include="Admin_ListAllPendingRequests.aspx" />
     <Content Include="Admin_ListAllStudentsAdvisors.aspx" />
     <Content Include="Advisor_AllRequests.aspx" />
@@ -92,6 +93,13 @@
     </Compile>
     <Compile Include="Admin_DeleteCourseWSlot.aspx.designer.cs">
       <DependentUpon>Admin_DeleteCourseWSlot.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_fetchActiveStudents.aspx.cs">
+      <DependentUpon>Admin_fetchActiveStudents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_fetchActiveStudents.aspx.designer.cs">
+      <DependentUpon>Admin_fetchActiveStudents.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin_ListAllPendingRequests.aspx.cs">
       <DependentUpon>Admin_ListAllPendingRequests.aspx</DependentUpon>

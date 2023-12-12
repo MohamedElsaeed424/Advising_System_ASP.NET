@@ -19,41 +19,48 @@ namespace Advising_System
         }
         protected void Respond_button(object sender, EventArgs e)
         {
-            try
+
+
+            Button btn = (Button)sender;
+            GridViewRow row = (GridViewRow)btn.NamingContainer;
+            int id = Int32.Parse(row.Cells[0].Text);
+            string connectionString = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                Debug.WriteLine("this is the id ");
-                Button btn = (Button)sender;
-                int id = Int32.Parse(btn.CommandArgument);
-                //string connectionString = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
+                try
+                {
+                    SqlCommand approveReject = new SqlCommand("Procedures_AdvisorApproveRejectCHRequest", connection);
+                    approveReject.CommandType = CommandType.StoredProcedure;
+                    connection.Open();
+
+                    approveReject.Parameters.AddWithValue("@RequestID", id);
+                    approveReject.Parameters.AddWithValue("@current_semester_code", "W24"); // Hard coded temporarily
+
+                    int rowsAffected = approveReject.ExecuteNonQuery();
+
+                    if (rowsAffected > 0) { updateGrid(); }
+                }
+                catch (Exception ex)
+                {
+                    // Handle the exception - e.g., show an error message to the user
+                    Debug.WriteLine(ex.ToString());
+                }
             }
-            catch(Exception ex)
-            {
-                Debug.WriteLine(ex.ToString());
-            }
 
-
-            //using (SqlConnection connection = new SqlConnection(connectionString))
-            //{
-            //    try
-            //    {
-            //        SqlCommand approveReject = new SqlCommand("Procedures_AdvisorApproveRejectCHRequest", connection);
-            //        approveReject.CommandType = CommandType.StoredProcedure;
-            //        connection.Open();
-
-            //        approveReject.Parameters.AddWithValue("@RequestID", id);
-            //        approveReject.Parameters.AddWithValue("@current_semester_code", "W24"); // Hard coded temporarily
-
-            //        int rowsAffected = approveReject.ExecuteNonQuery();
-
-            //        if (rowsAffected > 0) { updateGrid(); }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        // Handle the exception - e.g., show an error message to the user
-            //        Debug.WriteLine(ex.ToString());
-            //    }
-            //}
         }
+        protected void CHRequests_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                // Find the button in the row
+                Button btnAction = (Button)e.Row.FindControl("btnAction");
+
+                // Set a unique ID for each button
+                btnAction.ID = "btnAction_" + e.Row.RowIndex.ToString();
+            }
+        }
+
 
         protected void updateGrid()
         {
@@ -84,6 +91,7 @@ namespace Advising_System
         {
             Response.Redirect("/AdvisorHome.aspx");
         }
-        
     }
+        
+        
 }

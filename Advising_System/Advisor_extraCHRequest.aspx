@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
         <h2>Approve / Reject Credit Hours Requests</h2>
         <div>
-            <asp:GridView ID="CHRequests" runat="server" AutoGenerateColumns="False">
+            <asp:GridView ID="CHRequests" runat="server" AutoGenerateColumns="False" OnRowDataBound="CHRequests_RowDataBound">
                 <Columns>
                      <asp:BoundField DataField="request_id" HeaderText="Request ID" />
                      <asp:BoundField DataField="type" HeaderText="Type" />
@@ -21,7 +21,7 @@
                      <asp:BoundField DataField="advisor_id" HeaderText="Advisor ID" />
                     <asp:TemplateField HeaderText="Approve/Reject">
                      <ItemTemplate>
-                        <asp:Button ID="btnAction" runat="server" Text="Click Me" OnClick="Respond_button" CommandArgument='<%# Eval("request_id") %>' />
+                        <asp:Button ID="btnAction" runat="server" Text="Respond" OnClick="Respond_button" />
                     </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

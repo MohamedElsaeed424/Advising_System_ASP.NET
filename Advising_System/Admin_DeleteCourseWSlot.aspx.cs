@@ -13,7 +13,7 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+        
         }
 
         protected void DeleteCourse(object sender, EventArgs e)
@@ -21,7 +21,14 @@ namespace Advising_System
             string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
             SqlConnection connection = new SqlConnection(connectionStirng);
             String courseID = CourseID.ToString();
-            SqlCommand delete = new SqlCommand();
+            SqlCommand delete = new SqlCommand("Procedures_AdminDeleteCourse", connection);
+            delete.Parameters.Add(new SqlParameter("@courseID", courseID));
+
+            if (string.IsNullOrEmpty(courseID))
+            {
+                Response.Write("you have to enter a valid course id");
+                
+            }
         }
     }
 }

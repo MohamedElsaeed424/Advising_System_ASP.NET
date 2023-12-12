@@ -67,6 +67,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminHome.aspx" />
+    <Content Include="Admin_ListAllStudentsAdvisors.aspx" />
     <Content Include="Advisor_All_AdvisingStudents.aspx" />
     <Content Include="Advisor_InsertGradPlan.aspx" />
     <Content Include="All_Advisors.aspx" />
@@ -75,6 +77,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminHome.aspx.cs">
+      <DependentUpon>AdminHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminHome.aspx.designer.cs">
+      <DependentUpon>AdminHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_ListAllStudentsAdvisors.aspx.cs">
+      <DependentUpon>Admin_ListAllStudentsAdvisors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_ListAllStudentsAdvisors.aspx.designer.cs">
+      <DependentUpon>Admin_ListAllStudentsAdvisors.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Advisor_All_AdvisingStudents.aspx.cs">
       <DependentUpon>Advisor_All_AdvisingStudents.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

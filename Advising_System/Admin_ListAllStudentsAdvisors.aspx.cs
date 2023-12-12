@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Configuration;
@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace Advising_System
 {
-    public partial class All_Advisors : System.Web.UI.Page
+    public partial class Admin_ListAllStudentsAdvisors : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,17 +19,17 @@ namespace Advising_System
             try
             {
 
-                SqlCommand Procedures_AdminListAdvisors = new SqlCommand("Procedures_AdminListAdvisors", connection);
-                Procedures_AdminListAdvisors.CommandType = CommandType.StoredProcedure;
+                SqlCommand AdminListStudentsWithAdvisors = new SqlCommand("AdminListStudentsWithAdvisors", connection);
+                AdminListStudentsWithAdvisors.CommandType = CommandType.StoredProcedure;
                 connection.Open();
-                SqlDataReader reader = Procedures_AdminListAdvisors.ExecuteReader(CommandBehavior.CloseConnection);
+                SqlDataReader reader = AdminListStudentsWithAdvisors.ExecuteReader(CommandBehavior.CloseConnection);
 
                 DataTable dataTable = new DataTable();
 
                 dataTable.Load(reader);
 
-                AllAdvisorsTable.DataSource = dataTable;
-                AllAdvisorsTable.DataBind();
+                AllAdvisorsWithStudentsTable.DataSource = dataTable;
+                AllAdvisorsWithStudentsTable.DataBind();
             }
             catch (Exception ex)
             {
@@ -41,7 +41,5 @@ namespace Advising_System
                 connection.Close();
             }
         }
-
-
     }
 }

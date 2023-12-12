@@ -73,6 +73,7 @@
     <Content Include="Advisor_AllPendingRequests.aspx" />
     <Content Include="Advisor_AllRequests.aspx" />
     <Content Include="Advisor_All_AdvisingStudents.aspx" />
+    <Content Include="Advisor_extraCHRequest.aspx" />
     <Content Include="Advisor_InsertGradPlan.aspx" />
     <Content Include="Admin_ListAllAdvisors.aspx" />
     <Content Include="Advisor_All_StudentsWithAdvisors.aspx" />
@@ -120,6 +121,13 @@
     </Compile>
     <Compile Include="Advisor_All_AdvisingStudents.aspx.designer.cs">
       <DependentUpon>Advisor_All_AdvisingStudents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Advisor_extraCHRequest.aspx.cs">
+      <DependentUpon>Advisor_extraCHRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Advisor_extraCHRequest.aspx.designer.cs">
+      <DependentUpon>Advisor_extraCHRequest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Advisor_InsertGradPlan.aspx.cs">
       <DependentUpon>Advisor_InsertGradPlan.aspx</DependentUpon>

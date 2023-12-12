@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Advisor_All_AdvisingStudents.aspx" />
+    <Content Include="Advisor_InsertGradPlan.aspx" />
     <Content Include="All_Advisors.aspx" />
     <Content Include="All_PendingRequests.aspx" />
     <Content Include="All_StudentsWithAdvisors.aspx" />
@@ -80,6 +81,13 @@
     </Compile>
     <Compile Include="Advisor_All_AdvisingStudents.aspx.designer.cs">
       <DependentUpon>Advisor_All_AdvisingStudents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Advisor_InsertGradPlan.aspx.cs">
+      <DependentUpon>Advisor_InsertGradPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Advisor_InsertGradPlan.aspx.designer.cs">
+      <DependentUpon>Advisor_InsertGradPlan.aspx</DependentUpon>
     </Compile>
     <Compile Include="All_Advisors.aspx.cs">
       <DependentUpon>All_Advisors.aspx</DependentUpon>

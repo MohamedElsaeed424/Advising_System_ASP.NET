@@ -41,5 +41,10 @@ namespace Advising_System
                 connection.Close();
             }
         }
+
+        protected void BackAdminHome(object sender, EventArgs e)
+        {
+            Response.Redirect("/AdminHome.aspx");
+        }        
     }
 }

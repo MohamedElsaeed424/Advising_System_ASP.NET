@@ -71,9 +71,8 @@
     <Content Include="Admin_ListAllStudentsAdvisors.aspx" />
     <Content Include="Advisor_All_AdvisingStudents.aspx" />
     <Content Include="Advisor_InsertGradPlan.aspx" />
-    <Content Include="All_Advisors.aspx" />
-    <Content Include="All_PendingRequests.aspx" />
-    <Content Include="All_StudentsWithAdvisors.aspx" />
+    <Content Include="Admin_ListAllAdvisors.aspx" />
+    <Content Include="Advisor_All_StudentsWithAdvisors.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -105,26 +104,19 @@
     <Compile Include="Advisor_InsertGradPlan.aspx.designer.cs">
       <DependentUpon>Advisor_InsertGradPlan.aspx</DependentUpon>
     </Compile>
-    <Compile Include="All_Advisors.aspx.cs">
-      <DependentUpon>All_Advisors.aspx</DependentUpon>
+    <Compile Include="Admin_ListAllAdvisors.aspx.cs">
+      <DependentUpon>Admin_ListAllAdvisors.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="All_Advisors.aspx.designer.cs">
-      <DependentUpon>All_Advisors.aspx</DependentUpon>
+    <Compile Include="Admin_ListAllAdvisors.aspx.designer.cs">
+      <DependentUpon>Admin_ListAllAdvisors.aspx</DependentUpon>
     </Compile>
-    <Compile Include="All_PendingRequests.aspx.cs">
-      <DependentUpon>All_PendingRequests.aspx</DependentUpon>
+    <Compile Include="Advisor_All_StudentsWithAdvisors.aspx.cs">
+      <DependentUpon>Advisor_All_StudentsWithAdvisors.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="All_PendingRequests.aspx.designer.cs">
-      <DependentUpon>All_PendingRequests.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="All_StudentsWithAdvisors.aspx.cs">
-      <DependentUpon>All_StudentsWithAdvisors.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="All_StudentsWithAdvisors.aspx.designer.cs">
-      <DependentUpon>All_StudentsWithAdvisors.aspx</DependentUpon>
+    <Compile Include="Advisor_All_StudentsWithAdvisors.aspx.designer.cs">
+      <DependentUpon>Advisor_All_StudentsWithAdvisors.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

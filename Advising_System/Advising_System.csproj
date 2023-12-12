@@ -68,14 +68,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminHome.aspx" />
+<<<<<<< HEAD
     <Content Include="Admin_DeleteCourseWSlot.aspx" />
     <Content Include="Admin_fetchActiveStudents.aspx" />
+=======
+>>>>>>> 24fb3870f0b9e871d4c0fc31b914b8ece3d372ad
     <Content Include="Admin_ListAllPendingRequests.aspx" />
     <Content Include="Admin_ListAllStudentsAdvisors.aspx" />
+    <Content Include="Advisor_AllPendingRequests.aspx" />
     <Content Include="Advisor_AllRequests.aspx" />
     <Content Include="Advisor_All_AdvisingStudents.aspx" />
+    <Content Include="Advisor_extraCHRequest.aspx" />
     <Content Include="Advisor_InsertGradPlan.aspx" />
     <Content Include="Admin_ListAllAdvisors.aspx" />
+	<Content Include="Admin_AddNewSemester.aspx" />
     <Content Include="Advisor_All_StudentsWithAdvisors.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -87,6 +93,7 @@
     <Compile Include="AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="Admin_DeleteCourseWSlot.aspx.cs">
       <DependentUpon>Admin_DeleteCourseWSlot.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -101,6 +108,8 @@
     <Compile Include="Admin_fetchActiveStudents.aspx.designer.cs">
       <DependentUpon>Admin_fetchActiveStudents.aspx</DependentUpon>
     </Compile>
+=======
+>>>>>>> 24fb3870f0b9e871d4c0fc31b914b8ece3d372ad
     <Compile Include="Admin_ListAllPendingRequests.aspx.cs">
       <DependentUpon>Admin_ListAllPendingRequests.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -114,6 +123,13 @@
     </Compile>
     <Compile Include="Admin_ListAllStudentsAdvisors.aspx.designer.cs">
       <DependentUpon>Admin_ListAllStudentsAdvisors.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Advisor_AllPendingRequests.aspx.cs">
+      <DependentUpon>Advisor_AllPendingRequests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Advisor_AllPendingRequests.aspx.designer.cs">
+      <DependentUpon>Advisor_AllPendingRequests.aspx</DependentUpon>
     </Compile>
     <Compile Include="Advisor_AllRequests.aspx.cs">
       <DependentUpon>Advisor_AllRequests.aspx</DependentUpon>
@@ -129,6 +145,13 @@
     <Compile Include="Advisor_All_AdvisingStudents.aspx.designer.cs">
       <DependentUpon>Advisor_All_AdvisingStudents.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Advisor_extraCHRequest.aspx.cs">
+      <DependentUpon>Advisor_extraCHRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Advisor_extraCHRequest.aspx.designer.cs">
+      <DependentUpon>Advisor_extraCHRequest.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Advisor_InsertGradPlan.aspx.cs">
       <DependentUpon>Advisor_InsertGradPlan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -143,6 +166,13 @@
     <Compile Include="Admin_ListAllAdvisors.aspx.designer.cs">
       <DependentUpon>Admin_ListAllAdvisors.aspx</DependentUpon>
     </Compile>
+	  <Compile Include="Admin_AddNewSemester.aspx.cs">
+		  <DependentUpon>Admin_AddNewSemester.aspx</DependentUpon>
+		  <SubType>ASPXCodeBehind</SubType>
+	  </Compile>
+	  <Compile Include="Admin_AddNewSemester.aspx.designer.cs">
+		  <DependentUpon>Admin_AddNewSemester.aspx</DependentUpon>
+	  </Compile>
     <Compile Include="Advisor_All_StudentsWithAdvisors.aspx.cs">
       <DependentUpon>Advisor_All_StudentsWithAdvisors.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -164,6 +194,9 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

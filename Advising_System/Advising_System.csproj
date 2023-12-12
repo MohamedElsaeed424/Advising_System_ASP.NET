@@ -70,13 +70,13 @@
     <Content Include="AdminHome.aspx" />
     <Content Include="Admin_ListAllPendingRequests.aspx" />
     <Content Include="Admin_ListAllStudentsAdvisors.aspx" />
+	<Content Include="Admin_ListAllAdvisors.aspx" />
+	<Content Include="Admin_AddNewSemester.aspx" />
     <Content Include="Advisor_AllPendingRequests.aspx" />
     <Content Include="Advisor_AllRequests.aspx" />
     <Content Include="Advisor_All_AdvisingStudents.aspx" />
     <Content Include="Advisor_extraCHRequest.aspx" />
     <Content Include="Advisor_InsertGradPlan.aspx" />
-    <Content Include="Admin_ListAllAdvisors.aspx" />
-    <Content Include="Admin_AddNewSemester.aspx" />
     <Content Include="Advisor_All_StudentsWithAdvisors.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>

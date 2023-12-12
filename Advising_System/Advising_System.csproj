@@ -79,6 +79,7 @@
     <Content Include="AdvisorHome.aspx" />
     <Content Include="Advisor_AllPendingRequests.aspx" />
     <Content Include="Advisor_AllRequests.aspx" />
+    <Content Include="Advisor_AllStudentsMajorCourse.aspx" />
     <Content Include="Advisor_All_AdvisingStudents.aspx" />
     <Content Include="Advisor_extraCHRequest.aspx" />
     <Content Include="Advisor_extraCourseRequest.aspx" />
@@ -149,6 +150,13 @@
     </Compile>
     <Compile Include="Advisor_AllRequests.aspx.designer.cs">
       <DependentUpon>Advisor_AllRequests.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Advisor_AllStudentsMajorCourse.aspx.cs">
+      <DependentUpon>Advisor_AllStudentsMajorCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Advisor_AllStudentsMajorCourse.aspx.designer.cs">
+      <DependentUpon>Advisor_AllStudentsMajorCourse.aspx</DependentUpon>
     </Compile>
     <Compile Include="Advisor_All_AdvisingStudents.aspx.cs">
       <DependentUpon>Advisor_All_AdvisingStudents.aspx</DependentUpon>

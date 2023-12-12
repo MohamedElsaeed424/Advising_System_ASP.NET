@@ -67,9 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AdminDeleteCourseWSlot.aspx" />
     <Content Include="AdminHome.aspx" />
-    <Content Include="Admin_AddNewSemester.aspx" />
     <Content Include="Admin_ListAllPendingRequests.aspx" />
     <Content Include="Admin_ListAllStudentsAdvisors.aspx" />
     <Content Include="Advisor_AllRequests.aspx" />
@@ -80,26 +78,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminDeleteCourseWSlot.aspx.cs">
-      <DependentUpon>AdminDeleteCourseWSlot.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdminDeleteCourseWSlot.aspx.designer.cs">
-      <DependentUpon>AdminDeleteCourseWSlot.aspx</DependentUpon>
-    </Compile>
     <Compile Include="AdminHome.aspx.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin_AddNewSemester.aspx.cs">
-      <DependentUpon>Admin_AddNewSemester.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin_AddNewSemester.aspx.designer.cs">
-      <DependentUpon>Admin_AddNewSemester.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin_ListAllPendingRequests.aspx.cs">
       <DependentUpon>Admin_ListAllPendingRequests.aspx</DependentUpon>

@@ -14,7 +14,7 @@
                 <asp:Label ID="SuccessLabel" runat="server" Text="Add Inputs" ForeColor="Green" Visible="true"></asp:Label>
             </div>
              <div style="display: flex; align-items: center; justify-content: right; margin: 20px; resize: vertical;">
-                 <asp:Button ID="BackAdminHome2" runat="server" OnClick="BackAdminHome" Text="Back" />
+                 <asp:Button ID="BackAdminHome3" runat="server" OnClick="BackAdminHome" Text="Back" />
              </div>
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 20px 20px 20px 140px; resize: vertical;">
 

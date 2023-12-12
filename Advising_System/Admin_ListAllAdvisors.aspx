@@ -11,6 +11,9 @@
 
         <div>
     <h2>All Advisors</h2>
+              <div style="display: flex; align-items: center; justify-content: left; margin: 20px; resize: vertical;">
+                 <asp:Button ID="BackAdminHome2" runat="server" OnClick="BackAdminHome" Text="Back" />
+             </div>
    <asp:GridView ID="AllAdvisorsTable" runat="server" AutoGenerateColumns="False">
     <Columns>
         <asp:BoundField DataField="advisor_id" HeaderText="Advisor ID" />

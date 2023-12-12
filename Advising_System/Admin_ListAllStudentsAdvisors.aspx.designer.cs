@@ -24,13 +24,13 @@ namespace Advising_System
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// BackAdminHome control.
+        /// BackAdminHome1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BackAdminHome;
+        protected global::System.Web.UI.WebControls.Button BackAdminHome1;
 
         /// <summary>
         /// AllAdvisorsWithStudentsTable control.

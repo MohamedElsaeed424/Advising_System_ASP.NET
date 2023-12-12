@@ -9,9 +9,10 @@
 <body>
     <form id="AllStudentdWithAdvisorsForm" runat="server">
         <div>
-            <asp:RadioButtonList ID="AllAdvisorsRadioList" runat="server">
-                <asp:ListItem></asp:ListItem>
+            <asp:RadioButtonList ID="AllAdvisorsRadioList" runat="server" OnSelectedIndexChanged="AllAdvisorsRadioList_SelectedIndexChanged" AutoPostBack="true">
+                
             </asp:RadioButtonList>
+
         </div>
         <div>
             <h2>All Students</h2>

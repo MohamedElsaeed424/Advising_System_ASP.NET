@@ -35,19 +35,20 @@ namespace Advising_System
                 Advisors_IDS.Add(advisorID);
             }
 
-          
+
             for (int i = 0; i < Advisors_names.Count; i++)
             {
                 RadioButton radioButton = new RadioButton();
-                radioButton.ID = "RadioButton_" + Advisors_IDS[i];
-                radioButton.Text = Advisors_names[i];
-               
-                RadioPanel.Controls.Add(radioButton);
-            }
-            AllAdvisorsRadioList.Controls.Add(RadioPanel);
+                ListItem listItem = new ListItem(Advisors_names[i], Advisors_IDS[i]);
+                AllAdvisorsRadioList.Items.Add(listItem);
 
+            }
             connection.Close();
 
+        }
+        protected void AllAdvisorsRadioList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

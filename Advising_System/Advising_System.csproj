@@ -75,7 +75,6 @@
     <Content Include="Admin_ListAllStudentsAdvisors.aspx" />
 	<Content Include="Admin_ListAllAdvisors.aspx" />
     <Content Include="Admin_AddNewSemester.aspx" />
-    <Content Include="Admin_ListAllAdvisors.aspx" />
 	<Content Include="Admin_AddNewSemester.aspx" />
     <Content Include="AdvisorHome.aspx" />
     <Content Include="Advisor_AllPendingRequests.aspx" />

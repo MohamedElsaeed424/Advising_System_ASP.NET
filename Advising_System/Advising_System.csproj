@@ -67,10 +67,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminDeleteCourseWSlot.aspx" />
     <Content Include="AdminHome.aspx" />
     <Content Include="Admin_AddNewSemester.aspx" />
     <Content Include="Admin_ListAllPendingRequests.aspx" />
     <Content Include="Admin_ListAllStudentsAdvisors.aspx" />
+    <Content Include="Advisor_AllRequests.aspx" />
     <Content Include="Advisor_All_AdvisingStudents.aspx" />
     <Content Include="Advisor_InsertGradPlan.aspx" />
     <Content Include="Admin_ListAllAdvisors.aspx" />
@@ -78,6 +80,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminDeleteCourseWSlot.aspx.cs">
+      <DependentUpon>AdminDeleteCourseWSlot.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminDeleteCourseWSlot.aspx.designer.cs">
+      <DependentUpon>AdminDeleteCourseWSlot.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminHome.aspx.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -105,6 +114,13 @@
     </Compile>
     <Compile Include="Admin_ListAllStudentsAdvisors.aspx.designer.cs">
       <DependentUpon>Admin_ListAllStudentsAdvisors.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Advisor_AllRequests.aspx.cs">
+      <DependentUpon>Advisor_AllRequests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Advisor_AllRequests.aspx.designer.cs">
+      <DependentUpon>Advisor_AllRequests.aspx</DependentUpon>
     </Compile>
     <Compile Include="Advisor_All_AdvisingStudents.aspx.cs">
       <DependentUpon>Advisor_All_AdvisingStudents.aspx</DependentUpon>

@@ -76,6 +76,7 @@
     <Content Include="Advisor_extraCHRequest.aspx" />
     <Content Include="Advisor_InsertGradPlan.aspx" />
     <Content Include="Admin_ListAllAdvisors.aspx" />
+	<Content Include="Admin_AddNewSemester.aspx" />
     <Content Include="Advisor_All_StudentsWithAdvisors.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -143,6 +144,13 @@
     <Compile Include="Admin_ListAllAdvisors.aspx.designer.cs">
       <DependentUpon>Admin_ListAllAdvisors.aspx</DependentUpon>
     </Compile>
+	  <Compile Include="Admin_AddNewSemester.aspx.cs">
+		  <DependentUpon>Admin_AddNewSemester.aspx</DependentUpon>
+		  <SubType>ASPXCodeBehind</SubType>
+	  </Compile>
+	  <Compile Include="Admin_AddNewSemester.aspx.designer.cs">
+		  <DependentUpon>Admin_AddNewSemester.aspx</DependentUpon>
+	  </Compile>
     <Compile Include="Advisor_All_StudentsWithAdvisors.aspx.cs">
       <DependentUpon>Advisor_All_StudentsWithAdvisors.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

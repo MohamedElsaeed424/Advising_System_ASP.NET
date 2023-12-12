@@ -11,7 +11,7 @@ namespace Advising_System
 {
 
 
-    public partial class Advisor_AllRequests
+    public partial class Advisor_AllPendingRequests
     {
 
         /// <summary>
@@ -33,12 +33,12 @@ namespace Advising_System
         protected global::System.Web.UI.WebControls.Button BackAdminHome2;
 
         /// <summary>
-        /// Requests control.
+        /// PendingRequests control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Requests;
+        protected global::System.Web.UI.WebControls.GridView PendingRequests;
     }
 }

@@ -9,6 +9,9 @@
 <body>
     <form id="form1" runat="server">
         <h2>All Your Requests</h2>
+         <div style="display: flex; align-items: center; justify-content: right; margin: 20px; resize: vertical;">
+            <asp:Button ID="BackAdminHome2" runat="server" OnClick="BackAdminHome" Text="Back" />
+        </div>
         <div>
             <asp:GridView ID="Requests" runat="server" AutoGenerateColumns="False" >
                 <Columns>

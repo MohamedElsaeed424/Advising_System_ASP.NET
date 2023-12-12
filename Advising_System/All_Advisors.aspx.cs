@@ -29,16 +29,12 @@ namespace Advising_System
                 connection.Open();
                 SqlDataReader reader = Procedures_AdminListAdvisors.ExecuteReader(CommandBehavior.CloseConnection);
                
-                while (reader.Read())
-                {
                     DataTable dataTable = new DataTable();
     
                     dataTable.Load(reader);
 
                     AllAdvisorsTable.DataSource = dataTable;
                     AllAdvisorsTable.DataBind();
-
-                }
             }
             catch (Exception ex)
             {

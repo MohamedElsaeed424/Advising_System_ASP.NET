@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="All_Advisors.aspx" />
+    <Content Include="All_PendingRequests.aspx" />
     <Content Include="All_StudentsWithAdvisors.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -78,6 +79,13 @@
     </Compile>
     <Compile Include="All_Advisors.aspx.designer.cs">
       <DependentUpon>All_Advisors.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="All_PendingRequests.aspx.cs">
+      <DependentUpon>All_PendingRequests.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="All_PendingRequests.aspx.designer.cs">
+      <DependentUpon>All_PendingRequests.aspx</DependentUpon>
     </Compile>
     <Compile Include="All_StudentsWithAdvisors.aspx.cs">
       <DependentUpon>All_StudentsWithAdvisors.aspx</DependentUpon>

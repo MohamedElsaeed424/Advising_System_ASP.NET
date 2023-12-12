@@ -14,7 +14,7 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
+            string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13MD"].ToString();
             SqlConnection connection = new SqlConnection(connectionStirng);
             try
             {

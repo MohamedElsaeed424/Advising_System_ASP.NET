@@ -37,7 +37,7 @@ namespace Advising_System
             }
             finally { connection.Close(); }
         }
-        protected void BackAdminHome(object sender, EventArgs e)
+        protected void BackAdvisorHome(object sender, EventArgs e)
         {
             Response.Redirect("/AdvisorHome.aspx");
         }

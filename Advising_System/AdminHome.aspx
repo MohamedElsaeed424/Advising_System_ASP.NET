@@ -20,6 +20,9 @@
         <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
              <asp:Button ID="AllPendingRequests" runat="server" OnClick="get_AllPendingRequests" Text="Show All Pending Requests " />
         </div>
+        <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
+             <asp:Button ID="AddNewSemester" runat="server" OnClick="Post_newSemetser" Text="Add New Semester " />
+        </div>
 
     </form>
 </body>

@@ -28,6 +28,7 @@ namespace Advising_System
                 Procedures_AdminListAdvisors.CommandType = CommandType.StoredProcedure;
                 connection.Open();
                 SqlDataReader reader = Procedures_AdminListAdvisors.ExecuteReader(CommandBehavior.CloseConnection);
+               
                 while (reader.Read())
                 {
                     DataTable dataTable = new DataTable();

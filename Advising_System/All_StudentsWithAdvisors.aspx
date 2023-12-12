@@ -9,10 +9,7 @@
 <body>
     <form id="AllStudentdWithAdvisorsForm" runat="server">
         <div>
-            <h2>Select an Advisor</h2>
-            <asp:RadioButtonList ID="AllAdvisorsRadioList" runat="server" OnSelectedIndexChanged="AllAdvisorsRadioList_SelectedIndexChanged" AutoPostBack="true">
-                
-            </asp:RadioButtonList>
+
             <h2>Select The Major of The Students</h2>
             <asp:RadioButtonList ID="AllMajorsRadioList" runat="server" OnSelectedIndexChanged="AllMajorsRadioList_SelectedIndexChanged" AutoPostBack="true">
                 <asp:ListItem Text="MET" Value="MET" />
@@ -26,15 +23,19 @@
                 <asp:ListItem Text="Postgraduate Studies & Scientific Research" Value="Postgraduate Studies & Scientific Research" />
                 <asp:ListItem Text="Faculty of Law and Legal Studies" Value="Faculty of Law and Legal Studies" />
             </asp:RadioButtonList>
+            <h2>Select an Advisor</h2>
+            <asp:RadioButtonList ID="AllAdvisorsRadioList" runat="server" OnSelectedIndexChanged="AllAdvisorsRadioList_SelectedIndexChanged" AutoPostBack="true">
+                
+            </asp:RadioButtonList>
         </div>
         <div>
             <h2>All Students</h2>
             <asp:GridView ID="AllStudentsWithAdvisorsTable" runat="server" AutoGenerateColumns="False">
                  <Columns>
-                     <asp:BoundField DataField="Student_id" HeaderText="Student ID" />
-                     <asp:BoundField DataField="Student_name" HeaderText="Student Name" />
-                     <asp:BoundField DataField="major" HeaderText="Major" />
-                     <asp:BoundField DataField="course_name" HeaderText="Course Name" />
+                     <asp:BoundField DataField="Student id" HeaderText="Student ID" />
+                     <asp:BoundField DataField="Student name" HeaderText="Student Name" />
+                     <asp:BoundField DataField="Student major" HeaderText="Major" />
+                     <asp:BoundField DataField="Course name" HeaderText="Course name" />
                  </Columns>
              </asp:GridView>
         </div>

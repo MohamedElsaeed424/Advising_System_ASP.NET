@@ -17,6 +17,17 @@ namespace Advising_System
         {
             if (!IsPostBack)
             {
+                if (Request.QueryString["advisorID"] != null && Request.QueryString["major"] != null)
+                {
+                    string selectedAdvisorID = Request.QueryString["advisorID"];
+                    string selectedMajor = Request.QueryString["major"];
+
+                    // Set the selected values
+                    SetSelectedValues(selectedAdvisorID, selectedMajor);
+
+                    // Update the GridView based on the selected values
+                    UpdateGridView(selectedAdvisorID, selectedMajor);
+                }
                 string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
                 SqlConnection connection = new SqlConnection(connectionStirng);
 
@@ -46,6 +57,58 @@ namespace Advising_System
                 connection.Close();
             }
         }
+        private void SetSelectedValues(string advisorID, string major)
+        {
+            // Set the selected values in your controls
+            // For example, set the selected value in the RadioButtonList
+            AllAdvisorsRadioList.SelectedValue = advisorID;
+            AllMajorsRadioList.SelectedValue = major;
+
+            // Set the selected value in other controls as needed
+            // ...
+        }
+        private void UpdateGridView(string advisorID, string major)
+        {
+            string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
+            SqlConnection connection = new SqlConnection(connectionStirng);
+
+            try
+            {
+                SqlCommand Procedures_AdvisorViewAssignedStudents = new SqlCommand("Procedures_AdvisorViewAssignedStudents", connection);
+                Procedures_AdvisorViewAssignedStudents.CommandType = CommandType.StoredProcedure;
+
+                // Add parameters
+                Procedures_AdvisorViewAssignedStudents.Parameters.Add(new SqlParameter("@AdvisorID", SqlDbType.Int));
+                Procedures_AdvisorViewAssignedStudents.Parameters["@AdvisorID"].Value = int.Parse(advisorID);
+
+                Procedures_AdvisorViewAssignedStudents.Parameters.Add(new SqlParameter("@major", SqlDbType.VarChar, 40));
+                Procedures_AdvisorViewAssignedStudents.Parameters["@major"].Value = major;
+
+                connection.Open();
+
+                SqlDataReader reader = Procedures_AdvisorViewAssignedStudents.ExecuteReader(CommandBehavior.CloseConnection);
+                if (reader.HasRows)
+                {
+                    DataTable dataTable = new DataTable();
+                    dataTable.Load(reader);
+
+                    AllStudentsWithAdvisorsTable.DataSource = dataTable;
+                    AllStudentsWithAdvisorsTable.DataBind();
+                }
+                else
+                {
+                    System.Diagnostics.Debug.WriteLine("No return values ");
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
 
         private string GetSelectedMajor()
         {
@@ -54,15 +117,23 @@ namespace Advising_System
         protected void AllMajorsRadioList_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selectedMajor = GetSelectedMajor();
+            string selectedAdvisorID = AllAdvisorsRadioList.SelectedValue;
+
+            // Save the selected values in the session or ViewState for later retrieval
+            Session["SelectedAdvisorID"] = selectedAdvisorID;
+            Session["SelectedMajor"] = selectedMajor;
+
+            // Reload the page with parameters
+            Response.Redirect($"{Request.Url.AbsolutePath}?advisorID={selectedAdvisorID}&major={selectedMajor}");
 
         }
         protected void AllAdvisorsRadioList_SelectedIndexChanged(object sender, EventArgs e)
         {
             string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
             SqlConnection connection = new SqlConnection(connectionStirng);
-            try
-            {  
 
+            try
+            {
                 SqlCommand Procedures_AdvisorViewAssignedStudents = new SqlCommand("Procedures_AdvisorViewAssignedStudents", connection);
                 Procedures_AdvisorViewAssignedStudents.CommandType = CommandType.StoredProcedure;
 
@@ -72,30 +143,35 @@ namespace Advising_System
 
                 Procedures_AdvisorViewAssignedStudents.Parameters.Add(new SqlParameter("@major", SqlDbType.VarChar, 40));
                 Procedures_AdvisorViewAssignedStudents.Parameters["@major"].Value = GetSelectedMajor();
-
+                System.Diagnostics.Debug.WriteLine(GetSelectedMajor());
+                System.Diagnostics.Debug.WriteLine(AllAdvisorsRadioList.SelectedValue);
                 connection.Open();
 
                 SqlDataReader reader = Procedures_AdvisorViewAssignedStudents.ExecuteReader(CommandBehavior.CloseConnection);
-                while (reader.Read())
+                if (reader.HasRows)
                 {
                     DataTable dataTable = new DataTable();
-
                     dataTable.Load(reader);
 
                     AllStudentsWithAdvisorsTable.DataSource = dataTable;
                     AllStudentsWithAdvisorsTable.DataBind();
-
+                }
+                else
+                {
+                    System.Diagnostics.Debug.WriteLine("No return values ");
                 }
             }
-            catch (Exception ex) {
-                Console.WriteLine("Error: " + ex.Message);
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Error: " + ex.Message);
             }
             finally
             {
                 connection.Close();
             }
-           
 
+            
+           
         }
     }
 }

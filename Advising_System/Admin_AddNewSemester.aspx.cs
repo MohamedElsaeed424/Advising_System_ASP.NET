@@ -50,7 +50,11 @@ namespace Advising_System
                             SuccessLabel.Text = "Semester added successfully!";
                             SuccessLabel.ForeColor = System.Drawing.Color.Green;
                             SuccessLabel.Visible = true;
-                            Response.Redirect(Request.Url.AbsoluteUri);
+
+                            Start_Calender.SelectedDate = DateTime.MinValue;
+                            End_Calender.SelectedDate = DateTime.MinValue;
+                            Semester_CodeText.Text = string.Empty;
+
 
                         }
                         catch (Exception ex)

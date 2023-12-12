@@ -14,15 +14,15 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13MD"].ToString();
+            string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
             SqlConnection connection = new SqlConnection(connectionStirng);
             try
             {
-                SqlCommand FN_Advisors_Requests = new SqlCommand($"SELECT * FROM all_Pending_Requests", connection);
-                FN_Advisors_Requests.CommandType = CommandType.Text;
+                SqlCommand all_Pending_Requests = new SqlCommand($"SELECT * FROM all_Pending_Requests", connection);
+                all_Pending_Requests.CommandType = CommandType.Text;
                 connection.Open();
 
-                SqlDataReader reader = FN_Advisors_Requests.ExecuteReader(CommandBehavior.CloseConnection);
+                SqlDataReader reader = all_Pending_Requests.ExecuteReader(CommandBehavior.CloseConnection);
 
                 DataTable dt = new DataTable();
                 dt.Load(reader);
@@ -39,7 +39,7 @@ namespace Advising_System
         }
         protected void BackAdminHome(object sender, EventArgs e)
         {
-            Response.Redirect("/AdminHome.aspx");
+            Response.Redirect("/AdvisorHome.aspx");
         }
     }
 }

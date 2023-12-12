@@ -16,12 +16,16 @@ namespace Advising_System
         protected void get_Advisors(object sender, EventArgs e)
         {
 
-            Response.Redirect("/All_Advisors.aspx");
+            Response.Redirect("/Admin_ListAllAdvisors.aspx");
 
         }
         protected void get_AdvisorsWithStudents(object sender, EventArgs e)
         {
             Response.Redirect("/Admin_ListAllStudentsAdvisors.aspx");
+        }
+        protected void get_AllPendingRequests(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_ListAllPendingRequests.aspx");
         }
     }
 }

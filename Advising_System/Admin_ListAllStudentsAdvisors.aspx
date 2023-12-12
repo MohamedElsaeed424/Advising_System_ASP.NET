@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
         <div>
             <h2>Students With Advisors</h2>
-             <div style="display: flex; align-items: center; justify-content: left; margin: 20px; resize: vertical;">
+             <div style="display: flex; align-items: center; justify-content: right; margin: 20px; resize: vertical;">
                  <asp:Button ID="BackAdminHome1" runat="server" OnClick="BackAdminHome" Text="Back" />
              </div>
            <asp:GridView ID="AllAdvisorsWithStudentsTable" runat="server" AutoGenerateColumns="False">

@@ -23,6 +23,9 @@
         <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
              <asp:Button ID="AddNewSemester" runat="server" OnClick="Post_newSemetser" Text="Add New Semester " />
         </div>
+        <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
+             <asp:Button ID="AddNewCourse" runat="server" OnClick="Post_newCourse" Text="Add New Course " />
+        </div>
 
     </form>
 </body>

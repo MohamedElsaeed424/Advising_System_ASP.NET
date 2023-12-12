@@ -32,5 +32,9 @@ namespace Advising_System
         {
             Response.Redirect("/Admin_AddNewSemester.aspx");
         }
+        protected void Post_newCourse(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_AddNewCourse.aspx");
+        }
     }
 }

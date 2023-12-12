@@ -36,5 +36,14 @@ namespace Advising_System
         {
             Response.Redirect("/Admin_AddNewCourse.aspx");
         }
+
+        protected void get_AllInstructorsWithThereCourses(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_ListInstructorCourse.aspx");
+        }
+        protected void get_AllOfferedCourses(Object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_ListAllSemestersCourses.aspx");
+        }
     }
 }

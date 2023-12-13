@@ -11,106 +11,115 @@ namespace Advising_System
 {
 
 
-    public partial class AdminHome
+    public partial class Admin_LinkStudentCourseInstructor
     {
 
         /// <summary>
-        /// AdminHomeForm control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm AdminHomeForm;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// AllAdvisors control.
+        /// SuccessLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AllAdvisors;
+        protected global::System.Web.UI.WebControls.Label SuccessLabel;
 
         /// <summary>
-        /// AllAdvisorsWithStudents control.
+        /// BackAdminHome3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AllAdvisorsWithStudents;
+        protected global::System.Web.UI.WebControls.Button BackAdminHome3;
 
         /// <summary>
-        /// AllPendingRequests control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AllPendingRequests;
+        protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// AddNewSemester control.
+        /// AllStuendents control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddNewSemester;
+        protected global::System.Web.UI.WebControls.DropDownList AllStuendents;
 
         /// <summary>
-        /// AddNewCourse control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddNewCourse;
+        protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// AllInstructorsWithCourses control.
+        /// AllCourses control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AllInstructorsWithCourses;
+        protected global::System.Web.UI.WebControls.DropDownList AllCourses;
 
         /// <summary>
-        /// AllOfferedCourses control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AllOfferedCourses;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// LinkInstructorToCourse control.
+        /// AllInstructors control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button LinkInstructorToCourse;
+        protected global::System.Web.UI.WebControls.DropDownList AllInstructors;
 
         /// <summary>
-        /// LinkStudentToAdvisor control.
+        /// Label4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button LinkStudentToAdvisor;
+        protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// LinkStudentToCourseInstructor control.
+        /// AllSemesters control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button LinkStudentToCourseInstructor;
+        protected global::System.Web.UI.WebControls.DropDownList AllSemesters;
+
+        /// <summary>
+        /// LinkStudentCourseIntructor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button LinkStudentCourseIntructor;
     }
 }

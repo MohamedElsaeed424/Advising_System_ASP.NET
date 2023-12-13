@@ -73,6 +73,7 @@
     <Content Include="Admin_fetchActiveStudents.aspx" />
     <Content Include="Admin_LinkInstructorCourseSlot.aspx" />
     <Content Include="Admin_LinkStudentAdvisor.aspx" />
+    <Content Include="Admin_LinkStudentCourseInstructor.aspx" />
     <Content Include="Admin_ListAllPendingRequests.aspx" />
     <Content Include="Admin_ListAllSemestersCourses.aspx" />
     <Content Include="Admin_ListAllStudentsAdvisors.aspx" />
@@ -105,6 +106,13 @@
     </Compile>
     <Compile Include="Admin_LinkStudentAdvisor.aspx.designer.cs">
       <DependentUpon>Admin_LinkStudentAdvisor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_LinkStudentCourseInstructor.aspx.cs">
+      <DependentUpon>Admin_LinkStudentCourseInstructor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_LinkStudentCourseInstructor.aspx.designer.cs">
+      <DependentUpon>Admin_LinkStudentCourseInstructor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin_ViewGPWadvisor.aspx.cs">
       <DependentUpon>Admin_ViewGPWadvisor.aspx</DependentUpon>

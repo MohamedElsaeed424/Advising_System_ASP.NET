@@ -33,22 +33,22 @@ namespace Advising_System
         protected global::System.Web.UI.WebControls.Label SuccessLabel;
 
         /// <summary>
-        /// first_name control.
+        /// AdvisorName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox first_name;
+        protected global::System.Web.UI.WebControls.TextBox AdvisorName;
 
         /// <summary>
-        /// last_name control.
+        /// office control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox last_name;
+        protected global::System.Web.UI.WebControls.TextBox office;
 
         /// <summary>
         /// password control.
@@ -58,33 +58,6 @@ namespace Advising_System
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox password;
-
-        /// <summary>
-        /// faculty control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList faculty;
-
-        /// <summary>
-        /// major control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList major;
-
-        /// <summary>
-        /// semester control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList semester;
 
         /// <summary>
         /// Register control.

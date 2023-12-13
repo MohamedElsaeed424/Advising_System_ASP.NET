@@ -14,7 +14,7 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            password.Text = password.Text;
+            
         }
 
         protected void RegisterStudent(object sender, EventArgs e)

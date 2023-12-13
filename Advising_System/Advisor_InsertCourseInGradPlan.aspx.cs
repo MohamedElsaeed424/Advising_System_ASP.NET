@@ -9,6 +9,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using static Advising_System.Admin_LinkStudentAdvisor;
 using System.Diagnostics;
+using System.Configuration;
 
 namespace Advising_System
 {
@@ -17,6 +18,12 @@ namespace Advising_System
         protected void Page_Load(object sender, EventArgs e)
         {
             if(IsPostBack) { return; }
+            loadStudentList();
+
+
+        }
+        protected void loadStudentList()
+        {
             string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
             SqlConnection connection = new SqlConnection(connectionStirng);
             try
@@ -46,7 +53,37 @@ namespace Advising_System
                 Console.WriteLine(ex.ToString());
             }
             finally { connection.Close(); }
+        }
+        protected void loadCourseList()
+        {
+            string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
+            SqlConnection connection = new SqlConnection(connectionStirng);
+            try
+            {
+                SqlCommand AllCourses = new SqlCommand($"SELECT DISTINCT(name) FROM Course\r\n", connection); // {Session["UserID"]} put in input of fn
+                AllCourses.CommandType = CommandType.Text;
+                connection.Open();
 
+                SqlDataReader reader = AllCourses.ExecuteReader(CommandBehavior.CloseConnection);
+
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+
+                StudentID.DataSource = dt;
+                StudentID.DataTextField = "All";
+                StudentID.DataValueField = "student_id";
+                StudentID.DataBind();
+
+                StudentID.Items.Insert(0, new ListItem("Select a Student", string.Empty));
+                StudentID.SelectedIndex = 0;
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            finally { connection.Close(); }
         }
 
         protected void AddCourse_Click(object sender, EventArgs e)

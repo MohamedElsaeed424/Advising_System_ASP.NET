@@ -41,7 +41,7 @@ namespace Advising_System
                 }
                 else
                 {
-                    int studentId;
+                    int AdvisorId;
                     using (connection)
                     {
                         using (SqlCommand command = new SqlCommand("Procedures_AdvisorRegistration", connection))
@@ -58,12 +58,12 @@ namespace Advising_System
                             command.ExecuteNonQuery();
 
 
-                            studentId = Convert.ToInt32(command.Parameters["@advisor_id"].Value);
+                            AdvisorId = Convert.ToInt32(command.Parameters["@advisor_id"].Value);
                         }
                     }
 
 
-                    SuccessLabel.Text = $"Registration successful. Your Advisor ID is {studentId}.";
+                    SuccessLabel.Text = $"Registration successful. Your Advisor ID is {AdvisorId}.";
                     SuccessLabel.ForeColor = System.Drawing.Color.Green;
                     SuccessLabel.Visible = true;
 

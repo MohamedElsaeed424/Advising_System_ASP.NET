@@ -11,43 +11,43 @@ namespace Advising_System
 {
 
 
-    public partial class All_StudentsWithAdvisors
+    public partial class Advisor_AllStudentsMajorCourse
     {
 
         /// <summary>
-        /// AllStudentdWithAdvisorsForm control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm AllStudentdWithAdvisorsForm;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// AllMajorsRadioList control.
+        /// BackHome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList AllMajorsRadioList;
+        protected global::System.Web.UI.WebControls.Button BackHome;
 
         /// <summary>
-        /// AllAdvisorsRadioList control.
+        /// majors control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList AllAdvisorsRadioList;
+        protected global::System.Web.UI.WebControls.DropDownList majors;
 
         /// <summary>
-        /// AllStudentsWithAdvisorsTable control.
+        /// StudentsWithMajor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView AllStudentsWithAdvisorsTable;
+        protected global::System.Web.UI.WebControls.GridView StudentsWithMajor;
     }
 }

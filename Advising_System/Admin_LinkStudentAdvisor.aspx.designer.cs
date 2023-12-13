@@ -11,7 +11,7 @@ namespace Advising_System
 {
 
 
-    public partial class Advisor_InsertGradPlan
+    public partial class Admin_LinkStudentAdvisor
     {
 
         /// <summary>
@@ -24,13 +24,22 @@ namespace Advising_System
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// BackHome control.
+        /// SuccessLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BackHome;
+        protected global::System.Web.UI.WebControls.Label SuccessLabel;
+
+        /// <summary>
+        /// BackAdminHome3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BackAdminHome3;
 
         /// <summary>
         /// Label1 control.
@@ -42,13 +51,13 @@ namespace Advising_System
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// semesterCode control.
+        /// AllStuendents control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox semesterCode;
+        protected global::System.Web.UI.WebControls.DropDownList AllStuendents;
 
         /// <summary>
         /// Label2 control.
@@ -60,66 +69,21 @@ namespace Advising_System
         protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// ExGradDate control.
+        /// AllAdvisors control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ExGradDate;
+        protected global::System.Web.UI.WebControls.DropDownList AllAdvisors;
 
         /// <summary>
-        /// Label3 control.
+        /// LinkStudentToAdvisor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
-
-        /// <summary>
-        /// semCH control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox semCH;
-
-        /// <summary>
-        /// Label4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
-
-        /// <summary>
-        /// StudentID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox StudentID;
-
-        /// <summary>
-        /// CreateGrad control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CreateGrad;
-
-        /// <summary>
-        /// Error control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Error;
+        protected global::System.Web.UI.WebControls.Button LinkStudentToAdvisor;
     }
 }

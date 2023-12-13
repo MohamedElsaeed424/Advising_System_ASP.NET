@@ -25,7 +25,9 @@ namespace Advising_System
             string semesterCode = Semester_CodeText.Text;
             if (startDate == DateTime.MinValue || endDate == DateTime.MinValue || string.IsNullOrEmpty(semesterCode))
             {
-                Response.Write("Invalid Input");
+                SuccessLabel.Text = "Invalid Input";
+                SuccessLabel.ForeColor = System.Drawing.Color.Red;
+                SuccessLabel.Visible = true;
             }
             else
             {

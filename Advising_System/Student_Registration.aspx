@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Student_Registration.aspx.cs" Inherits="Advising_System.Registration" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Student_Registration.aspx.cs" Inherits="Advising_System.Registration" enableEventValidation="false"%>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -60,6 +60,14 @@
             border-radius: 4px;
             cursor: pointer;
         }
+        .asp-button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -75,10 +83,10 @@
         <asp:TextBox ID="last_name" runat="server" CssClass="form-control"></asp:TextBox>
 
         <label for="password">Password:</label>
-        <asp:TextBox ID="password" runat="server" TextMode="Password" CssClass="form-control" ></asp:TextBox>
+        <asp:TextBox ID="password" runat="server" TextMode="Password" CssClass="form-control" EnableViewState="true" ViewStateMode="Enabled" ></asp:TextBox>
 
         <label for="faculty">Faculty:</label>
-        <asp:DropDownList ID="faculty" runat="server" CssClass="form-control" onchange="updateMajors()" >
+        <asp:DropDownList ID="faculty" runat="server" CssClass="form-control" OnSelectedIndexChanged="faculty_SelectedIndexChanged" AutoPostBack="True" > <%--onchange="updateMajors()"--%>
             <asp:ListItem Value="" Text="Select Faculty" Disabled="true" Selected="true"></asp:ListItem>
             <asp:ListItem Value="media" Text="Faculty of Media Engineering and Technology"></asp:ListItem>
             <asp:ListItem Value="information" Text="Faculty of Information Engineering and Technology"></asp:ListItem>
@@ -109,7 +117,9 @@
             <asp:ListItem Value="10" Text="10"></asp:ListItem>
         </asp:DropDownList>
 
-        <button type="submit">Register</button>
+        <%--<button type="submit">Register</button>--%>
+        <asp:Button ID="Register" runat="server" Text="Register" CssClass="asp-button"
+            onClick="RegisterStudent"/>
     </form>
 
     <script>
@@ -164,6 +174,69 @@
         function addOption(select, text) {
             var option = document.createElement("option");
             option.text = text;
+            //switch (text) {
+            //    case "Computer Science and Engineering":
+            //        option.value = "CS";
+            //        break;
+            //    case "Digital Media Engineering and Technology":
+            //        option.value = "CS";
+            //        break;
+            //    case "Networks":
+            //        option.value = "CS";
+            //        break;
+            //    case "Communications":
+            //        option.value = "CS";
+            //        break;
+            //    case "Electronics":
+            //        option.value = "CS";
+            //        break;
+            //    case "Materials Engineering":
+            //        option.value = "CS";
+            //        break;
+            //    case "Design and Production Engineering":
+            //        option.value = "CS";
+            //        break;
+            //    case "Mechatronics Engineering":
+            //        option.value = "CS";
+            //        break;
+            //    case "Civil Engineering":
+            //        option.value = "CS";
+            //        break;
+            //    case "Architecture Engineering":
+            //        option.value = "CS";
+            //        break;
+            //    case "Pharmacy & Biotechnology":
+            //        option.value = "CS";
+            //        break;
+            //    case "Biotechnology":
+            //        option.value = "CS";
+            //        break;
+            //    case "General Management":
+            //        option.value = "CS";
+            //        break;
+            //    case "Business Informatics":
+            //        option.value = "CS";
+            //        break;
+            //    case "Technology-based Management":
+            //        option.value = "CS";
+            //        break;
+            //    case "Graphic Design":
+            //        option.value = "CS";
+            //        break;
+            //    case "Media Design":
+            //        option.value = "CS";
+            //        break;
+            //    case "Product Design":
+            //        option.value = "CS";
+            //        break;
+            //    case "Law and Legal Studies":
+            //        option.value = "CS";
+            //        break;
+            //    case default:
+            //        option.value = "???";
+            //        break;
+            //}
+            option.value = "aheeee";
             select.add(option);
         }
     </script>

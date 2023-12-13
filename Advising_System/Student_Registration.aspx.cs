@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Advising_System
 {
@@ -13,7 +14,7 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (IsPostBack) { return; }
         }
 
         protected void RegisterStudent(object sender, EventArgs e)
@@ -29,18 +30,24 @@ namespace Advising_System
                 string password = this.password.Text;
                 string faculty = this.faculty.SelectedValue;
                 string major = this.major.SelectedValue;
-                int semester = Convert.ToInt32(this.semester.SelectedValue);
+                string semesterTemp = this.semester.SelectedValue;
 
                
-                if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(faculty) || string.IsNullOrEmpty(major))
+                if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) 
+                    || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(faculty) 
+                    || string.IsNullOrEmpty(major) || string.IsNullOrEmpty(semesterTemp))
                 {
                    
                     SuccessLabel.Text = "Error: All fields are required.";
+                    SuccessLabel.Text = "Error: " + firstName
+                        + "\n" + lastName + "\n" + password + "\n" + faculty + "\n" + major
+                        + "\n" + semesterTemp;
                     SuccessLabel.ForeColor = System.Drawing.Color.Red;
                     SuccessLabel.Visible = true;
                 }
                 else
                 {
+                    int semester = Convert.ToInt32(semesterTemp);
                     int studentId;
                     using (connection)
                     {
@@ -51,6 +58,7 @@ namespace Advising_System
                             command.Parameters.AddWithValue("@last_name", lastName);
                             command.Parameters.AddWithValue("@password", password);
                             command.Parameters.AddWithValue("@faculty", faculty);
+                            command.Parameters.AddWithValue("@email", firstName + "." + lastName + "@El3azama.com");
                             command.Parameters.AddWithValue("@major", major);
                             command.Parameters.AddWithValue("@Semester", semester);
 
@@ -95,6 +103,56 @@ namespace Advising_System
             major.SelectedIndex = 0;
             semester.SelectedIndex = 0;
 
+        }
+
+        protected void faculty_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selected = faculty.SelectedValue;
+            major.Items.Clear();
+            major.Items.Insert(0, new ListItem("Select Major", string.Empty));
+            major.SelectedIndex = 0;
+            switch(selected)
+            {
+                case "media":
+                    addOption( "Computer Science and Engineering");
+                    addOption( "Digital Media Engineering and Technology");
+                    break;
+                case "information":
+                    addOption( "Networks");
+                    addOption( "Communications");
+                    addOption( "Electronics");
+                    break;
+                case "engineering":
+                    addOption( "Materials Engineering");
+                    addOption( "Design and Production Engineering");
+                    addOption( "Mechatronics Engineering");
+                    addOption( "Civil Engineering");
+                    addOption( "Architecture Engineering");
+                    break;
+                case "pharmacy":
+                    addOption( "Pharmacy & Biotechnology");
+                    addOption( "Biotechnology");
+                    break;
+                case "management":
+                    addOption( "General Management");
+                    addOption( "Business Informatics");
+                    addOption( "Technology-based Management");
+                    break;
+                case "applied":
+                    addOption( "Graphic Design");
+                    addOption( "Media Design");
+                    addOption( "Product Design");
+                    break;
+                case "law":
+                    addOption( "Law and Legal Studies");
+                    break;
+                default:
+                    break;
+            }
+        }
+        protected void addOption(String text) {
+            ListItem newItem = new ListItem(text, "CS");
+            major.Items.Add(newItem);
         }
     }
 }

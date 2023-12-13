@@ -35,6 +35,9 @@
         <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
              <asp:Button ID="LinkInstructorToCourse" runat="server" OnClick="post_LinkInstructorToCourse" Text="Link Instructor To Course" />
         </div>
+        <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
+             <asp:Button ID="LinkStudentToAdvisor" runat="server" OnClick="post_LinkStudentToAdvisor" Text="Link Student To Advisor" />
+        </div>
 
     </form>
 </body>

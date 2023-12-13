@@ -72,13 +72,14 @@
     <Content Include="Admin_DeleteCourseWSlot.aspx" />
     <Content Include="Admin_fetchActiveStudents.aspx" />
     <Content Include="Admin_LinkInstructorCourseSlot.aspx" />
+    <Content Include="Admin_LinkStudentAdvisor.aspx" />
     <Content Include="Admin_ListAllPendingRequests.aspx" />
     <Content Include="Admin_ListAllSemestersCourses.aspx" />
     <Content Include="Admin_ListAllStudentsAdvisors.aspx" />
     <Content Include="Admin_ListAllAdvisors.aspx" />
     <Content Include="Admin_AddNewSemester.aspx" />
     <Content Include="Admin_AddNewSemester.aspx" />
-	<Content Include="Admin_ViewGPWadvisor.aspx" />
+    <Content Include="Admin_ViewGPWadvisor.aspx" />
     <Content Include="Admin_ListInstructorCourse.aspx" />
     <Content Include="AdvisorHome.aspx" />
     <Content Include="Advisor_AllPendingRequests.aspx" />
@@ -98,19 +99,20 @@
     <Compile Include="AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
     </Compile>
-
-
-	  <Compile Include="Admin_ViewGPWadvisor.aspx.cs">
-		  <DependentUpon>Admin_ViewGPWadvisor.aspx</DependentUpon>
-		  <SubType>ASPXCodeBehind</SubType>
-	  </Compile>
-	  <Compile Include="Admin_ViewGPWadvisor.aspx.designer.cs">
-		  <DependentUpon>Admin_ViewGPWadvisor.aspx</DependentUpon>
-	  </Compile>
-	  
-	  
-	  
-	  
+    <Compile Include="Admin_LinkStudentAdvisor.aspx.cs">
+      <DependentUpon>Admin_LinkStudentAdvisor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_LinkStudentAdvisor.aspx.designer.cs">
+      <DependentUpon>Admin_LinkStudentAdvisor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_ViewGPWadvisor.aspx.cs">
+      <DependentUpon>Admin_ViewGPWadvisor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_ViewGPWadvisor.aspx.designer.cs">
+      <DependentUpon>Admin_ViewGPWadvisor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin_AddNewCourse.aspx.cs">
       <DependentUpon>Admin_AddNewCourse.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

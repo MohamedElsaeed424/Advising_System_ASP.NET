@@ -241,8 +241,8 @@ namespace Advising_System
         }
 
         protected void BackAdminHome(object sender, EventArgs e)
-            {
+        {
                 Response.Redirect("/AdminHome.aspx");
-            }
         }
+     }
 }

@@ -14,7 +14,7 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            password.Text = password.Text;
         }
 
         protected void RegisterStudent(object sender, EventArgs e)
@@ -38,7 +38,7 @@ namespace Advising_System
                     || string.IsNullOrEmpty(major) || string.IsNullOrEmpty(semesterTemp))
                 {
                    
-                    SuccessLabel.Text = "Check your input Fileds";
+                    SuccessLabel.Text = "Check your input Fields";
                     SuccessLabel.ForeColor = System.Drawing.Color.Red;
                     SuccessLabel.Visible = true;
                 }

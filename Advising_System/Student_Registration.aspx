@@ -85,23 +85,30 @@
         <label for="password">Password:</label>
         <asp:TextBox ID="password" runat="server" TextMode="Password" CssClass="form-control" EnableViewState="true" ViewStateMode="Enabled" ></asp:TextBox>
 
-        <label for="faculty">Faculty:</label>
-        <asp:DropDownList ID="faculty" runat="server" CssClass="form-control" OnSelectedIndexChanged="faculty_SelectedIndexChanged" AutoPostBack="True" > <%--onchange="updateMajors()"--%>
-            <asp:ListItem Value="" Text="Select Faculty" Disabled="true" Selected="true"></asp:ListItem>
-            <asp:ListItem Value="media" Text="Faculty of Media Engineering and Technology"></asp:ListItem>
-            <asp:ListItem Value="information" Text="Faculty of Information Engineering and Technology"></asp:ListItem>
-            <asp:ListItem Value="engineering" Text="Faculty of Engineering and Materials Science"></asp:ListItem>
-            <asp:ListItem Value="pharmacy" Text="Faculty of Pharmacy and Biotechnology"></asp:ListItem>
-            <asp:ListItem Value="management" Text="Faculty of Management Technology"></asp:ListItem>
-            <asp:ListItem Value="applied" Text="Faculty of Applied Sciences and Arts"></asp:ListItem>
-            <asp:ListItem Value="law" Text="Faculty of Law and Legal Studies"></asp:ListItem>
-        </asp:DropDownList>
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <label for="faculty">Faculty:</label>
+                <asp:DropDownList ID="faculty" runat="server" CssClass="form-control" OnSelectedIndexChanged="faculty_SelectedIndexChanged" AutoPostBack="True" > <%--onchange="updateMajors()"--%>
+                    <asp:ListItem Value="" Text="Select Faculty" Disabled="true" Selected="true"></asp:ListItem>
+                    <asp:ListItem Value="media" Text="Faculty of Media Engineering and Technology"></asp:ListItem>
+                    <asp:ListItem Value="information" Text="Faculty of Information Engineering and Technology"></asp:ListItem>
+                    <asp:ListItem Value="engineering" Text="Faculty of Engineering and Materials Science"></asp:ListItem>
+                    <asp:ListItem Value="pharmacy" Text="Faculty of Pharmacy and Biotechnology"></asp:ListItem>
+                    <asp:ListItem Value="management" Text="Faculty of Management Technology"></asp:ListItem>
+                    <asp:ListItem Value="applied" Text="Faculty of Applied Sciences and Arts"></asp:ListItem>
+                    <asp:ListItem Value="law" Text="Faculty of Law and Legal Studies"></asp:ListItem>
+                </asp:DropDownList>
 
-        <label for="major">Major:</label>
-        <asp:DropDownList ID="major" runat="server" CssClass="form-control" >
-            <asp:ListItem Value="" Text="Select Major" Disabled="true" Selected="true"></asp:ListItem>
-        </asp:DropDownList>
-
+                <label for="major">Major:</label>
+                <asp:DropDownList ID="major" runat="server" CssClass="form-control" >
+                    <asp:ListItem Value="" Text="Select Major" Disabled="true" Selected="true"></asp:ListItem>
+                </asp:DropDownList>
+            </ContentTemplate>
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="faculty" EventName="SelectedIndexChanged" />
+            </Triggers>
+        </asp:UpdatePanel>
         <label for="semester">Semester:</label>
         <asp:DropDownList ID="semester" runat="server" CssClass="form-control" >
             <asp:ListItem Value="" Text="Select Semester" Disabled="true" Selected="true"></asp:ListItem>

@@ -16,17 +16,17 @@
         <asp:TextBox ID="semesterCode" runat="server" style="direction: ltr"></asp:TextBox>
         <br />
         <asp:Label ID="Label2" runat="server" Text="Expected Graduation Date"></asp:Label>
-        <asp:TextBox ID="ExGradDate" runat="server"></asp:TextBox>
+        <asp:TextBox ID="ExGradDate" runat="server" TextMode="Date"></asp:TextBox>
         <br />
         <asp:Label ID="Label3" runat="server" Text="Semester credit hours"></asp:Label>
-        <asp:TextBox ID="semCH" runat="server"></asp:TextBox>
+        <asp:TextBox ID="semCH" runat="server" TextMode="Number"></asp:TextBox>
         <br />
         <asp:Label ID="Label4" runat="server" Text="Student ID"></asp:Label>
-        <asp:TextBox ID="StudentID" runat="server"></asp:TextBox>
+        <asp:TextBox ID="StudentID" runat="server" TextMode="Number"></asp:TextBox>
         <br />
         <asp:Button ID="CreateGrad" runat="server" Text="Create" OnClick="CreateGrad_Click" />
         &nbsp;&nbsp;&nbsp;
-        <asp:Label ID="Error" runat="server" Text="Label" Visible="False"></asp:Label>
+        <asp:Label ID="Error" runat="server" Text="Label" Visible="False" ForeColor="Red"></asp:Label>
         <br />
     </form>
 </body>

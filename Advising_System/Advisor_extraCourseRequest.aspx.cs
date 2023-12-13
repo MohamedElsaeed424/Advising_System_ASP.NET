@@ -68,7 +68,7 @@ namespace Advising_System
             SqlConnection connection = new SqlConnection(connectionStirng);
             try
             {
-                SqlCommand CourseRequest = new SqlCommand($"SELECT * FROM Request WHERE type LIKE 'course%'", connection);
+                SqlCommand CourseRequest = new SqlCommand("SELECT * FROM Request WHERE type LIKE 'course%'", connection);
                 CourseRequest.CommandType = CommandType.Text;
                 connection.Open();
 

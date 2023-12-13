@@ -11,7 +11,7 @@ namespace Advising_System
 {
 
 
-    public partial class Advisor_InsertGradPlan
+    public partial class Advisor_All_AdvisingStudents
     {
 
         /// <summary>
@@ -24,6 +24,15 @@ namespace Advising_System
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// ViewAllAdvisingStudents control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ViewAllAdvisingStudents;
+
+        /// <summary>
         /// BackHome control.
         /// </summary>
         /// <remarks>
@@ -33,12 +42,12 @@ namespace Advising_System
         protected global::System.Web.UI.WebControls.Button BackHome;
 
         /// <summary>
-        /// DropDownList1 control.
+        /// AllAdvisingStudents control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.GridView AllAdvisingStudents;
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Advisor_InsertGradPlan.aspx.cs" Inherits="Advising_System.Advisor_InsertGradPlan" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Advisor_AllStudentsMajorCourse.aspx.cs" Inherits="Advising_System.Advisor_AllStudentsMajorCourse" %>
 
 <!DOCTYPE html>
 
@@ -8,14 +8,16 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <h2>Insert Graduation Plan</h2>
+        <h2>Approve / Reject Course Requests</h2>
          <div style="display: flex; align-items: center; justify-content: right; margin: 20px; resize: vertical;">
             <asp:Button ID="BackHome" runat="server" OnClick="BackAdvisorHome" Text="Back" />
          </div>
         <div>
-            <asp:DropDownList ID="DropDownList1" runat="server">
+            <asp:DropDownList ID="majors" runat="server" AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="majors_SelectedIndexChanged" >
             </asp:DropDownList>
         </div>
+        <asp:GridView ID="StudentsWithMajor" runat="server">
+        </asp:GridView>
     </form>
 </body>
 </html>

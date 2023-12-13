@@ -80,6 +80,7 @@
     <Content Include="Admin_AddNewSemester.aspx" />
     <Content Include="Admin_ListInstructorCourse.aspx" />
     <Content Include="AdvisorHome.aspx" />
+    <Content Include="Advisor_InsertCourseInGradPlan.aspx" />
     <Content Include="Advisor_AllPendingRequests.aspx" />
     <Content Include="Advisor_AllRequests.aspx" />
     <Content Include="Advisor_AllStudentsMajorCourse.aspx" />
@@ -159,6 +160,13 @@
     </Compile>
     <Compile Include="AdvisorHome.aspx.designer.cs">
       <DependentUpon>AdvisorHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Advisor_InsertCourseInGradPlan.aspx.cs">
+      <DependentUpon>Advisor_InsertCourseInGradPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Advisor_InsertCourseInGradPlan.aspx.designer.cs">
+      <DependentUpon>Advisor_InsertCourseInGradPlan.aspx</DependentUpon>
     </Compile>
     <Compile Include="Advisor_AllPendingRequests.aspx.cs">
       <DependentUpon>Advisor_AllPendingRequests.aspx</DependentUpon>

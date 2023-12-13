@@ -8,9 +8,6 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <asp:Button ID="ViewAllAdvisingStudents" runat="server" Text="View your Advising Students" />
-        </div>
         <h2>Advising Students</h2>
          <div style="display: flex; align-items: center; justify-content: right; margin: 20px; resize: vertical;">
             <asp:Button ID="BackHome" runat="server" OnClick="BackAdvisorHome" Text="Back" />

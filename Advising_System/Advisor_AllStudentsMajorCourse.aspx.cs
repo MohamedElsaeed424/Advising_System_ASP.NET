@@ -27,13 +27,16 @@ namespace Advising_System
 
                 SqlDataReader reader = getMajors.ExecuteReader(CommandBehavior.CloseConnection);
 
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+
+                majors.DataSource = dt;
+                majors.DataTextField = "major";
+                majors.DataValueField = "major";
+                majors.DataBind();
+
                 majors.Items.Insert(0, new ListItem("Select a major", string.Empty));
                 majors.SelectedIndex = 0;
-                while (reader.Read())
-                {
-                    string data = reader.GetString(0);
-                    majors.Items.Add(new ListItem(data, data));
-                }
                 reader.Close();
             }
             catch (Exception ex)

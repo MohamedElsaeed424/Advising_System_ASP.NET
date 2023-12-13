@@ -94,6 +94,7 @@
     <Content Include="Advisor_extraCHRequest.aspx" />
     <Content Include="Advisor_extraCourseRequest.aspx" />
     <Content Include="Advisor_InsertGradPlan.aspx" />
+    <Content Include="Advisor_Registration.aspx" />
     <Content Include="Advisor_UpdateExGradDate.aspx" />
     <Content Include="Student_Registration.aspx" />
     <Content Include="Web.config" />
@@ -294,6 +295,13 @@
     </Compile>
     <Compile Include="Admin_AddNewSemester.aspx.designer.cs">
       <DependentUpon>Admin_AddNewSemester.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Advisor_Registration.aspx.cs">
+      <DependentUpon>Advisor_Registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Advisor_Registration.aspx.designer.cs">
+      <DependentUpon>Advisor_Registration.aspx</DependentUpon>
     </Compile>
     <Compile Include="Advisor_UpdateExGradDate.aspx.cs">
       <DependentUpon>Advisor_UpdateExGradDate.aspx</DependentUpon>

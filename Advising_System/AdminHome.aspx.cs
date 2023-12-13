@@ -15,9 +15,7 @@ namespace Advising_System
         }
         protected void get_Advisors(object sender, EventArgs e)
         {
-
             Response.Redirect("/Admin_ListAllAdvisors.aspx");
-
         }
         protected void get_AdvisorsWithStudents(object sender, EventArgs e)
         {
@@ -49,5 +47,13 @@ namespace Advising_System
         {
             Response.Redirect("/Admin_LinkInstructorCourseSlot.aspx");
         } 
+        protected void post_LinkStudentToAdvisor(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_LinkStudentAdvisor.aspx");
+        } 
+        protected void post_LinkStudentToCourseInstructor(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_LinkStudentCourseInstructor.aspx");
+        }  
     }
 }

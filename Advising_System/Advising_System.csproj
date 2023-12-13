@@ -73,6 +73,7 @@
     <Content Include="Admin_fetchActiveStudents.aspx" />
     <Content Include="Admin_FetchSemWCourse.aspx" />
     <Content Include="Admin_ListAllPendingRequests.aspx" />
+    <Content Include="Admin_ListAllSemestersCourses.aspx" />
     <Content Include="Admin_ListAllStudentsAdvisors.aspx" />
     <Content Include="Admin_ListAllAdvisors.aspx" />
     <Content Include="Admin_AddNewSemester.aspx" />
@@ -80,11 +81,14 @@
     <Content Include="Admin_ViewGPWadvisor.aspx" />
     <Content Include="Admin_viewPaymentDetailsForStudent.aspx" />
     <Content Include="Admin_viewStudentsTranscriptDetails.aspx" />
+    <Content Include="Admin_AddNewSemester.aspx" />
+    <Content Include="Admin_ListInstructorCourse.aspx" />
     <Content Include="AdvisorHome.aspx" />
     <Content Include="Advisor_AllPendingRequests.aspx" />
     <Content Include="Advisor_AllRequests.aspx" />
     <Content Include="Advisor_All_AdvisingStudents.aspx" />
     <Content Include="Advisor_extraCHRequest.aspx" />
+    <Content Include="Advisor_extraCourseRequest.aspx" />
     <Content Include="Advisor_InsertGradPlan.aspx" />
     <Content Include="Advisor_All_StudentsWithAdvisors.aspx" />
     <Content Include="Web.config" />
@@ -132,6 +136,13 @@
     <Compile Include="Admin_ListAllPendingRequests.aspx.designer.cs">
       <DependentUpon>Admin_ListAllPendingRequests.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin_ListAllSemestersCourses.aspx.cs">
+      <DependentUpon>Admin_ListAllSemestersCourses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_ListAllSemestersCourses.aspx.designer.cs">
+      <DependentUpon>Admin_ListAllSemestersCourses.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin_ListAllStudentsAdvisors.aspx.cs">
       <DependentUpon>Admin_ListAllStudentsAdvisors.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -159,6 +170,13 @@
     </Compile>
     <Compile Include="Admin_viewStudentsTranscriptDetails.aspx.designer.cs">
       <DependentUpon>Admin_viewStudentsTranscriptDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_ListInstructorCourse.aspx.cs">
+      <DependentUpon>Admin_ListInstructorCourse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_ListInstructorCourse.aspx.designer.cs">
+      <DependentUpon>Admin_ListInstructorCourse.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdvisorHome.aspx.cs">
       <DependentUpon>AdvisorHome.aspx</DependentUpon>
@@ -194,6 +212,13 @@
     </Compile>
     <Compile Include="Advisor_extraCHRequest.aspx.designer.cs">
       <DependentUpon>Advisor_extraCHRequest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Advisor_extraCourseRequest.aspx.cs">
+      <DependentUpon>Advisor_extraCourseRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Advisor_extraCourseRequest.aspx.designer.cs">
+      <DependentUpon>Advisor_extraCourseRequest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Advisor_InsertGradPlan.aspx.cs">
       <DependentUpon>Advisor_InsertGradPlan.aspx</DependentUpon>

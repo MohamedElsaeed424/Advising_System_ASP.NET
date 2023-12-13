@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Diagnostics;
 
 namespace Advising_System
 {
-    public partial class Advisor_extraCHRequest : System.Web.UI.Page
+    public partial class Advisor_extraCourse : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -30,7 +30,7 @@ namespace Advising_System
             {
                 try
                 {
-                    SqlCommand approveReject = new SqlCommand("Procedures_AdvisorApproveRejectCHRequest", connection);
+                    SqlCommand approveReject = new SqlCommand("Procedures_AdvisorApproveRejectCourseRequest", connection);
                     approveReject.CommandType = CommandType.StoredProcedure;
                     connection.Open();
 
@@ -68,17 +68,17 @@ namespace Advising_System
             SqlConnection connection = new SqlConnection(connectionStirng);
             try
             {
-                SqlCommand CHRequest = new SqlCommand($"SELECT * FROM Request WHERE type LIKE 'credit%'", connection);
-                CHRequest.CommandType = CommandType.Text;
+                SqlCommand CourseRequest = new SqlCommand($"SELECT * FROM Request WHERE type LIKE 'course%'", connection);
+                CourseRequest.CommandType = CommandType.Text;
                 connection.Open();
 
-                SqlDataReader reader = CHRequest.ExecuteReader(CommandBehavior.CloseConnection);
+                SqlDataReader reader = CourseRequest.ExecuteReader(CommandBehavior.CloseConnection);
 
                 DataTable dt = new DataTable();
                 dt.Load(reader);
 
-                CHRequests.DataSource = dt;
-                CHRequests.DataBind();
+                CourseRequests.DataSource = dt;
+                CourseRequests.DataBind();
                 reader.Close();
             }
             catch (Exception ex)
@@ -87,11 +87,10 @@ namespace Advising_System
             }
             finally { connection.Close(); }
         }
+
         protected void BackAdvisorHome(object sender, EventArgs e)
         {
             Response.Redirect("/AdvisorHome.aspx");
         }
     }
-        
-        
 }

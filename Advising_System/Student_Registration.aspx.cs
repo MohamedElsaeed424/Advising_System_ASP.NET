@@ -14,7 +14,7 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack) { return; }
+
         }
 
         protected void RegisterStudent(object sender, EventArgs e)
@@ -38,10 +38,7 @@ namespace Advising_System
                     || string.IsNullOrEmpty(major) || string.IsNullOrEmpty(semesterTemp))
                 {
                    
-                    SuccessLabel.Text = "Error: All fields are required.";
-                    SuccessLabel.Text = "Error: " + firstName
-                        + "\n" + lastName + "\n" + password + "\n" + faculty + "\n" + major
-                        + "\n" + semesterTemp;
+                    SuccessLabel.Text = "Check your input Fileds";
                     SuccessLabel.ForeColor = System.Drawing.Color.Red;
                     SuccessLabel.Visible = true;
                 }

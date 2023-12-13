@@ -25,7 +25,6 @@ namespace Advising_System
         {
             Response.Redirect("/Admin_ListAllPendingRequests.aspx");
         }
-
         protected void Post_newSemetser(object sender, EventArgs e)
         {
             Response.Redirect("/Admin_AddNewSemester.aspx");
@@ -34,7 +33,6 @@ namespace Advising_System
         {
             Response.Redirect("/Admin_AddNewCourse.aspx");
         }
-
         protected void get_AllInstructorsWithThereCourses(object sender, EventArgs e)
         {
             Response.Redirect("/Admin_ListInstructorCourse.aspx");

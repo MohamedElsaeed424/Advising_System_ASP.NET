@@ -57,6 +57,7 @@ namespace Advising_System
                             if(success == 1)
                             {
                                 Session["UserID"] = id;
+                                Session["UserRole"] = "Advisor";
                                 Response.Redirect("/AdvisorHome.aspx");
                             }
                             else

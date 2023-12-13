@@ -18,7 +18,7 @@ namespace Advising_System
             SqlConnection connection = new SqlConnection(connectionStirng);
             try
             {
-                SqlCommand AllStudents = new SqlCommand($"SELECT * FROM Student WHERE advisor_id = 8", connection); // {Session["UserID"]} put in input of fn
+                SqlCommand AllStudents = new SqlCommand($"SELECT * FROM Student WHERE advisor_id = {Session["UserID"]}", connection); // {Session["UserID"]} put in input of fn
                 AllStudents.CommandType = CommandType.Text;
                 connection.Open();
 

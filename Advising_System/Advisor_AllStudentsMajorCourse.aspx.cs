@@ -66,7 +66,7 @@ namespace Advising_System
                 SqlCommand getStudents = new SqlCommand("Procedures_AdvisorViewAssignedStudents", connection);
                 getStudents.CommandType = CommandType.StoredProcedure;
 
-                getStudents.Parameters.AddWithValue("@AdvisorID", 8); // {Session["UserID"]}
+                getStudents.Parameters.AddWithValue("@AdvisorID", Session["UserID"]); // {Session["UserID"]}
                 getStudents.Parameters.AddWithValue("@major", major);
                 connection.Open();
 

@@ -80,12 +80,9 @@
     <Content Include="Admin_ListAllStudentsAdvisors.aspx" />
     <Content Include="Admin_ListAllAdvisors.aspx" />
     <Content Include="Admin_AddNewSemester.aspx" />
-    <Content Include="Admin_AddNewSemester.aspx" />
-    <Content Include="Admin_ViewGPWadvisor.aspx" />
     <Content Include="Admin_ViewGPWadvisor.aspx" />
     <Content Include="Admin_viewPaymentDetailsForStudent.aspx" />
     <Content Include="Admin_viewStudentsTranscriptDetails.aspx" />
-    <Content Include="Admin_AddNewSemester.aspx" />
     <Content Include="Admin_ListInstructorCourse.aspx" />
     <Content Include="AdvisorHome.aspx" />
     <Content Include="Advisor_AllPendingRequests.aspx" />

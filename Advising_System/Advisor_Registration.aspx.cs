@@ -27,11 +27,12 @@ namespace Advising_System
 
                 string name = AdvisorName.Text;
                 string office = this.office.Text;
+                string email = this.email.Text;
                 string password = this.password.Text;
 
 
                 if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(office)
-                    || string.IsNullOrEmpty(password))
+                    || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(email))
                 {
 
                     SuccessLabel.Text = "Check your input Fields";
@@ -49,7 +50,7 @@ namespace Advising_System
                             command.Parameters.AddWithValue("@name", name);
                             command.Parameters.AddWithValue("@office", office);
                             command.Parameters.AddWithValue("@password", password);
-                            command.Parameters.AddWithValue("@email", name + "@El3azama.com");
+                            command.Parameters.AddWithValue("@email", email);
 
                             command.Parameters.Add("@advisor_id", System.Data.SqlDbType.Int).Direction = System.Data.ParameterDirection.Output;
 
@@ -68,6 +69,7 @@ namespace Advising_System
 
 
                     ClearFormFields();
+                    Response.Redirect("/Advisor_login.aspx");
                 }
             }
             catch (Exception ex)

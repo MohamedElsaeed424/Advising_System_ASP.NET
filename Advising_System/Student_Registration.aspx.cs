@@ -27,6 +27,7 @@ namespace Advising_System
                 
                 string firstName = first_name.Text;
                 string lastName = last_name.Text;
+                string email = this.email.Text;
                 string password = this.password.Text;
                 string faculty = this.faculty.SelectedValue;
                 string major = this.major.SelectedValue;
@@ -35,7 +36,8 @@ namespace Advising_System
                
                 if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) 
                     || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(faculty) 
-                    || string.IsNullOrEmpty(major) || string.IsNullOrEmpty(semesterTemp))
+                    || string.IsNullOrEmpty(major) || string.IsNullOrEmpty(semesterTemp)
+                    || string.IsNullOrEmpty(email))
                 {
                    
                     SuccessLabel.Text = "Check your input Fields";
@@ -55,7 +57,7 @@ namespace Advising_System
                             command.Parameters.AddWithValue("@last_name", lastName);
                             command.Parameters.AddWithValue("@password", password);
                             command.Parameters.AddWithValue("@faculty", faculty);
-                            command.Parameters.AddWithValue("@email", firstName + "." + lastName + "@El3azama.com");
+                            command.Parameters.AddWithValue("@email", email);
                             command.Parameters.AddWithValue("@major", major);
                             command.Parameters.AddWithValue("@Semester", semester);
 

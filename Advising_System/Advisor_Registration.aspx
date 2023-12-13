@@ -83,6 +83,9 @@
         <label for="office">Office:</label>
         <asp:TextBox ID="office" runat="server" CssClass="form-control"></asp:TextBox>
 
+        <label for="email">Email:</label>
+        <asp:TextBox ID="email" runat="server" CssClass="form-control" TextMode="Email"></asp:TextBox>
+
         <label for="password">Password:</label>
         <asp:TextBox ID="password" runat="server" TextMode="Password" CssClass="form-control" EnableViewState="true" ViewStateMode="Enabled" ></asp:TextBox>
 

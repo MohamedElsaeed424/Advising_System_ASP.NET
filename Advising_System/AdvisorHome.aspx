@@ -10,6 +10,7 @@
     <form id="form1" runat="server">
         <h2>Advisor Home</h2>
         <div>
+            <asp:Label ID="ID" runat="server" Text="ID"></asp:Label>
         </div>
     </form>
 </body>

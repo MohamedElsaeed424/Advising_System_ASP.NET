@@ -11,7 +11,7 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ID.Text += Session["UserID"];
         }
     }
 }

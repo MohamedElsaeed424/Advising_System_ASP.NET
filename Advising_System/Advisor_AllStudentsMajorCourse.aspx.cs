@@ -65,10 +65,11 @@ namespace Advising_System
             {
                 SqlCommand getStudents = new SqlCommand("Procedures_AdvisorViewAssignedStudents", connection);
                 getStudents.CommandType = CommandType.StoredProcedure;
-                connection.Open();
 
                 getStudents.Parameters.AddWithValue("@AdvisorID", 8); // {Session["UserID"]}
                 getStudents.Parameters.AddWithValue("@major", major);
+                connection.Open();
+
                 SqlDataReader reader = getStudents.ExecuteReader(CommandBehavior.CloseConnection);
 
                 DataTable dt = new DataTable();

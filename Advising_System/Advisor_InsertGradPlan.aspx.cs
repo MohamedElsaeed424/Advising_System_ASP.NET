@@ -20,7 +20,7 @@ namespace Advising_System
             SqlConnection connection = new SqlConnection(connectionStirng);
             try
             {
-                SqlCommand AllStudents = new SqlCommand($"SELECT student_id, CONCAT(student_id, ' ', f_name, ' ', l_name) AS 'All' " +
+                SqlCommand AllStudents = new SqlCommand($"SELECT student_id, CONCAT(student_id, '-', f_name, ' ', l_name) AS 'All' " +
                     $"FROM Student WHERE advisor_id = 8\r\n", connection); // {Session["UserID"]} put in input of fn
                 AllStudents.CommandType = CommandType.Text;
                 connection.Open();

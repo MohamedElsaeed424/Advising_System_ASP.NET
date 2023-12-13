@@ -13,7 +13,7 @@
             <asp:Button ID="BackHome" runat="server" OnClick="BackAdvisorHome" Text="Back" />
          </div>
         <div>
-            <asp:GridView ID="CourseRequests" runat="server" AutoGenerateColumns="False" OnRowDataBound="CHRequests_RowDataBound">
+            <asp:GridView ID="CourseRequests" runat="server" AutoGenerateColumns="False" OnRowDataBound="CHRequests_RowDataBound" OnSelectedIndexChanged="CourseRequests_SelectedIndexChanged">
                 <Columns>
                      <asp:BoundField DataField="request_id" HeaderText="Request ID" />
                      <asp:BoundField DataField="type" HeaderText="Type" />

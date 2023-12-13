@@ -22,7 +22,7 @@
         <asp:TextBox ID="semCH" runat="server" TextMode="Number"></asp:TextBox>
         <br />
         <asp:Label ID="Label4" runat="server" Text="Student ID"></asp:Label>
-        <asp:TextBox ID="StudentID" runat="server" TextMode="Number"></asp:TextBox>
+        <asp:DropDownList ID="StudentID" runat="server"></asp:DropDownList>
         <br />
         <asp:Button ID="CreateGrad" runat="server" Text="Create" OnClick="CreateGrad_Click" />
         &nbsp;&nbsp;&nbsp;

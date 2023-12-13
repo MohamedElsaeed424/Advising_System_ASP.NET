@@ -2,20 +2,21 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
-using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Diagnostics.PerformanceData;
+using static Advising_System.Admin_LinkStudentAdvisor;
+using System.Diagnostics;
 
 namespace Advising_System
 {
-    public partial class Advisor_InsertGradPlan : System.Web.UI.Page
+    public partial class Advisor_AddCourseToGradPlan : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(IsPostBack) { return; }
             string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
             SqlConnection connection = new SqlConnection(connectionStirng);
             try
@@ -45,23 +46,22 @@ namespace Advising_System
                 Console.WriteLine(ex.ToString());
             }
             finally { connection.Close(); }
+
         }
 
-        protected void CreateGrad_Click(object sender, EventArgs e)
+        protected void AddCourse_Click(object sender, EventArgs e)
         {
-            Error.Visible = false;
-            string semCode = semesterCode.Text;
-            string gradDate = ExGradDate.Text;
-            string CH = semCH.Text;
-            int advisorID = 8; // session["UserID"]
-            string StID = StudentID.SelectedValue;
+            Message.Visible = false;
+            string stID = StudentID.SelectedValue;
+            string semCode = SemesterCode.Text;
+            string cName = CourseName.Text;
 
-            if(string.IsNullOrEmpty(semCode) || string.IsNullOrEmpty(gradDate)
-                || string.IsNullOrEmpty(CH) || string.IsNullOrEmpty(StID)) 
-            {
-                Error.ForeColor = System.Drawing.Color.Red;
-                Error.Visible = true;
-                Error.Text = "Invalid Input";
+            if(string.IsNullOrEmpty(stID) || string.IsNullOrEmpty(semCode)
+                || string.IsNullOrEmpty(cName)) 
+            { 
+                Message.ForeColor = System.Drawing.Color.Red;
+                Message.Visible = true;
+                Message.Text = "Invalid Input";
                 return;
             }
 
@@ -69,29 +69,34 @@ namespace Advising_System
             SqlConnection connection = new SqlConnection(connectionStirng);
             try
             {
-                SqlCommand InsertGradPlan = new SqlCommand("Procedures_AdvisorCreateGP", connection); // {Session["UserID"]} put in input of fn
+                SqlCommand InsertGradPlan = new SqlCommand("Procedures_AdvisorAddCourseGP", connection); // {Session["UserID"]} put in input of fn
                 InsertGradPlan.CommandType = CommandType.StoredProcedure;
                 connection.Open();
 
-                InsertGradPlan.Parameters.AddWithValue("@Semestercode", semCode);
-                InsertGradPlan.Parameters.AddWithValue("@expected_graduation_date", gradDate);
-                InsertGradPlan.Parameters.AddWithValue("@sem_credit_hours", CH);
-                InsertGradPlan.Parameters.AddWithValue("@advisorid", advisorID);
-                InsertGradPlan.Parameters.AddWithValue("@studentid", StID);
+                InsertGradPlan.Parameters.AddWithValue("@student_Id", stID);
+                InsertGradPlan.Parameters.AddWithValue("@Semester_code", semCode);
+                InsertGradPlan.Parameters.AddWithValue("@course_name", cName);
 
                 int nRowsAffected = InsertGradPlan.ExecuteNonQuery();
-                Error.Visible = true;
-                Error.ForeColor = System.Drawing.Color.Green;
-                Error.Text = "Succesfully inserted Graduation Plan";
+                if (nRowsAffected > 0) {
+                    Message.Visible = true;
+                    Message.ForeColor = System.Drawing.Color.Green;
+                    Message.Text = "Succesfully inserted Graduation Plan";
+                }
+                else
+                {
+                    Message.Visible = true;
+                    Message.ForeColor = System.Drawing.Color.Red;
+                    Message.Text = "Unsuccessful";
+                }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
             }
             finally { connection.Close(); }
-
-
         }
+
         protected void BackAdvisorHome(object sender, EventArgs e)
         {
             Response.Redirect("/AdvisorHome.aspx");

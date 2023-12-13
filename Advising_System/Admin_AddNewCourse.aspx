@@ -12,7 +12,7 @@
     <h2>Add New Course</h2>
 
     <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-        <asp:Label ID="SuccessLabel" runat="server" Text="Add Inputs" ForeColor="Green" Visible="true"></asp:Label>
+        <asp:Label ID="SuccessLabel" runat="server" Text="Add Inputs" ForeColor="Blue" Visible="true"></asp:Label>
     </div>
 
     <div style="display: flex; justify-content: right; margin: 20px; resize: vertical;">
@@ -73,6 +73,7 @@
         <asp:Button ID="AddCourse" runat="server" OnClick="post_Course" Text="Add" CssClass="submit-button" />
     </div>
 </div>
+    </div>
 
 
     </form>

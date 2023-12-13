@@ -32,6 +32,9 @@
         <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
              <asp:Button ID="AllOfferedCourses" runat="server" OnClick="get_AllOfferedCourses" Text="All Offered Courses With there Semesters" />
         </div>
+        <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
+             <asp:Button ID="LinkInstructorToCourse" runat="server" OnClick="post_LinkInstructorToCourse" Text="Link Instructor To Course" />
+        </div>
 
     </form>
 </body>

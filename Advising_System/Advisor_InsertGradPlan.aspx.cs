@@ -35,7 +35,7 @@ namespace Advising_System
                 StudentID.DataValueField = "student_id";
                 StudentID.DataBind();
 
-                StudentID.Items.Insert(0, new ListItem("Select a major", string.Empty));
+                StudentID.Items.Insert(0, new ListItem("Select a Student", string.Empty));
                 StudentID.SelectedIndex = 0;
 
                 reader.Close();

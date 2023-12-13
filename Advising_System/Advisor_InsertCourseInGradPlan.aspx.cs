@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using static Advising_System.Admin_LinkStudentAdvisor;
+using System.Diagnostics;
 
 namespace Advising_System
 {
@@ -14,6 +16,7 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(IsPostBack) { return; }
             string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
             SqlConnection connection = new SqlConnection(connectionStirng);
             try
@@ -33,7 +36,7 @@ namespace Advising_System
                 StudentID.DataValueField = "student_id";
                 StudentID.DataBind();
 
-                StudentID.Items.Insert(0, new ListItem("Select a major", string.Empty));
+                StudentID.Items.Insert(0, new ListItem("Select a Student", string.Empty));
                 StudentID.SelectedIndex = 0;
 
                 reader.Close();
@@ -44,6 +47,59 @@ namespace Advising_System
             }
             finally { connection.Close(); }
 
+        }
+
+        protected void AddCourse_Click(object sender, EventArgs e)
+        {
+            Message.Visible = false;
+            string stID = StudentID.SelectedValue;
+            string semCode = SemesterCode.Text;
+            string cName = CourseName.Text;
+
+            if(string.IsNullOrEmpty(stID) || string.IsNullOrEmpty(semCode)
+                || string.IsNullOrEmpty(cName)) 
+            { 
+                Message.ForeColor = System.Drawing.Color.Red;
+                Message.Visible = true;
+                Message.Text = "Invalid Input";
+                return;
+            }
+
+            string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
+            SqlConnection connection = new SqlConnection(connectionStirng);
+            try
+            {
+                SqlCommand InsertGradPlan = new SqlCommand("Procedures_AdvisorAddCourseGP", connection); // {Session["UserID"]} put in input of fn
+                InsertGradPlan.CommandType = CommandType.StoredProcedure;
+                connection.Open();
+
+                InsertGradPlan.Parameters.AddWithValue("@student_Id", stID);
+                InsertGradPlan.Parameters.AddWithValue("@Semester_code", semCode);
+                InsertGradPlan.Parameters.AddWithValue("@course_name", cName);
+
+                int nRowsAffected = InsertGradPlan.ExecuteNonQuery();
+                if (nRowsAffected > 0) {
+                    Message.Visible = true;
+                    Message.ForeColor = System.Drawing.Color.Green;
+                    Message.Text = "Succesfully inserted Graduation Plan";
+                }
+                else
+                {
+                    Message.Visible = true;
+                    Message.ForeColor = System.Drawing.Color.Red;
+                    Message.Text = "Unsuccessful";
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            finally { connection.Close(); }
+        }
+
+        protected void BackAdvisorHome(object sender, EventArgs e)
+        {
+            Response.Redirect("/AdvisorHome.aspx");
         }
     }
 }

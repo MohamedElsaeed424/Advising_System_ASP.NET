@@ -54,16 +54,17 @@ namespace Advising_System
             string gradDate = ExGradDate.Text;
             string CH = semCH.Text;
             int advisorID = 8; // session["UserID"]
-            string StID = StudentID.SelectedValue;
+            string StdID = StudentID.SelectedValue;
 
             if(string.IsNullOrEmpty(semCode) || string.IsNullOrEmpty(gradDate)
-                || string.IsNullOrEmpty(CH) || string.IsNullOrEmpty(StID)) 
+                || string.IsNullOrEmpty(CH) || string.IsNullOrEmpty(StdID)) 
             {
                 Error.ForeColor = System.Drawing.Color.Red;
                 Error.Visible = true;
                 Error.Text = "Invalid Input";
                 return;
             }
+            int StID = Int32.Parse(StdID);
 
             string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
             SqlConnection connection = new SqlConnection(connectionStirng);

@@ -45,5 +45,9 @@ namespace Advising_System
         {
             Response.Redirect("/Admin_ListAllSemestersCourses.aspx");
         }
+        protected void post_LinkInstructorToCourse(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_LinkInstructorCourseSlot.aspx");
+        } 
     }
 }

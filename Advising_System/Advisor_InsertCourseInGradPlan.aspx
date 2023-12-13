@@ -21,7 +21,7 @@
             <asp:TextBox ID="SemesterCode" runat="server"></asp:TextBox>
             <br />
             Course Name
-            <asp:DropDownList ID="DropDownList1" runat="server">
+            <asp:DropDownList ID="CourseName" runat="server">
             </asp:DropDownList>
             <br />
             <asp:Button ID="AddCourse" runat="server" Text="Add" OnClick="AddCourse_Click" />

@@ -19,7 +19,7 @@ namespace Advising_System
         {
             if(IsPostBack) { return; }
             loadStudentList();
-
+            loadCourseList();
 
         }
         protected void loadStudentList()
@@ -60,7 +60,7 @@ namespace Advising_System
             SqlConnection connection = new SqlConnection(connectionStirng);
             try
             {
-                SqlCommand AllCourses = new SqlCommand($"SELECT DISTINCT(name) FROM Course\r\n", connection); // {Session["UserID"]} put in input of fn
+                SqlCommand AllCourses = new SqlCommand("SELECT DISTINCT(name) FROM Course\r\n", connection); // {Session["UserID"]} put in input of fn
                 AllCourses.CommandType = CommandType.Text;
                 connection.Open();
 
@@ -69,13 +69,13 @@ namespace Advising_System
                 DataTable dt = new DataTable();
                 dt.Load(reader);
 
-                StudentID.DataSource = dt;
-                StudentID.DataTextField = "All";
-                StudentID.DataValueField = "student_id";
-                StudentID.DataBind();
+                CourseName.DataSource = dt;
+                CourseName.DataTextField = "name";
+                CourseName.DataValueField = "name";
+                CourseName.DataBind();
 
-                StudentID.Items.Insert(0, new ListItem("Select a Student", string.Empty));
-                StudentID.SelectedIndex = 0;
+                CourseName.Items.Insert(0, new ListItem("Select a Course", string.Empty));
+                CourseName.SelectedIndex = 0;
 
                 reader.Close();
             }
@@ -91,7 +91,7 @@ namespace Advising_System
             Message.Visible = false;
             string stID = StudentID.SelectedValue;
             string semCode = SemesterCode.Text;
-            string cName = CourseName.Text;
+            string cName = CourseName.SelectedValue;
 
             if(string.IsNullOrEmpty(stID) || string.IsNullOrEmpty(semCode)
                 || string.IsNullOrEmpty(cName)) 

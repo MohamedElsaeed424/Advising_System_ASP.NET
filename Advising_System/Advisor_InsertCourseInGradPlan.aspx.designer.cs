@@ -51,13 +51,13 @@ namespace Advising_System
         protected global::System.Web.UI.WebControls.TextBox SemesterCode;
 
         /// <summary>
-        /// DropDownList1 control.
+        /// CourseName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList CourseName;
 
         /// <summary>
         /// AddCourse control.

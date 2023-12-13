@@ -16,6 +16,28 @@ namespace Advising_System
         {
             
         }
+        protected bool IsEmailExists(string email)
+        {
+            bool emailExists = false;
+
+            using (SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString()))
+            {
+                using (SqlCommand command = new SqlCommand("SELECT 1 FROM Student WHERE email = @email", connection))
+                {
+                    command.Parameters.AddWithValue("@email", email);
+
+                    connection.Open();
+
+
+                    object result = command.ExecuteScalar();
+
+       
+                    emailExists = result != null;
+                }
+            }
+
+            return emailExists;
+        }
 
         protected void RegisterStudent(object sender, EventArgs e)
         {
@@ -33,7 +55,6 @@ namespace Advising_System
                 string major = this.major.SelectedValue;
                 string semesterTemp = this.semester.SelectedValue;
 
-               
                 if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) 
                     || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(faculty) 
                     || string.IsNullOrEmpty(major) || string.IsNullOrEmpty(semesterTemp)
@@ -43,8 +64,13 @@ namespace Advising_System
                     SuccessLabel.Text = "Check your input Fields";
                     SuccessLabel.ForeColor = System.Drawing.Color.Red;
                     SuccessLabel.Visible = true;
-                }
-                else
+                }else if(IsEmailExists(email))
+                {
+                        SuccessLabel.Text = "Error: Email already exists.";
+                        SuccessLabel.ForeColor = System.Drawing.Color.Red;
+                        SuccessLabel.Visible = true;
+                        return;
+                }else
                 {
                     int semester = Convert.ToInt32(semesterTemp);
                     int studentId;
@@ -78,6 +104,7 @@ namespace Advising_System
 
 
                     ClearFormFields();
+                    Response.Redirect("/Student_Login.aspx");
                 }
             }      
             catch (Exception ex)

@@ -62,7 +62,7 @@ namespace Advising_System
                             }
                             else
                             {
-                                SuccessLabel.Text = "Incorrect Password or Username";
+                                SuccessLabel.Text = "Incorrect Password or Username Please Register First";
                                 SuccessLabel.ForeColor = System.Drawing.Color.Red;
                                 SuccessLabel.Visible = true;
                             }

@@ -45,5 +45,7 @@ namespace Advising_System
         {
             Response.Redirect("/Admin_ListAllSemestersCourses.aspx");
         }
+
+
     }
 }

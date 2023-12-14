@@ -14,13 +14,15 @@ using static Advising_System.Admin_LinkStudentCourseInstructor;
 namespace Advising_System
 {
 
-    
-
     public partial class Admin_DeleteCourseWSlot : System.Web.UI.Page
     {
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Admin")
+            {
+                Response.Redirect("/404Page.aspx");
+            }
             if (!IsPostBack)
             {
                 BindCoursesToDropDown();

@@ -21,6 +21,10 @@ namespace Advising_System
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Admin")
+            {
+                Response.Redirect("/404Page.aspx");
+            }
             if (!IsPostBack)
             {
                 
@@ -78,7 +82,7 @@ namespace Advising_System
 
         
 
-        public void UpdateFinancialStatushelp()
+        public void UpdateFinancialStatushelp(object sender, EventArgs e)
         {
             string connectionString = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
             int studentId = Convert.ToInt32(AllStudents.SelectedValue);

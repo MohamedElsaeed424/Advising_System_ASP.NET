@@ -26,7 +26,7 @@ namespace Advising_System
             string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
             SqlConnection connection = new SqlConnection(connectionStirng);
             try
-            {
+            {   
                 int studentId = Convert.ToInt32(Session["UserID"]);
                 int courseId = Int16.Parse(TextBox2.Text);
                 string studentCurrentSemester = TextBox3.Text;

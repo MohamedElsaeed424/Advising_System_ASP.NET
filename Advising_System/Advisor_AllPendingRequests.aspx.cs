@@ -14,28 +14,36 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
-            SqlConnection connection = new SqlConnection(connectionStirng);
-            try
+            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Advisor")
             {
-                SqlCommand all_Pending_Requests = new SqlCommand($"SELECT * FROM all_Pending_Requests", connection);
-                all_Pending_Requests.CommandType = CommandType.Text;
-                connection.Open();
-
-                SqlDataReader reader = all_Pending_Requests.ExecuteReader(CommandBehavior.CloseConnection);
-
-                DataTable dt = new DataTable();
-                dt.Load(reader);
-
-                PendingRequests.DataSource = dt;
-                PendingRequests.DataBind();
-                reader.Close();
+                Response.Redirect("/404Page.aspx");
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine(ex.ToString());
+                string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
+                SqlConnection connection = new SqlConnection(connectionStirng);
+                try
+                {
+                    SqlCommand all_Pending_Requests = new SqlCommand($"SELECT * FROM all_Pending_Requests", connection);
+                    all_Pending_Requests.CommandType = CommandType.Text;
+                    connection.Open();
+
+                    SqlDataReader reader = all_Pending_Requests.ExecuteReader(CommandBehavior.CloseConnection);
+
+                    DataTable dt = new DataTable();
+                    dt.Load(reader);
+
+                    PendingRequests.DataSource = dt;
+                    PendingRequests.DataBind();
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+                finally { connection.Close(); }
             }
-            finally { connection.Close(); }
+
         }
         protected void BackAdvisorHome(object sender, EventArgs e)
         {

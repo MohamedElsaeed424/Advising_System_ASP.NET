@@ -11,7 +11,7 @@ namespace Advising_System
 {
 
 
-    public partial class Admin_deleteSlot
+    public partial class Student_ViewAllRequiredCourses
     {
 
         /// <summary>
@@ -24,39 +24,48 @@ namespace Advising_System
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// SuccessLabel control.
+        /// BackStudentHome2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label SuccessLabel;
+        protected global::System.Web.UI.WebControls.Button BackStudentHome2;
 
         /// <summary>
-        /// BackAdminHomeButton control.
+        /// Semester_Code control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BackAdminHomeButton;
+        protected global::System.Web.UI.WebControls.Label Semester_Code;
 
         /// <summary>
-        /// CurrentSemText control.
+        /// Semester_CodeText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CurrentSemText;
+        protected global::System.Web.UI.WebControls.TextBox Semester_CodeText;
 
         /// <summary>
-        /// DeleteSlot control.
+        /// Button2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button DeleteSlot;
+        protected global::System.Web.UI.WebControls.Button Button2;
+
+        /// <summary>
+        /// AllRequiredCourses control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView AllRequiredCourses;
     }
 }

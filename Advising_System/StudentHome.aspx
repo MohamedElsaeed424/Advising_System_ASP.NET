@@ -50,6 +50,9 @@
         <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
             <asp:Button ID="Button13" runat="server" Onclick="ViewAllOptionalCourses" Text="View All Optional Courses" Width="357px" />
         </div>
+        <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
+            <asp:Button ID="Button14" runat="server" Onclick="ViewAllRequiredCourses" Text="View All Required Courses" Width="357px" />
+        </div>
     </form>
 </body>
 </html>

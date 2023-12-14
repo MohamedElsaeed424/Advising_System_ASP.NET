@@ -49,6 +49,14 @@ namespace Advising_System
         {
             Response.Redirect("/Student_ViewCoursesWithPrereq.aspx");
         }
+        protected void Student_AddPhoneNum(object sender, EventArgs e)
+        {
+            Response.Redirect("/Student_AddPhoneNum.aspx");
+        }
+        protected void ViewMissingCourses(object sender, EventArgs e)
+        {
+            Response.Redirect("/Student_ViewMissingCourses.aspx");
+        }
 
     }
 }

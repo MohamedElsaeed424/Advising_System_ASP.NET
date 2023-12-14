@@ -74,7 +74,7 @@
 </head>
 <body>
     <form id="registrationForm" runat="server">
-        <header>Student Login</header>
+        <header>Admin Login</header>
 
          <asp:Label ID="SuccessLabel" runat="server" Text="Choose Inputs" ForeColor="Blue" Visible="true"></asp:Label>
 

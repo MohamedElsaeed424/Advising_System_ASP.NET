@@ -14,30 +14,37 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
-            SqlConnection connection = new SqlConnection(connectionStirng);
-            try
+            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Student")
             {
-                SqlCommand viewCWE = new SqlCommand("Select MakeUp_Exam.*, Course.name, Course.semester\r\nfrom MakeUp_Exam inner join Course on MakeUp_Exam.course_id = Course.course_id;", connection);
-                viewCWE.CommandType = CommandType.Text; ;
-                connection.Open();
-
-                SqlDataReader reader = viewCWE.ExecuteReader(CommandBehavior.CloseConnection);
-                DataTable dataTable = new DataTable();
-
-                dataTable.Load(reader);
-
-                AllCoursesWithExam.DataSource = dataTable;
-                AllCoursesWithExam.DataBind();
-                
+                Response.Redirect("/404Page.aspx");
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine("Error: " + ex.Message);
-            }
-            finally
-            {
-                connection.Close();
+                string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
+                SqlConnection connection = new SqlConnection(connectionStirng);
+                try
+                {
+                    SqlCommand viewCWE = new SqlCommand("Select MakeUp_Exam.*, Course.name, Course.semester\r\nfrom MakeUp_Exam inner join Course on MakeUp_Exam.course_id = Course.course_id;", connection);
+                    viewCWE.CommandType = CommandType.Text; ;
+                    connection.Open();
+
+                    SqlDataReader reader = viewCWE.ExecuteReader(CommandBehavior.CloseConnection);
+                    DataTable dataTable = new DataTable();
+
+                    dataTable.Load(reader);
+
+                    AllCoursesWithExam.DataSource = dataTable;
+                    AllCoursesWithExam.DataBind();
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
 
 

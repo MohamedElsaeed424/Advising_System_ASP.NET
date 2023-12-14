@@ -11,7 +11,7 @@ namespace Advising_System
 {
 
 
-    public partial class Student_ViewAllOptionalCourses
+    public partial class Student_ViewAllCoursesCurrentSemester
     {
 
         /// <summary>

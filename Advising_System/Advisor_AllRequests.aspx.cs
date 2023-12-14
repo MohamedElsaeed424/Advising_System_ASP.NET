@@ -19,6 +19,7 @@ namespace Advising_System
             SqlConnection connection = new SqlConnection(connectionStirng);
             try
             {
+                
                 SqlCommand FN_Advisors_Requests = new SqlCommand($"SELECT * FROM FN_Advisors_Requests({Session["UserID"]})", connection); // {Session["UserID"]} put in input of fn
                 FN_Advisors_Requests.CommandType = CommandType.Text;
                 connection.Open();

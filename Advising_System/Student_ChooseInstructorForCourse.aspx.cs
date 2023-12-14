@@ -28,27 +28,41 @@ namespace Advising_System
                 int studentId = Convert.ToInt32(Session["UserID"]);
                 int instrucorID = Int16.Parse(TextBox2.Text);
                 int courseID = Int16.Parse(TextBox3.Text);
-                string CurrentSemester = sem.Text;
-            SqlCommand Procedures_ChooseInstructor = new SqlCommand("Procedures_ChooseInstructor", connection);
-            Procedures_ChooseInstructor.CommandType = CommandType.StoredProcedure;
-            Procedures_ChooseInstructor.Parameters.AddWithValue("@StudentID", studentId);
-            Procedures_ChooseInstructor.Parameters.AddWithValue("@InstructorID", instrucorID);
-            Procedures_ChooseInstructor.Parameters.AddWithValue("@CourseID", courseID);
-            Procedures_ChooseInstructor.Parameters.AddWithValue("@current_semester_code", CurrentSemester);
-            try
+                string CurrentSemester = semi.Text;
+            if (!int.TryParse(TextBox2.Text, out studentId) || !int.TryParse(TextBox3.Text, out instrucorID) ||
+                   !int.TryParse(semi.Text, out courseID) ||
+                   string.IsNullOrEmpty(CurrentSemester))
             {
-                connection.Open();
-                Procedures_ChooseInstructor.ExecuteNonQuery();
+                SuccessLabel.Text = "Invalid Input";
+                SuccessLabel.ForeColor = System.Drawing.Color.Red;
+                SuccessLabel.Visible = true;
             }
-            catch (Exception ex)
+            else
             {
-                // Handle the exception (e.g., log it, display an error message)
-                Console.WriteLine("Error: " + ex.Message);
+                SqlCommand Procedures_ChooseInstructor = new SqlCommand("Procedures_ChooseInstructor", connection);
+                Procedures_ChooseInstructor.CommandType = CommandType.StoredProcedure;
+                Procedures_ChooseInstructor.Parameters.AddWithValue("@StudentID", studentId);
+                Procedures_ChooseInstructor.Parameters.AddWithValue("@InstructorID", instrucorID);
+                Procedures_ChooseInstructor.Parameters.AddWithValue("@CourseID", courseID);
+                Procedures_ChooseInstructor.Parameters.AddWithValue("@current_semester_code", CurrentSemester);
+                try
+                {
+                    connection.Open();
+                    Procedures_ChooseInstructor.ExecuteNonQuery();
+                    SuccessLabel.Text = "Course added successfully!";
+                    SuccessLabel.ForeColor = System.Drawing.Color.Green;
+                }
+                catch (Exception ex)
+                {
+                    SuccessLabel.Text = "Error adding course: " + ex.Message;
+                    SuccessLabel.ForeColor = System.Drawing.Color.Red;
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
-            finally
-            {
-                connection.Close();
-            }
+           
 
         }
 

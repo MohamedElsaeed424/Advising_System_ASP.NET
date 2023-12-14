@@ -10,9 +10,9 @@
     <form id="form1" runat="server">
         <div>
                 Assign Insructor To Course In Slot
-                <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-                     <asp:Label ID="SuccessLabel" runat="server" Text="Choose Inputs" ForeColor="Blue" Visible="true"></asp:Label>
-                </div>
+            <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
+                <asp:Label ID="SuccessLabel" runat="server" Text="Choose Inputs" ForeColor="Blue" Visible="true"></asp:Label>
+            </div>
                 <div style="display: flex; align-items: center; justify-content: right; margin: 20px; resize: vertical;">
                     <asp:Button ID="BackAdminHome3" runat="server" OnClick="BackAdminHome" Text="Back" />
                 </div>

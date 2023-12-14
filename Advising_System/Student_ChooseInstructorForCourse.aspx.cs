@@ -14,7 +14,11 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Student")
+            {
+                Response.Redirect("/404Page.aspx");
+            }
+ 
         }
 
         protected void ChooseInstructor(object sender, EventArgs e)
@@ -22,13 +26,13 @@ namespace Advising_System
             string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
             SqlConnection connection = new SqlConnection(connectionStirng);
                 int studentId = Convert.ToInt32(Session["UserID"]);
-            int instrucorID = Int16.Parse(TextBox2.Text);
+                int instrucorID = Int16.Parse(TextBox2.Text);
                 int courseID = Int16.Parse(TextBox3.Text);
-                String CurrentSemester = TextBox4.Text;
-                SqlCommand Procedures_ChooseInstructor = new SqlCommand("Procedures_ChooseInstructor;", connection);
+                string CurrentSemester = sem.Text;
+            SqlCommand Procedures_ChooseInstructor = new SqlCommand("Procedures_ChooseInstructor", connection);
             Procedures_ChooseInstructor.CommandType = CommandType.StoredProcedure;
             Procedures_ChooseInstructor.Parameters.AddWithValue("@StudentID", studentId);
-            Procedures_ChooseInstructor.Parameters.AddWithValue("@instrucorID", instrucorID);
+            Procedures_ChooseInstructor.Parameters.AddWithValue("@InstructorID", instrucorID);
             Procedures_ChooseInstructor.Parameters.AddWithValue("@CourseID", courseID);
             Procedures_ChooseInstructor.Parameters.AddWithValue("@current_semester_code", CurrentSemester);
             try

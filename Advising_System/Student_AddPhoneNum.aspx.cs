@@ -13,10 +13,10 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Student")
-            //{
-            //    Response.Redirect("/404Page.aspx");
-            //}
+            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Student")
+            {
+                Response.Redirect("/404Page.aspx");
+            }
         }
 
         protected void AddPhoneNum(object sender, EventArgs e)

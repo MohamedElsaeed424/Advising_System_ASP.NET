@@ -86,14 +86,22 @@ namespace Advising_System
             return courses;
         }
 
-
+        private void DisplayErrorMessage(string message)
+        {
+            SuccessLabel.Text = "Error: " + message;
+            SuccessLabel.ForeColor = System.Drawing.Color.Red;
+            SuccessLabel.Visible = true;
+        }
 
 
         protected void DeleteSelectedCourse(object sender, EventArgs e)
         {
-            int courseId = Convert.ToInt32(Allcourses.SelectedValue);
-            System.Diagnostics.Debug.WriteLine(courseId);
-
+            int courseId;
+            if (!int.TryParse(Allcourses.SelectedValue, out courseId) || courseId <= 0)
+            {
+                DisplayErrorMessage("Invalid Course selection");
+                return;
+            }
 
             DeleteSelectedCourseFromDb(courseId);
 

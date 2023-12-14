@@ -227,20 +227,39 @@ namespace Advising_System
 
             return instructors;
         }
+        private void DisplayErrorMessage(string message)
+        {
+            SuccessLabel.Text = "Error: " + message;
+            SuccessLabel.ForeColor = System.Drawing.Color.Red;
+            SuccessLabel.Visible = true;
+        }
         protected void post_LinkStudentCourseIntructor(object sender, EventArgs e)
         {
             try
             {
-                int courseId = Convert.ToInt32(AllCourses.SelectedValue);
-                int instructorId = Convert.ToInt32(AllInstructors.SelectedValue);
-                int studentId = Convert.ToInt32(AllStuendents.SelectedValue);
-                string semesterCode = AllSemesters.SelectedValue;
 
-                if (courseId == 0 || instructorId == 0 || studentId == 0 || string.IsNullOrEmpty(semesterCode))
+                string semesterCode = AllSemesters.SelectedValue;
+                int courseId, instructorId, studentId;
+                if (!int.TryParse(AllCourses.SelectedValue?.ToString(), out courseId) || courseId <= 0)
                 {
-                    SuccessLabel.Text = "Invalid Input";
-                    SuccessLabel.ForeColor = System.Drawing.Color.Red;
-                    SuccessLabel.Visible = true;
+                    DisplayErrorMessage("Invalid Course Selection");
+                    return;
+                }
+
+                if (!int.TryParse(AllInstructors.SelectedValue?.ToString(), out instructorId) || instructorId <= 0)
+                {
+                    DisplayErrorMessage("Invalid Instructor Selection");
+                    return;
+                }
+                if (!int.TryParse(AllStuendents.SelectedValue?.ToString(), out studentId) || studentId <= 0)
+                {
+                    DisplayErrorMessage("Invalid Student Selection");
+                    return;
+                }
+                if (string.IsNullOrEmpty(semesterCode))
+                {
+                    DisplayErrorMessage("Invalid Semester Selection");
+                    return;
                 }
                 else
                 {

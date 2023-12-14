@@ -81,10 +81,21 @@ namespace Advising_System
 
             return payments;
         }
+        private void DisplayErrorMessage(string message)
+        {
+            SuccessLabel.Text = "Error: " + message;
+            SuccessLabel.ForeColor = System.Drawing.Color.Red;
+            SuccessLabel.Visible = true;
+        }
 
         protected void IssueInstallment(object sender, EventArgs e)
         {
-            int payment_id = Convert.ToInt32(AllPayment.SelectedValue);
+            int payment_id;
+            if (!int.TryParse(AllPayment.SelectedValue, out payment_id) || payment_id <= 0)
+            {
+                DisplayErrorMessage("Invalid Payment Selection");
+                return;
+            }
             System.Diagnostics.Debug.WriteLine(payment_id);
 
 

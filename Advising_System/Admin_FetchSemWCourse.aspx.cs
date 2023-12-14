@@ -14,20 +14,28 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
-            SqlConnection connection = new SqlConnection(connectionStirng);
+            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Admin")
+            {
+                Response.Redirect("/404Page.aspx");
+            }
+            else
+            {
+                string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
+                SqlConnection connection = new SqlConnection(connectionStirng);
 
-            SqlCommand FetchSWC = new SqlCommand("SELECT CS.course_id , c.name AS ' Course name' , CS.semester_code\r\nFROM ((Course_Semester  CS\r\n\t\tINNER JOIN Semester S on S.semester_code = CS.semester_code)\r\n\t\tINNER JOIN course c on c.course_id= CS.course_id );", connection);
-            FetchSWC.CommandType = CommandType.Text; ;
-            connection.Open();
+                SqlCommand FetchSWC = new SqlCommand("SELECT CS.course_id , c.name AS ' Course name' , CS.semester_code\r\nFROM ((Course_Semester  CS\r\n\t\tINNER JOIN Semester S on S.semester_code = CS.semester_code)\r\n\t\tINNER JOIN course c on c.course_id= CS.course_id );", connection);
+                FetchSWC.CommandType = CommandType.Text; ;
+                connection.Open();
 
-            SqlDataReader reader = FetchSWC.ExecuteReader(CommandBehavior.CloseConnection);
-            DataTable dataTable = new DataTable();
+                SqlDataReader reader = FetchSWC.ExecuteReader(CommandBehavior.CloseConnection);
+                DataTable dataTable = new DataTable();
 
-            dataTable.Load(reader);
+                dataTable.Load(reader);
 
-            AllsemWCoursesGV.DataSource = dataTable;
-            AllsemWCoursesGV.DataBind();
+                AllsemWCoursesGV.DataSource = dataTable;
+                AllsemWCoursesGV.DataBind();
+            }
+
         }
 
         protected void BackAdminHome(object sender, EventArgs e)

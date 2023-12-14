@@ -14,31 +14,39 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
-            SqlConnection connection = new SqlConnection(connectionStirng);
-            try
+            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Admin")
             {
-                SqlCommand Instructors_AssignedCourses = new SqlCommand("SELECT * FROM Instructors_AssignedCourses", connection);
-                Instructors_AssignedCourses.CommandType = CommandType.Text;
-                connection.Open();
-                SqlDataReader reader = Instructors_AssignedCourses.ExecuteReader(CommandBehavior.CloseConnection);
-
-                DataTable dataTable = new DataTable();
-
-                dataTable.Load(reader);
-
-                CoursesAndInstructorsGridView.DataSource = dataTable;
-                CoursesAndInstructorsGridView.DataBind();
+                Response.Redirect("/404Page.aspx");
             }
-            catch (Exception ex)
+            else
             {
-                // Handle the exception (e.g., log it, display an error message)
-                Console.WriteLine("Error: " + ex.Message);
+                string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
+                SqlConnection connection = new SqlConnection(connectionStirng);
+                try
+                {
+                    SqlCommand Instructors_AssignedCourses = new SqlCommand("SELECT * FROM Instructors_AssignedCourses", connection);
+                    Instructors_AssignedCourses.CommandType = CommandType.Text;
+                    connection.Open();
+                    SqlDataReader reader = Instructors_AssignedCourses.ExecuteReader(CommandBehavior.CloseConnection);
+
+                    DataTable dataTable = new DataTable();
+
+                    dataTable.Load(reader);
+
+                    CoursesAndInstructorsGridView.DataSource = dataTable;
+                    CoursesAndInstructorsGridView.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    // Handle the exception (e.g., log it, display an error message)
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
-            finally
-            {
-                connection.Close();
-            }
+
         }
         protected void BackAdminHome(object sender, EventArgs e)
         {

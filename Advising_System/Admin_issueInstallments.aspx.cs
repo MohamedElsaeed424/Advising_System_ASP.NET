@@ -100,25 +100,22 @@ namespace Advising_System
             {
                 using (connection)
                 {
-                    using (SqlCommand Procedures_AdminAddExam = new SqlCommand("Procedures_AdminAddExam", connection))
+                    using (SqlCommand Procedures_AdminIssueInstallment = new SqlCommand("Procedures_AdminIssueInstallment", connection))
                     {
-                        Procedures_AdminAddExam.CommandType = CommandType.StoredProcedure;
+                        Procedures_AdminIssueInstallment.CommandType = CommandType.StoredProcedure;
 
                         // Add parameters
-                        Procedures_AdminAddExam.Parameters.Add(new SqlParameter("@Type", SqlDbType.VarChar)).Value = type;
-                        Procedures_AdminAddExam.Parameters.Add(new SqlParameter("@date", SqlDbType.Date)).Value = startDate;
-                        Procedures_AdminAddExam.Parameters.Add(new SqlParameter("@course_id", SqlDbType.VarChar, 40)).Value = courseId;
+                        Procedures_AdminIssueInstallment.Parameters.Add(new SqlParameter("@paymentID", SqlDbType.VarChar)).Value = Payment_id;
+                        
 
                         try
                         {
 
                             connection.Open();
-                            Procedures_AdminAddExam.ExecuteNonQuery();
-                            SuccessLabel.Text = "Exam added successfully!";
+                            Procedures_AdminIssueInstallment.ExecuteNonQuery();
+                            SuccessLabel.Text = "Installment added successfully!";
                             SuccessLabel.ForeColor = System.Drawing.Color.Green;
                             SuccessLabel.Visible = true;
-
-                            Start_Calender.SelectedDate = DateTime.MinValue;
                         }
                         catch (Exception ex)
                         {

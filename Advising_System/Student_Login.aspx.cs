@@ -43,7 +43,7 @@ namespace Advising_System
                         int id = Int32.Parse(idT);
                         using (SqlCommand command = new SqlCommand($"SELECT dbo.FN_StudentLogin(@Student_id, @password) AS Success ", connection))
                         {
-                            System.Diagnostics.Debug.WriteLine(password);
+                           
                             command.Parameters.AddWithValue("@Student_id", id);
                             command.Parameters.AddWithValue("@password", password);
                             
@@ -62,6 +62,7 @@ namespace Advising_System
                             if (success == 1)
                             {
                                 Session["UserID"] = id;
+                                Session["UserRole"] = "Student";
                                 Response.Redirect("/StudentHome.aspx");
                                 System.Diagnostics.Debug.WriteLine(Session["UserID"]);
                             }

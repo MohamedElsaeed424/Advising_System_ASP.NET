@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
@@ -49,7 +50,7 @@ namespace Advising_System
                     }
                     else
                     {
-                        //deletion method
+                      
                         SuccessLabel.Text = "Linking Successful";
                         SuccessLabel.ForeColor = System.Drawing.Color.Green;
                         SuccessLabel.Visible = true;
@@ -63,6 +64,8 @@ namespace Advising_System
                     SuccessLabel.Visible = true;
                 }
         }
+
+        
 
         protected void BackAdminHome(object sender, EventArgs e)
         {

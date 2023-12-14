@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
@@ -99,19 +100,36 @@ namespace Advising_System
             {
                 using (connection)
                 {
-                    using (SqlCommand Procedures_AdminIssueInstallment = new SqlCommand("Procedures_AdminIssueInstallment", connection))
+                    using (SqlCommand Procedures_AdminAddExam = new SqlCommand("Procedures_AdminAddExam", connection))
                     {
-                        Procedures_AdminIssueInstallment.CommandType = CommandType.StoredProcedure;
+                        Procedures_AdminAddExam.CommandType = CommandType.StoredProcedure;
 
-                        Procedures_AdminIssueInstallment.Parameters.AddWithValue("@paymentID", Payment_id);
-                        connection.Open();
-                        int nRowsAffected = Procedures_AdminIssueInstallment.ExecuteNonQuery();
-                        if (nRowsAffected > 0)
+                        // Add parameters
+                        Procedures_AdminAddExam.Parameters.Add(new SqlParameter("@Type", SqlDbType.VarChar)).Value = type;
+                        Procedures_AdminAddExam.Parameters.Add(new SqlParameter("@date", SqlDbType.Date)).Value = startDate;
+                        Procedures_AdminAddExam.Parameters.Add(new SqlParameter("@course_id", SqlDbType.VarChar, 40)).Value = courseId;
+
+                        try
                         {
-                            Debug.WriteLine("fdauwheh fjdhaks" + nRowsAffected.ToString());
-                            SuccessLabel.Text = "3abilo we edilo balabizoooooooo!";
+
+                            connection.Open();
+                            Procedures_AdminAddExam.ExecuteNonQuery();
+                            SuccessLabel.Text = "Exam added successfully!";
                             SuccessLabel.ForeColor = System.Drawing.Color.Green;
                             SuccessLabel.Visible = true;
+
+                            Start_Calender.SelectedDate = DateTime.MinValue;
+                        }
+                        catch (Exception ex)
+                        {
+
+                            SuccessLabel.Text = "Error: " + ex.Message;
+                            SuccessLabel.ForeColor = System.Drawing.Color.Red;
+                            SuccessLabel.Visible = true;
+                        }
+                        finally
+                        {
+                            connection.Close();
                         }
                     }
                 }

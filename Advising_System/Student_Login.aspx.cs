@@ -25,7 +25,7 @@ namespace Advising_System
             try
             {
 
-                string idT = StudentID.Text;
+                string idT = this.StudentID.Text;
                 string password = this.password.Text;
 
 

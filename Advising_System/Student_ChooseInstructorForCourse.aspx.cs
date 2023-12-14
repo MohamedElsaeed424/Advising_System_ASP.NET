@@ -65,12 +65,12 @@ namespace Advising_System
                 {
                     connection.Open();
                     Procedures_ChooseInstructor.ExecuteNonQuery();
-                    SuccessLabel.Text = "Course added successfully!";
+                    SuccessLabel.Text = "Course Choosed successfully!";
                     SuccessLabel.ForeColor = System.Drawing.Color.Green;
                 }
                 catch (Exception ex)
                 {
-                    SuccessLabel.Text = "Error adding course: " + ex.Message;
+                    SuccessLabel.Text = "Error while choosing course: " + ex.Message;
                     SuccessLabel.ForeColor = System.Drawing.Color.Red;
                 }
                 finally

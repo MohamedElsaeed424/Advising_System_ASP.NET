@@ -10,6 +10,9 @@
     <form id="form1" runat="server">
         <div>
             <h2>View all courses along with their exams details</h2>
+                                    <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
+    <asp:Label ID="SuccessLabel" runat="server" Text="Add Inputs" ForeColor="Blue" Visible="true"></asp:Label>
+</div>
             <asp:GridView ID="AllCoursesWithExam" runat="server" AutoGenerateColumns="False">
             <Columns>
     <asp:BoundField DataField="exam_id" HeaderText=" Exam ID" />

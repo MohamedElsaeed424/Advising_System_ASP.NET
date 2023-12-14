@@ -10,6 +10,7 @@
     <form id="form1" runat="server">
         <div>
             <h2>View Courses With Corresponding Slots And Insrucrors</h2>
+                                  
             <asp:GridView ID="CoursesWithCorrespondingSlotsAndInsrucrors" runat="server" AutoGenerateColumns="False">
  <Columns>
      <asp:BoundField DataField="CourseID" HeaderText="CourseID" />

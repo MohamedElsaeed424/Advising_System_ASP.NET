@@ -29,8 +29,8 @@ namespace Advising_System
                 int instrucorID = Int16.Parse(TextBox2.Text);
                 int courseID = Int16.Parse(TextBox3.Text);
                 string CurrentSemester = semi.Text;
-            if (!int.TryParse(TextBox2.Text, out studentId) || !int.TryParse(TextBox3.Text, out instrucorID) ||
-                   !int.TryParse(semi.Text, out courseID) ||
+            if (int.TryParse(TextBox2.Text, out studentId) || int.TryParse(TextBox3.Text, out instrucorID) ||
+                   int.TryParse(semi.Text, out courseID) ||
                    string.IsNullOrEmpty(CurrentSemester))
             {
                 SuccessLabel.Text = "Invalid Input";

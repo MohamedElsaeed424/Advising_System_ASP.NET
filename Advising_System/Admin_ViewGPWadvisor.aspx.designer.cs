@@ -24,13 +24,13 @@ namespace Advising_System
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// viewGPbutton control.
+        /// BackAdminHomeButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button viewGPbutton;
+        protected global::System.Web.UI.WebControls.Button BackAdminHomeButton;
 
         /// <summary>
         /// ViewGPgridView control.

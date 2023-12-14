@@ -14,11 +14,6 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void viewPayment(object sender, EventArgs e)
-        {
             string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
             SqlConnection connection = new SqlConnection(connectionStirng);
 
@@ -34,5 +29,10 @@ namespace Advising_System
             ViewPaymentGV.DataSource = dataTable;
             ViewPaymentGV.DataBind();
         }
+        protected void BackAdminHome(object sender, EventArgs e)
+        {
+            Response.Redirect("/AdminHome.aspx");
+        }
+
     }
 }

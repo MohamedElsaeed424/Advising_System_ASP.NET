@@ -70,7 +70,9 @@
     <Content Include="AdminHome.aspx" />
     <Content Include="Admin_AddNewCourse.aspx" />
     <Content Include="Admin_DeleteCourseWSlot.aspx" />
+    <Content Include="Admin_deleteSlot.aspx" />
     <Content Include="Admin_fetchActiveStudents.aspx" />
+    <Content Include="Admin_issueInstallments.aspx" />
     <Content Include="Admin_LinkInstructorCourseSlot.aspx" />
     <Content Include="Admin_LinkStudentAdvisor.aspx" />
     <Content Include="Admin_LinkStudentCourseInstructor.aspx" />
@@ -80,6 +82,7 @@
     <Content Include="Admin_ListAllStudentsAdvisors.aspx" />
     <Content Include="Admin_ListAllAdvisors.aspx" />
     <Content Include="Admin_AddNewSemester.aspx" />
+    <Content Include="Admin_UpdateFinancialStatus.aspx" />
     <Content Include="Admin_ViewGPWadvisor.aspx" />
     <Content Include="Admin_viewPaymentDetailsForStudent.aspx" />
     <Content Include="Admin_viewStudentsTranscriptDetails.aspx" />
@@ -102,6 +105,20 @@
     <Compile Include="AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin_deleteSlot.aspx.cs">
+      <DependentUpon>Admin_deleteSlot.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_deleteSlot.aspx.designer.cs">
+      <DependentUpon>Admin_deleteSlot.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_issueInstallments.aspx.cs">
+      <DependentUpon>Admin_issueInstallments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_issueInstallments.aspx.designer.cs">
+      <DependentUpon>Admin_issueInstallments.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin_LinkStudentAdvisor.aspx.cs">
       <DependentUpon>Admin_LinkStudentAdvisor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -115,6 +132,13 @@
     </Compile>
     <Compile Include="Admin_LinkStudentCourseInstructor.aspx.designer.cs">
       <DependentUpon>Admin_LinkStudentCourseInstructor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_UpdateFinancialStatus.aspx.cs">
+      <DependentUpon>Admin_UpdateFinancialStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_UpdateFinancialStatus.aspx.designer.cs">
+      <DependentUpon>Admin_UpdateFinancialStatus.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin_ViewGPWadvisor.aspx.cs">
       <DependentUpon>Admin_ViewGPWadvisor.aspx</DependentUpon>

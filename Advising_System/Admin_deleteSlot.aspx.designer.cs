@@ -11,7 +11,7 @@ namespace Advising_System
 {
 
 
-    public partial class Admin_DeleteCourseWSlot
+    public partial class Admin_deleteSlot
     {
 
         /// <summary>
@@ -24,15 +24,6 @@ namespace Advising_System
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// BackAdminHome2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BackAdminHome2;
-
-        /// <summary>
         /// SuccessLabel control.
         /// </summary>
         /// <remarks>
@@ -40,6 +31,15 @@ namespace Advising_System
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label SuccessLabel;
+
+        /// <summary>
+        /// BackAdminHomeButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BackAdminHomeButton;
 
         /// <summary>
         /// Label1 control.
@@ -51,21 +51,57 @@ namespace Advising_System
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// Allcourses control.
+        /// AllCourses control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Allcourses;
+        protected global::System.Web.UI.WebControls.DropDownList AllCourses;
 
         /// <summary>
-        /// DeleteCourse control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button DeleteCourse;
+        protected global::System.Web.UI.WebControls.Label Label2;
+
+        /// <summary>
+        /// AllSlots control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList AllSlots;
+
+        /// <summary>
+        /// Label4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label4;
+
+        /// <summary>
+        /// AllSemesters control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList AllSemesters;
+
+        /// <summary>
+        /// IssueIns control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button IssueIns;
     }
 }

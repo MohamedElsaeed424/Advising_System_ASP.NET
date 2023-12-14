@@ -8,9 +8,18 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <asp:Button ID="Button1" OnClick="FetchSemWCourse" runat="server" Text="Fetch all semesters along with their offered courses" />
-            <div style="margin-bottom: 20px;"></div>
+        <h2>Sem with corresponding courses</h2>
+        <div style="display: flex; align-items: center; justify-content: right; margin: 20px; resize: vertical;">
+            <asp:Button ID="BackAdminHomeButton" runat="server" OnClick="BackAdminHome" Text="Back" />
+            <style>
+                .container {
+                   display: flex;
+                align-items: flex-end; /* Aligns items to the bottom */
+                height: 300px; /* Just an example height */
+                }
+            </style>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
             <asp:GridView ID="AllsemWCoursesGV" runat="server" AutoGenerateColumns="False">
                 <Columns>
                     <asp:BoundField DataField="course_id" HeaderText="course id" />

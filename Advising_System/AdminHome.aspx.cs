@@ -54,6 +54,45 @@ namespace Advising_System
         protected void post_LinkStudentToCourseInstructor(object sender, EventArgs e)
         {
             Response.Redirect("/Admin_LinkStudentCourseInstructor.aspx");
-        }  
+        }
+        protected void Get_FetchSemWCourse(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_FetchSemWCourse.aspx");
+        }
+
+        protected void ViewStudentsTranscript(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_viewStudentsTranscriptDetails.aspx");
+        }
+
+        protected void viewPayment(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_viewPaymentDetailsForStudent.aspx");
+        }
+
+        protected void ViewGPWadvisor(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_ViewGPWadvisor.aspx");
+        }
+
+        protected void ViewAllActiveStudents(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_fetchActiveStudents.aspx");
+        }
+
+        protected void DeleteCourseWSlots(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_DeleteCourseWSlot.aspx");
+        }
+
+        protected void IssueInstallment(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_issueInstallments.aspx");
+        }
+
+        protected void UpdateFinancial(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_UpdateFinancialStatus.aspx");
+        }
     }
 }

@@ -92,5 +92,15 @@ namespace Advising_System
         {
             Response.Redirect("/Admin_UpdateFinancialStatus.aspx");
         }
+
+        protected void DelteSlot(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_deleteSlot.aspx");
+        }
+
+        protected void AddMakeup(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_AddMakeupExam.aspx");
+        }
     }
 }

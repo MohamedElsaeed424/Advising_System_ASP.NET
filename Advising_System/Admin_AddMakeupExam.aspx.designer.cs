@@ -11,7 +11,7 @@ namespace Advising_System
 {
 
 
-    public partial class Admin_deleteSlot
+    public partial class Admin_AddMakeupExam
     {
 
         /// <summary>
@@ -42,21 +42,57 @@ namespace Advising_System
         protected global::System.Web.UI.WebControls.Button BackAdminHomeButton;
 
         /// <summary>
-        /// CurrentSemText control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CurrentSemText;
+        protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// DeleteSlot control.
+        /// AllCourses control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button DeleteSlot;
+        protected global::System.Web.UI.WebControls.DropDownList AllCourses;
+
+        /// <summary>
+        /// MakeupDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label MakeupDate;
+
+        /// <summary>
+        /// Start_Calender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar Start_Calender;
+
+        /// <summary>
+        /// SelectedStartDateLabel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label SelectedStartDateLabel1;
+
+        /// <summary>
+        /// AddSemester control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddSemester;
     }
 }

@@ -78,7 +78,7 @@ namespace Advising_System
 
         
 
-        public void UpdateFinancialStatushelp()
+        public void UpdateFinancialStatushelp(object sender, EventArgs e)
         {
             string connectionString = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
             int studentId = Convert.ToInt32(AllStudents.SelectedValue);

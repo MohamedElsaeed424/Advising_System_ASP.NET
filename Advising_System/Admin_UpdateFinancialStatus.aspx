@@ -16,12 +16,12 @@
             <div style="display: flex; align-items: center; justify-content: right; margin: 20px; resize: vertical;">
                 <asp:Button ID="BackAdminHomeButton" runat="server" OnClick="BackAdminHome" Text="Back" />
                 <style>
-        .container {
-            display: flex;
-            align-items: flex-end;
-            height: 300px;
-        }
-    </style>
+                    .container {
+                        display: flex;
+                        align-items: flex-end;
+                        height: 300px;
+                    }
+                </style>
             </div>
             <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
                 <asp:Label ID="Label1" runat="server" Text="Select Student"></asp:Label>
@@ -30,7 +30,7 @@
                 </asp:DropDownList>
             </div>
             <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-                <asp:Button ID="UpdateFinance" OnClick="UpdateFinancialStatus" runat="server" Text="Delete slot for this course" />
+                <asp:Button ID="UpdateFinance" OnClick="UpdateFinancialStatushelp" runat="server" Text="Update Finance" />
             </div>
         </div>
     </form>

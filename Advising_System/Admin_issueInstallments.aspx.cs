@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Web;
@@ -19,6 +20,7 @@ namespace Advising_System
             {
                 BindPaymentToDropDown();
             }
+
         }
 
         public class Payment
@@ -97,7 +99,14 @@ namespace Advising_System
 
                     Procedures_AdminIssueInstallment.Parameters.AddWithValue("@paymentID", Payment_id);
                     connection.Open();
-                    Procedures_AdminIssueInstallment.ExecuteNonQuery();
+                    int nRowsAffected = Procedures_AdminIssueInstallment.ExecuteNonQuery();
+                    if(nRowsAffected > 0)
+                    {
+                        Debug.WriteLine("fdauwheh fjdhaks" +  nRowsAffected.ToString());
+                        SuccessLabel.Text = "3abilo we edilo balabizoooooooo!";
+                        SuccessLabel.ForeColor = System.Drawing.Color.Green;
+                        SuccessLabel.Visible = true;
+                    }
                 }
             }
         }

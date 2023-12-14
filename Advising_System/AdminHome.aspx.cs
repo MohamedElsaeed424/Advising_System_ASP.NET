@@ -11,7 +11,10 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Admin")
+            {
+                Response.Redirect("/404Page.aspx");
+            }
         }
         protected void get_Advisors(object sender, EventArgs e)
         {
@@ -91,6 +94,16 @@ namespace Advising_System
         protected void UpdateFinancial(object sender, EventArgs e)
         {
             Response.Redirect("/Admin_UpdateFinancialStatus.aspx");
+        }
+
+        protected void DelteSlot(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_deleteSlot.aspx");
+        }
+
+        protected void AddMakeup(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_AddMakeupExam.aspx");
         }
     }
 }

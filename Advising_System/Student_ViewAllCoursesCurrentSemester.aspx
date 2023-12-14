@@ -30,6 +30,9 @@
                 </Columns>
                 </asp:GridView>
                 </div>
+                                        <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
+    <asp:Label ID="SuccessLabel" runat="server" Text="Add Inputs" ForeColor="Blue" Visible="true"></asp:Label>
+</div>
              </div>
         </div>
     </form>

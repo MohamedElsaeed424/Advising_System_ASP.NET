@@ -15,8 +15,16 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack) { return; }
-            loadStudentList();
+            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Advisor")
+            {
+                Response.Redirect("/404Page.aspx");
+            }
+            else
+            {
+                if (IsPostBack) { return; }
+                loadStudentList();
+            }
+
         }
 
 

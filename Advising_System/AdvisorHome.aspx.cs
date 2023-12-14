@@ -11,7 +11,10 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Advisor")
+            {
+                Response.Redirect("/404Page.aspx");
+            }
         }
 
         protected void AllStudents_Click(object sender, EventArgs e)

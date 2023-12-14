@@ -11,7 +11,7 @@ namespace Advising_System
 {
 
 
-    public partial class Student_ViewAllOptionalCourses
+    public partial class Admin_AddMakeupExam
     {
 
         /// <summary>
@@ -24,15 +24,6 @@ namespace Advising_System
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// BackStudentHome2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BackStudentHome2;
-
-        /// <summary>
         /// SuccessLabel control.
         /// </summary>
         /// <remarks>
@@ -42,39 +33,75 @@ namespace Advising_System
         protected global::System.Web.UI.WebControls.Label SuccessLabel;
 
         /// <summary>
-        /// Semester_Code control.
+        /// BackAdminHomeButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Semester_Code;
+        protected global::System.Web.UI.WebControls.Button BackAdminHomeButton;
 
         /// <summary>
-        /// Semester_CodeText control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Semester_CodeText;
+        protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// Button2 control.
+        /// AllCourses control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.DropDownList AllCourses;
 
         /// <summary>
-        /// AllOptionalCourses control.
+        /// makeupDropDown control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView AllOptionalCourses;
+        protected global::System.Web.UI.WebControls.DropDownList makeupDropDown;
+
+        /// <summary>
+        /// MakeupDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label MakeupDate;
+
+        /// <summary>
+        /// Start_Calender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Calendar Start_Calender;
+
+        /// <summary>
+        /// SelectedStartDateLabel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label SelectedStartDateLabel1;
+
+        /// <summary>
+        /// AddSemester control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddSemester;
     }
 }

@@ -14,20 +14,32 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
-            SqlConnection connection = new SqlConnection(connectionStirng);
+            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Admin")
+            {
+                Response.Redirect("/404Page.aspx");
+            }
+            else
+            {
+                string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
+                SqlConnection connection = new SqlConnection(connectionStirng);
+                try
+                {
+                    SqlCommand viewAS = new SqlCommand("SELECT * \r\nFROM student \r\nWHERE financial_status = 1;", connection);
+                    viewAS.CommandType = CommandType.Text; ;
+                    connection.Open();
 
-            SqlCommand viewAS = new SqlCommand("SELECT * \r\nFROM student \r\nWHERE financial_status = 1;", connection);
-            viewAS.CommandType = CommandType.Text; ;
-            connection.Open();
+                    SqlDataReader reader = viewAS.ExecuteReader(CommandBehavior.CloseConnection);
+                    DataTable dataTable = new DataTable();
 
-            SqlDataReader reader = viewAS.ExecuteReader(CommandBehavior.CloseConnection);
-            DataTable dataTable = new DataTable();
+                    dataTable.Load(reader);
 
-            dataTable.Load(reader);
+                    AllActiveStudents.DataSource = dataTable;
+                    AllActiveStudents.DataBind();
+                }
+                catch (Exception ex) { Console.WriteLine("Error: " + ex.Message); }
+                finally { connection.Close(); }
+            }
 
-            AllActiveStudents.DataSource = dataTable;
-            AllActiveStudents.DataBind();
         }
 
         protected void BackAdminHome(object sender, EventArgs e)

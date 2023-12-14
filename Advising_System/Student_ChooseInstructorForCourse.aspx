@@ -10,6 +10,9 @@
     <form id="form1" runat="server">
         <div>
             <h2>Choose Insrtructor</h2>
+            <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
+    <asp:Label ID="SuccessLabel" runat="server" Text="Add Inputs" ForeColor="Blue" Visible="true"></asp:Label>
+</div>
 
     <div style="display: flex; justify-content: center; margin: 20px; resize: vertical;">
         <asp:Label ID="Label2" runat="server" Text="Instructor ID"></asp:Label>
@@ -21,7 +24,7 @@
 </div>
                 <div style="display: flex; justify-content: center; margin: 20px; resize: vertical;">
         <asp:Label ID="Label4" runat="server" Text="Current Semester"></asp:Label>
-        &nbsp;<asp:TextBox ID="sem" runat="server"></asp:TextBox>
+        &nbsp;<asp:TextBox ID="semi" runat="server"></asp:TextBox>
 </div>
             <div style="display: flex; justify-content: center; margin: 20px; resize: vertical;"> 
                 <asp:Button ID="Button1" runat="server" OnClick="ChooseInstructor" Text="Choose" />

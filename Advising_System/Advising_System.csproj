@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="404Page.aspx" />
     <Content Include="AdminHome.aspx" />
+    <Content Include="Admin_AddMakeupExam.aspx" />
     <Content Include="Admin_AddNewCourse.aspx" />
     <Content Include="Admin_DeleteCourseWSlot.aspx" />
     <Content Include="Admin_deleteSlot.aspx" />
@@ -138,6 +139,13 @@
     </Compile>
     <Compile Include="AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_AddMakeupExam.aspx.cs">
+      <DependentUpon>Admin_AddMakeupExam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_AddMakeupExam.aspx.designer.cs">
+      <DependentUpon>Admin_AddMakeupExam.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin_deleteSlot.aspx.cs">
       <DependentUpon>Admin_deleteSlot.aspx</DependentUpon>

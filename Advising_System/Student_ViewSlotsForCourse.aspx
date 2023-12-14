@@ -20,17 +20,9 @@
 </div>
             <div style="display: flex; justify-content: center; margin: 20px; resize: vertical;">
             <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="True">
-               <%-- <Columns>
-     <asp:BoundField DataField="CourseID" HeaderText="CourseID" />
-     <asp:BoundField DataField="Course" HeaderText="Course" />
-     <asp:BoundField DataField="slot_id" HeaderText="SlotID" />
-     <asp:BoundField DataField="day" HeaderText="Day" />
-     <asp:BoundField DataField="time" HeaderText="Time" />
-     <asp:BoundField DataField="location" HeaderText="Location" />
-     <asp:BoundField DataField="course_id" HeaderText="Course ID" />
-     <asp:BoundField DataField="instructor_id" HeaderText="InstructorID" />
-     <asp:BoundField DataField="Instructor" HeaderText="Instructor" />              
-                </Columns>--%>
+                                     <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
+    <asp:Label ID="SuccessLabel" runat="server" Text="Add Inputs" ForeColor="Blue" Visible="true"></asp:Label>
+</div>
             </asp:GridView> 
                 </div>
 

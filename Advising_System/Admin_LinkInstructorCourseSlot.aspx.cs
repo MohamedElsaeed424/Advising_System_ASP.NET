@@ -36,8 +36,12 @@ namespace Advising_System
 
 
         protected void Page_Load(object sender, EventArgs e)
-         {
-                if (!IsPostBack)
+        {
+            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Admin")
+            {
+                Response.Redirect("/404Page.aspx");
+            }
+            if (!IsPostBack)
                 {
                     BindInstructorsToDropDown();
                     BindCoursesToDropDown();
@@ -184,24 +188,36 @@ namespace Advising_System
 
                 return instructors;
             }
+        private void DisplayErrorMessage(string message)
+        {
+            SuccessLabel.Text = "Error: " + message;
+            SuccessLabel.ForeColor = System.Drawing.Color.Red;
+            SuccessLabel.Visible = true;
+        }
         protected void post_LinkInstructorCourseSlot(object sender, EventArgs e)
         {
             try
             {
-                int courseId = Convert.ToInt32(AllCourses.SelectedValue);
-                int instructorId = Convert.ToInt32(AllInstructors.SelectedValue);
-                int slotId = Convert.ToInt32(AllSlots.SelectedValue);
-                System.Diagnostics.Debug.WriteLine(courseId);
-                System.Diagnostics.Debug.WriteLine(instructorId);
-                System.Diagnostics.Debug.WriteLine(slotId);
-                if (courseId == 0 || instructorId== 0 || slotId == 0) {
-                    SuccessLabel.Text = "Invalid Input";
-                    SuccessLabel.ForeColor = System.Drawing.Color.Red;
-                    SuccessLabel.Visible = true;
-                }
-                else
+                int courseId, instructorId, slotId;
+
+                if (!int.TryParse(AllCourses.SelectedValue, out courseId) || courseId <= 0)
                 {
-                    LinkInstructorCourseSlots(courseId, instructorId, slotId);
+                    DisplayErrorMessage("Invalid Course Selection");
+                    return;
+                }
+
+                if (!int.TryParse(AllInstructors.SelectedValue, out instructorId) || instructorId <= 0)
+                {
+                    DisplayErrorMessage("Invalid Instructor Selection");
+                    return;
+                }
+
+                if (!int.TryParse(AllSlots.SelectedValue, out slotId) || slotId <= 0)
+                {
+                    DisplayErrorMessage("Invalid Slot Selection");
+                    return;
+                }
+                LinkInstructorCourseSlots(courseId, instructorId, slotId);
 
                     SuccessLabel.Text = "Linking Successful";
                     SuccessLabel.ForeColor = System.Drawing.Color.Green;
@@ -210,7 +226,7 @@ namespace Advising_System
                     AllCourses.SelectedIndex = 0;
                     AllInstructors.SelectedIndex = 0;
                     AllSlots.SelectedIndex = 0;
-                }
+
             }
             catch (Exception ex)
             {

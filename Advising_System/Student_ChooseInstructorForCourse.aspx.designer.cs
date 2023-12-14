@@ -24,6 +24,15 @@ namespace Advising_System
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+        /// SuccessLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label SuccessLabel;
+
+        /// <summary>
         /// Label2 control.
         /// </summary>
         /// <remarks>
@@ -69,13 +78,13 @@ namespace Advising_System
         protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// sem control.
+        /// semi control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox sem;
+        protected global::System.Web.UI.WebControls.TextBox semi;
 
         /// <summary>
         /// Button1 control.

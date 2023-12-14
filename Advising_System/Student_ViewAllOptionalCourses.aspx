@@ -13,6 +13,9 @@
               <div style="display: flex; align-items: center; justify-content: right; margin: 20px; resize: vertical;">
                  <asp:Button ID="BackStudentHome2" runat="server" OnClick="BackStudentHome" Text="Back" />
              </div>
+                                    <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
+    <asp:Label ID="SuccessLabel" runat="server" Text="Add Inputs" ForeColor="Blue" Visible="true"></asp:Label>
+</div>
             <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
 
               <div style="margin-bottom: 20px;">

@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
@@ -15,10 +17,15 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Admin")
+            {
+                Response.Redirect("/404Page.aspx");
+            }
             if (!IsPostBack)
             {
                 BindPaymentToDropDown();
             }
+
         }
 
         public class Payment
@@ -74,10 +81,21 @@ namespace Advising_System
 
             return payments;
         }
+        private void DisplayErrorMessage(string message)
+        {
+            SuccessLabel.Text = "Error: " + message;
+            SuccessLabel.ForeColor = System.Drawing.Color.Red;
+            SuccessLabel.Visible = true;
+        }
 
         protected void IssueInstallment(object sender, EventArgs e)
         {
-            int payment_id = Convert.ToInt32(AllPayment.SelectedValue);
+            int payment_id;
+            if (!int.TryParse(AllPayment.SelectedValue, out payment_id) || payment_id <= 0)
+            {
+                DisplayErrorMessage("Invalid Payment Selection");
+                return;
+            }
             System.Diagnostics.Debug.WriteLine(payment_id);
 
 
@@ -88,18 +106,44 @@ namespace Advising_System
         protected void IssuePaymentInDatabase(int Payment_id)
         {
             string connectionString = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            SqlConnection connection = new SqlConnection(connectionString);
+            try
             {
-                using (SqlCommand Procedures_AdminIssueInstallment = new SqlCommand("Procedures_AdminIssueInstallment", connection))
+                using (connection)
                 {
-                    Procedures_AdminIssueInstallment.CommandType = CommandType.StoredProcedure;
+                    using (SqlCommand Procedures_AdminIssueInstallment = new SqlCommand("Procedures_AdminIssueInstallment", connection))
+                    {
+                        Procedures_AdminIssueInstallment.CommandType = CommandType.StoredProcedure;
 
-                    Procedures_AdminIssueInstallment.Parameters.AddWithValue("@paymentID", Payment_id);
-                    connection.Open();
-                    Procedures_AdminIssueInstallment.ExecuteNonQuery();
+                        // Add parameters
+                        Procedures_AdminIssueInstallment.Parameters.Add(new SqlParameter("@paymentID", SqlDbType.VarChar)).Value = Payment_id;
+                        
+
+                        try
+                        {
+
+                            connection.Open();
+                            Procedures_AdminIssueInstallment.ExecuteNonQuery();
+                            SuccessLabel.Text = "Installment added successfully!";
+                            SuccessLabel.ForeColor = System.Drawing.Color.Green;
+                            SuccessLabel.Visible = true;
+                        }
+                        catch (Exception ex)
+                        {
+
+                            SuccessLabel.Text = "Error: " + ex.Message;
+                            SuccessLabel.ForeColor = System.Drawing.Color.Red;
+                            SuccessLabel.Visible = true;
+                        }
+                        finally
+                        {
+                            connection.Close();
+                        }
+                    }
                 }
             }
+            catch (Exception ex) { Console.WriteLine("Error: " + ex.Message); }
+            finally { connection.Close(); }
         }
 
 

@@ -10,6 +10,7 @@
     <form id="form1" runat="server">
         <div>
         <h2>View Upcoming Installment</h2>
+                                   
           <div style="display: flex; justify-content: center; margin: 20px; resize: vertical;">
                 <asp:Label ID="Label4" runat="server" Text=""></asp:Label>
     </div>

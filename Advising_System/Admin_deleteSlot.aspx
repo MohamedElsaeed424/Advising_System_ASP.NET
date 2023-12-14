@@ -24,26 +24,10 @@
                     }
                 </style>
             </div>
+            <label for="CurrentSem">Input Current Sem:</label>
+            <asp:TextBox ID="CurrentSemText" runat="server"></asp:TextBox>
             <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-                <asp:Label ID="Label1" runat="server" Text="Select Course"></asp:Label>
-                &nbsp;&nbsp;&nbsp;
-                    <asp:DropDownList ID="AllCourses" runat="server" CssClass="dropdown-list">
-                    </asp:DropDownList>
-            </div>
-            <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-                <asp:Label ID="Label2" runat="server" Text="Select slot"></asp:Label>
-                &nbsp;&nbsp;&nbsp;
-                <asp:DropDownList ID="AllSlots" runat="server" CssClass="dropdown-list">
-                </asp:DropDownList>
-            </div>
-            <div style="margin-bottom: 20px;">
-                <asp:Label ID="Label4" runat="server" Text="Semester"></asp:Label>
-                &nbsp;&nbsp;&nbsp;
-                <asp:DropDownList ID="AllSemesters" runat="server" CssClass="dropdown-list">
-                </asp:DropDownList>
-            </div>
-            <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-                <asp:Button ID="IssueIns" OnClick="post_DeleteSlotFromCourse" runat="server" Text="Delete slot for this course" />
+                <asp:Button ID="DeleteSlot" OnClick="post_DeleteSlotFromCourse" runat="server" Text="Delete slot for this course" />
             </div>
         </div>
 

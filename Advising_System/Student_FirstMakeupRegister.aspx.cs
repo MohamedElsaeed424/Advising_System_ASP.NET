@@ -20,28 +20,51 @@ namespace Advising_System
             }
 
         }
+        private void DisplayErrorMessage(string message)
+        {
+            SuccessLabel.Text = "Error: " + message;
+            SuccessLabel.ForeColor = System.Drawing.Color.Red;
+            SuccessLabel.Visible = true;
+        }
 
         protected void RegisterForFirstMakeupExam(object sender, EventArgs e)
         {
             string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
             SqlConnection connection = new SqlConnection(connectionStirng);
             try
-            {
+            {   
                 int studentId = Convert.ToInt32(Session["UserID"]);
-                int courseId = Int16.Parse(TextBox2.Text);
+                int courseId ;
+                if (!int.TryParse(TextBox3.Text, out courseId))
+                {
+                    DisplayErrorMessage("Invalid Course ID. Please enter a valid numeric value.");
+                    return;
+                }
                 string studentCurrentSemester = TextBox3.Text;
-                SqlCommand Procedures_StudentRegisterFirstMakeup = new SqlCommand("Procedures_StudentRegisterFirstMakeup", connection);
-                Procedures_StudentRegisterFirstMakeup.CommandType = CommandType.StoredProcedure;
-                connection.Open();
-                SqlDataReader reader = Procedures_StudentRegisterFirstMakeup.ExecuteReader(CommandBehavior.CloseConnection);
-                Procedures_StudentRegisterFirstMakeup.Parameters.AddWithValue("@StudentID", studentId);
-                Procedures_StudentRegisterFirstMakeup.Parameters.AddWithValue("@courseID", courseId);
-                Procedures_StudentRegisterFirstMakeup.Parameters.AddWithValue("@studentCurr_sem", studentCurrentSemester);
-                Procedures_StudentRegisterFirstMakeup.ExecuteNonQuery();
+                if (string.IsNullOrEmpty(studentCurrentSemester))
+                {
+                    DisplayErrorMessage("Current Semester is required");
+                    return;
+                }
+                else
+                {
+                    SqlCommand Procedures_StudentRegisterFirstMakeup = new SqlCommand("Procedures_StudentRegisterFirstMakeup", connection);
+                    Procedures_StudentRegisterFirstMakeup.CommandType = CommandType.StoredProcedure;
+                    connection.Open();
+                    SqlDataReader reader = Procedures_StudentRegisterFirstMakeup.ExecuteReader(CommandBehavior.CloseConnection);
+                    Procedures_StudentRegisterFirstMakeup.Parameters.AddWithValue("@StudentID", studentId);
+                    Procedures_StudentRegisterFirstMakeup.Parameters.AddWithValue("@courseID", courseId);
+                    Procedures_StudentRegisterFirstMakeup.Parameters.AddWithValue("@studentCurr_sem", studentCurrentSemester);
+                    Procedures_StudentRegisterFirstMakeup.ExecuteNonQuery();
+                    SuccessLabel.Text = "Makeup Registered successfully!";
+                    SuccessLabel.ForeColor = System.Drawing.Color.Green;
+                }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                
+                SuccessLabel.Text = "Error while Registering: " + ex.Message;
+                SuccessLabel.ForeColor = System.Drawing.Color.Red;
             }
             finally
             {

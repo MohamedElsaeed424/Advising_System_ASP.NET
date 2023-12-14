@@ -11,7 +11,7 @@ namespace Advising_System
 {
 
 
-    public partial class AdvisorHome
+    public partial class Advisor_DeleteCourseGP
     {
 
         /// <summary>
@@ -24,93 +24,84 @@ namespace Advising_System
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// AllStudents control.
+        /// BackHome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AllStudents;
+        protected global::System.Web.UI.WebControls.Button BackHome;
 
         /// <summary>
-        /// InsertNewGrad control.
+        /// Label4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button InsertNewGrad;
+        protected global::System.Web.UI.WebControls.Label Label4;
 
         /// <summary>
-        /// InserCourseinGP control.
+        /// StudentID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button InserCourseinGP;
+        protected global::System.Web.UI.WebControls.DropDownList StudentID;
 
         /// <summary>
-        /// UpdateGradDate control.
+        /// Label1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button UpdateGradDate;
+        protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// DeleteCourseGP control.
+        /// semesterCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button DeleteCourseGP;
+        protected global::System.Web.UI.WebControls.TextBox semesterCode;
 
         /// <summary>
-        /// AllStudentsWMajor control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AllStudentsWMajor;
+        protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
-        /// AllRequests control.
+        /// CourseIDs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AllRequests;
+        protected global::System.Web.UI.WebControls.DropDownList CourseIDs;
 
         /// <summary>
-        /// AllPendingRequests control.
+        /// DeleteCourse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AllPendingRequests;
+        protected global::System.Web.UI.WebControls.Button DeleteCourse;
 
         /// <summary>
-        /// RespondCHReq control.
+        /// Message control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button RespondCHReq;
-
-        /// <summary>
-        /// RespondCourseReq control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button RespondCourseReq;
+        protected global::System.Web.UI.WebControls.Label Message;
     }
 }

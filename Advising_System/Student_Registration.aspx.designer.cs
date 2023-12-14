@@ -11,106 +11,115 @@ namespace Advising_System
 {
 
 
-    public partial class AdvisorHome
+    public partial class Registration
     {
 
         /// <summary>
-        /// form1 control.
+        /// registrationForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm registrationForm;
 
         /// <summary>
-        /// AllStudents control.
+        /// SuccessLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AllStudents;
+        protected global::System.Web.UI.WebControls.Label SuccessLabel;
 
         /// <summary>
-        /// InsertNewGrad control.
+        /// first_name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button InsertNewGrad;
+        protected global::System.Web.UI.WebControls.TextBox first_name;
 
         /// <summary>
-        /// InserCourseinGP control.
+        /// last_name control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button InserCourseinGP;
+        protected global::System.Web.UI.WebControls.TextBox last_name;
 
         /// <summary>
-        /// UpdateGradDate control.
+        /// email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button UpdateGradDate;
+        protected global::System.Web.UI.WebControls.TextBox email;
 
         /// <summary>
-        /// DeleteCourseGP control.
+        /// password control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button DeleteCourseGP;
+        protected global::System.Web.UI.WebControls.TextBox password;
 
         /// <summary>
-        /// AllStudentsWMajor control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AllStudentsWMajor;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
 
         /// <summary>
-        /// AllRequests control.
+        /// UpdatePanel1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AllRequests;
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
 
         /// <summary>
-        /// AllPendingRequests control.
+        /// faculty control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AllPendingRequests;
+        protected global::System.Web.UI.WebControls.DropDownList faculty;
 
         /// <summary>
-        /// RespondCHReq control.
+        /// major control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button RespondCHReq;
+        protected global::System.Web.UI.WebControls.DropDownList major;
 
         /// <summary>
-        /// RespondCourseReq control.
+        /// semester control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button RespondCourseReq;
+        protected global::System.Web.UI.WebControls.DropDownList semester;
+
+        /// <summary>
+        /// Register control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Register;
     }
 }

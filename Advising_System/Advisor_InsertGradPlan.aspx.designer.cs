@@ -102,7 +102,7 @@ namespace Advising_System
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox StudentID;
+        protected global::System.Web.UI.WebControls.DropDownList StudentID;
 
         /// <summary>
         /// CreateGrad control.

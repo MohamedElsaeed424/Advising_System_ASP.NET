@@ -14,23 +14,17 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void viewGradPlan(object sender, EventArgs e)
-        {
             string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
             SqlConnection connection = new SqlConnection(connectionStirng);
             try
             {
-                int studentId = Int16.Parse(TextBox1.Text);
-                SqlCommand FN_StudentViewGP = new SqlCommand("FN_StudentViewGP", connection);
-                FN_StudentViewGP.CommandType = CommandType.StoredProcedure;
+                int studentId = Convert.ToInt32(Session["UserID"]);
+                SqlCommand FN_StudentViewGP = new SqlCommand("SELECT * FROM FN_StudentViewGP(@student_ID)", connection);
+                FN_StudentViewGP.CommandType = CommandType.Text;
                 connection.Open();
-                SqlDataReader reader = FN_StudentViewGP.ExecuteReader(CommandBehavior.CloseConnection);
                 FN_StudentViewGP.Parameters.AddWithValue("@student_ID", studentId);
+                SqlDataReader reader = FN_StudentViewGP.ExecuteReader(CommandBehavior.CloseConnection);
                 DataTable dataTable = new DataTable();
-
                 dataTable.Load(reader);
 
                 GridView1.DataSource = dataTable;

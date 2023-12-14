@@ -24,12 +24,13 @@ namespace Advising_System
             try
             {
                 int studentId = Int16.Parse(TextBox1.Text);
-                SqlCommand FN_StudentUpcoming_installment = new SqlCommand("SELECT dbo.FN_StudentUpcoming_installment(@student_ID)", connection);
-                FN_StudentUpcoming_installment.CommandType = CommandType.StoredProcedure;
+                SqlCommand FN_StudentUpcoming_installment = new SqlCommand("SELECT dbo.FN_StudentUpcoming_installment(@student_ID) as Date", connection);
+                
                 connection.Open();
                 FN_StudentUpcoming_installment.Parameters.AddWithValue("@student_ID", studentId);
-                object result = FN_StudentUpcoming_installment.ExecuteScalar();
-                Response.Write(" upcoming not paid installment: " + result); 
+                string result = FN_StudentUpcoming_installment.ExecuteScalar().ToString();
+                Label4.Text = "Upcoming not paid installment: " + result;
+         
 
             }
             catch (Exception ex)

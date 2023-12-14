@@ -23,6 +23,7 @@
      <asp:BoundField DataField="Instructor" HeaderText="Instructor" />
  </Columns>
  </asp:GridView>
+           
        <div style="display: flex; justify-content: right; margin: 20px; resize: vertical;">
             <asp:Button ID="BackAdminHome5" runat="server" OnClick="BackAdminHome" Text="Back" />
        </div>

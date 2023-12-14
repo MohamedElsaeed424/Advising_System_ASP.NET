@@ -23,7 +23,7 @@ namespace Advising_System
             SqlConnection connection = new SqlConnection(connectionStirng);
             try
             {
-                int studentId = Int16.Parse(TextBox1.Text);
+                int studentId = Convert.ToInt32(Session["UserID"]);
                 int courseId = Int16.Parse(TextBox2.Text);
                 string studentCurrentSemester = TextBox3.Text;
                 SqlCommand Procedures_StudentRegisterFirstMakeup = new SqlCommand("Procedures_StudentRegisterFirstMakeup", connection);

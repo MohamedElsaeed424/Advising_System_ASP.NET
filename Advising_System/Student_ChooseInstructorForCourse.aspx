@@ -23,6 +23,10 @@
         <asp:Label ID="Label3" runat="server" Text="Course ID"></asp:Label>
         &nbsp;<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
 </div>
+                <div style="display: flex; justify-content: center; margin: 20px; resize: vertical;">
+        <asp:Label ID="Label4" runat="server" Text="Current Semester"></asp:Label>
+        &nbsp;<asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+</div>
             <div style="display: flex; justify-content: center; margin: 20px; resize: vertical;"> 
                 <asp:Button ID="Button1" runat="server" OnClick="ChooseInstructor" Text="Choose" />
             </div>

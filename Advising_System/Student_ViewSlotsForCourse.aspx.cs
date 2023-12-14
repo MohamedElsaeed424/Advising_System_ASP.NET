@@ -24,16 +24,14 @@ namespace Advising_System
             {
                 int courseID = Int16.Parse(TextBox1.Text);
                 int insructorID = Int16.Parse(TextBox2.Text);
-                SqlCommand FN_StudentViewSlot = new SqlCommand("FN_StudentViewSlot", connection);
-                FN_StudentViewSlot.CommandType = CommandType.StoredProcedure;
+                SqlCommand FN_StudentViewSlot = new SqlCommand("SELECT * FROM FN_StudentViewSlot(@CourseID,@InstructorID);", connection);
+                FN_StudentViewSlot.CommandType = CommandType.Text;
                 connection.Open();
-                SqlDataReader reader = FN_StudentViewSlot.ExecuteReader(CommandBehavior.CloseConnection);
                 FN_StudentViewSlot.Parameters.AddWithValue("@CourseID", courseID);
                 FN_StudentViewSlot.Parameters.AddWithValue("@InstructorID", insructorID);
+                SqlDataReader reader = FN_StudentViewSlot.ExecuteReader(CommandBehavior.CloseConnection);
                 DataTable dataTable = new DataTable();
-
                 dataTable.Load(reader);
-
                 GridView1.DataSource = dataTable;
                 GridView1.DataBind();
             }

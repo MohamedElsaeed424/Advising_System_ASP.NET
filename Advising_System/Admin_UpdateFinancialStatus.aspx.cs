@@ -95,20 +95,37 @@ namespace Advising_System
                     Procedure_AdminUpdateStudentStatus.CommandType = CommandType.StoredProcedure;
 
                     Procedure_AdminUpdateStudentStatus.Parameters.AddWithValue("@StudentID", studentId);
-                    connection.Open();
-                    Procedure_AdminUpdateStudentStatus.ExecuteNonQuery();
+                    try {
+                        connection.Open();
+                        Procedure_AdminUpdateStudentStatus.ExecuteNonQuery();
+                        SuccessLabel.Text = "the update is done successfully!";
+                        SuccessLabel.ForeColor = System.Drawing.Color.Green;
+                        SuccessLabel.Visible = true;
+                    }
+                    catch (Exception ex)
+                    {
+
+                        SuccessLabel.Text = "Error: " + ex.Message;
+                        SuccessLabel.ForeColor = System.Drawing.Color.Red;
+                        SuccessLabel.Visible = true;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+                
                 }
             }
-            
-
-        }
-
-
-
-
         protected void BackAdminHome(object sender, EventArgs e)
         {
             Response.Redirect("/AdminHome.aspx");
         }
+
     }
-}
+
+
+
+
+        
+    }

@@ -14,7 +14,7 @@ namespace Advising_System
     public partial class Admin_deleteSlot : System.Web.UI.Page
     {
 
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Admin")
@@ -23,15 +23,14 @@ namespace Advising_System
             }
         }
 
-        
-        
-        
+
+
+
         protected void post_DeleteSlotFromCourse(object sender, EventArgs e)
         {
-            try
-            {
-                string connectionString = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
-                using (SqlConnection connection = new SqlConnection(connectionString))
+            string connectionString = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+                try
                 {
                     using (SqlCommand Procedures_AdminDeleteSlots = new SqlCommand("Procedures_AdminDeleteSlots", connection))
                     {
@@ -41,28 +40,28 @@ namespace Advising_System
                         connection.Open();
                         Procedures_AdminDeleteSlots.ExecuteNonQuery();
                     }
+
+                    if (string.IsNullOrEmpty(CurrentSemText.Text))
+                    {
+                        SuccessLabel.Text = "Invalid Input";
+                        SuccessLabel.ForeColor = System.Drawing.Color.Red;
+                        SuccessLabel.Visible = true;
+                    }
+                    else
+                    {
+                        //deletion method
+                        SuccessLabel.Text = "Linking Successful";
+                        SuccessLabel.ForeColor = System.Drawing.Color.Green;
+                        SuccessLabel.Visible = true;
+
+                    }
                 }
-                if (string.IsNullOrEmpty(CurrentSemText.Text))
+                catch (Exception ex)
                 {
-                    SuccessLabel.Text = "Invalid Input";
+                    SuccessLabel.Text = "Error: " + ex.Message;
                     SuccessLabel.ForeColor = System.Drawing.Color.Red;
                     SuccessLabel.Visible = true;
                 }
-                else
-                {
-                    //deletion method
-                    SuccessLabel.Text = "Linking Successful";
-                    SuccessLabel.ForeColor = System.Drawing.Color.Green;
-                    SuccessLabel.Visible = true;
-
-                }
-            }
-            catch (Exception ex)
-            {
-                SuccessLabel.Text = "Error: " + ex.Message;
-                SuccessLabel.ForeColor = System.Drawing.Color.Red;
-                SuccessLabel.Visible = true;
-            }
         }
 
         protected void BackAdminHome(object sender, EventArgs e)

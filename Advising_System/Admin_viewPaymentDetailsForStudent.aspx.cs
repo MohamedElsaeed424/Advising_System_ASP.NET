@@ -22,18 +22,22 @@ namespace Advising_System
             {
                 string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
                 SqlConnection connection = new SqlConnection(connectionStirng);
+                try
+                {
+                    SqlCommand viewPay = new SqlCommand("SELECT * FROM Payment P INNER JOIN Student S on S.student_id = P.student_id;", connection);
+                    viewPay.CommandType = CommandType.Text; ;
+                    connection.Open();
 
-                SqlCommand viewPay = new SqlCommand("SELECT * FROM Payment P INNER JOIN Student S on S.student_id = P.student_id;", connection);
-                viewPay.CommandType = CommandType.Text; ;
-                connection.Open();
+                    SqlDataReader reader = viewPay.ExecuteReader(CommandBehavior.CloseConnection);
+                    DataTable dataTable = new DataTable();
 
-                SqlDataReader reader = viewPay.ExecuteReader(CommandBehavior.CloseConnection);
-                DataTable dataTable = new DataTable();
+                    dataTable.Load(reader);
 
-                dataTable.Load(reader);
-
-                ViewPaymentGV.DataSource = dataTable;
-                ViewPaymentGV.DataBind();
+                    ViewPaymentGV.DataSource = dataTable;
+                    ViewPaymentGV.DataBind();
+                }
+                catch (Exception ex) { Console.WriteLine("Error: " + ex.Message); }
+                finally { connection.Close(); }
             }
 
         }

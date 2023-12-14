@@ -94,25 +94,30 @@ namespace Advising_System
         protected void IssuePaymentInDatabase(int Payment_id)
         {
             string connectionString = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            SqlConnection connection = new SqlConnection(connectionString);
+            try
             {
-                using (SqlCommand Procedures_AdminIssueInstallment = new SqlCommand("Procedures_AdminIssueInstallment", connection))
+                using (connection)
                 {
-                    Procedures_AdminIssueInstallment.CommandType = CommandType.StoredProcedure;
-
-                    Procedures_AdminIssueInstallment.Parameters.AddWithValue("@paymentID", Payment_id);
-                    connection.Open();
-                    int nRowsAffected = Procedures_AdminIssueInstallment.ExecuteNonQuery();
-                    if(nRowsAffected > 0)
+                    using (SqlCommand Procedures_AdminIssueInstallment = new SqlCommand("Procedures_AdminIssueInstallment", connection))
                     {
-                        Debug.WriteLine("fdauwheh fjdhaks" +  nRowsAffected.ToString());
-                        SuccessLabel.Text = "3abilo we edilo balabizoooooooo!";
-                        SuccessLabel.ForeColor = System.Drawing.Color.Green;
-                        SuccessLabel.Visible = true;
+                        Procedures_AdminIssueInstallment.CommandType = CommandType.StoredProcedure;
+
+                        Procedures_AdminIssueInstallment.Parameters.AddWithValue("@paymentID", Payment_id);
+                        connection.Open();
+                        int nRowsAffected = Procedures_AdminIssueInstallment.ExecuteNonQuery();
+                        if (nRowsAffected > 0)
+                        {
+                            Debug.WriteLine("fdauwheh fjdhaks" + nRowsAffected.ToString());
+                            SuccessLabel.Text = "3abilo we edilo balabizoooooooo!";
+                            SuccessLabel.ForeColor = System.Drawing.Color.Green;
+                            SuccessLabel.Visible = true;
+                        }
                     }
                 }
             }
+            catch (Exception ex) { Console.WriteLine("Error: " + ex.Message); }
+            finally { connection.Close(); }
         }
 
 

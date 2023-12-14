@@ -11,6 +11,9 @@
         <div>
             <div>
                 <h2>Choose a course to delete with its assigned slots</h2>
+                <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
+                    <asp:Label ID="Label2" runat="server" Text="Choose Inputs" ForeColor="Blue" Visible="true"></asp:Label>
+                </div>
                 <div style="display: flex; align-items: center; justify-content: right; margin: 20px; resize: vertical;">
                     <asp:Button ID="BackAdminHome2" runat="server" OnClick="BackAdminHome" Text="Back" />
                     <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">

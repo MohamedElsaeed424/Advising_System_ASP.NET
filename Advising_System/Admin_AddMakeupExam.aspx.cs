@@ -26,7 +26,7 @@ namespace Advising_System
 
             DateTime startDate = Convert.ToDateTime(Start_Calender.SelectedDate);
             int courseId = Convert.ToInt16(AllCourses.SelectedValue);
-
+            String type = Convert.ToString(makeupDropDown.SelectedValue);
 
             if (startDate == DateTime.MinValue )
             {
@@ -45,7 +45,7 @@ namespace Advising_System
                         Procedures_AdminAddExam.CommandType = CommandType.StoredProcedure;
 
                         // Add parameters
-                        Procedures_AdminAddExam.Parameters.Add(new SqlParameter("@Type", SqlDbType.VarChar)).Value = "make up";
+                        Procedures_AdminAddExam.Parameters.Add(new SqlParameter("@Type", SqlDbType.VarChar)).Value = type;
                         Procedures_AdminAddExam.Parameters.Add(new SqlParameter("@date", SqlDbType.Date)).Value = startDate;
                         Procedures_AdminAddExam.Parameters.Add(new SqlParameter("@course_id", SqlDbType.VarChar, 40)).Value = courseId;
 

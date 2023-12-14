@@ -13,6 +13,7 @@
               <div style="display: flex; align-items: center; justify-content: right; margin: 20px; resize: vertical;">
                  <asp:Button ID="BackStudentHome2" runat="server" OnClick="BackStudentHome" Text="Back" />
              </div>
+
                <asp:GridView ID="AllMissingCourses" runat="server" AutoGenerateColumns="False">
                 <Columns>
                     <asp:BoundField DataField="advisor_id" HeaderText="Advisor ID" />
@@ -22,7 +23,7 @@
                     <asp:BoundField DataField="password" HeaderText="Password" />
                 </Columns>
                 </asp:GridView>
-        </div>
+            </div>
     </form>
 </body>
 </html>

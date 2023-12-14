@@ -10,32 +10,27 @@ using System.Web.UI.WebControls;
 
 namespace Advising_System
 {
-    public partial class Student_ViewAllOptionalCourses : System.Web.UI.Page
+    public partial class Student_ViewAllCoursesCurrentSemester : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Student")
+            if (Session["UserID"] == null|| Session["UserRole"] == null || Session["UserRole"].ToString() != "Student")
             {
                 Response.Redirect("/404Page.aspx");
             }
+
         }
-        protected void Get_OptionalCourses (object sender, EventArgs e)
+        protected void Get_AllAvailableCourses (object sender, EventArgs e)
         {
             string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
             SqlConnection connection = new SqlConnection(connectionStirng);
             try
             {
                 string semesterCode = Semester_CodeText.Text;
-                int studentId = Convert.ToInt32(Session["UserID"]);
-
-                SqlCommand Procedures_ViewOptionalCourse = new SqlCommand("Procedures_ViewOptionalCourse", connection);
-                Procedures_ViewOptionalCourse.CommandType = CommandType.StoredProcedure;
-
-                Procedures_ViewOptionalCourse.Parameters.AddWithValue("@current_semester_code", semesterCode);
-                Procedures_ViewOptionalCourse.Parameters.AddWithValue("@StudentID", studentId);
-
+                SqlCommand FN_SemsterAvailableCourses = new SqlCommand("SELECT * FROM FN_SemsterAvailableCourses(@semstercode)", connection);
+                FN_SemsterAvailableCourses.Parameters.AddWithValue("@semstercode", semesterCode);
                 connection.Open();
-                SqlDataReader reader = Procedures_ViewOptionalCourse.ExecuteReader(CommandBehavior.CloseConnection);
+                SqlDataReader reader = FN_SemsterAvailableCourses.ExecuteReader(CommandBehavior.CloseConnection);
 
                 DataTable dataTable = new DataTable();
 

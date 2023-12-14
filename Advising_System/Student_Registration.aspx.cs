@@ -177,7 +177,7 @@ namespace Advising_System
             }
         }
         protected void addOption(String text) {
-            ListItem newItem = new ListItem(text, "CS");
+            ListItem newItem = new ListItem(text, text);
             major.Items.Add(newItem);
         }
     }

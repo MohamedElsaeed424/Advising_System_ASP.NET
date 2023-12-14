@@ -57,6 +57,14 @@ namespace Advising_System
         {
             Response.Redirect("/Student_ViewMissingCourses.aspx");
         }
+        protected void ViewAllAvailableCourses(object sender , EventArgs e)
+        {
+            Response.Redirect("/Student_ViewAllCoursesCurrentSemester.aspx");
+        }
+        protected void ViewAllOptionalCourses(object sender ,EventArgs e)
+        {
+            Response.Redirect("/Student_ViewAllOptionalCourses.aspx");
+        }
 
     }
 }

@@ -44,6 +44,12 @@
         <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
             <asp:Button ID="Button11" runat="server" Onclick="ViewMissingCourses" Text="View Missing Courses" Width="357px" />
         </div>
+        <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
+            <asp:Button ID="Button12" runat="server" Onclick="ViewAllAvailableCourses" Text="View All Available Courses in Your Current semester" Width="357px" />
+        </div>
+        <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
+            <asp:Button ID="Button13" runat="server" Onclick="ViewAllOptionalCourses" Text="View All Optional Courses" Width="357px" />
+        </div>
     </form>
 </body>
 </html>

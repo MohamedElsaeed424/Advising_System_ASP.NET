@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace Advising_System
 {
-    public partial class Student_ViewAllOptionalCourses : System.Web.UI.Page
+    public partial class Student_ViewAllRequiredCourses : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,7 +19,7 @@ namespace Advising_System
                 Response.Redirect("/404Page.aspx");
             }
         }
-        protected void Get_OptionalCourses (object sender, EventArgs e)
+        protected void Get_RequiredCourses(object sender, EventArgs e)
         {
             string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
             SqlConnection connection = new SqlConnection(connectionStirng);
@@ -28,7 +28,7 @@ namespace Advising_System
                 string semesterCode = Semester_CodeText.Text;
                 int studentId = Convert.ToInt32(Session["UserID"]);
 
-                SqlCommand Procedures_ViewOptionalCourse = new SqlCommand("Procedures_ViewOptionalCourse", connection);
+                SqlCommand Procedures_ViewOptionalCourse = new SqlCommand("Procedures_ViewRequiredCourses", connection);
                 Procedures_ViewOptionalCourse.CommandType = CommandType.StoredProcedure;
 
                 Procedures_ViewOptionalCourse.Parameters.AddWithValue("@current_semester_code", semesterCode);
@@ -41,8 +41,8 @@ namespace Advising_System
 
                 dataTable.Load(reader);
 
-                AllOptionalCourses.DataSource = dataTable;
-                AllOptionalCourses.DataBind();
+                AllRequiredCourses.DataSource = dataTable;
+                AllRequiredCourses.DataBind();
             }
             catch (Exception ex)
             {

@@ -11,7 +11,7 @@ namespace Advising_System
 {
 
 
-    public partial class Student_ViewAllOptionalCourses
+    public partial class Student_ViewAllRequiredCourses
     {
 
         /// <summary>
@@ -60,12 +60,12 @@ namespace Advising_System
         protected global::System.Web.UI.WebControls.Button Button2;
 
         /// <summary>
-        /// AllOptionalCourses control.
+        /// AllRequiredCourses control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView AllOptionalCourses;
+        protected global::System.Web.UI.WebControls.GridView AllRequiredCourses;
     }
 }

@@ -11,7 +11,7 @@ namespace Advising_System
 {
 
 
-    public partial class Advisor_All_AdvisingStudents
+    public partial class Advisor_AllStudentsMajorCourse
     {
 
         /// <summary>
@@ -24,21 +24,30 @@ namespace Advising_System
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// ViewAllAdvisingStudents control.
+        /// BackHome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ViewAllAdvisingStudents;
+        protected global::System.Web.UI.WebControls.Button BackHome;
 
         /// <summary>
-        /// AllAdvisingStudents control.
+        /// majors control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView AllAdvisingStudents;
+        protected global::System.Web.UI.WebControls.DropDownList majors;
+
+        /// <summary>
+        /// StudentsWithMajor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView StudentsWithMajor;
     }
 }

@@ -19,7 +19,7 @@ namespace Advising_System
             SqlConnection connection = new SqlConnection(connectionStirng);
             try
             {
-                SqlCommand FN_Advisors_Requests = new SqlCommand($"SELECT * FROM FN_Advisors_Requests(8)", connection); // {Session["UserID"]} put in input of fn
+                SqlCommand FN_Advisors_Requests = new SqlCommand($"SELECT * FROM FN_Advisors_Requests({Session["UserID"]})", connection); // {Session["UserID"]} put in input of fn
                 FN_Advisors_Requests.CommandType = CommandType.Text;
                 connection.Open();
 
@@ -38,7 +38,7 @@ namespace Advising_System
             }
             finally { connection.Close(); }
         }
-        protected void BackAdminHome(object sender, EventArgs e)
+        protected void BackAdvisorHome(object sender, EventArgs e)
         {
             Response.Redirect("/AdvisorHome.aspx");
         }

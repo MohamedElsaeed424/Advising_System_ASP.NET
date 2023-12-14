@@ -11,43 +11,34 @@ namespace Advising_System
 {
 
 
-    public partial class All_StudentsWithAdvisors
+    public partial class Admin_viewStudentsTranscriptDetails
     {
 
         /// <summary>
-        /// AllStudentdWithAdvisorsForm control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm AllStudentdWithAdvisorsForm;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// AllMajorsRadioList control.
+        /// BackAdminHomeButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList AllMajorsRadioList;
+        protected global::System.Web.UI.WebControls.Button BackAdminHomeButton;
 
         /// <summary>
-        /// AllAdvisorsRadioList control.
+        /// viewTransGV control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList AllAdvisorsRadioList;
-
-        /// <summary>
-        /// AllStudentsWithAdvisorsTable control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView AllStudentsWithAdvisorsTable;
+        protected global::System.Web.UI.WebControls.GridView viewTransGV;
     }
 }

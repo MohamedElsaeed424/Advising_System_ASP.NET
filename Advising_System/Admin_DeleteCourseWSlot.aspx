@@ -9,11 +9,24 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Label ID="Label1" runat="server" Text="Insert course ID"></asp:Label><br/>
-            <div style="margin-bottom: 20px;"></div>
-            <asp:TextBox ID="CourseID" runat="server"></asp:TextBox> <br/>
-            <div style="margin-bottom: 20px;"></div>
-            <input id="Button1" type="button" onclick = "DeleteCourse" value="Delete" /> <br/>
+            <div>
+                <h2>Choose a course to delete with its assigned slots</h2>
+                <div style="display: flex; align-items: center; justify-content: right; margin: 20px; resize: vertical;">
+                    <asp:Button ID="BackAdminHome2" runat="server" OnClick="BackAdminHome" Text="Back" />
+                    <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
+                        <asp:Label ID="SuccessLabel" runat="server" Text="Choose Inputs" ForeColor="Blue" Visible="true"></asp:Label>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
+                    <asp:Label ID="Label1" runat="server" Text="Select course"></asp:Label>
+                    &nbsp;&nbsp;&nbsp;
+                    <asp:DropDownList ID="Allcourses" runat="server" CssClass="dropdown-list">
+                    </asp:DropDownList>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
+                    <asp:Button ID="DeleteCourse" OnClick="DeleteSelectedCourse" runat="server" Text="Delete" />
+                </div>
+            </div>
         </div>
     </form>
 </body>

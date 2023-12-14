@@ -34,7 +34,9 @@ namespace Advising_System
                     string.IsNullOrEmpty(courseName) ||
                       (!Trueid.Checked && !Falseid.Checked))
                 {
-                    Response.Write("Invalid Input");
+                    SuccessLabel.Text = "Invalid Input";
+                    SuccessLabel.ForeColor = System.Drawing.Color.Red;
+                    SuccessLabel.Visible = true;
                 }
                 else
                 {

@@ -15,9 +15,7 @@ namespace Advising_System
         }
         protected void get_Advisors(object sender, EventArgs e)
         {
-
             Response.Redirect("/Admin_ListAllAdvisors.aspx");
-
         }
         protected void get_AdvisorsWithStudents(object sender, EventArgs e)
         {
@@ -27,7 +25,6 @@ namespace Advising_System
         {
             Response.Redirect("/Admin_ListAllPendingRequests.aspx");
         }
-
         protected void Post_newSemetser(object sender, EventArgs e)
         {
             Response.Redirect("/Admin_AddNewSemester.aspx");
@@ -35,6 +32,65 @@ namespace Advising_System
         protected void Post_newCourse(object sender, EventArgs e)
         {
             Response.Redirect("/Admin_AddNewCourse.aspx");
+        }
+        protected void get_AllInstructorsWithThereCourses(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_ListInstructorCourse.aspx");
+        }
+        protected void get_AllOfferedCourses(Object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_ListAllSemestersCourses.aspx");
+        }
+        protected void post_LinkInstructorToCourse(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_LinkInstructorCourseSlot.aspx");
+        } 
+        protected void post_LinkStudentToAdvisor(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_LinkStudentAdvisor.aspx");
+        } 
+        protected void post_LinkStudentToCourseInstructor(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_LinkStudentCourseInstructor.aspx");
+        }
+        protected void Get_FetchSemWCourse(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_FetchSemWCourse.aspx");
+        }
+
+        protected void ViewStudentsTranscript(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_viewStudentsTranscriptDetails.aspx");
+        }
+
+        protected void viewPayment(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_viewPaymentDetailsForStudent.aspx");
+        }
+
+        protected void ViewGPWadvisor(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_ViewGPWadvisor.aspx");
+        }
+
+        protected void ViewAllActiveStudents(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_fetchActiveStudents.aspx");
+        }
+
+        protected void DeleteCourseWSlots(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_DeleteCourseWSlot.aspx");
+        }
+
+        protected void IssueInstallment(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_issueInstallments.aspx");
+        }
+
+        protected void UpdateFinancial(object sender, EventArgs e)
+        {
+            Response.Redirect("/Admin_UpdateFinancialStatus.aspx");
         }
     }
 }

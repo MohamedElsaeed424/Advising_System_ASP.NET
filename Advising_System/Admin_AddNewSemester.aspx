@@ -11,7 +11,7 @@
         <div>
             Add New Semester
             <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-                <asp:Label ID="SuccessLabel" runat="server" Text="Add Inputs" ForeColor="Green" Visible="true"></asp:Label>
+                <asp:Label ID="SuccessLabel" runat="server" Text="Add Inputs" ForeColor="Blue" Visible="true"></asp:Label>
             </div>
              <div style="display: flex; align-items: center; justify-content: right; margin: 20px; resize: vertical;">
                  <asp:Button ID="BackAdminHome3" runat="server" OnClick="BackAdminHome" Text="Back" />
@@ -43,9 +43,6 @@
 
 
 </div>
-
-           
-        </div>
 
     </form>
 </body>

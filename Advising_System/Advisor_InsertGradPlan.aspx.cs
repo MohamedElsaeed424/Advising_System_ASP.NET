@@ -16,35 +16,43 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
-            SqlConnection connection = new SqlConnection(connectionStirng);
-            try
+            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Advisor")
             {
-                SqlCommand AllStudents = new SqlCommand($"SELECT student_id, CONCAT(student_id, '-', f_name, ' ', l_name) AS 'All' " +
-                    $"FROM Student WHERE advisor_id = {Session["UserID"]}\r\n", connection); // {Session["UserID"]} put in input of fn
-                AllStudents.CommandType = CommandType.Text;
-                connection.Open();
-
-                SqlDataReader reader = AllStudents.ExecuteReader(CommandBehavior.CloseConnection);
-
-                DataTable dt = new DataTable();
-                dt.Load(reader);
-
-                StudentID.DataSource = dt;
-                StudentID.DataTextField = "All";
-                StudentID.DataValueField = "student_id";
-                StudentID.DataBind();
-
-                StudentID.Items.Insert(0, new ListItem("Select a Student", string.Empty));
-                StudentID.SelectedIndex = 0;
-
-                reader.Close();
+                Response.Redirect("/404Page.aspx");
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine(ex.ToString());
+                string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
+                SqlConnection connection = new SqlConnection(connectionStirng);
+                try
+                {
+                    SqlCommand AllStudents = new SqlCommand($"SELECT student_id, CONCAT(student_id, '-', f_name, ' ', l_name) AS 'All' " +
+                        $"FROM Student WHERE advisor_id = {Session["UserID"]}\r\n", connection); // {Session["UserID"]} put in input of fn
+                    AllStudents.CommandType = CommandType.Text;
+                    connection.Open();
+
+                    SqlDataReader reader = AllStudents.ExecuteReader(CommandBehavior.CloseConnection);
+
+                    DataTable dt = new DataTable();
+                    dt.Load(reader);
+
+                    StudentID.DataSource = dt;
+                    StudentID.DataTextField = "All";
+                    StudentID.DataValueField = "student_id";
+                    StudentID.DataBind();
+
+                    StudentID.Items.Insert(0, new ListItem("Select a Student", string.Empty));
+                    StudentID.SelectedIndex = 0;
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+                finally { connection.Close(); }
             }
-            finally { connection.Close(); }
+
         }
 
         protected void CreateGrad_Click(object sender, EventArgs e)

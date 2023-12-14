@@ -20,31 +20,47 @@ namespace Advising_System
             }
  
         }
+        private void DisplayErrorMessage(string message)
+        {
+            SuccessLabel.Text = "Error: " + message;
+            SuccessLabel.ForeColor = System.Drawing.Color.Red;
+            SuccessLabel.Visible = true;
+        }
+
 
         protected void ChooseInstructor(object sender, EventArgs e)
         {
             string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
             SqlConnection connection = new SqlConnection(connectionStirng);
                 int studentId = Convert.ToInt32(Session["UserID"]);
-                int instrucorID = Int16.Parse(TextBox2.Text);
-                int courseID = Int16.Parse(TextBox3.Text);
-                string CurrentSemester = semi.Text;
-            if (!int.TryParse(TextBox2.Text, out studentId) || !int.TryParse(TextBox3.Text, out instrucorID) ||
-                   !int.TryParse(semi.Text, out courseID) ||
-                   string.IsNullOrEmpty(CurrentSemester))
+            int instructorID;
+            if (!int.TryParse(TextBox2.Text, out instructorID))
             {
-                SuccessLabel.Text = "Invalid Input";
-                SuccessLabel.ForeColor = System.Drawing.Color.Red;
-                SuccessLabel.Visible = true;
+                DisplayErrorMessage("Invalid Instructor ID. Please enter a valid numeric value.");
+                return;
+            }
+
+            int courseID;
+            if (!int.TryParse(TextBox3.Text, out courseID))
+            {
+                DisplayErrorMessage("Invalid Course ID. Please enter a valid numeric value.");
+                return;
+            }
+
+            string currentSemester = semi.Text;
+            if (string.IsNullOrEmpty(currentSemester))
+            {
+                DisplayErrorMessage("Current Semester is required");
+                return;
             }
             else
             {
                 SqlCommand Procedures_ChooseInstructor = new SqlCommand("Procedures_ChooseInstructor", connection);
                 Procedures_ChooseInstructor.CommandType = CommandType.StoredProcedure;
                 Procedures_ChooseInstructor.Parameters.AddWithValue("@StudentID", studentId);
-                Procedures_ChooseInstructor.Parameters.AddWithValue("@InstructorID", instrucorID);
+                Procedures_ChooseInstructor.Parameters.AddWithValue("@InstructorID", instructorID);
                 Procedures_ChooseInstructor.Parameters.AddWithValue("@CourseID", courseID);
-                Procedures_ChooseInstructor.Parameters.AddWithValue("@current_semester_code", CurrentSemester);
+                Procedures_ChooseInstructor.Parameters.AddWithValue("@current_semester_code", currentSemester);
                 try
                 {
                     connection.Open();

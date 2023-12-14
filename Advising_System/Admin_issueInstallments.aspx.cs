@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
@@ -94,25 +95,44 @@ namespace Advising_System
         protected void IssuePaymentInDatabase(int Payment_id)
         {
             string connectionString = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            SqlConnection connection = new SqlConnection(connectionString);
+            try
             {
-                using (SqlCommand Procedures_AdminIssueInstallment = new SqlCommand("Procedures_AdminIssueInstallment", connection))
+                using (connection)
                 {
-                    Procedures_AdminIssueInstallment.CommandType = CommandType.StoredProcedure;
-
-                    Procedures_AdminIssueInstallment.Parameters.AddWithValue("@paymentID", Payment_id);
-                    connection.Open();
-                    int nRowsAffected = Procedures_AdminIssueInstallment.ExecuteNonQuery();
-                    if(nRowsAffected > 0)
+                    using (SqlCommand Procedures_AdminIssueInstallment = new SqlCommand("Procedures_AdminIssueInstallment", connection))
                     {
-                        Debug.WriteLine("fdauwheh fjdhaks" +  nRowsAffected.ToString());
-                        SuccessLabel.Text = "3abilo we edilo balabizoooooooo!";
-                        SuccessLabel.ForeColor = System.Drawing.Color.Green;
-                        SuccessLabel.Visible = true;
+                        Procedures_AdminIssueInstallment.CommandType = CommandType.StoredProcedure;
+
+                        // Add parameters
+                        Procedures_AdminIssueInstallment.Parameters.Add(new SqlParameter("@paymentID", SqlDbType.VarChar)).Value = Payment_id;
+                        
+
+                        try
+                        {
+
+                            connection.Open();
+                            Procedures_AdminIssueInstallment.ExecuteNonQuery();
+                            SuccessLabel.Text = "Installment added successfully!";
+                            SuccessLabel.ForeColor = System.Drawing.Color.Green;
+                            SuccessLabel.Visible = true;
+                        }
+                        catch (Exception ex)
+                        {
+
+                            SuccessLabel.Text = "Error: " + ex.Message;
+                            SuccessLabel.ForeColor = System.Drawing.Color.Red;
+                            SuccessLabel.Visible = true;
+                        }
+                        finally
+                        {
+                            connection.Close();
+                        }
                     }
                 }
             }
+            catch (Exception ex) { Console.WriteLine("Error: " + ex.Message); }
+            finally { connection.Close(); }
         }
 
 

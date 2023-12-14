@@ -22,18 +22,22 @@ namespace Advising_System
             {
                 string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
                 SqlConnection connection = new SqlConnection(connectionStirng);
+                try
+                {
+                    SqlCommand viewAS = new SqlCommand("SELECT * \r\nFROM student \r\nWHERE financial_status = 1;", connection);
+                    viewAS.CommandType = CommandType.Text; ;
+                    connection.Open();
 
-                SqlCommand viewAS = new SqlCommand("SELECT * \r\nFROM student \r\nWHERE financial_status = 1;", connection);
-                viewAS.CommandType = CommandType.Text; ;
-                connection.Open();
+                    SqlDataReader reader = viewAS.ExecuteReader(CommandBehavior.CloseConnection);
+                    DataTable dataTable = new DataTable();
 
-                SqlDataReader reader = viewAS.ExecuteReader(CommandBehavior.CloseConnection);
-                DataTable dataTable = new DataTable();
+                    dataTable.Load(reader);
 
-                dataTable.Load(reader);
-
-                AllActiveStudents.DataSource = dataTable;
-                AllActiveStudents.DataBind();
+                    AllActiveStudents.DataSource = dataTable;
+                    AllActiveStudents.DataBind();
+                }
+                catch (Exception ex) { Console.WriteLine("Error: " + ex.Message); }
+                finally { connection.Close(); }
             }
 
         }

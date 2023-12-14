@@ -19,6 +19,12 @@ namespace Advising_System
                 Response.Redirect("/404Page.aspx");
             }
         }
+        private void DisplayErrorMessage(string message)
+        {
+            SuccessLabel.Text = "Error: " + message;
+            SuccessLabel.ForeColor = System.Drawing.Color.Red;
+            SuccessLabel.Visible = true;
+        }
 
 
         protected void post_Course(object sender, EventArgs e)
@@ -28,22 +34,31 @@ namespace Advising_System
             try
             {
                 string major = CoursemMjorText.Text;
-                int semester = Convert.ToInt32(AllSemesters.SelectedValue);
-                int creditHours = Convert.ToInt32(AllCreditHours.SelectedValue);
+                int semester;
+                int creditHours;
                 string courseName = Course_NameText.Text;
                 bool isOffered = Trueid.Checked;
-                if (string.IsNullOrEmpty(major) || !int.TryParse(AllSemesters.SelectedValue, out semester) ||
-                    !int.TryParse(AllCreditHours.SelectedValue, out creditHours) ||
-                    string.IsNullOrEmpty(courseName) ||
-                      (!Trueid.Checked && !Falseid.Checked))
+                if (string.IsNullOrEmpty(major))
                 {
-                    SuccessLabel.Text = "Invalid Input";
-                    SuccessLabel.ForeColor = System.Drawing.Color.Red;
-                    SuccessLabel.Visible = true;
+                    DisplayErrorMessage("Major is required");
+                    return;
                 }
-                else
+                if (!int.TryParse(AllSemesters.SelectedValue, out semester) || semester <= 0)
                 {
-                    using (connection)
+                    DisplayErrorMessage("Invalid Semester");
+                    return;
+                }
+                if (!int.TryParse(AllCreditHours.SelectedValue, out creditHours) || creditHours <= 0)
+                {
+                    DisplayErrorMessage("Invalid Credit Hours");
+                    return;
+                }
+                if (string.IsNullOrEmpty(courseName))
+                {
+                    DisplayErrorMessage("Course Name is required");
+                    return;
+                }
+                using (connection)
                     {
                         using (SqlCommand Procedures_AdminAddingCourse = new SqlCommand("Procedures_AdminAddingCourse", connection))
                         {
@@ -73,8 +88,6 @@ namespace Advising_System
                             AllCreditHours.SelectedIndex = 0;
                         }
                     }
-                }
-
                 
             }
             catch (Exception ex)

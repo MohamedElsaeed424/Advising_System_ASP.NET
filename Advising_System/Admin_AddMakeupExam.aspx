@@ -30,10 +30,14 @@
     
             </div>
             <asp:DropDownList ID="AllCourses" runat="server" CssClass="dropdown-list"></asp:DropDownList>
-                <asp:Label ID="MakeupDate" runat="server" Text="Exam date"></asp:Label>
-                <asp:Calendar ID="Start_Calender" runat="server" OnSelectionChanged="DateSelectionChanged1"></asp:Calendar>
-                <asp:Label ID="SelectedStartDateLabel1" runat="server" Text="Selected Start Date:"></asp:Label>
-            
+            <asp:DropDownList ID="makeupDropDown" runat="server">
+                <asp:ListItem Text="First Makeup" Value="First Makeup" />
+                <asp:ListItem Text="Second Makeup" Value="Second Makeup" />
+            </asp:DropDownList>
+            <asp:Label ID="MakeupDate" runat="server" Text="Exam date"></asp:Label>
+            <asp:Calendar ID="Start_Calender" runat="server" OnSelectionChanged="DateSelectionChanged1"></asp:Calendar>
+            <asp:Label ID="SelectedStartDateLabel1" runat="server" Text="Selected Start Date:"></asp:Label>
+
         </div>
         <div>
             <asp:Button ID="AddSemester" runat="server" OnClick="post_Exam" Text="Add Exam" />

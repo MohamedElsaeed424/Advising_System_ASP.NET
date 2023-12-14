@@ -14,28 +14,47 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Admin")
+            {
+                Response.Redirect("/404Page.aspx");
+            }
             if (!IsPostBack)
             {
                 BindCoursesToDropDown();
             }
         }
+        private void DisplayErrorMessage(string message)
+        {
+            SuccessLabel.Text = "Error: " + message;
+            SuccessLabel.ForeColor = System.Drawing.Color.Red;
+            SuccessLabel.Visible = true;
+        }
+
 
 
         protected void post_Exam(object sender, EventArgs e)
         {
 
-            DateTime startDate = Convert.ToDateTime(Start_Calender.SelectedDate);
-            int courseId = Convert.ToInt16(AllCourses.SelectedValue);
-
-
-            if (startDate == DateTime.MinValue )
+            DateTime startDate;
+            if (!DateTime.TryParse(Start_Calender.SelectedDate.ToString(), out startDate))
             {
-                SuccessLabel.Text = "Invalid Input";
-                SuccessLabel.ForeColor = System.Drawing.Color.Red;
-                SuccessLabel.Visible = true;
+                DisplayErrorMessage("Invalid Start Date. Please select a valid date.");
+                return;
             }
-            else
+
+            int courseId;
+            if (!int.TryParse(AllCourses.SelectedValue, out courseId))
             {
+                DisplayErrorMessage("Invalid Course ID. Please select a valid course.");
+                return;
+            }
+
+            string type = Convert.ToString(makeupDropDown.SelectedValue);
+            if (string.IsNullOrEmpty(type))
+            {
+                DisplayErrorMessage("Type is required");
+                return;
+            }
                 string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
                 SqlConnection connection = new SqlConnection(connectionStirng);
                 using (connection)
@@ -45,7 +64,7 @@ namespace Advising_System
                         Procedures_AdminAddExam.CommandType = CommandType.StoredProcedure;
 
                         // Add parameters
-                        Procedures_AdminAddExam.Parameters.Add(new SqlParameter("@Type", SqlDbType.VarChar)).Value = "make up";
+                        Procedures_AdminAddExam.Parameters.Add(new SqlParameter("@Type", SqlDbType.VarChar)).Value = type;
                         Procedures_AdminAddExam.Parameters.Add(new SqlParameter("@date", SqlDbType.Date)).Value = startDate;
                         Procedures_AdminAddExam.Parameters.Add(new SqlParameter("@course_id", SqlDbType.VarChar, 40)).Value = courseId;
 
@@ -71,7 +90,7 @@ namespace Advising_System
                         {
                             connection.Close();
                         }
-                    }
+
                 }
             }
 

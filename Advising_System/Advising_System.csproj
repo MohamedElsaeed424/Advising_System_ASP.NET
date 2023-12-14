@@ -103,6 +103,8 @@
     <Content Include="Advisor_login.aspx" />
     <Content Include="Advisor_Registration.aspx" />
     <Content Include="Advisor_UpdateExGradDate.aspx" />
+    <Content Include="images\gucblurred.png" />
+    <Content Include="images\gucc1.png" />
     <Content Include="Student_AddPhoneNum.aspx" />
     <Content Include="Student_Login.aspx" />
     <Content Include="Student_Registration.aspx" />

@@ -14,8 +14,6 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["UserRole"] = "Student";
-            Session["UserID"] = 1; /////////////////////////////////////////////////////////////
             if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Student")
             {
                 Response.Redirect("/404Page.aspx");

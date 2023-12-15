@@ -228,13 +228,12 @@
 
     toggleBtn.addEventListener('click', () => {
         const sidebarWidth = sidebar.offsetWidth;
-
         if (sidebar.style.left === '0px' || sidebar.style.left === '') {
-            sidebar.style.left = -${sidebarWidth}px;
+            sidebar.style.left = `-${sidebarWidth} px`;
             content.style.marginLeft = '0';
         } else {
             sidebar.style.left = '0';
-            content.style.marginLeft = ${sidebarWidth}px;
+            content.style.marginLeft = `-${sidebarWidth} px`;
         }
     });
 </script>

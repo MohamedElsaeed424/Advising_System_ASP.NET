@@ -5,12 +5,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>View Requests</title>
-    <style>
+  <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+            background: url('Images/gucblurred.png') center center fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: black; /* Set text color to white for better visibility */
         }
 
         h2 {
@@ -21,7 +24,7 @@
         #form1 {
             max-width: 800px;
             margin: 0 auto;
-            background-color: #fff;
+            background-color: white;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -29,15 +32,16 @@
 
         #BackHome {
             padding: 8px 16px;
-            background-color: #007bff;
-            color: #fff;
+            background-color: orangered;
+            color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            margin-bottom: 20px;
         }
 
         #BackHome:hover {
-            background-color: #0056b3;
+            background-color: darkred;
         }
 
         #SuccessLabel {
@@ -61,17 +65,17 @@
         #CourseRequests td {
             padding: 8px;
             text-align: left;
-            border-bottom: 1px solid #ccc;
+            border-bottom: 1px solid white; /* Thick white border */
         }
 
         #CourseRequests th {
-            background-color: #f2f2f2;
+            background-color: darkred;
         }
 
         .action-button {
             padding: 6px 12px;
             background-color: #28a745;
-            color: #fff;
+            color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;

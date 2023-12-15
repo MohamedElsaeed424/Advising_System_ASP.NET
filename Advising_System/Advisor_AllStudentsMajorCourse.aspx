@@ -7,15 +7,18 @@
     <title>Approve / Reject Course Requests</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+           background: url('Images/gucblurred.png') center center fixed;
+background-size: cover;
+background-repeat: no-repeat
         }
 
         h2 {
             text-align: center;
             margin-top: 20px;
+            color: red; /* Set text color to white for better visibility */
         }
 
         #form1 {
@@ -29,15 +32,16 @@
 
         #BackHome {
             padding: 8px 16px;
-            background-color: #007bff;
-            color: #fff;
+            background-color: orangered;
+            color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            margin-bottom: 20px;
         }
 
         #BackHome:hover {
-            background-color: #0056b3;
+            background-color: darkred;
         }
 
         #majors {
@@ -45,7 +49,9 @@
             padding: 8px;
             margin-bottom: 20px;
             border-radius: 4px;
-            border: 1px solid #ccc;
+            border: 1px solid white; /* White border */
+            background-color: orangered; /* Set background color */
+            color: white; /* Set text color to white for better visibility */
         }
 
         #StudentsWithMajor {
@@ -53,15 +59,17 @@
             border-collapse: collapse;
         }
 
-        #StudentsWithMajor th,
+            #StudentsWithMajor th {
+            border-bottom: 10px solid white; /* Thick white border */}
         #StudentsWithMajor td {
             padding: 8px;
             text-align: left;
-            border-bottom: 1px solid #ccc;
+            border-bottom: 10px solid white; /* Thick white border */
+            color: white; /* Set text color to white for better visibility */
         }
 
         #StudentsWithMajor th {
-            background-color: #f2f2f2;
+            background-color: darkred;
         }
     </style>
 </head>

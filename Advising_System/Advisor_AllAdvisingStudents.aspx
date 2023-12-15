@@ -7,10 +7,13 @@
     <title>Advising Students</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+            background: url('Images/gucblurred.png') center center fixed;
+background-size: cover;
+background-repeat: no-repeat;
+            color: black; /* Set text color to white for better visibility */
         }
 
         h2 {
@@ -21,40 +24,44 @@
         #form1 {
             max-width: 1920px;
             margin: 0 auto;
-            background-color: #fff;
+            background-color:none;
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+           
         }
 
         #BackHome {
             padding: 8px 16px;
-            background-color: #007bff;
-            color: #fff;
+            background-color: orangered;
+            color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            margin-bottom: 20px;
         }
 
         #BackHome:hover {
-            background-color: #0056b3;
+            background-color: darkred;
         }
 
         #AllAdvisingStudents {
             margin-top: 20px;
             width: 100%;
             border-collapse: collapse;
+            background-color: white;
         }
 
-        #AllAdvisingStudents th,
+            #AllAdvisingStudents th, {
+                border-bottom: 2px solid white; /* Thick white border */
+            }
         #AllAdvisingStudents td {
             padding: 8px;
             text-align: left;
-            border-bottom: 1px solid #ccc;
+            border-bottom: 2px solid white; /* Thick white border */
         }
 
         #AllAdvisingStudents th {
-            background-color: #f2f2f2;
+            background-color: darkred;
         }
     </style>
 </head>

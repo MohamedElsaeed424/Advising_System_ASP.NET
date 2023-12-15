@@ -18,6 +18,12 @@ namespace Advising_System
                 Response.Redirect("/404Page.aspx");
             }
         }
+        private void DisplayErrorMessage(string message)
+        {
+            SuccessLabel.Text = "Error: " + message;
+            SuccessLabel.ForeColor = System.Drawing.Color.Red;
+            SuccessLabel.Visible = true;
+        }
 
         protected void AddPhoneNum(object sender, EventArgs e)
         {
@@ -30,22 +36,30 @@ namespace Advising_System
                 int studentId = Convert.ToInt32(Session["UserID"]);
 
                 string phoneNumber = PhoneNum.Text;
-
-                using (SqlCommand command = new SqlCommand("Procedures_StudentaddMobile", connection))
+                if (string.IsNullOrEmpty(phoneNumber))
                 {
-                    command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@StudentID", studentId);
-                    command.Parameters.AddWithValue("@mobile_number", phoneNumber);
-
-                    connection.Open();
-                    command.ExecuteNonQuery();
+                    DisplayErrorMessage("Current Semester is required");
+                    return;
                 }
+                else
+                {
 
-                SuccessLabel.Text = "Phone number added successfully.";
-                SuccessLabel.ForeColor = System.Drawing.Color.Green;
-                SuccessLabel.Visible = true;
+                    using (SqlCommand command = new SqlCommand("Procedures_StudentaddMobile", connection))
+                    {
+                        command.CommandType = System.Data.CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@StudentID", studentId);
+                        command.Parameters.AddWithValue("@mobile_number", phoneNumber);
 
-                PhoneNum.Text = string.Empty;
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+
+                    SuccessLabel.Text = "Phone number added successfully.";
+                    SuccessLabel.ForeColor = System.Drawing.Color.Green;
+                    SuccessLabel.Visible = true;
+
+                    PhoneNum.Text = string.Empty;
+                }
             }
             catch (Exception ex)
             {

@@ -23,23 +23,38 @@ namespace Advising_System
                 BindCoursesToDropDown();
             }
         }
+        private void DisplayErrorMessage(string message)
+        {
+            SuccessLabel.Text = "Error: " + message;
+            SuccessLabel.ForeColor = System.Drawing.Color.Red;
+            SuccessLabel.Visible = true;
+        }
+
 
 
         protected void post_Exam(object sender, EventArgs e)
         {
 
-            DateTime startDate = Convert.ToDateTime(Start_Calender.SelectedDate);
-            int courseId = Convert.ToInt16(AllCourses.SelectedValue);
-            String type = Convert.ToString(makeupDropDown.SelectedValue);
-
-            if (startDate == DateTime.MinValue || AllCourses.SelectedIndex == 0 || makeupDropDown.SelectedIndex ==0 )
+            DateTime startDate;
+            if (!DateTime.TryParse(Start_Calender.SelectedDate.ToString(), out startDate))
             {
-                SuccessLabel.Text = "Invalid Input";
-                SuccessLabel.ForeColor = System.Drawing.Color.Red;
-                SuccessLabel.Visible = true;
+                DropDownLoader.DisplayErrorMessage(SuccessLabel,"Invalid Start Date. Please select a valid date.");
+                return;
             }
-            else
+
+            int courseId;
+            if (!int.TryParse(AllCourses.SelectedValue, out courseId))
             {
+                DropDownLoader.DisplayErrorMessage(SuccessLabel,"Invalid Course ID. Please select a valid course.");
+                return;
+            }
+
+            string type = Convert.ToString(makeupDropDown.SelectedValue);
+            if (string.IsNullOrEmpty(type))
+            {
+                DropDownLoader.DisplayErrorMessage(SuccessLabel, "Type is required");
+                return;
+            }
                 string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
                 SqlConnection connection = new SqlConnection(connectionStirng);
                 using (connection)
@@ -75,7 +90,7 @@ namespace Advising_System
                         {
                             connection.Close();
                         }
-                    }
+
                 }
             }
 

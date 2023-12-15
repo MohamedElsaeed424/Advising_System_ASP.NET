@@ -80,12 +80,23 @@ namespace Advising_System
         }
 
 
-        
+        private void DisplayErrorMessage(string message)
+        {
+            SuccessLabel.Text = "Error: " + message;
+            SuccessLabel.ForeColor = System.Drawing.Color.Red;
+            SuccessLabel.Visible = true;
+        }
 
         public void UpdateFinancialStatushelp(object sender, EventArgs e)
         {
             string connectionString = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
-            int studentId = Convert.ToInt32(AllStudents.SelectedValue);
+            int studentId;
+            if (!int.TryParse(AllStudents.SelectedValue?.ToString(), out studentId) || studentId <= 0)
+            {
+                DisplayErrorMessage("Invalid Student Selection");
+                return;
+            }
+
             System.Diagnostics.Debug.WriteLine(studentId);
             if (AllStudents.SelectedIndex==0)
             {

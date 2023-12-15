@@ -11,7 +11,7 @@ namespace Advising_System
 {
 
 
-    public partial class Student_ViewAllOptionalCourses
+    public partial class Advisor_extraCourse
     {
 
         /// <summary>
@@ -24,13 +24,13 @@ namespace Advising_System
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// BackStudentHome2 control.
+        /// BackHome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BackStudentHome2;
+        protected global::System.Web.UI.WebControls.Button BackHome;
 
         /// <summary>
         /// SuccessLabel control.
@@ -42,39 +42,48 @@ namespace Advising_System
         protected global::System.Web.UI.WebControls.Label SuccessLabel;
 
         /// <summary>
-        /// Semester_Code control.
+        /// Pending control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Semester_Code;
+        protected global::System.Web.UI.WebControls.CheckBox Pending;
 
         /// <summary>
-        /// Semester_CodeText control.
+        /// All control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Semester_CodeText;
+        protected global::System.Web.UI.WebControls.RadioButton All;
 
         /// <summary>
-        /// Button2 control.
+        /// Course control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.RadioButton Course;
 
         /// <summary>
-        /// AllOptionalCourses control.
+        /// Credit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView AllOptionalCourses;
+        protected global::System.Web.UI.WebControls.RadioButton Credit;
+
+        /// <summary>
+        /// CourseRequests control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView CourseRequests;
     }
 }

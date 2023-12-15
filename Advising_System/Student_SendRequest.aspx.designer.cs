@@ -11,7 +11,7 @@ namespace Advising_System
 {
 
 
-    public partial class Student_ViewAllOptionalCourses
+    public partial class Student_SendRequest
     {
 
         /// <summary>
@@ -24,13 +24,13 @@ namespace Advising_System
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// BackStudentHome2 control.
+        /// BackHome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BackStudentHome2;
+        protected global::System.Web.UI.WebControls.Button BackHome;
 
         /// <summary>
         /// SuccessLabel control.
@@ -42,39 +42,84 @@ namespace Advising_System
         protected global::System.Web.UI.WebControls.Label SuccessLabel;
 
         /// <summary>
-        /// Semester_Code control.
+        /// Type control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Semester_Code;
+        protected global::System.Web.UI.WebControls.Label Type;
 
         /// <summary>
-        /// Semester_CodeText control.
+        /// CH control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Semester_CodeText;
+        protected global::System.Web.UI.WebControls.RadioButton CH;
 
         /// <summary>
-        /// Button2 control.
+        /// CourseRadio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button2;
+        protected global::System.Web.UI.WebControls.RadioButton CourseRadio;
 
         /// <summary>
-        /// AllOptionalCourses control.
+        /// Which control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView AllOptionalCourses;
+        protected global::System.Web.UI.WebControls.Label Which;
+
+        /// <summary>
+        /// Credit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Credit;
+
+        /// <summary>
+        /// Courses control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList Courses;
+
+        /// <summary>
+        /// CommentLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label CommentLabel;
+
+        /// <summary>
+        /// Comment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Comment;
+
+        /// <summary>
+        /// Submit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Submit;
     }
 }

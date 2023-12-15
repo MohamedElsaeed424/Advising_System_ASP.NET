@@ -20,6 +20,12 @@ namespace Advising_System
             }
 
         }
+        private void DisplayErrorMessage(string message)
+        {
+            SuccessLabel.Text = "Error: " + message;
+            SuccessLabel.ForeColor = System.Drawing.Color.Red;
+            SuccessLabel.Visible = true;
+        }
         protected void Get_AllAvailableCourses (object sender, EventArgs e)
         {
             string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
@@ -27,21 +33,32 @@ namespace Advising_System
             try
             {
                 string semesterCode = Semester_CodeText.Text;
-                SqlCommand FN_SemsterAvailableCourses = new SqlCommand("SELECT * FROM FN_SemsterAvailableCourses(@semstercode)", connection);
-                FN_SemsterAvailableCourses.Parameters.AddWithValue("@semstercode", semesterCode);
-                connection.Open();
-                SqlDataReader reader = FN_SemsterAvailableCourses.ExecuteReader(CommandBehavior.CloseConnection);
+                if (string.IsNullOrEmpty(semesterCode))
+                {
+                    DisplayErrorMessage("Current Semester is required");
+                    return;
+                }
+                else
+                {
+                    SqlCommand FN_SemsterAvailableCourses = new SqlCommand("SELECT * FROM FN_SemsterAvailableCourses(@semstercode)", connection);
+                    FN_SemsterAvailableCourses.Parameters.AddWithValue("@semstercode", semesterCode);
+                    connection.Open();
+                    SqlDataReader reader = FN_SemsterAvailableCourses.ExecuteReader(CommandBehavior.CloseConnection);
 
-                DataTable dataTable = new DataTable();
+                    DataTable dataTable = new DataTable();
 
-                dataTable.Load(reader);
+                    dataTable.Load(reader);
 
-                AllAvailableCourses.DataSource = dataTable;
-                AllAvailableCourses.DataBind();
+                    AllAvailableCourses.DataSource = dataTable;
+                    AllAvailableCourses.DataBind();
+                    SuccessLabel.Text = "Viewed successfully!";
+                    SuccessLabel.ForeColor = System.Drawing.Color.Green;
+                }
             }
             catch (Exception ex)
             {
-                Response.Write("Error: " + ex.Message);
+                SuccessLabel.Text = "Error while Viewing: " + ex.Message;
+                SuccessLabel.ForeColor = System.Drawing.Color.Red;
             }
             finally
             {

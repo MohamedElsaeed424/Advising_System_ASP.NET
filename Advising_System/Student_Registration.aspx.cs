@@ -16,6 +16,12 @@ namespace Advising_System
         {
             
         }
+        private void DisplayErrorMessage(string message)
+        {
+            SuccessLabel.Text = "Error: " + message;
+            SuccessLabel.ForeColor = System.Drawing.Color.Red;
+            SuccessLabel.Visible = true;
+        }
         protected bool IsEmailExists(string email)
         {
             bool emailExists = false;

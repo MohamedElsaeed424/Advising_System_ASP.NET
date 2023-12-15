@@ -72,6 +72,12 @@ namespace Advising_System
             return semesters;
         }
 
+        private void DisplayErrorMessage(string message)
+        {
+            SuccessLabel.Text = "Error: " + message;
+            SuccessLabel.ForeColor = System.Drawing.Color.Red;
+            SuccessLabel.Visible = true;
+        }
         private void BindCoursesToDropDown()
         {
 
@@ -93,6 +99,12 @@ namespace Advising_System
             using (SqlConnection connection = new SqlConnection(connectionString))
                 try
                 {
+                    string currentSemester = CurrentSemText.Text;
+                    if (string.IsNullOrEmpty(currentSemester))
+                    {
+                        DisplayErrorMessage("Current Semester cannot be empty");
+                        return;
+                    }
                     using (SqlCommand Procedures_AdminDeleteSlots = new SqlCommand("Procedures_AdminDeleteSlots", connection))
                     {
                         Procedures_AdminDeleteSlots.CommandType = CommandType.StoredProcedure;
@@ -115,7 +127,6 @@ namespace Advising_System
                         SuccessLabel.ForeColor = System.Drawing.Color.Green;
                         SuccessLabel.Visible = true;
 
-                    }
                 }
                 catch (Exception ex)
                 {

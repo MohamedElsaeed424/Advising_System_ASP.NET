@@ -88,37 +88,40 @@ namespace Advising_System
             AllSem.DataTextField = "Sem_id";
             AllSem.DataValueField = "Sem_id";
             AllSem.DataBind();
-            AllSem.Items.Insert(0, new System.Web.UI.WebControls.ListItem("Select Course", "0"));
+            AllSem.Items.Insert(0, new System.Web.UI.WebControls.ListItem("Select Semester", ""));
 
         }
 
         protected void post_DeleteSlotFromCourse(object sender, EventArgs e)
         {
-            String sem_code = Convert.ToString(AllSem.SelectedValue);
+            String sem_code = AllSem.SelectedValue;
             string connectionString = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
             using (SqlConnection connection = new SqlConnection(connectionString))
                 try
                 {
                     if (string.IsNullOrEmpty(sem_code))
                     {
-                        DisplayErrorMessage("Current Semester cannot be empty");
+                        DisplayErrorMessage("Invalid Semester Selection");
                         return;
                     }
-
-                    using (SqlCommand Procedures_AdminDeleteSlots =
-                           new SqlCommand("Procedures_AdminDeleteSlots", connection))
+                    else
                     {
-                        Procedures_AdminDeleteSlots.CommandType = CommandType.StoredProcedure;
 
-                        Procedures_AdminDeleteSlots.Parameters.AddWithValue("@current_semester", sem_code);
-                        connection.Open();
-                        Procedures_AdminDeleteSlots.ExecuteNonQuery();
-                    }
+                        using (SqlCommand Procedures_AdminDeleteSlots =
+                               new SqlCommand("Procedures_AdminDeleteSlots", connection))
+                        {
+                            Procedures_AdminDeleteSlots.CommandType = CommandType.StoredProcedure;
 
-                        SuccessLabel.Text = "Linking Successful";
-                        SuccessLabel.ForeColor = System.Drawing.Color.Green;
-                        SuccessLabel.Visible = true;
+                            Procedures_AdminDeleteSlots.Parameters.AddWithValue("@current_semester", sem_code);
+                            connection.Open();
+                            Procedures_AdminDeleteSlots.ExecuteNonQuery();
+                        }
 
+                            SuccessLabel.Text = "Linking Successful";
+                            SuccessLabel.ForeColor = System.Drawing.Color.Green;
+                            SuccessLabel.Visible = true;
+
+                        }
                 }
                 catch (Exception ex)
                 {

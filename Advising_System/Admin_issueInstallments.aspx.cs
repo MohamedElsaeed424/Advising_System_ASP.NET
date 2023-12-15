@@ -107,43 +107,62 @@ namespace Advising_System
         {
             string connectionString = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
             SqlConnection connection = new SqlConnection(connectionString);
-            try
+
+            if (AllPayment.SelectedIndex == 0)
             {
-                using (connection)
+                SuccessLabel.Text = "invalid input" ;
+                SuccessLabel.ForeColor = System.Drawing.Color.Red;
+                SuccessLabel.Visible = true;
+
+            }
+            else
+            {
+                try
                 {
-                    using (SqlCommand Procedures_AdminIssueInstallment = new SqlCommand("Procedures_AdminIssueInstallment", connection))
+                    using (connection)
                     {
-                        Procedures_AdminIssueInstallment.CommandType = CommandType.StoredProcedure;
-
-                        // Add parameters
-                        Procedures_AdminIssueInstallment.Parameters.Add(new SqlParameter("@paymentID", SqlDbType.VarChar)).Value = Payment_id;
-                        
-
-                        try
+                        using (SqlCommand Procedures_AdminIssueInstallment =
+                               new SqlCommand("Procedures_AdminIssueInstallment", connection))
                         {
+                            Procedures_AdminIssueInstallment.CommandType = CommandType.StoredProcedure;
 
-                            connection.Open();
-                            Procedures_AdminIssueInstallment.ExecuteNonQuery();
-                            SuccessLabel.Text = "Installment added successfully!";
-                            SuccessLabel.ForeColor = System.Drawing.Color.Green;
-                            SuccessLabel.Visible = true;
-                        }
-                        catch (Exception ex)
-                        {
+                            // Add parameters
+                            Procedures_AdminIssueInstallment.Parameters
+                                .Add(new SqlParameter("@paymentID", SqlDbType.VarChar)).Value = Payment_id;
 
-                            SuccessLabel.Text = "Error: " + ex.Message;
-                            SuccessLabel.ForeColor = System.Drawing.Color.Red;
-                            SuccessLabel.Visible = true;
-                        }
-                        finally
-                        {
-                            connection.Close();
+
+                            try
+                            {
+
+                                connection.Open();
+                                Procedures_AdminIssueInstallment.ExecuteNonQuery();
+                                SuccessLabel.Text = "Installment added successfully!";
+                                SuccessLabel.ForeColor = System.Drawing.Color.Green;
+                                SuccessLabel.Visible = true;
+                            }
+                            catch (Exception ex)
+                            {
+
+                                SuccessLabel.Text = "Error: " + ex.Message;
+                                SuccessLabel.ForeColor = System.Drawing.Color.Red;
+                                SuccessLabel.Visible = true;
+                            }
+                            finally
+                            {
+                                connection.Close();
+                            }
                         }
                     }
                 }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
-            catch (Exception ex) { Console.WriteLine("Error: " + ex.Message); }
-            finally { connection.Close(); }
         }
 
 

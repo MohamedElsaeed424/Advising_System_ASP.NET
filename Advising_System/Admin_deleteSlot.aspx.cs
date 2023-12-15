@@ -115,20 +115,10 @@ namespace Advising_System
                         Procedures_AdminDeleteSlots.ExecuteNonQuery();
                     }
 
-                    if (string.IsNullOrEmpty(AllSem.SelectedValue) || AllSem.SelectedIndex == 0)
-                    {
-                        SuccessLabel.Text = "Invalid Input";
-                        SuccessLabel.ForeColor = System.Drawing.Color.Red;
-                        SuccessLabel.Visible = true;
-                    }
-                    else
-                    {
-
                         SuccessLabel.Text = "Linking Successful";
                         SuccessLabel.ForeColor = System.Drawing.Color.Green;
                         SuccessLabel.Visible = true;
 
-                    }
                 }
                 catch (Exception ex)
                 {

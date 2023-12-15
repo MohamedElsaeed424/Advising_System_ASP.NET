@@ -78,6 +78,16 @@
     </style>
 </head>
 <body>
+    <div id="sidebar">
+    <div id="sidebar-header">Contents</div>
+        <ul>
+            <li><a href="/AdvisorHome.aspx">Home</a></li>
+            <li><a href="/Advisor_AllAdvisingStudents.aspx">View All Your Students</a></li>
+            <li><a href="/Advisor_GraduationPlan.aspx">Graduation Plans</a></li>
+            <li><a href="/Advisor_AllStudentsMajorCourse.aspx">View all students assigned to you from a certain major along with their taken courses</a></li>
+            <li><a href="/Advisor_RequestStuff.aspx">View Requests</a></li>
+        </ul>
+    </div>
     <form id="form1" runat="server">
         <h2>Insert Graduation Plan</h2>
         <div style="display: flex; justify-content: flex-end; margin-bottom: 20px;">
@@ -100,5 +110,24 @@
             <br />
         </div>
     </form>
+     <div id="toggle-btn"></div>
+
+ <script>
+     const sidebar = document.getElementById('sidebar');
+     const content = document.getElementById('content');
+     const toggleBtn = document.getElementById('toggle-btn');
+
+     toggleBtn.addEventListener('click', () => {
+         const sidebarWidth = sidebar.offsetWidth;
+
+         if (sidebar.style.left === '0px' || sidebar.style.left === '') {
+             sidebar.style.left = `-${sidebarWidth}px`;
+             content.style.marginLeft = '0';
+         } else {
+             sidebar.style.left = '0';
+             content.style.marginLeft = `${sidebarWidth}px`;
+         }
+     });
+ </script>
 </body>
 </html>

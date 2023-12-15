@@ -54,6 +54,8 @@ namespace Advising_System
                             {
                                 success = Convert.ToInt32(reader["Success"]);                                                 
                             }
+                            reader.Close();
+
                             // Get Advisor name
                             reader = getName.ExecuteReader();
                             string name = string.Empty;
@@ -62,6 +64,7 @@ namespace Advising_System
                                 name = reader["name"].ToString();
                             }
                             reader.Close();
+
                             if(success == 1)
                             {
                                 Session["UserID"] = id;

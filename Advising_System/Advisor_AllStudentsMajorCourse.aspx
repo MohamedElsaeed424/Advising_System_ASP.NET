@@ -65,7 +65,7 @@
             padding: 8px;
             text-align: left;
             border-bottom: 10px solid white; /* Thick white border */
-            color: white; /* Set text color to white for better visibility */
+            color: black; /* Set text color to white for better visibility */
         }
 
         #StudentsWithMajor th {

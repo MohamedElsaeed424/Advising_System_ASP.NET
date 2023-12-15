@@ -13,16 +13,17 @@
             <asp:Button ID="BackHome" runat="server" OnClick="BackAdvisorHome" Text="Back" style="height: 29px" />
          </div>
         <div>
-            Student ID
-            <asp:DropDownList ID="StudentID" runat="server">
-            </asp:DropDownList>
-            <br />
             Expected Graduation Date
             <asp:TextBox ID="ExGradDate" runat="server" TextMode="Date"></asp:TextBox>
             <br />
             <asp:Button ID="UpdateGrad" runat="server" Text="Update" OnClick="UpdateGrad_Click" />
             <asp:Label ID="Message" runat="server" Text="Label" Visible="False"></asp:Label>
+            <br />
         </div>
+        <div>
+            <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+        </div>
+
     </form>
 </body>
 </html>

@@ -99,8 +99,7 @@ namespace Advising_System
             using (SqlConnection connection = new SqlConnection(connectionString))
                 try
                 {
-                    string currentSemester = Convert.ToString(AllSem.SelectedValue);
-                    if (string.IsNullOrEmpty(currentSemester))
+                    if (string.IsNullOrEmpty(sem_code))
                     {
                         DisplayErrorMessage("Current Semester cannot be empty");
                         return;

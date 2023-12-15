@@ -1,10 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Advisor_AllStudentsMajorCourse.aspx.cs" Inherits="Advising_System.Advisor_AllStudentsMajorCourse" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Advisor_GraduationPlan.aspx.cs" Inherits="Advising_System.Advisor_GraduationPlan" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Approve / Reject Course Requests</title>
+    <title>Graduation Plans</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -67,16 +67,25 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <h2>View Students By major</h2>
+        <h2>Graduation Plans</h2>
         <div style="display: flex; justify-content: flex-end; margin-bottom: 20px;">
             <asp:Button ID="BackHome" runat="server" OnClick="BackAdvisorHome" Text="Back" />
+            <br />
         </div>
         <div>
-            <asp:DropDownList ID="majors" runat="server" AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="majors_SelectedIndexChanged">
-            </asp:DropDownList>
+            <asp:Button ID="AddNew" runat="server" Text="Add New Graduation Plan" OnClick="AddNew_Click" />
         </div>
-        <asp:GridView ID="StudentsWithMajor" runat="server" ShowHeaderWhenEmpty="True">
+        <asp:GridView ID="GradPlans" runat="server" ShowHeaderWhenEmpty="True" OnRowDataBound="GP_RowDataBound" >
+            <Columns>
+                <asp:TemplateField HeaderText="Edit">
+                    <ItemTemplate>
+                        <asp:Button ID="ExDate" runat="server" Text="Edit Date" CssClass="action-button" OnClick="ExDate_Click"/>
+                        <asp:Button ID="Course" runat="server" Text="Edit Courses" CssClass="action-button" OnClick="Course_Click"/>
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
         </asp:GridView>
     </form>
 </body>
 </html>
+

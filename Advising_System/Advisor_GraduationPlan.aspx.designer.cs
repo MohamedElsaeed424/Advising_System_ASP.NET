@@ -11,7 +11,7 @@ namespace Advising_System
 {
 
 
-    public partial class Advisor_AddCourseToGradPlan
+    public partial class Advisor_GraduationPlan
     {
 
         /// <summary>
@@ -33,39 +33,21 @@ namespace Advising_System
         protected global::System.Web.UI.WebControls.Button BackHome;
 
         /// <summary>
-        /// CourseName control.
+        /// AddNew control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList CourseName;
+        protected global::System.Web.UI.WebControls.Button AddNew;
 
         /// <summary>
-        /// AddCourse control.
+        /// GradPlans control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddCourse;
-
-        /// <summary>
-        /// Message control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Message;
-
-        /// <summary>
-        /// GradCourse control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GradCourse;
+        protected global::System.Web.UI.WebControls.GridView GradPlans;
     }
 }

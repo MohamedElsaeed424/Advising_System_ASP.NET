@@ -33,15 +33,6 @@ namespace Advising_System
         protected global::System.Web.UI.WebControls.Button BackHome;
 
         /// <summary>
-        /// StudentID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList StudentID;
-
-        /// <summary>
         /// ExGradDate control.
         /// </summary>
         /// <remarks>
@@ -67,5 +58,14 @@ namespace Advising_System
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Message;
+
+        /// <summary>
+        /// GridView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

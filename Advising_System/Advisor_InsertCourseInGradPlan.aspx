@@ -13,19 +13,21 @@
             <asp:Button ID="BackHome" runat="server" OnClick="BackAdvisorHome" Text="Back" style="height: 29px" />
          </div>
         <div>
-            Student ID
-            <asp:DropDownList ID="StudentID" runat="server">
-            </asp:DropDownList>
-            <br />
-            Semster Code
-            <asp:TextBox ID="SemesterCode" runat="server"></asp:TextBox>
-            <br />
             Course Name
             <asp:DropDownList ID="CourseName" runat="server">
             </asp:DropDownList>
             <br />
             <asp:Button ID="AddCourse" runat="server" Text="Add" OnClick="AddCourse_Click" />
             <asp:Label ID="Message" runat="server" Text="Label" Visible="False"></asp:Label>
+            <asp:GridView ID="GradCourse" runat="server">
+                <Columns>
+                    <asp:TemplateField HeaderText="">
+                        <ItemTemplate>
+                            <asp:Button ID="Delete" runat="server" Text="Delete" CssClass="action-button" OnClick="Delete_Click"/>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
         </div>
     </form>
 </body>

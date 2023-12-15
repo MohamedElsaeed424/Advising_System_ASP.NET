@@ -53,6 +53,12 @@
         <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
             <asp:Button ID="Button14" runat="server" Onclick="ViewAllRequiredCourses" Text="View All Required Courses" Width="357px" />
         </div>
+                <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
+            <asp:Button ID="Button15" runat="server" Onclick="StudentRegiser" Text="Student Regiseration" Width="357px" />
+        </div>
+                <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
+            <asp:Button ID="Button16" runat="server" Onclick="SendRequest" Text="Student Send Request" Width="357px" />
+        </div>
     </form>
 </body>
 </html>

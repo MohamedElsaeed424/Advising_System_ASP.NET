@@ -39,17 +39,6 @@
             border: 10px solid white; /* Thin white border */
         }
 
-        header {
-            background-color: #362f8c; /* Darkened royal blue */
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px 8px 0 0;
-            width: 100%;
-            margin-top: 0; /* Remove default margin */
-            margin-left: -15px;
-        }
 
         /* Adjusted margin for label */
         label {
@@ -84,22 +73,34 @@
             cursor: pointer;
         }
 
-        .asp-button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+       .asp-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 10px 20px;
+    transition-duration: 0.4s;
+}
+
+.asp-button:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+}
     </style>
 </head>
 <body>
     <div class="container">
         <form id="registrationForm" runat="server">
-            <header>Student Login</header>
+            <h2>Student Login</h2>
 
-            <asp:Label ID="SuccessLabel" runat="server" Text="Choose Inputs" ForeColor="Blue" Visible="true"></asp:Label>
+            <asp:Label ID="SuccessLabel" runat="server" Text="Choose Inputs" ForeColor="Blue" Visible="false"></asp:Label>
 
             <label for="StudentID">UserID:</label>
             <asp:TextBox ID="StudentID" runat="server" CssClass="form-control"></asp:TextBox>

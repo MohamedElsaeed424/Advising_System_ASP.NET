@@ -6,12 +6,18 @@
 <head runat="server">
     <title></title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
+               body {
+    font-family: Arial, sans-serif;
+    background: url('Images/EujDw0.jpg') center center fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
 
         .container {
             max-width: 600px;
@@ -23,16 +29,17 @@
             color: #333;
         }
 
-        form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            margin-top: 20px;
-        }
+       form {
+    background-color: #f0f2f5; /* Slightly dark grey */
+    padding: 50px;
+    border-radius: 70px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+    text-align: center;
+    width: 100%; /* Adjusted width to be proportional */
+    max-width: 400px; /* Set a maximum width for larger screens */
+    border: 10px solid white; /* Thin white border */
+}
 
         label {
             margin-bottom: 10px;
@@ -79,9 +86,7 @@
     <form id="form1" runat="server" class="container">
         <div>
             <h2>View all courses along with their exams details</h2>
-            <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-                <asp:Label ID="SuccessLabel" runat="server" Text="Add Inputs" ForeColor="Blue" Visible="true"></asp:Label>
-            </div>
+
             <asp:GridView ID="AllCoursesWithExam" runat="server" AutoGenerateColumns="False" CssClass="styled-grid">
                 <Columns>
                     <asp:BoundField DataField="exam_id" HeaderText=" Exam ID" />

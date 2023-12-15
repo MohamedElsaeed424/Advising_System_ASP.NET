@@ -104,6 +104,7 @@
     <Content Include="Advisor_login.aspx" />
     <Content Include="Advisor_Registration.aspx" />
     <Content Include="Advisor_UpdateExGradDate.aspx" />
+    <Content Include="images\EujDw0.jpg" />
     <Content Include="images\guc2.png" />
     <Content Include="images\gucblurred.png" />
     <Content Include="images\gucc1.png" />

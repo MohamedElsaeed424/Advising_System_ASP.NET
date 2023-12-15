@@ -69,6 +69,17 @@ namespace Advising_System
         {
             Response.Redirect("/Student_ViewAllRequiredCourses.aspx");
         }
+        protected void StudentRegiser(object sender, EventArgs e)
+        {
+            Response.Redirect("/Student_Registration.aspx");
+        }
+        protected void SendRequest(object sender, EventArgs e)
+        {
+            Response.Redirect("/Student_SendRequest.aspx");
+        }
+
+
+
 
     }
 }

@@ -53,6 +53,7 @@ namespace Advising_System
                     string temp = Credit.Text;
                     if(string.IsNullOrEmpty(temp)) 
                     {
+                        SuccessLabel.Visible = true;
                         SuccessLabel.Text = "Error: Input Credit Hours";
                         SuccessLabel.ForeColor = System.Drawing.Color.Red;
                         SuccessLabel.Visible = true;
@@ -70,6 +71,7 @@ namespace Advising_System
                     int nRowsAffected = CreditRequest.ExecuteNonQuery();
                     if(nRowsAffected > 0)
                     {
+                        SuccessLabel.Visible = true;
                         SuccessLabel.Text = "Successfully Submitted";
                         SuccessLabel.ForeColor = System.Drawing.Color.Green;
                         SuccessLabel.Visible = true;
@@ -80,6 +82,7 @@ namespace Advising_System
                     string temp = Courses.SelectedValue;
                     if (string.IsNullOrEmpty(temp))
                     {
+                        SuccessLabel.Visible = true;
                         SuccessLabel.Text = "Error: Choose a Course";
                         SuccessLabel.ForeColor = System.Drawing.Color.Red;
                         SuccessLabel.Visible = true;
@@ -96,6 +99,7 @@ namespace Advising_System
                     int nRowsAffected = CourseRequest.ExecuteNonQuery();
                     if (nRowsAffected > 0)
                     {
+                        SuccessLabel.Visible = true;
                         SuccessLabel.Text = "Successfully Submitted";
                         SuccessLabel.ForeColor = System.Drawing.Color.Green;
                         SuccessLabel.Visible = true;
@@ -135,6 +139,7 @@ namespace Advising_System
                 return true;
             }
         }
+
 
         protected void BackStudentHome(object sender, EventArgs e)
         {

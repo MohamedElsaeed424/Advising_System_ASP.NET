@@ -18,6 +18,7 @@ namespace Advising_System
         }
         private void DisplayErrorMessage(string message)
         {
+            SuccessLabel.Visible = true;
             SuccessLabel.Text = "Error: " + message;
             SuccessLabel.ForeColor = System.Drawing.Color.Red;
             SuccessLabel.Visible = true;
@@ -37,7 +38,7 @@ namespace Advising_System
 
                 if (string.IsNullOrEmpty(idT) || string.IsNullOrEmpty(password))
                 {
-
+                    SuccessLabel.Visible = true;
                     SuccessLabel.Text = "All Fields are required";
                     SuccessLabel.ForeColor = System.Drawing.Color.Red;
                     SuccessLabel.Visible = true;
@@ -74,6 +75,7 @@ namespace Advising_System
                             }
                             else
                             {
+                                SuccessLabel.Visible = true;
                                 SuccessLabel.Text = "Incorrect Password or UserID Please Register First";
                                 SuccessLabel.ForeColor = System.Drawing.Color.Red;
                                 SuccessLabel.Visible = true;
@@ -85,7 +87,7 @@ namespace Advising_System
             }
             catch (Exception ex)
             {
-
+                SuccessLabel.Visible = true;
                 SuccessLabel.Text = $"Error: {ex.Message}";
                 SuccessLabel.ForeColor = System.Drawing.Color.Red;
                 SuccessLabel.Visible = true;

@@ -9,7 +9,9 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: url('Images/gucc1.png') center center fixed;
+            background: url('Images/guc2.png') center center fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
             margin: 0;
             padding: 0;
             display: flex;
@@ -22,7 +24,7 @@
             display: flex;
             justify-content: flex-end;
             /*margin-right: 10%;*/ /* Adjust the right margin as needed */
-            margin-bottom:10%;
+            
         }
 
         form {
@@ -70,6 +72,7 @@
             box-sizing: border-box;
             border: 1px solid #362f8c; /* Darkened royal blue */
             border-radius: 4px;
+            color: #2196F3; /* Blue color */
         }
 
         button {

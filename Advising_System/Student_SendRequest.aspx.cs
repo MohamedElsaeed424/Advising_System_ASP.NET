@@ -137,5 +137,10 @@ namespace Advising_System
                 return true;
             }
         }
+
+        protected void BackStudentHome(object sender, EventArgs e)
+        {
+            Response.Redirect("/StudentHome.aspx");
+        }
     }
 }

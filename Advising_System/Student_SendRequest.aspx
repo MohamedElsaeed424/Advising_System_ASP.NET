@@ -9,6 +9,9 @@
 <body>
     <form id="form1" runat="server">
         <h2>Send A Course/Credit Hours Request</h2>
+        <div style="display: flex; align-items: center; justify-content: right; margin: 20px; resize: vertical;">
+           <asp:Button ID="BackHome" runat="server" OnClick="BackStudentHome" Text="Back" style="height: 29px" />
+        </div>
         <p>
             <asp:Label ID="SuccessLabel" runat="server" Text="Label" Visible="False"></asp:Label>
         </p>

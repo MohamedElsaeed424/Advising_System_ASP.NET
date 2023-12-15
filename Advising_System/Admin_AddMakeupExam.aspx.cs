@@ -32,7 +32,7 @@ namespace Advising_System
             int courseId = Convert.ToInt16(AllCourses.SelectedValue);
             String type = Convert.ToString(makeupDropDown.SelectedValue);
 
-            if (startDate == DateTime.MinValue )
+            if (startDate == DateTime.MinValue || AllCourses.SelectedIndex == 0 || makeupDropDown.SelectedIndex ==0 )
             {
                 SuccessLabel.Text = "Invalid Input";
                 SuccessLabel.ForeColor = System.Drawing.Color.Red;

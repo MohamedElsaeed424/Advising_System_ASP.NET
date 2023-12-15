@@ -32,8 +32,8 @@ namespace Advising_System
         protected void Delete_Click(object sender, EventArgs e)
         {
             Message.Visible = false;
-            string stID = 
-            string semCode = semesterCode.Text;
+            string stID = Session["StID"].ToString();
+            string semCode = Session["Semester"].ToString();
             string cName = CourseIDs.SelectedValue;
 
             if (string.IsNullOrEmpty(stID) || string.IsNullOrEmpty(semCode)

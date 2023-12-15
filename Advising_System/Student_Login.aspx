@@ -86,13 +86,13 @@
     border-radius: 8px;
     padding: 10px 20px;
     transition-duration: 0.4s;
-}
+    }
 
-.asp-button:hover {
-    background-color: white;
-    color: black;
-    border: 2px solid #4CAF50;
-}
+    .asp-button:hover {
+        background-color: white;
+        color: black;
+        border: 2px solid #4CAF50;
+    }
     </style>
 </head>
 <body>

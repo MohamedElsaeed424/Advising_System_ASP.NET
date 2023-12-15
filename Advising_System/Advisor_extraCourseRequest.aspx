@@ -8,7 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <h2>Approve / Reject Course Requests</h2>
+        <h2>View Requests</h2>
          <div style="display: flex; align-items: center; justify-content: right; margin: 20px; resize: vertical;">
             <asp:Button ID="BackHome" runat="server" OnClick="BackAdvisorHome" Text="Back" />
              <br />

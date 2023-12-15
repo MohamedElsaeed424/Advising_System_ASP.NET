@@ -74,7 +74,7 @@
 <body>
     <form id="registrationForm" runat="server">
         <header>Add your Phone Number</header>
-                                <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
+<div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
     <asp:Label ID="Label1" runat="server" Text="Add Inputs" ForeColor="Blue" Visible="true"></asp:Label>
 </div>
 

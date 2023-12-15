@@ -42,6 +42,8 @@ namespace Advising_System
                         int id = Int32.Parse(idT);
                         using (SqlCommand command = new SqlCommand($"SELECT dbo.FN_AdvisorLogin(@ID, @password) AS Success ", connection))
                         {
+                            SqlCommand getName = new SqlCommand($"SELECT name FROM Advisor WHERE advisor_id = {id}",connection);
+
                             command.Parameters.AddWithValue("@ID", id);
                             command.Parameters.AddWithValue("@password", password);
 
@@ -52,11 +54,19 @@ namespace Advising_System
                             {
                                 success = Convert.ToInt32(reader["Success"]);                                                 
                             }
+                            // Get Advisor name
+                            reader = getName.ExecuteReader();
+                            string name = string.Empty;
+                            if (reader.Read())
+                            {
+                                name = reader["name"].ToString();
+                            }
                             reader.Close();
                             if(success == 1)
                             {
                                 Session["UserID"] = id;
                                 Session["UserRole"] = "Advisor";
+                                Session["UserName"] = name;
                                 Response.Redirect("/AdvisorHome.aspx");
                             }
                             else

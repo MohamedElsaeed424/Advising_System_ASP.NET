@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace Advising_System
 {
-    public partial class Advisor_All_AdvisingStudents : System.Web.UI.Page
+    public partial class Advisor_AllAdvisingStudents : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

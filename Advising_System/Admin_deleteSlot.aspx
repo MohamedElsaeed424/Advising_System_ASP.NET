@@ -75,13 +75,17 @@
                     }
                 </style>
             </div>
-            <label for="CurrentSem">Input Current Sem:</label>
-            <asp:TextBox ID="CurrentSemText" runat="server"></asp:TextBox>
             <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-                <asp:Button ID="DeleteSlot" OnClick="post_DeleteSlotFromCourse" runat="server" Text="Delete slot for this course" />
+                <asp:Label ID="Label1" runat="server" Text="Select course"></asp:Label>
+                &nbsp;&nbsp;&nbsp;
+                <asp:DropDownList ID="AllSem" runat="server" CssClass="dropdown-list">
+                </asp:DropDownList>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
+                <asp:Button ID="DeleteSlot" OnClick="post_DeleteSlotFromCourse" runat="server" Text="Delete" />
             </div>
         </div>
-
+        
     </form>
 </body>
 </html>

@@ -11,7 +11,7 @@ namespace Advising_System
 {
 
 
-    public partial class Advisor_All_AdvisingStudents
+    public partial class Advisor_AllAdvisingStudents
     {
 
         /// <summary>

@@ -92,6 +92,8 @@
         
         <asp:Button ID="Register" runat="server" Text="Register" CssClass="asp-button" OnClick="Register_Click"
             />
+        Alreaady Have an account?
+<asp:HyperLink ID="Login" runat="server" NavigateUrl="/Advisor_Login.aspx">Log In</asp:HyperLink>
     </form>
 </body>
 </html>

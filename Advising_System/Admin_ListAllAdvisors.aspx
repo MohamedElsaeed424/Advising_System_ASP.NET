@@ -28,10 +28,6 @@
             max-width: 800px; /* Set a maximum width for larger screens */
         }
 
-        h2 {
-            color: #333; /* Heading color */
-        }
-
         #BackAdminHome2 {
             background-color: #555; /* Button background color */
             color: white;
@@ -39,18 +35,16 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            margin-right: 10px;
         }
 
         #AllAdvisorsTable {
             margin-top: 20px;
-            width: 100%;
-            border-collapse: collapse;
         }
 
         #AllAdvisorsTable th,
         #AllAdvisorsTable td {
             padding: 10px;
-            border: 1px solid #ccc;
         }
 
         #AllAdvisorsTable th {
@@ -63,7 +57,7 @@
     <form id="AllAdvisorsForm" runat="server">
         <div>
             <h2>All Advisors</h2>
-            <div style="display: flex; align-items: center; justify-content: right; margin: 20px; resize: vertical;">
+            <div style="display: flex; align-items: center; justify-content: flex-end; margin: 20px; resize: vertical;">
                 <asp:Button ID="BackAdminHome2" runat="server" OnClick="BackAdminHome" Text="Back" />
             </div>
             <asp:GridView ID="AllAdvisorsTable" runat="server" AutoGenerateColumns="False">

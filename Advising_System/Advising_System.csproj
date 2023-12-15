@@ -93,6 +93,7 @@
     <Content Include="Admin_AddNewSemester.aspx" />
     <Content Include="AdvisorHome.aspx" />
     <Content Include="Advisor_DeleteCourseGP.aspx" />
+    <Content Include="Advisor_GraduationPlan.aspx" />
     <Content Include="Advisor_InsertCourseInGradPlan.aspx" />
     <Content Include="Advisor_AllStudentsMajorCourse.aspx" />
     <Content Include="Advisor_AllAdvisingStudents.aspx" />
@@ -293,6 +294,13 @@
     </Compile>
     <Compile Include="Advisor_DeleteCourseGP.aspx.designer.cs">
       <DependentUpon>Advisor_DeleteCourseGP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Advisor_GraduationPlan.aspx.cs">
+      <DependentUpon>Advisor_GraduationPlan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Advisor_GraduationPlan.aspx.designer.cs">
+      <DependentUpon>Advisor_GraduationPlan.aspx</DependentUpon>
     </Compile>
     <Compile Include="Advisor_InsertCourseInGradPlan.aspx.cs">
       <DependentUpon>Advisor_InsertCourseInGradPlan.aspx</DependentUpon>

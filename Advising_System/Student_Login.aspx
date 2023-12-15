@@ -109,6 +109,8 @@
             <asp:TextBox ID="password" runat="server" TextMode="Password" CssClass="form-control" EnableViewState="true" ViewStateMode="Enabled"></asp:TextBox>
 
             <asp:Button ID="Login" runat="server" Text="Log In" CssClass="asp-button" OnClick="Login_Click" />
+            Don't Have an account?
+            <asp:HyperLink ID="Register" runat="server" NavigateUrl="/Student_Registration.aspx">Register Here</asp:HyperLink>
         </form>
     </div>
 </body>

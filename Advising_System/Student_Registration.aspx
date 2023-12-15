@@ -240,7 +240,8 @@
 
         <asp:Button ID="Register" runat="server" Text="Register" CssClass="asp-button" onClick="RegisterStudent"/>
          <div style="display: flex; justify-content: center; margin-top: 20px;">
-     <asp:Button ID="BackAdminHome5" runat="server" OnClick="BackAdminHome" Text="Back" CssClass="asp-button" />
+        Already Have an account?
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="/Student_Login.aspx">Log In</asp:HyperLink>
  </div>
     </form>
 </body>

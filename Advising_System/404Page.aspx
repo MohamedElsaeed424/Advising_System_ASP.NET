@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <h1>Fuck You</h1>
+            <h1>Please Login First</h1>
         </div>
     </form>
 </body>

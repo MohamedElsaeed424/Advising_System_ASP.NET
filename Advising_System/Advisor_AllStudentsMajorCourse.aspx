@@ -16,7 +16,7 @@
             <asp:DropDownList ID="majors" runat="server" AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="majors_SelectedIndexChanged" >
             </asp:DropDownList>
         </div>
-        <asp:GridView ID="StudentsWithMajor" runat="server">
+        <asp:GridView ID="StudentsWithMajor" runat="server" ShowHeaderWhenEmpty="True">
         </asp:GridView>
     </form>
 </body>

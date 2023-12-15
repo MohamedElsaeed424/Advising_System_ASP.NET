@@ -22,6 +22,7 @@ namespace Advising_System
         }
         private void DisplayErrorMessage(string message)
         {
+            SuccessLabel.Visible = true;
             SuccessLabel.Text = "Error: " + message;
             SuccessLabel.ForeColor = System.Drawing.Color.Red;
             SuccessLabel.Visible = true;
@@ -56,13 +57,14 @@ namespace Advising_System
                     Procedures_StudentRegisterFirstMakeup.Parameters.AddWithValue("@courseID", courseId);
                     Procedures_StudentRegisterFirstMakeup.Parameters.AddWithValue("@studentCurr_sem", studentCurrentSemester);
                     Procedures_StudentRegisterFirstMakeup.ExecuteNonQuery();
+                    SuccessLabel.Visible = true;
                     SuccessLabel.Text = "Makeup Registered successfully!";
                     SuccessLabel.ForeColor = System.Drawing.Color.Green;
                 }
             }
             catch (Exception ex)
             {
-                
+                SuccessLabel.Visible = true;
                 SuccessLabel.Text = "Error while Registering: " + ex.Message;
                 SuccessLabel.ForeColor = System.Drawing.Color.Red;
             }
@@ -72,7 +74,7 @@ namespace Advising_System
             }
         }
 
-        protected void BackAdminHome(object sender, EventArgs e)
+        protected void BackStudentHome(object sender, EventArgs e)
         {
             Response.Redirect("/StudentHome.aspx");
         }

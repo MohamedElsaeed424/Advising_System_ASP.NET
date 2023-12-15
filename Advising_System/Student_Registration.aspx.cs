@@ -18,6 +18,7 @@ namespace Advising_System
         }
         private void DisplayErrorMessage(string message)
         {
+            SuccessLabel.Visible = true;
             SuccessLabel.Text = "Error: " + message;
             SuccessLabel.ForeColor = System.Drawing.Color.Red;
             SuccessLabel.Visible = true;
@@ -66,12 +67,13 @@ namespace Advising_System
                     || string.IsNullOrEmpty(major) || string.IsNullOrEmpty(semesterTemp)
                     || string.IsNullOrEmpty(email))
                 {
-                   
+                    SuccessLabel.Visible = true;
                     SuccessLabel.Text = "Check your input Fields";
                     SuccessLabel.ForeColor = System.Drawing.Color.Red;
                     SuccessLabel.Visible = true;
                 }else if(IsEmailExists(email))
                 {
+                        SuccessLabel.Visible = true;
                         SuccessLabel.Text = "Error: Email already exists.";
                         SuccessLabel.ForeColor = System.Drawing.Color.Red;
                         SuccessLabel.Visible = true;
@@ -103,7 +105,7 @@ namespace Advising_System
                         }
                     }
 
-
+                    SuccessLabel.Visible = true;
                     SuccessLabel.Text = $"Registration successful. Your Student ID is {studentId}.";
                     SuccessLabel.ForeColor = System.Drawing.Color.Green;
                     SuccessLabel.Visible = true;
@@ -115,7 +117,7 @@ namespace Advising_System
             }      
             catch (Exception ex)
             {
-               
+                SuccessLabel.Visible = true;
                 SuccessLabel.Text = $"Error: {ex.Message}";
                 SuccessLabel.ForeColor = System.Drawing.Color.Red;
                 SuccessLabel.Visible = true;
@@ -135,6 +137,10 @@ namespace Advising_System
             major.SelectedIndex = 0;
             semester.SelectedIndex = 0;
 
+        }
+        protected void BackAdminHome(object sender, EventArgs e)
+        {
+            Response.Redirect("/StudentHome.aspx");
         }
 
         protected void faculty_SelectedIndexChanged(object sender, EventArgs e)

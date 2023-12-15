@@ -18,6 +18,7 @@ namespace Advising_System
         }
         private void DisplayErrorMessage(string message)
         {
+            SuccessLabel.Visible = true;
             SuccessLabel.Text = "Error: " + message;
             SuccessLabel.ForeColor = System.Drawing.Color.Red;
             SuccessLabel.Visible = true;
@@ -27,23 +28,26 @@ namespace Advising_System
         {
             string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
             SqlConnection connection = new SqlConnection(connectionStirng);
+            System.Diagnostics.Debug.WriteLine(1);
 
             try
             {
 
                 string idT = this.StudentID.Text;
                 string password = this.password.Text;
-
+                System.Diagnostics.Debug.WriteLine(2);
 
                 if (string.IsNullOrEmpty(idT) || string.IsNullOrEmpty(password))
                 {
-
+                    SuccessLabel.Visible = true;
                     SuccessLabel.Text = "All Fields are required";
                     SuccessLabel.ForeColor = System.Drawing.Color.Red;
                     SuccessLabel.Visible = true;
+                    System.Diagnostics.Debug.WriteLine(3);
                 }
                 else
                 {
+                    System.Diagnostics.Debug.WriteLine(4);
                     using (connection)
                     {
                         int id = Int32.Parse(idT);
@@ -61,12 +65,14 @@ namespace Advising_System
                             if (reader.Read())
                             {
                                 success = Convert.ToInt32(reader["Success"]);
-
+                                System.Diagnostics.Debug.WriteLine(5);
                             }
                             System.Diagnostics.Debug.WriteLine(success);
                             reader.Close();
+                            System.Diagnostics.Debug.WriteLine(6);
                             if (success == 1)
                             {
+                                System.Diagnostics.Debug.WriteLine(7);
                                 Session["UserID"] = id;
                                 Session["UserRole"] = "Student";
                                 Response.Redirect("/StudentHome.aspx");
@@ -74,6 +80,7 @@ namespace Advising_System
                             }
                             else
                             {
+                                SuccessLabel.Visible = true;
                                 SuccessLabel.Text = "Incorrect Password or UserID Please Register First";
                                 SuccessLabel.ForeColor = System.Drawing.Color.Red;
                                 SuccessLabel.Visible = true;
@@ -85,7 +92,7 @@ namespace Advising_System
             }
             catch (Exception ex)
             {
-
+                SuccessLabel.Visible = true;
                 SuccessLabel.Text = $"Error: {ex.Message}";
                 SuccessLabel.ForeColor = System.Drawing.Color.Red;
                 SuccessLabel.Visible = true;

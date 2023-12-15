@@ -17,6 +17,7 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Advisor")
             {
                 Response.Redirect("/404Page.aspx");
@@ -25,26 +26,28 @@ namespace Advising_System
             {
                 if (IsPostBack) { return; }
                 DropDownLoader.loadCourseList(CourseName, Message);
+                updateGrid();
             }
 
 
         }
         protected void Delete_Click(object sender, EventArgs e)
         {
+            Button btn = (Button)sender;
+            GridViewRow row = (GridViewRow)btn.NamingContainer;
+            int cID = Int32.Parse(row.Cells[4].Text);
+
             Message.Visible = false;
             string stID = Session["StID"].ToString();
             string semCode = Session["Semester"].ToString();
-            string cName = CourseIDs.SelectedValue;
 
-            if (string.IsNullOrEmpty(stID) || string.IsNullOrEmpty(semCode)
-                || string.IsNullOrEmpty(cName))
+            if (string.IsNullOrEmpty(stID) || string.IsNullOrEmpty(semCode))
             {
                 Message.ForeColor = System.Drawing.Color.Red;
                 Message.Visible = true;
                 Message.Text = "Invalid Input";
                 return;
             }
-            int cID = Int32.Parse(cName);
 
             string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
             SqlConnection connection = new SqlConnection(connectionStirng);
@@ -64,6 +67,7 @@ namespace Advising_System
                     Message.Visible = true;
                     Message.ForeColor = System.Drawing.Color.Green;
                     Message.Text = "Succesfully inserted Graduation Plan";
+                    updateGrid();
                 }
                 else
                 {
@@ -85,8 +89,8 @@ namespace Advising_System
             Message.Visible = false;
             string cName = CourseName.SelectedValue;
 
-            if(string.IsNullOrEmpty(cName)) 
-            { 
+            if (string.IsNullOrEmpty(cName))
+            {
                 Message.ForeColor = System.Drawing.Color.Red;
                 Message.Visible = true;
                 Message.Text = "Invalid Input";
@@ -97,7 +101,7 @@ namespace Advising_System
             SqlConnection connection = new SqlConnection(connectionStirng);
             try
             {
-                SqlCommand InsertGradPlan = new SqlCommand("Procedures_AdvisorAddCourseGP", connection); 
+                SqlCommand InsertGradPlan = new SqlCommand("Procedures_AdvisorAddCourseGP", connection);
                 InsertGradPlan.CommandType = CommandType.StoredProcedure;
                 connection.Open();
 
@@ -106,7 +110,8 @@ namespace Advising_System
                 InsertGradPlan.Parameters.AddWithValue("@course_name", cName);
 
                 int nRowsAffected = InsertGradPlan.ExecuteNonQuery();
-                if (nRowsAffected > 0) {
+                if (nRowsAffected > 0)
+                {
                     Message.Visible = true;
                     Message.ForeColor = System.Drawing.Color.Green;
                     Message.Text = "Succesfully inserted Graduation Plan";
@@ -133,7 +138,8 @@ namespace Advising_System
             SqlConnection connection = new SqlConnection(connectionStirng);
             try
             {
-                SqlCommand command = new SqlCommand($"SELECT * FROM FN_StudentViewGP({Session["StID"]}) WHERE [graduation Plan Id] = {Session["Plan"]}", connection); //type LIKE 'course
+                int planID = (int)Session["PlanID"];
+                SqlCommand command = new SqlCommand($"SELECT * FROM FN_StudentViewGP({Session["StID"]}) WHERE [graduation Plan Id] = {planID}", connection); //type LIKE 'course
                 command.CommandType = CommandType.Text;
                 connection.Open();
 

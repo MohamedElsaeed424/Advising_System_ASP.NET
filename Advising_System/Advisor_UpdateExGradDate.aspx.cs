@@ -20,6 +20,13 @@ namespace Advising_System
             {
                 Response.Redirect("/404Page.aspx");
             }
+            else
+            {
+                if (!IsPostBack)
+                {
+                    updateGrid();
+                }
+            }
         }
 
 
@@ -75,7 +82,8 @@ namespace Advising_System
             SqlConnection connection = new SqlConnection(connectionStirng);
             try
             {
-                SqlCommand command = new SqlCommand($"SELECT * FROM Graduation_Plan WHERE plan_id = {Session["Plan"]}", connection); //type LIKE 'course
+                int planId = (int)Session["PlanID"];
+                SqlCommand command = new SqlCommand($"SELECT * FROM Graduation_Plan WHERE plan_id = {planId}", connection); //type LIKE 'course
                 command.CommandType = CommandType.Text;
                 connection.Open();
 

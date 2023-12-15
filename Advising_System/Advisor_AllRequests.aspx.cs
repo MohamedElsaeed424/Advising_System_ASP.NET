@@ -15,28 +15,37 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
-            SqlConnection connection = new SqlConnection(connectionStirng);
-            try
+            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Advisor")
             {
-                SqlCommand FN_Advisors_Requests = new SqlCommand($"SELECT * FROM FN_Advisors_Requests({Session["UserID"]})", connection); // {Session["UserID"]} put in input of fn
-                FN_Advisors_Requests.CommandType = CommandType.Text;
-                connection.Open();
-
-                SqlDataReader reader = FN_Advisors_Requests.ExecuteReader(CommandBehavior.CloseConnection);
-
-                DataTable dt = new DataTable();
-                dt.Load(reader);
-
-                Requests.DataSource = dt;
-                Requests.DataBind();
-                reader.Close();
+                Response.Redirect("/404Page.aspx");
             }
-            catch (Exception ex)
+            else
             {
-                Console.WriteLine(ex.ToString());
+                string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
+                SqlConnection connection = new SqlConnection(connectionStirng);
+                try
+                {
+
+                    SqlCommand FN_Advisors_Requests = new SqlCommand($"SELECT * FROM FN_Advisors_Requests({Session["UserID"]})", connection); // {Session["UserID"]} put in input of fn
+                    FN_Advisors_Requests.CommandType = CommandType.Text;
+                    connection.Open();
+
+                    SqlDataReader reader = FN_Advisors_Requests.ExecuteReader(CommandBehavior.CloseConnection);
+
+                    DataTable dt = new DataTable();
+                    dt.Load(reader);
+
+                    Requests.DataSource = dt;
+                    Requests.DataBind();
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.ToString());
+                }
+                finally { connection.Close(); }
             }
-            finally { connection.Close(); }
+
         }
         protected void BackAdvisorHome(object sender, EventArgs e)
         {

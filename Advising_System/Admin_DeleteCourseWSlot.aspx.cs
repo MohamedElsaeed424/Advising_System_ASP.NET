@@ -14,13 +14,15 @@ using static Advising_System.Admin_LinkStudentCourseInstructor;
 namespace Advising_System
 {
 
-    
-
     public partial class Admin_DeleteCourseWSlot : System.Web.UI.Page
     {
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Admin")
+            {
+                Response.Redirect("/404Page.aspx");
+            }
             if (!IsPostBack)
             {
                 BindCoursesToDropDown();
@@ -54,45 +56,55 @@ namespace Advising_System
 
             List<Course> courses = new List<Course>();
 
-            using (connection)
-            {
-
-                string query = "SELECT course_id, name FROM Course";
-
-                using (SqlCommand command = new SqlCommand(query, connection))
+         
+                using (connection)
                 {
-                    connection.Open();
-                    using (SqlDataReader reader = command.ExecuteReader())
+
+                    string query = "SELECT course_id, name FROM Course";
+
+                    using (SqlCommand command = new SqlCommand(query, connection))
                     {
-                        while (reader.Read())
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
                         {
-
-                            Course course = new Course
+                            while (reader.Read())
                             {
-                                CourseId = Convert.ToInt32(reader["course_id"]),
-                                Name = Convert.ToString(reader["name"])
-                            };
 
-                            courses.Add(course);
+                                Course course = new Course
+                                {
+                                    CourseId = Convert.ToInt32(reader["course_id"]),
+                                    Name = Convert.ToString(reader["name"])
+                                };
+
+                                courses.Add(course);
+                            }
                         }
                     }
                 }
-            }
+            
 
             return courses;
         }
 
+        private void DisplayErrorMessage(string message)
+        {
+            SuccessLabel.Text = "Error: " + message;
+            SuccessLabel.ForeColor = System.Drawing.Color.Red;
+            SuccessLabel.Visible = true;
+        }
 
-       
 
         protected void DeleteSelectedCourse(object sender, EventArgs e)
         {
-            int courseId = Convert.ToInt32(Allcourses.SelectedValue);
-            System.Diagnostics.Debug.WriteLine(courseId);
-            
-            
-                DeleteSelectedCourseFromDb(courseId);
-                
+            int courseId;
+            if (!int.TryParse(Allcourses.SelectedValue, out courseId) || courseId <= 0)
+            {
+                DisplayErrorMessage("Invalid Course selection");
+                return;
+            }
+
+            DeleteSelectedCourseFromDb(courseId);
+
         }
 
         protected void DeleteSelectedCourseFromDb(int courseIDP)
@@ -104,10 +116,26 @@ namespace Advising_System
                 using (SqlCommand Procedures_AdminDeleteCourseP = new SqlCommand("Procedures_AdminDeleteCourse", connection))
                 {
                     Procedures_AdminDeleteCourseP.CommandType = CommandType.StoredProcedure;
-
                     Procedures_AdminDeleteCourseP.Parameters.AddWithValue("@courseID", courseIDP);
-                    connection.Open();
-                    Procedures_AdminDeleteCourseP.ExecuteNonQuery();
+                    try
+                    {
+                        connection.Open();
+                        Procedures_AdminDeleteCourseP.ExecuteNonQuery();
+                        SuccessLabel.Text = "Course deleted successfully!";
+                        SuccessLabel.ForeColor = System.Drawing.Color.Green;
+                        SuccessLabel.Visible = true;
+                    }
+                    catch (Exception ex)
+                    {
+
+                        SuccessLabel.Text = "Error: " + ex.Message;
+                        SuccessLabel.ForeColor = System.Drawing.Color.Red;
+                        SuccessLabel.Visible = true;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
                 }
             }
         }

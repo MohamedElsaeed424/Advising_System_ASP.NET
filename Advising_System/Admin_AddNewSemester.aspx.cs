@@ -14,7 +14,16 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Admin")
+            {
+                Response.Redirect("/404Page.aspx");
+            }
+        }
+        private void DisplayErrorMessage(string message)
+        {
+            SuccessLabel.Text = "Error: " + message;
+            SuccessLabel.ForeColor = System.Drawing.Color.Red;
+            SuccessLabel.Visible = true;
         }
 
         protected void post_semester(object sender, EventArgs e)
@@ -23,14 +32,26 @@ namespace Advising_System
             DateTime startDate = Start_Calender.SelectedDate;
             DateTime endDate = End_Calender.SelectedDate;
             string semesterCode = Semester_CodeText.Text;
-            if (startDate == DateTime.MinValue || endDate == DateTime.MinValue || string.IsNullOrEmpty(semesterCode))
+            if (startDate == DateTime.MinValue)
             {
-                SuccessLabel.Text = "Invalid Input";
-                SuccessLabel.ForeColor = System.Drawing.Color.Red;
-                SuccessLabel.Visible = true;
+                DisplayErrorMessage("Start Date is required");
+                return;
             }
-            else
+
+            // Validate End Date
+            if (endDate == DateTime.MinValue)
             {
+                DisplayErrorMessage("End Date is required");
+                return;
+            }
+
+            // Validate Semester Code
+            if (string.IsNullOrEmpty(semesterCode))
+            {
+                DisplayErrorMessage("Semester Code is required");
+                return;
+            }
+
                 string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
                 SqlConnection connection = new SqlConnection(connectionStirng);
                 using (connection)
@@ -71,7 +92,6 @@ namespace Advising_System
                             connection.Close();
                         }
                     }
-                }
             }
             
         }

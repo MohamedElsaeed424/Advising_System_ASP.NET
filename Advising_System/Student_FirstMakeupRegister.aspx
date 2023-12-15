@@ -10,17 +10,19 @@
     <form id="form1" runat="server">
         <div>
             <h2>Register For First Makeup Exam</h2>
-            <div style="display: flex; justify-content: center; margin: 20px; resize: vertical;">
-                <asp:Label ID="Label1" runat="server" Text="Student ID"></asp:Label>
-                &nbsp;<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-            </div>
-            <div style="display: flex; justify-content: center; margin: 20px; resize: vertical;">
+                        <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
+    <asp:Label ID="SuccessLabel" runat="server" Text="Add Inputs" ForeColor="Blue" Visible="true"></asp:Label>
+</div>
+                        <div style="display: flex; justify-content: center; margin: 20px; resize: vertical;">
                 <asp:Label ID="Label2" runat="server" Text="Course ID"></asp:Label>
                 &nbsp;<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
             </div>
             <div style="display: flex; justify-content: center; margin: 20px; resize: vertical;">
                 <asp:Label ID="Label3" runat="server" Text="Current Semester"></asp:Label>
                 &nbsp;<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+            </div>
+            <div style="display: flex; justify-content: center; margin: 20px; resize: vertical;">
+                <asp:Label ID="Label4" runat="server" Text=""></asp:Label>
             </div>
         <div style="display: flex; justify-content: right; margin: 20px; resize: vertical;">
             <asp:Button ID="BackAdminHome5" runat="server" OnClick="BackAdminHome" Text="Back" />

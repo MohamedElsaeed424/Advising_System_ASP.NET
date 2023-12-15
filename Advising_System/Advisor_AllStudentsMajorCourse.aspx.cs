@@ -15,35 +15,43 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (IsPostBack) { return; }
-            string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
-            SqlConnection connection = new SqlConnection(connectionStirng);
-
-            try
+            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Advisor")
             {
-                SqlCommand getMajors = new SqlCommand("SELECT DISTINCT(major) FROM Student", connection);
-                getMajors.CommandType = CommandType.Text;
-                connection.Open();
-
-                SqlDataReader reader = getMajors.ExecuteReader(CommandBehavior.CloseConnection);
-
-                DataTable dt = new DataTable();
-                dt.Load(reader);
-
-                majors.DataSource = dt;
-                majors.DataTextField = "major";
-                majors.DataValueField = "major";
-                majors.DataBind();
-
-                majors.Items.Insert(0, new ListItem("Select a major", string.Empty));
-                majors.SelectedIndex = 0;
-                reader.Close();
+                Response.Redirect("/404Page.aspx");
             }
-            catch (Exception ex)
+            else
             {
-                Debug.WriteLine(ex.ToString());
+                if (IsPostBack) { return; }
+                string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
+                SqlConnection connection = new SqlConnection(connectionStirng);
+
+                try
+                {
+                    SqlCommand getMajors = new SqlCommand("SELECT DISTINCT(major) FROM Student", connection);
+                    getMajors.CommandType = CommandType.Text;
+                    connection.Open();
+
+                    SqlDataReader reader = getMajors.ExecuteReader(CommandBehavior.CloseConnection);
+
+                    DataTable dt = new DataTable();
+                    dt.Load(reader);
+
+                    majors.DataSource = dt;
+                    majors.DataTextField = "major";
+                    majors.DataValueField = "major";
+                    majors.DataBind();
+
+                    majors.Items.Insert(0, new ListItem("Select a major", string.Empty));
+                    majors.SelectedIndex = 0;
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.ToString());
+                }
+                finally { connection.Close(); }
+
             }
-            finally { connection.Close(); }
 
         }
 

@@ -15,7 +15,14 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            updateGrid();
+            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Advisor")
+            {
+                Response.Redirect("/404Page.aspx");
+            }
+            else
+            {
+                updateGrid();
+            }  
         }
         protected void Respond_button(object sender, EventArgs e)
         {

@@ -16,6 +16,12 @@ namespace Advising_System
         {
             
         }
+        private void DisplayErrorMessage(string message)
+        {
+            SuccessLabel.Text = "Error: " + message;
+            SuccessLabel.ForeColor = System.Drawing.Color.Red;
+            SuccessLabel.Visible = true;
+        }
         protected bool IsEmailExists(string email)
         {
             bool emailExists = false;
@@ -177,7 +183,7 @@ namespace Advising_System
             }
         }
         protected void addOption(String text) {
-            ListItem newItem = new ListItem(text, "CS");
+            ListItem newItem = new ListItem(text, text);
             major.Items.Add(newItem);
         }
     }

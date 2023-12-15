@@ -10,6 +10,7 @@
     <form id="form1" runat="server">
             <div>
         <h2>View all courses along with their prerequisites</h2>
+                                       
         <asp:GridView ID="AllCoursesWithPrerequisites" runat="server" AutoGenerateColumns="False">
         <Columns>
 <asp:BoundField DataField="course_id" HeaderText="Course ID" />

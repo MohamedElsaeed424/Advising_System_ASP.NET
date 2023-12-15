@@ -21,6 +21,10 @@ namespace Advising_System
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Admin")
+            {
+                Response.Redirect("/404Page.aspx");
+            }
             if (!IsPostBack)
             {
                 
@@ -76,12 +80,23 @@ namespace Advising_System
         }
 
 
-        
+        private void DisplayErrorMessage(string message)
+        {
+            SuccessLabel.Text = "Error: " + message;
+            SuccessLabel.ForeColor = System.Drawing.Color.Red;
+            SuccessLabel.Visible = true;
+        }
 
-        public void UpdateFinancialStatushelp()
+        public void UpdateFinancialStatushelp(object sender, EventArgs e)
         {
             string connectionString = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
-            int studentId = Convert.ToInt32(AllStudents.SelectedValue);
+            int studentId;
+            if (!int.TryParse(AllStudents.SelectedValue?.ToString(), out studentId) || studentId <= 0)
+            {
+                DisplayErrorMessage("Invalid Student Selection");
+                return;
+            }
+
             System.Diagnostics.Debug.WriteLine(studentId);
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -91,20 +106,37 @@ namespace Advising_System
                     Procedure_AdminUpdateStudentStatus.CommandType = CommandType.StoredProcedure;
 
                     Procedure_AdminUpdateStudentStatus.Parameters.AddWithValue("@StudentID", studentId);
-                    connection.Open();
-                    Procedure_AdminUpdateStudentStatus.ExecuteNonQuery();
+                    try {
+                        connection.Open();
+                        Procedure_AdminUpdateStudentStatus.ExecuteNonQuery();
+                        SuccessLabel.Text = "the update is done successfully!";
+                        SuccessLabel.ForeColor = System.Drawing.Color.Green;
+                        SuccessLabel.Visible = true;
+                    }
+                    catch (Exception ex)
+                    {
+
+                        SuccessLabel.Text = "Error: " + ex.Message;
+                        SuccessLabel.ForeColor = System.Drawing.Color.Red;
+                        SuccessLabel.Visible = true;
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+                
                 }
             }
-            
-
-        }
-
-
-
-
         protected void BackAdminHome(object sender, EventArgs e)
         {
             Response.Redirect("/AdminHome.aspx");
         }
+
     }
-}
+
+
+
+
+        
+    }

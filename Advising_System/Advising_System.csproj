@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="404Page.aspx" />
     <Content Include="AdminHome.aspx" />
+    <Content Include="Admin_AddMakeupExam.aspx" />
     <Content Include="Admin_AddNewCourse.aspx" />
     <Content Include="Admin_DeleteCourseWSlot.aspx" />
     <Content Include="Admin_deleteSlot.aspx" />
@@ -103,10 +104,14 @@
     <Content Include="Advisor_login.aspx" />
     <Content Include="Advisor_Registration.aspx" />
     <Content Include="Advisor_UpdateExGradDate.aspx" />
+    <Content Include="images\gucblurred.png" />
+    <Content Include="images\gucc1.png" />
     <Content Include="Student_AddPhoneNum.aspx" />
     <Content Include="Student_Login.aspx" />
     <Content Include="Student_Registration.aspx" />
+    <Content Include="Student_ViewAllCoursesCurrentSemester.aspx" />
     <Content Include="Student_ViewAllOptionalCourses.aspx" />
+    <Content Include="Student_ViewAllRequiredCourses.aspx" />
     <Content Include="Student_ViewMissingCourses.aspx" />
     <Content Include="StudentHome.aspx" />
     <Content Include="Student_ChooseInstructorForCourse.aspx" />
@@ -134,6 +139,13 @@
     </Compile>
     <Compile Include="AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_AddMakeupExam.aspx.cs">
+      <DependentUpon>Admin_AddMakeupExam.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_AddMakeupExam.aspx.designer.cs">
+      <DependentUpon>Admin_AddMakeupExam.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin_deleteSlot.aspx.cs">
       <DependentUpon>Admin_deleteSlot.aspx</DependentUpon>
@@ -401,6 +413,20 @@
     </Compile>
     <Compile Include="Student_SecondMakeupRegister.aspx.designer.cs">
       <DependentUpon>Student_SecondMakeupRegister.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student_ViewAllCoursesCurrentSemester.aspx.cs">
+      <DependentUpon>Student_ViewAllCoursesCurrentSemester.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student_ViewAllCoursesCurrentSemester.aspx.designer.cs">
+      <DependentUpon>Student_ViewAllCoursesCurrentSemester.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student_ViewAllRequiredCourses.aspx.cs">
+      <DependentUpon>Student_ViewAllRequiredCourses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student_ViewAllRequiredCourses.aspx.designer.cs">
+      <DependentUpon>Student_ViewAllRequiredCourses.aspx</DependentUpon>
     </Compile>
     <Compile Include="Student_ViewCoursesWithExams.aspx.cs">
       <DependentUpon>Student_ViewCoursesWithExams.aspx</DependentUpon>

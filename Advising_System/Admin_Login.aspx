@@ -7,7 +7,7 @@
 <head runat="server">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Student Registration Form</title>
+    <title>Admin Registration Form</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -74,7 +74,7 @@
 </head>
 <body>
     <form id="registrationForm" runat="server">
-        <header>Student Login</header>
+        <header>Admin Login</header>
 
          <asp:Label ID="SuccessLabel" runat="server" Text="Choose Inputs" ForeColor="Blue" Visible="true"></asp:Label>
 

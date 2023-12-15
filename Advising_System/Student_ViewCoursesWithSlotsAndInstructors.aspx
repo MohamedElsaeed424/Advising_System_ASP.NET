@@ -10,6 +10,7 @@
     <form id="form1" runat="server">
         <div>
             <h2>View Courses With Corresponding Slots And Insrucrors</h2>
+                                  
             <asp:GridView ID="CoursesWithCorrespondingSlotsAndInsrucrors" runat="server" AutoGenerateColumns="False">
  <Columns>
      <asp:BoundField DataField="CourseID" HeaderText="CourseID" />
@@ -23,6 +24,7 @@
      <asp:BoundField DataField="Instructor" HeaderText="Instructor" />
  </Columns>
  </asp:GridView>
+           
        <div style="display: flex; justify-content: right; margin: 20px; resize: vertical;">
             <asp:Button ID="BackAdminHome5" runat="server" OnClick="BackAdminHome" Text="Back" />
        </div>

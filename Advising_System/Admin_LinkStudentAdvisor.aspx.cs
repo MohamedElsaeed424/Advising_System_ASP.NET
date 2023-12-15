@@ -29,6 +29,10 @@ namespace Advising_System
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Admin")
+            {
+                Response.Redirect("/404Page.aspx");
+            }
             if (!IsPostBack)
             {
                 BindStudentsToDropDown();
@@ -139,22 +143,32 @@ namespace Advising_System
                 }
             }
         }
+        private void DisplayErrorMessage(string message)
+        {
+            SuccessLabel.Text = "Error: " + message;
+            SuccessLabel.ForeColor = System.Drawing.Color.Red;
+            SuccessLabel.Visible = true;
+        }
         protected void post_LinkStudentToAdvisor(object sender, EventArgs e)
         {
             try
             {
-                int studentId = Convert.ToInt32(AllStuendents.SelectedValue);
-                int advisorId = Convert.ToInt32(AllAdvisors.SelectedValue);
+                int studentId, advisorId;
 
-                if (studentId == 0 || advisorId == 0)
+                if (!int.TryParse(AllStuendents.SelectedValue?.ToString(), out studentId) || studentId <= 0)
                 {
-                    SuccessLabel.Text = "Invalid Input";
-                    SuccessLabel.ForeColor = System.Drawing.Color.Red;
-                    SuccessLabel.Visible = true;
+                    DisplayErrorMessage("Invalid Student Selection");
+                    return;
                 }
-                else
+
+                if (!int.TryParse(AllAdvisors.SelectedValue?.ToString(), out advisorId) || advisorId <= 0)
                 {
-                    LinkStudentToAdvisor1(studentId, advisorId);
+                    DisplayErrorMessage("Invalid Advisor Selection");
+                    return;
+                }
+
+
+                LinkStudentToAdvisor1(studentId, advisorId);
 
                     SuccessLabel.Text = "Linking Successful";
                     SuccessLabel.ForeColor = System.Drawing.Color.Green;
@@ -162,7 +176,7 @@ namespace Advising_System
 
                     AllStuendents.SelectedIndex = 0;
                     AllAdvisors.SelectedIndex = 0;
-                }
+
             }
             catch (Exception ex)
             {

@@ -14,30 +14,37 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
-            SqlConnection connection = new SqlConnection(connectionStirng);
-            try
+            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Student")
             {
-                SqlCommand viewCWSI = new SqlCommand("Select Course.course_id as CourseID , Course.name As Course, Slot.*, Instructor.name as Instructor\r\nfrom Course inner join Slot on Course.course_id = Slot.course_id\r\ninner join Instructor on Slot.instructor_id = Instructor.instructor_id;", connection);
-                viewCWSI.CommandType = CommandType.Text; ;
-                connection.Open();
-
-                SqlDataReader reader = viewCWSI.ExecuteReader(CommandBehavior.CloseConnection);
-                DataTable dataTable = new DataTable();
-
-                dataTable.Load(reader);
-
-                CoursesWithCorrespondingSlotsAndInsrucrors.DataSource = dataTable;
-                CoursesWithCorrespondingSlotsAndInsrucrors.DataBind();
+                Response.Redirect("/404Page.aspx");
             }
-            catch (Exception ex)
+            else
             {
-               Console.WriteLine("Error: " + ex.Message);
+                string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
+                SqlConnection connection = new SqlConnection(connectionStirng);
+                try
+                {
+                    SqlCommand viewCWSI = new SqlCommand("Select Course.course_id as CourseID , Course.name As Course, Slot.*, Instructor.name as Instructor\r\nfrom Course inner join Slot on Course.course_id = Slot.course_id\r\ninner join Instructor on Slot.instructor_id = Instructor.instructor_id;", connection);
+                    viewCWSI.CommandType = CommandType.Text; ;
+                    connection.Open();
 
-            }
-            finally
-            {
-                connection.Close();
+                    SqlDataReader reader = viewCWSI.ExecuteReader(CommandBehavior.CloseConnection);
+                    DataTable dataTable = new DataTable();
+
+                    dataTable.Load(reader);
+
+                    CoursesWithCorrespondingSlotsAndInsrucrors.DataSource = dataTable;
+                    CoursesWithCorrespondingSlotsAndInsrucrors.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+
+                }
+                finally
+                {
+                    connection.Close();
+                }
             }
         }
 

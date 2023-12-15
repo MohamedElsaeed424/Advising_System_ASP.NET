@@ -14,7 +14,16 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Student")
+            {
+                Response.Redirect("/404Page.aspx");
+            }
+        }
+        private void DisplayErrorMessage(string message)
+        {
+            SuccessLabel.Text = "Error: " + message;
+            SuccessLabel.ForeColor = System.Drawing.Color.Red;
+            SuccessLabel.Visible = true;
         }
         protected void SearchForSlots(object sender, EventArgs e)
         {
@@ -22,24 +31,38 @@ namespace Advising_System
             SqlConnection connection = new SqlConnection(connectionStirng);
             try
             {
-                int courseID = Int16.Parse(TextBox1.Text);
-                int insructorID = Int16.Parse(TextBox2.Text);
-                SqlCommand FN_StudentViewSlot = new SqlCommand("FN_StudentViewSlot", connection);
-                FN_StudentViewSlot.CommandType = CommandType.StoredProcedure;
-                connection.Open();
-                SqlDataReader reader = FN_StudentViewSlot.ExecuteReader(CommandBehavior.CloseConnection);
-                FN_StudentViewSlot.Parameters.AddWithValue("@CourseID", courseID);
-                FN_StudentViewSlot.Parameters.AddWithValue("@InstructorID", insructorID);
-                DataTable dataTable = new DataTable();
-
-                dataTable.Load(reader);
-
-                GridView1.DataSource = dataTable;
-                GridView1.DataBind();
+                int courseID;
+                if (!int.TryParse(TextBox1.Text, out courseID))
+                {
+                    DisplayErrorMessage("Invalid Course ID. Please enter a valid numeric value.");
+                    return;
+                }
+                int insructorID;
+                if (!int.TryParse(TextBox2.Text, out insructorID))
+                {
+                    DisplayErrorMessage("Invalid Insructor ID. Please enter a valid numeric value.");
+                    return;
+                }
+                else
+                {
+                    SqlCommand FN_StudentViewSlot = new SqlCommand("SELECT * FROM FN_StudentViewSlot(@CourseID,@InstructorID);", connection);
+                    FN_StudentViewSlot.CommandType = CommandType.Text;
+                    connection.Open();
+                    FN_StudentViewSlot.Parameters.AddWithValue("@CourseID", courseID);
+                    FN_StudentViewSlot.Parameters.AddWithValue("@InstructorID", insructorID);
+                    SqlDataReader reader = FN_StudentViewSlot.ExecuteReader(CommandBehavior.CloseConnection);
+                    DataTable dataTable = new DataTable();
+                    dataTable.Load(reader);
+                    GridView1.DataSource = dataTable;
+                    GridView1.DataBind();
+                    SuccessLabel.Text = "Viewed successfully!";
+                    SuccessLabel.ForeColor = System.Drawing.Color.Green;
+                }
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                SuccessLabel.Text = "Error while view: " + ex.Message;
+                SuccessLabel.ForeColor = System.Drawing.Color.Red;
             }
             finally
             {

@@ -18,17 +18,13 @@
         <asp:Label ID="Label2" runat="server" Text="Instructor ID"></asp:Label>
         &nbsp;<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
 </div>
-            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
-                <Columns>
-                    <asp:BoundField DataField="course_id" HeaderText="Course ID" />
-                    <asp:BoundField DataField="name" HeaderText="Course name" />
-                    <asp:BoundField DataField="slot_id" HeaderText="Slot ID" />
-                    <asp:BoundField DataField="day" HeaderText="Day" />
-                    <asp:BoundField DataField="time" HeaderText="Time" />
-                    <asp:BoundField DataField="location" HeaderText="Location" />
-                    <asp:BoundField DataField="name" HeaderText="Instructor Name" />                
-                </Columns>
+            <div style="display: flex; justify-content: center; margin: 20px; resize: vertical;">
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="True">
+                                     <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
+    <asp:Label ID="SuccessLabel" runat="server" Text="Add Inputs" ForeColor="Blue" Visible="true"></asp:Label>
+</div>
             </asp:GridView> 
+                </div>
 
                 <div style="display: flex; justify-content: center; margin: 20px; resize: vertical;"> 
                     <asp:Button ID="Button1" runat="server" OnClick="SearchForSlots" Text="Search" />

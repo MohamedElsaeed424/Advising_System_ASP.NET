@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Student_ViewAllOptionalCourses.aspx.cs" Inherits="Advising_System.Student_ViewAllOptionalCourses" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Student_ViewAllRequiredCourses.aspx.cs" Inherits="Advising_System.Student_ViewAllRequiredCourses" %>
+
 
 <!DOCTYPE html>
 
@@ -9,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-              <h2>Optional Courses</h2>
+              <h2>Required Courses</h2>
               <div style="display: flex; align-items: center; justify-content: right; margin: 20px; resize: vertical;">
                  <asp:Button ID="BackStudentHome2" runat="server" OnClick="BackStudentHome" Text="Back" />
              </div>
@@ -23,15 +24,15 @@
                     <asp:TextBox ID="Semester_CodeText" runat="server"></asp:TextBox>
               </div>
              <div style="display: flex; align-items: center; justify-content: right; margin: 20px; resize: vertical;">
-                 <asp:Button ID="Button2" runat="server" OnClick="Get_OptionalCourses" Text="Show Courses" />
+                 <asp:Button ID="Button2" runat="server" OnClick="Get_RequiredCourses" Text="Show Courses" />
              </div>
                 <div>
-               <asp:GridView ID="AllOptionalCourses" runat="server" AutoGenerateColumns="False">
-                <Columns>
-                    <asp:BoundField DataField="name" HeaderText="Course Name" />
-                    <asp:BoundField DataField="course_id" HeaderText="Course ID" />
-                </Columns>
-                </asp:GridView>
+                   <asp:GridView ID="AllRequiredCourses" runat="server" AutoGenerateColumns="False">
+                        <Columns>
+                            <asp:BoundField DataField="name" HeaderText="Course Name" />
+                            <asp:BoundField DataField="course_id" HeaderText="Course ID" />
+                        </Columns>
+                    </asp:GridView>
                 </div>
              </div>
         </div>

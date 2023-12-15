@@ -99,22 +99,24 @@ namespace Advising_System
             using (SqlConnection connection = new SqlConnection(connectionString))
                 try
                 {
-                    string currentSemester = CurrentSemText.Text;
+                    string currentSemester = Convert.ToString(AllSem.SelectedValue);
                     if (string.IsNullOrEmpty(currentSemester))
                     {
                         DisplayErrorMessage("Current Semester cannot be empty");
                         return;
                     }
-                    using (SqlCommand Procedures_AdminDeleteSlots = new SqlCommand("Procedures_AdminDeleteSlots", connection))
+
+                    using (SqlCommand Procedures_AdminDeleteSlots =
+                           new SqlCommand("Procedures_AdminDeleteSlots", connection))
                     {
                         Procedures_AdminDeleteSlots.CommandType = CommandType.StoredProcedure;
 
-                        Procedures_AdminDeleteSlots.Parameters.AddWithValue("@current_semester",sem_code );
+                        Procedures_AdminDeleteSlots.Parameters.AddWithValue("@current_semester", sem_code);
                         connection.Open();
                         Procedures_AdminDeleteSlots.ExecuteNonQuery();
                     }
 
-                    if (string.IsNullOrEmpty(AllSem.SelectedValue) || AllSem.SelectedIndex==0)
+                    if (string.IsNullOrEmpty(AllSem.SelectedValue) || AllSem.SelectedIndex == 0)
                     {
                         SuccessLabel.Text = "Invalid Input";
                         SuccessLabel.ForeColor = System.Drawing.Color.Red;
@@ -122,11 +124,12 @@ namespace Advising_System
                     }
                     else
                     {
-                      
+
                         SuccessLabel.Text = "Linking Successful";
                         SuccessLabel.ForeColor = System.Drawing.Color.Green;
                         SuccessLabel.Visible = true;
 
+                    }
                 }
                 catch (Exception ex)
                 {

@@ -67,6 +67,27 @@
             color: black;
             border: 2px solid #4CAF50;
         }
+
+        .back-button {
+            background-color:  #4CAF50;
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 8px;
+            padding: 10px 20px;
+            transition-duration: 0.4s;
+        }
+
+        .back-button:hover {
+            background-color: white;
+            color: black;
+            border: 2px solid  #4CAF50;
+        }
     </style>
 </head>
 <body>
@@ -87,7 +108,7 @@
                 </Columns>
             </asp:GridView>
             <div style="display: flex; justify-content: right; margin: 20px; resize: vertical;">
-                <asp:Button ID="BackAdminHome5" runat="server" OnClick="BackAdminHome" Text="Back" CssClass="styled-button" />
+                <asp:Button ID="BackAdminHome5" runat="server" OnClick="BackAdminHome" Text="Back" CssClass="back-button" />
             </div>
         </div>
     </form>

@@ -76,7 +76,7 @@
         }
 
         button {
-            background-color: #2196F3;
+            background-color: #4CAF50;
             color: white;
             padding: 15px;
             border: none;
@@ -85,7 +85,7 @@
         }
 
         .asp-button {
-            background-color: #2196F3;
+            background-color: #4CAF50;
             color: white;
             padding: 15px;
             border: none;

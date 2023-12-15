@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
@@ -75,8 +76,9 @@ namespace Advising_System
                                 System.Diagnostics.Debug.WriteLine(7);
                                 Session["UserID"] = id;
                                 Session["UserRole"] = "Student";
-                                Response.Redirect("/StudentHome.aspx");
                                 System.Diagnostics.Debug.WriteLine(Session["UserID"]);
+                                Response.Redirect("/StudentHome.aspx");
+
                             }
                             else
                             {

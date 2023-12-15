@@ -98,36 +98,46 @@ namespace Advising_System
             }
 
             System.Diagnostics.Debug.WriteLine(studentId);
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            if (AllStudents.SelectedIndex==0)
             {
-                using (SqlCommand Procedure_AdminUpdateStudentStatus = new SqlCommand("Procedure_AdminUpdateStudentStatus", connection))
+                SuccessLabel.Text = "Invalid input";
+                SuccessLabel.ForeColor = System.Drawing.Color.Red;
+                SuccessLabel.Visible = true;
+            }
+            else
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    Procedure_AdminUpdateStudentStatus.CommandType = CommandType.StoredProcedure;
-
-                    Procedure_AdminUpdateStudentStatus.Parameters.AddWithValue("@StudentID", studentId);
-                    try {
-                        connection.Open();
-                        Procedure_AdminUpdateStudentStatus.ExecuteNonQuery();
-                        SuccessLabel.Text = "the update is done successfully!";
-                        SuccessLabel.ForeColor = System.Drawing.Color.Green;
-                        SuccessLabel.Visible = true;
-                    }
-                    catch (Exception ex)
+                    using (SqlCommand Procedure_AdminUpdateStudentStatus =
+                           new SqlCommand("Procedure_AdminUpdateStudentStatus", connection))
                     {
+                        Procedure_AdminUpdateStudentStatus.CommandType = CommandType.StoredProcedure;
 
-                        SuccessLabel.Text = "Error: " + ex.Message;
-                        SuccessLabel.ForeColor = System.Drawing.Color.Red;
-                        SuccessLabel.Visible = true;
+                        Procedure_AdminUpdateStudentStatus.Parameters.AddWithValue("@StudentID", studentId);
+                        try
+                        {
+                            connection.Open();
+                            Procedure_AdminUpdateStudentStatus.ExecuteNonQuery();
+                            SuccessLabel.Text = "the update is done successfully!";
+                            SuccessLabel.ForeColor = System.Drawing.Color.Green;
+                            SuccessLabel.Visible = true;
+                        }
+                        catch (Exception ex)
+                        {
+
+                            SuccessLabel.Text = "Error: " + ex.Message;
+                            SuccessLabel.ForeColor = System.Drawing.Color.Red;
+                            SuccessLabel.Visible = true;
+                        }
+                        finally
+                        {
+                            connection.Close();
+                        }
                     }
-                    finally
-                    {
-                        connection.Close();
-                    }
-                }
-                
+
                 }
             }
+        }
         protected void BackAdminHome(object sender, EventArgs e)
         {
             Response.Redirect("/AdminHome.aspx");

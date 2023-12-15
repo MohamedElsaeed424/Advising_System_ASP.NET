@@ -20,11 +20,15 @@ namespace Advising_System
         }
         private void DisplayErrorMessage(string message)
         {
+            SuccessLabel.Visible = true;
             SuccessLabel.Text = "Error: " + message;
             SuccessLabel.ForeColor = System.Drawing.Color.Red;
             SuccessLabel.Visible = true;
         }
-
+        protected void BackStudentHome(object sender, EventArgs e)
+        {
+            Response.Redirect("/StudentHome.aspx");
+        }
         protected void AddPhoneNum(object sender, EventArgs e)
         {
 
@@ -53,7 +57,7 @@ namespace Advising_System
                         connection.Open();
                         command.ExecuteNonQuery();
                     }
-
+                    SuccessLabel.Visible = true;
                     SuccessLabel.Text = "Phone number added successfully.";
                     SuccessLabel.ForeColor = System.Drawing.Color.Green;
                     SuccessLabel.Visible = true;
@@ -63,7 +67,7 @@ namespace Advising_System
             }
             catch (Exception ex)
             {
-
+                SuccessLabel.Visible = true;
                 SuccessLabel.Text = $"Error: {ex.Message}";
                 SuccessLabel.ForeColor = System.Drawing.Color.Red;
                 SuccessLabel.Visible = true;

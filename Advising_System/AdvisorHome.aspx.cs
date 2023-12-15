@@ -24,7 +24,7 @@ namespace Advising_System
 
         protected void InsertNewGrad_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/Advisor_InsertGradPlan.aspx");
+            Response.Redirect("/Advisor_GraduationPlan.aspx");
         }
         //
         protected void InserCourseinGP_Click(object sender, EventArgs e)

@@ -8,6 +8,7 @@ using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Diagnostics;
+using System.Web.Services.Description;
 
 namespace Advising_System
 {
@@ -19,29 +20,21 @@ namespace Advising_System
             {
                 Response.Redirect("/404Page.aspx");
             }
-            else
-            {
-                if (IsPostBack) { return; }
-                loadStudentList();
-            }
-
         }
 
 
         protected void UpdateGrad_Click(object sender, EventArgs e)
         {
             Message.Visible = true;
-            string stdID = StudentID.SelectedValue;
             string date = ExGradDate.Text;
 
-            if (string.IsNullOrEmpty(stdID) || string.IsNullOrEmpty(date))
+            if (string.IsNullOrEmpty(date))
             {
                 Message.ForeColor = System.Drawing.Color.Red;
                 Message.Visible = true;
                 Message.Text = "Invalid Input";
                 return;
             }
-            int stID = Int32.Parse(stdID);
 
             string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
             SqlConnection connection = new SqlConnection(connectionStirng);
@@ -50,8 +43,7 @@ namespace Advising_System
                 SqlCommand UpdateGradDate = new SqlCommand("Procedures_AdvisorUpdateGP", connection); // {Session["UserID"]} put in input of fn
                 UpdateGradDate.CommandType = CommandType.StoredProcedure;
                 connection.Open();
-
-                UpdateGradDate.Parameters.AddWithValue("@studentID", stID);
+                UpdateGradDate.Parameters.AddWithValue("@studentID", Session["StID"]);
                 UpdateGradDate.Parameters.AddWithValue("@expected_grad_date", date);
 
                 int nRowsAffected = UpdateGradDate.ExecuteNonQuery();
@@ -60,6 +52,7 @@ namespace Advising_System
                     Message.Visible = true;
                     Message.ForeColor = System.Drawing.Color.Green;
                     Message.Text = "Succesfully Updated Graduation Plan";
+                    updateGrid();
                 }
                 else
                 {
@@ -76,37 +69,28 @@ namespace Advising_System
             }
             finally { connection.Close(); }
         }
-        protected void loadStudentList()
+        protected void updateGrid()
         {
             string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
             SqlConnection connection = new SqlConnection(connectionStirng);
             try
             {
-                SqlCommand AllStudents = new SqlCommand($"SELECT student_id, CONCAT(student_id, ' ', f_name, ' ', l_name) AS 'All' " +
-                    $"FROM Student WHERE advisor_id = {Session["UserID"]}\r\n", connection); // {Session["UserID"]} put in input of fn
-                AllStudents.CommandType = CommandType.Text;
+                SqlCommand command = new SqlCommand($"SELECT * FROM Graduation_Plan WHERE plan_id = {Session["Plan"]}", connection); //type LIKE 'course
+                command.CommandType = CommandType.Text;
                 connection.Open();
 
-                SqlDataReader reader = AllStudents.ExecuteReader(CommandBehavior.CloseConnection);
+                SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
 
                 DataTable dt = new DataTable();
                 dt.Load(reader);
 
-                StudentID.DataSource = dt;
-                StudentID.DataTextField = "All";
-                StudentID.DataValueField = "student_id";
-                StudentID.DataBind();
-
-                StudentID.Items.Insert(0, new ListItem("Select a Student", string.Empty));
-                StudentID.SelectedIndex = 0;
-
+                GradPlan.DataSource = dt;
+                GradPlan.DataBind();
                 reader.Close();
             }
             catch (Exception ex)
             {
-                Message.Visible = true;
-                Message.ForeColor = System.Drawing.Color.Red;
-                Message.Text = ex.Message;
+                DropDownLoader.DisplayErrorMessage(Message, ex.Message);
             }
             finally { connection.Close(); }
         }

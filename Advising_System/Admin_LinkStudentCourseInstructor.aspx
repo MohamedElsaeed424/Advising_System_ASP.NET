@@ -167,32 +167,36 @@
     </style>
 </head>
 <body>
-        <div id="sidebar">
-    <div id="sidebar-header">Contents</div>
-        <ul>
-            <li><a href="/AdminHome.aspx">Home</a></li>
-            <li><a href="/Admin_ListAllAdvisors.aspx">Show All Advisors</a></li>
-            <li><a href="/Admin_ListAllStudentsAdvisors.aspx">Show All Advisors With Students</a></li>
-            <li><a href="/Admin_ListAllPendingRequests.aspx">Show All Pending Requests</a></li>
-            <li><a href="/Admin_AddNewSemester.aspx">Add New Semester</a></li>
-            <li><a href="/Admin_AddNewCourse.aspx">Add New Course</a></li>
-            <li><a href="/Admin_ListInstructorCourse.aspx">All Instructors with their courses</a></li>
-            <li><a href="/Admin_ListAllSemestersCourses.aspx">All Offered Courses With their Semesters</a></li>
-            <li><a href="/Admin_LinkInstructorCourseSlot.aspx">Link Instructor To Course</a></li>
-            <li><a href="/Admin_LinkStudentAdvisor.aspx">Link Student To Advisor</a></li>
-            <li><a href="/Admin_LinkStudentCourseInstructor.aspx">Link Student To Course and Instructor</a></li>
-            <li><a href="/Admin_FetchSemWCourse.aspx">Fetch all semesters along with their offered courses</a></li>
-            <li><a href="/Admin_viewStudentsTranscriptDetails.aspx">View all students transcript details</a></li>
-            <li><a href="/Admin_viewPaymentDetailsForStudent.aspx">View details for all payments along with their corresponding students</a></li>
-            <li><a href="/Admin_ViewGPWadvisor.aspx">View all graduation plans along with their initiated advisors</a></li>
-            <li><a href="/Admin_fetchActiveStudents.aspx">Fetch all active students</a></li>
-            <li><a href="/Admin_DeleteCourseWSlot.aspx">Choose a course to delete with its assigned slots</a></li>
-            <li><a href="/Admin_issueInstallments.aspx">Issue installments as per the number of installments for a certain payment</a></li>
-            <li><a href="/Admin_UpdateFinancialStatus.aspx">Update a student status based on his/her financial status</a></li>
-            <li><a href="/Admin_deleteSlot.aspx">Delete a slot of a certain course</a></li>
-            <li><a href="/Admin_AddMakeupExam.aspx">Add make up exam</a></li>
-        </ul>
-</div>
+    <div id="sidebar">
+        <div id="sidebar-header">Contents</div>
+            <ul>
+                <li><a href="/AdminHome.aspx">Home</a></li>
+                <li><a href="/Admin_ListAllAdvisors.aspx">Advisors</a></li>
+                <li><a href="/Admin_ListAllStudentsAdvisors.aspx">Advisors With Students</a></li>
+                <li><a href="/Admin_ListAllPendingRequests.aspx">Pending Requests</a></li>
+
+                <li><a href="/Admin_ListInstructorCourse.aspx">Instructors With Courses</a></li>
+                <li><a href="/Admin_ListAllSemestersCourses.aspx">Offered Coursester</a></li>
+
+                <li><a href="/Admin_FetchSemWCourse.aspx">All Semesters And Offered Courses</a></li>
+                <li><a href="/Admin_viewStudentsTranscriptDetails.aspx">Students Transcript details</a></li>
+                <li><a href="/Admin_viewPaymentDetailsForStudent.aspx">Students Payments</a></li>
+                <li><a href="/Admin_ViewGPWadvisor.aspx">Advisors With there GraduationPlane</a></li>
+                <li><a href="/Admin_fetchActiveStudents.aspx">Active Students</a></li>
+              
+                <li><a href="/Admin_DeleteCourseWSlot.aspx">Delete Course</a></li>
+                <li><a href="/Admin_deleteSlot.aspx">Delete Slots</a></li>
+                <li><a href="/Admin_issueInstallments.aspx">Issue Installment</a></li>
+                <li><a href="/Admin_LinkInstructorCourseSlot.aspx">Link Instructor To Course</a></li>
+                <li><a href="/Admin_LinkStudentAdvisor.aspx">Link Student to Advisor</a></li>
+                <li><a href="/Admin_LinkStudentCourseInstructor.aspx">Link Student To course</a></li>
+
+                <li><a href="/Admin_UpdateFinancialStatus.aspx">Update Student Status</a></li>
+                <li><a href="/Admin_AddNewCourse.aspx">Add New Course</a></li>
+                <li><a href="/Admin_AddNewSemester.aspx">Add New Semester</a></li>
+                <li><a href="/Admin_AddMakeupExam.aspx">Add Makeup Exam</a></li>
+            </ul>
+    </div>
     <form id="form1" runat="server">
         <div>
             <h2>Assign Student To Course and Instructor</h2>
@@ -233,9 +237,6 @@
             </div>
         </div>
     </form>
-    <div id="footer">
-    &copy; 2023 Admin Portal
-</div>
 
 <div id="toggle-btn"></div>
 
@@ -246,12 +247,13 @@
 
     toggleBtn.addEventListener('click', () => {
         const sidebarWidth = sidebar.offsetWidth;
+
         if (sidebar.style.left === '0px' || sidebar.style.left === '') {
-            sidebar.style.left = `-${sidebarWidth} px`;
+            sidebar.style.left = `-${sidebarWidth}px`;
             content.style.marginLeft = '0';
         } else {
             sidebar.style.left = '0';
-            content.style.marginLeft = `-${sidebarWidth} px`;
+            content.style.marginLeft = `${sidebarWidth}px`;
         }
     });
 </script>

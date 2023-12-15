@@ -17,8 +17,6 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["UserID"] = 8;
-            Session["UserRole"] = "Advisor";
             if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Advisor")
             {
                 Response.Redirect("/404Page.aspx");
@@ -26,42 +24,43 @@ namespace Advising_System
             else
             {
                 if (IsPostBack) { return; }
-                DropDownLoader.loadStudentList(StudentID, (int)Session["UserID"], Message);
                 DropDownLoader.loadCourseList(CourseName, Message);
             }
 
 
         }
-        protected void AddCourse_Click(object sender, EventArgs e)
+        protected void Delete_Click(object sender, EventArgs e)
         {
             Message.Visible = false;
-            string stID = StudentID.SelectedValue;
-            string semCode = SemesterCode.Text;
-            string cName = CourseName.SelectedValue;
+            string stID = Session["StID"].ToString();
+            string semCode = Session["Semester"].ToString();
+            string cName = CourseIDs.SelectedValue;
 
-            if(string.IsNullOrEmpty(stID) || string.IsNullOrEmpty(semCode)
-                || string.IsNullOrEmpty(cName)) 
-            { 
+            if (string.IsNullOrEmpty(stID) || string.IsNullOrEmpty(semCode)
+                || string.IsNullOrEmpty(cName))
+            {
                 Message.ForeColor = System.Drawing.Color.Red;
                 Message.Visible = true;
                 Message.Text = "Invalid Input";
                 return;
             }
+            int cID = Int32.Parse(cName);
 
             string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
             SqlConnection connection = new SqlConnection(connectionStirng);
             try
             {
-                SqlCommand InsertGradPlan = new SqlCommand("Procedures_AdvisorAddCourseGP", connection); // {Session["UserID"]} put in input of fn
-                InsertGradPlan.CommandType = CommandType.StoredProcedure;
+                SqlCommand DeleteCourseGP = new SqlCommand("Procedures_AdvisorDeleteFromGP", connection); // {Session["UserID"]} put in input of fn
+                DeleteCourseGP.CommandType = CommandType.StoredProcedure;
                 connection.Open();
 
-                InsertGradPlan.Parameters.AddWithValue("@student_Id", stID);
-                InsertGradPlan.Parameters.AddWithValue("@Semester_code", semCode);
-                InsertGradPlan.Parameters.AddWithValue("@course_name", cName);
+                DeleteCourseGP.Parameters.AddWithValue("@studentID", stID);
+                DeleteCourseGP.Parameters.AddWithValue("@semesterCode", semCode);
+                DeleteCourseGP.Parameters.AddWithValue("@courseID", cID);
 
-                int nRowsAffected = InsertGradPlan.ExecuteNonQuery();
-                if (nRowsAffected > 0) {
+                int nRowsAffected = DeleteCourseGP.ExecuteNonQuery();
+                if (nRowsAffected > 0)
+                {
                     Message.Visible = true;
                     Message.ForeColor = System.Drawing.Color.Green;
                     Message.Text = "Succesfully inserted Graduation Plan";
@@ -78,6 +77,78 @@ namespace Advising_System
                 Message.Visible = true;
                 Message.ForeColor = System.Drawing.Color.Red;
                 Message.Text = ex.Message;
+            }
+            finally { connection.Close(); }
+        }
+        protected void AddCourse_Click(object sender, EventArgs e)
+        {
+            Message.Visible = false;
+            string cName = CourseName.SelectedValue;
+
+            if(string.IsNullOrEmpty(cName)) 
+            { 
+                Message.ForeColor = System.Drawing.Color.Red;
+                Message.Visible = true;
+                Message.Text = "Invalid Input";
+                return;
+            }
+
+            string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
+            SqlConnection connection = new SqlConnection(connectionStirng);
+            try
+            {
+                SqlCommand InsertGradPlan = new SqlCommand("Procedures_AdvisorAddCourseGP", connection); 
+                InsertGradPlan.CommandType = CommandType.StoredProcedure;
+                connection.Open();
+
+                InsertGradPlan.Parameters.AddWithValue("@student_Id", Session["StID"]);
+                InsertGradPlan.Parameters.AddWithValue("@Semester_code", Session["Semester"]);
+                InsertGradPlan.Parameters.AddWithValue("@course_name", cName);
+
+                int nRowsAffected = InsertGradPlan.ExecuteNonQuery();
+                if (nRowsAffected > 0) {
+                    Message.Visible = true;
+                    Message.ForeColor = System.Drawing.Color.Green;
+                    Message.Text = "Succesfully inserted Graduation Plan";
+                    updateGrid();
+                }
+                else
+                {
+                    Message.Visible = true;
+                    Message.ForeColor = System.Drawing.Color.Red;
+                    Message.Text = "Unsuccessful";
+                }
+            }
+            catch (Exception ex)
+            {
+                Message.Visible = true;
+                Message.ForeColor = System.Drawing.Color.Red;
+                Message.Text = ex.Message;
+            }
+            finally { connection.Close(); }
+        }
+        protected void updateGrid()
+        {
+            string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
+            SqlConnection connection = new SqlConnection(connectionStirng);
+            try
+            {
+                SqlCommand command = new SqlCommand($"SELECT * FROM FN_StudentViewGP({Session["StID"]}) WHERE [graduation Plan Id] = {Session["Plan"]}", connection); //type LIKE 'course
+                command.CommandType = CommandType.Text;
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader(CommandBehavior.CloseConnection);
+
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+
+                GradCourse.DataSource = dt;
+                GradCourse.DataBind();
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                DropDownLoader.DisplayErrorMessage(Message, ex.Message);
             }
             finally { connection.Close(); }
         }

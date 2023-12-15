@@ -24,13 +24,13 @@ namespace Advising_System
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// BackStudentHome2 control.
+        /// SuccessLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BackStudentHome2;
+        protected global::System.Web.UI.WebControls.Label SuccessLabel;
 
         /// <summary>
         /// Semester_Code control.
@@ -69,12 +69,12 @@ namespace Advising_System
         protected global::System.Web.UI.WebControls.GridView AllAvailableCourses;
 
         /// <summary>
-        /// SuccessLabel control.
+        /// BackStudentHome2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label SuccessLabel;
+        protected global::System.Web.UI.WebControls.Button BackStudentHome2;
     }
 }

@@ -21,6 +21,7 @@ namespace Advising_System
         }
         private void DisplayErrorMessage(string message)
         {
+            SuccessLabel.Visible = true;
             SuccessLabel.Text = "Error: " + message;
             SuccessLabel.ForeColor = System.Drawing.Color.Red;
             SuccessLabel.Visible = true;
@@ -55,12 +56,14 @@ namespace Advising_System
 
                     AllRequiredCourses.DataSource = dataTable;
                     AllRequiredCourses.DataBind();
+                    SuccessLabel.Visible = true;
                     SuccessLabel.Text = "Viewed successfully!";
                     SuccessLabel.ForeColor = System.Drawing.Color.Green;
                 }
             }
             catch (Exception ex)
             {
+                SuccessLabel.Visible = true;
                 SuccessLabel.Text = "Error while Viewing: " + ex.Message;
                 SuccessLabel.ForeColor = System.Drawing.Color.Red;
             }

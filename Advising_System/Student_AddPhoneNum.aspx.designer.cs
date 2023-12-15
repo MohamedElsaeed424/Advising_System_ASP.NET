@@ -24,15 +24,6 @@ namespace Advising_System
         protected global::System.Web.UI.HtmlControls.HtmlForm registrationForm;
 
         /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-
-        /// <summary>
         /// SuccessLabel control.
         /// </summary>
         /// <remarks>
@@ -58,5 +49,14 @@ namespace Advising_System
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Add;
+
+        /// <summary>
+        /// BackAdminHome5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BackAdminHome5;
     }
 }

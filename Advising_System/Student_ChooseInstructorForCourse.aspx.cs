@@ -22,6 +22,7 @@ namespace Advising_System
         }
         private void DisplayErrorMessage(string message)
         {
+            SuccessLabel.Visible = true;
             SuccessLabel.Text = "Error: " + message;
             SuccessLabel.ForeColor = System.Drawing.Color.Red;
             SuccessLabel.Visible = true;
@@ -65,11 +66,13 @@ namespace Advising_System
                 {
                     connection.Open();
                     Procedures_ChooseInstructor.ExecuteNonQuery();
+                    SuccessLabel.Visible = true;
                     SuccessLabel.Text = "Course Choosed successfully!";
                     SuccessLabel.ForeColor = System.Drawing.Color.Green;
                 }
                 catch (Exception ex)
                 {
+                    SuccessLabel.Visible = true;
                     SuccessLabel.Text = "Error while choosing course: " + ex.Message;
                     SuccessLabel.ForeColor = System.Drawing.Color.Red;
                 }

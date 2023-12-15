@@ -34,18 +34,6 @@
             border: 10px solid white; /* Thin white border */
         }
 
-        header {
-            background-color: #4caf50; /* Turquoise color */
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px 8px 0 0;
-            width: 100%;
-            margin-top: 0; /* Remove default margin */
-            margin-left: -15px;
-           
-        }
 
         label {
             display: block;
@@ -69,36 +57,42 @@
             color: #2196F3; /* Blue color */
         }
 
-        button {
-            background-color: #2196F3;
+               button {
+            background-color: #4CAF50;
             color: white;
             padding: 15px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            color: #2196F3; /* Blue color */
-        }
-        
-        .asp-button {
-            background-color: #2196F3;
-            color: white;
-            padding: 15px;
-            border: none;
-            border-radius: 25px; /* Adjusted border-radius for a rounder shape */
-            cursor: pointer;
-            transition: background-color 0.3s ease;
         }
 
-        .asp-button:hover {
-            background-color: #1565C0; /* Darker blue on hover */
-        }
+       .asp-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 10px 20px;
+    transition-duration: 0.4s;
+}
+
+.asp-button:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+}
 
     </style>
 </head>
 <body>
     <div class="container">
         <form id="registrationForm" runat="server">
-            <header>Admin Login</header>
+            <h2>Admin Login</h2>
 
             <asp:Label ID="SuccessLabel" runat="server" Text="Choose Inputs" ForeColor="Blue" Visible="true"></asp:Label>
 

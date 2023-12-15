@@ -1,64 +1,199 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="StudentHome.aspx.cs" Inherits="Advising_System.StudentHome" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminHome.aspx.cs" Inherits="Advising_System.AdminHome" %>
+
 
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal</title>
+    <style>
+ body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: rgb(2,0,36);
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,121,105,1) 35%, rgba(0,212,255,1) 100%);
+            display: flex;
+        }
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
+        #content {
+            padding: 30px;
+            background: #f8f9fa;
+            margin-left: 240px;
+            flex: 1;
+            transition: margin-left 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            color: #495057;
+        }
+
+        #content h2 {
+            color: #3498db;
+        }
+
+        #content p {
+            line-height: 1.6;
+        }
+
+        #footer {
+            background: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #sidebar {
+            background: #2c3e50;
+            padding: 1em;
+            height: 100vh;
+            width: 240px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            left: -240px;
+            transition: left 0.3s ease;
+            overflow-y: auto;
+            color: #ecf0f1;
+            border-radius: 5px;
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+        }
+
+        #sidebar::-webkit-scrollbar {
+            width: 10px;
+            background-color: #2c3e50;
+        }
+
+        #sidebar::-webkit-scrollbar-thumb {
+            background-color: #34495e;
+            border-radius: 5px;
+        }
+
+        #sidebar::-webkit-scrollbar-thumb:hover {
+            background-color: #2980b9;
+        }
+
+        #sidebar-header {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-align: center;
+            color: #3498db;
+        }
+
+
+        #sidebar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #sidebar li {
+            margin-bottom: 12px;
+        }
+
+        #sidebar a {
+            display: block;
+            color: #ecf0f1;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background 0.3s ease, color 0.3s ease;
+            transform: scale(1);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        #sidebar a:hover {
+            background: #34495e;
+            color: #3498db;
+            transform: scale(1.1);
+        }
+
+        #toggle-btn {
+          cursor: pointer;
+          position: fixed;
+          top: 20px;
+          left: 20px;
+          z-index: 3;
+          color: cornflowerblue;
+          font-size: 20px; /* Reduced font size for smaller button */
+          border: none;
+          border-radius: 50%; /* Maintains round shape */
+          padding: 1px; /* Reduced padding to match smaller size */
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Adjusted shadow for smaller size */
+          transition: background-color 0.3s ease; /* Removed transition for left position as it's fixed */
+        }
+
+
+        #toggle-btn:hover {
+            background-color: #2980b9;
+        }
+
+        #toggle-btn::before {
+            content: "\2261";
+            font-size: 24px; /* Adjusted font size */
+        }
+
+        .sidebar-opened #toggle-btn {
+            left: 240px;
+        }
+
+    </style>
+
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
-            <h1>Student Home Page</h1>
-        </div>
-        <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-            <asp:Button ID="Button1" runat="server" Onclick="ViewGradPlan" Text ="View graduation plan along with assigned courses" Width="380px" />
-        </div>
-        <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-            <asp:Button ID="Button2" runat="server" Onclick="ViewNotPaidInst" Text=" View upcoming not paid installment" Width="282px" />
-        </div>
-        <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-            <asp:Button ID="Button3" runat="server" Onclick="ViewCoursesWithExams" Text="View courses with their exams details" Width="293px" />
-        </div>
-        <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-            <asp:Button ID="Button4" runat="server" Onclick="FirstMakeupRegister" Text="Register for first makeup exam" Width="248px" />
-        </div>
-        <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-            <asp:Button ID="Button5" runat="server" Onclick="SecondMakeupRegister" Text="Register for second makeup exam" Width="247px" />
-        </div>
-        <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-            <asp:Button ID="Button6" runat="server" Onclick="ViewCoursesWithSlotsAndInstructors" Text="View courses with their corresponding slots and instructors" Width="448px" />
-        </div>
-        <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-            <asp:Button ID="Button7" runat="server" Onclick="ViewSlotsForCourse" Text="View slots of a certain course" Width="259px" />
-        </div>
-        <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-            <asp:Button ID="Button8" runat="server" Onclick="ChooseInstructorForCourse" Text=" Choose instructor for a certain course" Width="296px" />
-        </div>
-        <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-            <asp:Button ID="Button9" runat="server" Onclick="ViewCoursesWithPrereq" Text="View details of courses with their prerequisites" Width="357px" />
-        </div>
-        <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-            <asp:Button ID="Button10" runat="server" Onclick="Student_AddPhoneNum" Text="Add Phone Number" Width="357px" />
-        </div>
-        <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-            <asp:Button ID="Button11" runat="server" Onclick="ViewMissingCourses" Text="View Missing Courses" Width="357px" />
-        </div>
-        <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-            <asp:Button ID="Button12" runat="server" Onclick="ViewAllAvailableCourses" Text="View All Available Courses in Your Current semester" Width="357px" />
-        </div>
-        <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-            <asp:Button ID="Button13" runat="server" Onclick="ViewAllOptionalCourses" Text="View All Optional Courses" Width="357px" />
-        </div>
-        <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-            <asp:Button ID="Button14" runat="server" Onclick="ViewAllRequiredCourses" Text="View All Required Courses" Width="357px" />
-        </div>
-                <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-            <asp:Button ID="Button15" runat="server" Onclick="StudentRegiser" Text="Student Regiseration" Width="357px" />
-        </div>
-                <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-            <asp:Button ID="Button16" runat="server" Onclick="SendRequest" Text="Student Send Request" Width="357px" />
-        </div>
-    </form>
+    <div id="sidebar">
+        <div id="sidebar-header">Contents</div>
+            <ul>
+                <li><a href="/StudentHome.aspx">Home</a></li>
+                <li><a href="/Student_ViewGradPlan.aspx">View graduation plan along with assigned courses</a></li>
+                <li><a href="/Student_ViewNotPaidInst.aspx">View upcoming not paid installment</a></li>
+                <li><a href="/Student_ViewCoursesWithExams.aspx">View courses with their exams details</a></li>
+                <li><a href="/Student_FirstMakeupRegister.aspx">Register for first makeup exam</a></li>
+                <li><a href="/Student_SecondMakeupRegister.aspx">Register for second makeup exam</a></li>
+                <li><a href="/Student_ViewCoursesWithSlotsAndInstructors.aspx">View courses with their corresponding slots and instructors</a></li>
+                <li><a href="/Student_ViewSlotsForCourse.aspx">View slots of a certain course</a></li>
+                <li><a href="/Student_ChooseInstructorForCourse.aspx">Choose instructor for a certain course</a></li>
+                <li><a href="/Student_ViewCoursesWithPrereq.aspx">View details of courses with their prerequisites</a></li>
+                <li><a href="/Student_AddPhoneNum.aspx">Add Phone Number</a></li>
+                <li><a href="/Student_ViewMissingCourses.aspx">View Missing Courses</a></li>
+                <li><a href="/Student_ViewAllCoursesCurrentSemester.aspx">View All Available Courses in Your Current semester</a></li>
+                <li><a href="/Student_ViewAllOptionalCourses.aspx">View All Optional Courses</a></li>
+                <li><a href="/Student_ViewAllRequiredCourses.aspx">View All Required Courses</a></li>
+                <li><a href="/Student_Registration.aspx">Student Regiseration</a></li>
+                <li><a href="/Student_SendRequest.aspx">Student Send Request</a></li>
+            </ul>
+    </div>
+
+    <div id="content">
+                  <h2>Welcome, Student!</h2>
+                  <p>This is the student portal for the student system.</p>
+    </div>
+
+    <div id="footer">
+        &copy; 2023 Student Portal
+    </div>
+
+    <div id="toggle-btn"></div>
+
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const content = document.getElementById('content');
+        const toggleBtn = document.getElementById('toggle-btn');
+
+        toggleBtn.addEventListener('click', () => {
+            const sidebarWidth = sidebar.offsetWidth;
+
+            if (sidebar.style.left === '0px' || sidebar.style.left === '') {
+                sidebar.style.left = `-${sidebarWidth}px`;
+                content.style.marginLeft = '0';
+            } else {
+                sidebar.style.left = '0';
+                content.style.marginLeft = `${sidebarWidth}px`;
+            }
+        });
+    </script>
 </body>
 </html>

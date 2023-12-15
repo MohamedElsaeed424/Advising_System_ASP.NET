@@ -60,7 +60,7 @@ a:hover {
         <div class="error-container">
             <h1>404</h1>
             <p>Oops! Something went wrong.</p>
-            <p>The page you are looking for might be in another dimension.</p>
+            <p>The page you are looking for might be in another dimension Try Login First.</p>
         </div>
     </div>
 </body>

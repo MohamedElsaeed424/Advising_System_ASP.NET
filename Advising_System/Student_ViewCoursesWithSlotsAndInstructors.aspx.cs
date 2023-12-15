@@ -33,8 +33,8 @@ namespace Advising_System
 
                     dataTable.Load(reader);
 
-                    CoursesWithCorrespondingSlotsAndInsrucrors.DataSource = dataTable;
-                    CoursesWithCorrespondingSlotsAndInsrucrors.DataBind();
+                    CoursesWithCorrespondingSlotsAndInstructors.DataSource = dataTable;
+                    CoursesWithCorrespondingSlotsAndInstructors.DataBind();
                 }
                 catch (Exception ex)
                 {

@@ -97,20 +97,23 @@
 }
 
 #toggle-btn {
-    cursor: pointer;
-    position: fixed;
-    right: 20px;
-    top: 20px;
-    z-index: 2;
-    color: #ecf0f1;
-    font-size: 24px;
-    padding: 12px;
-    background-color: #3498db;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease, right 0.3s ease;
-}
+        border-style: none;
+            border-color: inherit;
+            border-width: medium;
+            cursor: pointer;
+            position: fixed;
+    right: 720px;
+    top: 2px;
+            z-index: 2;
+            color: #ecf0f1;
+            font-size: 24px;
+            padding: 12px;
+            background-color: #3498db;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease, right 0.3s ease;
+            height: 30px;
+        }
 
 #toggle-btn:hover {
     background-color: #2980b9;
@@ -165,7 +168,7 @@
         &copy; 2023 Admin Portal
     </div>
 
-    <div id="toggle-btn">&#9654;</div>
+    <div id="toggle-btn">&nbsp;&#9654;</div>
 
     <script>
         const sidebar = document.getElementById('sidebar');

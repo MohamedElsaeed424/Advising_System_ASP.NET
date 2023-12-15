@@ -50,8 +50,7 @@ namespace Advising_System
                             int success = 0;
                             if (reader.Read())
                             {
-                                success = Convert.ToInt32(reader["Success"]);
-                                                                                  
+                                success = Convert.ToInt32(reader["Success"]);                                                 
                             }
                             reader.Close();
                             if(success == 1)

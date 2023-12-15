@@ -126,7 +126,7 @@ body {
 	position: fixed;
 	top: 20px;
 	left: 0;
-	z-index: 3;
+	z-index: 1;
 	color: #ffffff;
 	font-size: 24px;
 	padding: 12px;

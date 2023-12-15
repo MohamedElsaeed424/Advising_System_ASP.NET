@@ -26,6 +26,7 @@
             box-sizing: border-box;
             text-align: center;
             max-width: 800px; /* Set a maximum width for larger screens */
+            height:790px;
         }
 
         #BackAdminHome3 {
@@ -42,6 +43,7 @@
             color: blue; /* Label text color */
             margin-bottom: 20px;
             display: block;
+            text-align:center;
         }
 
         #Start_Calender,

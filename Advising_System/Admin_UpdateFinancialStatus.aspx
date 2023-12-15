@@ -7,6 +7,57 @@
     <title></title>
 </head>
 <body>
+    <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to right, #16a085, #3498db);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #form1 {
+        padding: 30px;
+        background: #f8f9fa;
+        margin: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        color: forestgreen;
+        text-align: center;
+    }
+
+    h2, #SuccessLabel, #Label1 {
+        color: forestgreen;
+    }
+
+    #BackAdminHomeButton {
+        background-color: #555;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-right: 10px;
+    }
+
+    #AllStudents {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+    }
+
+    #UpdateFinance {
+        background-color: #555;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+</style>
     <form id="form1" runat="server">
         <div>
             <h2>All Students</h2>

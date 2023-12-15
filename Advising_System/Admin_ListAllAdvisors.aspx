@@ -25,6 +25,7 @@
             box-sizing: border-box;
             text-align: center;
             max-width: 800px; /* Set a maximum width for larger screens */
+            color:white;
         }
 
         #BackAdminHome2 {
@@ -41,6 +42,7 @@
             margin-top: 20px;
             border-collapse: collapse;
             width: 100%;
+            
         }
 
         #AllAdvisorsTable th,

@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Admin_fetchActiveStudents.aspx.cs" Inherits="Advising_System.Admin_fetchActiveStudents" %>
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -7,22 +6,22 @@
     <title></title>
     <style>
         body {
+            
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #FFD700, #FF6347); /* Gradient background */
+            background: linear-gradient(to right, #16a085, #3498db);
+            color: white; /* Set text color to white */
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100vh;
-      
         }
 
         form {
-            background: #f0f0f0; /* Form background color */
+            background: none; /* Removed background color */
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 80%; /* Adjusted width to be proportional */
             box-sizing: border-box;
             text-align: center;
@@ -30,32 +29,30 @@
         }
 
         #BackAdminHomeButton {
-            background-color: #555; /* Button background color */
+            background-color: #555;
             color: white;
             padding: 10px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-        }
-
-        .container {
-            display: flex;
-            align-items: flex-end; /* Aligns items to the bottom */
-            height: 300px; /* Just an example height */
-        
+            font-weight: bold; /* Set text to bold */
         }
 
         #AllActiveStudents {
             width: 100%;
+            border: 2px solid white; /* Increased table border thickness */
         }
 
         #AllActiveStudents tr {
-            border-bottom: 1px solid #ddd; /* Add a border between rows */
+            border-bottom: 2px solid #ddd; /* Increased row border thickness */
+
         }
 
         #AllActiveStudents th, #AllActiveStudents td {
             padding: 12px;
             text-align: left;
+            font-weight: bold; /* Set text to bold */
+            
         }
     </style>
 </head>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Advisor_extraCourseRequest.aspx.cs" Inherits="Advising_System.Advisor_extraCourse" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Advisor_RequestStuff.aspx.cs" Inherits="Advising_System.Advisor_extraCourse" %>
 
 <!DOCTYPE html>
 
@@ -24,7 +24,7 @@
              <asp:RadioButton ID="Course" runat="server"  Text="Courses" AutoPostBack="True" GroupName="Type" />
 &nbsp;&nbsp;&nbsp;
              <asp:RadioButton ID="Credit" runat="server" Text="Credit Hours" AutoPostBack="True" GroupName="Type"/>
-            <asp:GridView ID="CourseRequests" runat="server" AutoGenerateColumns="False" OnRowDataBound="CHRequests_RowDataBound">
+            <asp:GridView ID="CourseRequests" runat="server" AutoGenerateColumns="False" OnRowDataBound="CHRequests_RowDataBound" ShowHeaderWhenEmpty="True">
                 <Columns>
                     <asp:TemplateField HeaderText="Approve/Reject">
                      <ItemTemplate>

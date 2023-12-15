@@ -6,7 +6,6 @@ using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using static Advising_System.Admin_LinkStudentCourseInstructor;
 
 namespace Advising_System
 {
@@ -98,7 +97,6 @@ namespace Advising_System
 
 
                     ClearFormFields();
-                    Response.Redirect("/Advisor_login.aspx");
                 }
             }
             catch (Exception ex)
@@ -118,7 +116,7 @@ namespace Advising_System
             AdvisorName.Text = string.Empty;
             office.Text = string.Empty;
             password.Text = string.Empty;
-
+            email.Text = string.Empty;
         }
     }
 }

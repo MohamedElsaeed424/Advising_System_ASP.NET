@@ -78,39 +78,12 @@ namespace Advising_System
         protected global::System.Web.UI.WebControls.Button AllStudentsWMajor;
 
         /// <summary>
-        /// AllRequests control.
+        /// Requests control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AllRequests;
-
-        /// <summary>
-        /// AllPendingRequests control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AllPendingRequests;
-
-        /// <summary>
-        /// RespondCHReq control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button RespondCHReq;
-
-        /// <summary>
-        /// RespondCourseReq control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button RespondCourseReq;
+        protected global::System.Web.UI.WebControls.Button Requests;
     }
 }

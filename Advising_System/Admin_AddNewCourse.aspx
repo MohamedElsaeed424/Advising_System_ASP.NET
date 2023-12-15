@@ -10,7 +10,7 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #FFD700, #FF6347); /* Gradient background */
+           background: linear-gradient(to right, #16a085, #3498db);
             display: flex;
             align-items: center;
             justify-content: center;

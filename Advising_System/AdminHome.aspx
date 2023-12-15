@@ -8,122 +8,149 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Portal</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #16a085, #3498db);
-            display: flex;
-        }
+body {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	margin: 0;
+	padding: 0;
+	background: linear-gradient(to right, #16a085, #3498db);
+	display: flex;
+}
+#content {
+	padding: 30px;
+	/* Increased padding for more space */
+	background: #f8f9fa;
+	/* Lighter background color */
+	margin-left: 240px;
+	flex: 1;
+	transition: margin-left 0.3s ease;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+	/* Increased box shadow for depth */
+	border-radius: 10px;
+	/* Rounded corners for a modern look */
+	color: #495057;
+	/* Darker text color */
+}
 
+#content h2 {
+	color: #3498db;
+	/* Header text color */
+}
+
+#content p {
+	line-height: 1.6;
+}
+
+#footer {
+	background: #2c3e50;
+	color: #ecf0f1;
+	text-align: center;
+	padding: 1em;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+/* Side Par */
 #sidebar {
-    background: #2c3e50;
-    padding: 1em;
-    height: 100vh;
-    width: 240px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    position: fixed;
-    left: -240px;
-    transition: left 0.3s ease;
-    overflow-y: auto;
-    color: #ecf0f1;
+	background: #2c3e50;
+	padding: 1em;
+	height: 100vh;
+	width: 240px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	position: fixed;
+	left: -240px;
+	transition: left 0.3s ease;
+	overflow-y: auto;
+	color: #ecf0f1;
+	border-radius: 5px;
+	/* New rounded corners for a modern look */
+	/* Add subtle gradient overlay for depth */
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
+/* Scrollbar (custom styles optional) */
+#sidebar::-webkit-scrollbar {
+	width: 10px;
+	background-color: #2c3e50;
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+	background-color: #34495e;
+	border-radius: 5px;
+}
+
+#sidebar::-webkit-scrollbar-thumb:hover {
+	background-color: #2980b9;
+}
+
+/* Sidebar Header */
 #sidebar-header {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #3498db;
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 20px;
+	color: #3498db;
 }
 
+/* Sidebar Menu */
 #sidebar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
 }
 
 #sidebar li {
-    margin-bottom: 12px;
+	margin-bottom: 12px;
 }
 
 #sidebar a {
-    display: block;
-    color: #ecf0f1;
-    text-decoration: none;
-    padding: 12px;
-    border-radius: 8px;
-    transition: background 0.3s ease, color 0.3s ease; /* Added color transition */
+	display: block;
+	color: #ecf0f1;
+	text-decoration: none;
+	padding: 12px;
+	border-radius: 5px;
+	/* Updated to match sidebar */
+	transition: background 0.3s ease, color 0.3s ease;
+	/* Add hover animation for subtle feedback */
+	transform: scale(1);
+	transition: transform 0.2s ease-in-out;
 }
 
 #sidebar a:hover {
-    background: #34495e;
-    color: #3498db; /* Adjusted text color on hover */
+	background: #34495e;
+	color: #3498db;
+	transform: scale(1.1);
+	/* Slight zoom on hover */
 }
-
-.sidebar-opened #sidebar-header,
-.sidebar-opened #sidebar a {
-    color: #3498db; /* Adjusted text color when sidebar is opened */
-}
-
-
-    #content {
-        padding: 30px; /* Increased padding for more space */
-        background: #f8f9fa; /* Lighter background color */
-        margin-left: 240px;
-        flex: 1;
-        transition: margin-left 0.3s ease;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Increased box shadow for depth */
-        border-radius: 10px; /* Rounded corners for a modern look */
-        color: #495057; /* Darker text color */
-    }
-
-    #content h2 {
-        color: #3498db; /* Header text color */
-    }
-
-    #content p {
-        line-height: 1.6;
-    }
-
-
-#footer {
-    background: #2c3e50;
-    color: #ecf0f1;
-    text-align: center;
-    padding: 1em;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
 #toggle-btn {
-    cursor: pointer;
-    position: fixed;
-    right: 20px;
-    top: 20px;
-    z-index: 2;
-    color: #ecf0f1;
-    font-size: 24px;
-    padding: 12px;
-    background-color: #3498db;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease, right 0.3s ease;
+	cursor: pointer;
+	position: fixed;
+	top: 20px;
+	left: 0;
+	z-index: 3;
+	color: #ffffff;
+	font-size: 24px;
+	padding: 12px;
+	background-color: #3498db;
+	border: none;
+	border-radius: 50%;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	transition: background-color 0.3s ease, left 0.3s ease;
 }
 
 #toggle-btn:hover {
-    background-color: #2980b9;
+	background-color: #2980b9;
+}
+
+#toggle-btn::before {
+	content: "\2630";
+	/* Unicode for hamburger menu icon */
+	font-size: 24px;
 }
 
 .sidebar-opened #toggle-btn {
-    nav-left: auto; 
+	left: 240px;
+	/* Move toggle-btn when sidebar opens */
 }
-
-
-
-
-
 
     </style>
 
@@ -178,11 +205,9 @@
             if (sidebar.style.left === '0px' || sidebar.style.left === '') {
                 sidebar.style.left = `-${sidebarWidth}px`;
                 content.style.marginLeft = '0';
-                toggleBtn.innerHTML = '&#9654;';
             } else {
                 sidebar.style.left = '0';
                 content.style.marginLeft = `${sidebarWidth}px`;
-                toggleBtn.innerHTML = '&#9664;';
             }
         });
     </script>

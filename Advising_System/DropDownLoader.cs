@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Configuration;
 using System.Web.Services.Description;
 using System.Web.UI.WebControls;
+using System.Drawing;
 
 namespace Advising_System
 {
@@ -40,9 +41,7 @@ namespace Advising_System
             }
             catch (Exception ex)
             {
-                success.Visible = true;
-                success.ForeColor = System.Drawing.Color.Red;
-                success.Text = ex.Message;
+                DisplayErrorMessage(success, ex.Message);
             }
             finally { connection.Close(); }
         }
@@ -73,9 +72,7 @@ namespace Advising_System
             }
             catch (Exception ex)
             {
-                success.Visible = true;
-                success.ForeColor = System.Drawing.Color.Red;
-                success.Text = ex.Message;
+                DisplayErrorMessage(success, ex.Message);
             }
             finally { connection.Close(); }
         }
@@ -106,11 +103,21 @@ namespace Advising_System
             }
             catch (Exception ex)
             {
-                success.Visible = true;
-                success.ForeColor = System.Drawing.Color.Red;
-                success.Text = ex.Message;
+                DisplayErrorMessage(success, ex.Message);
             }
             finally { connection.Close(); }
+        }
+        public static void DisplayErrorMessage(Label successLabel, string message)
+        {
+            successLabel.Text = "Error: " + message;
+            successLabel.ForeColor = Color.Red;
+            successLabel.Visible = true;
+        }
+        public static void DisplayMessage(Label successLabel, string message, Color color)
+        {
+            successLabel.Text = message;
+            successLabel.ForeColor = color;
+            successLabel.Visible = true;
         }
     }
 }

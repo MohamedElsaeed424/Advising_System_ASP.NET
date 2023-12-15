@@ -38,21 +38,21 @@ namespace Advising_System
             DateTime startDate;
             if (!DateTime.TryParse(Start_Calender.SelectedDate.ToString(), out startDate))
             {
-                DisplayErrorMessage("Invalid Start Date. Please select a valid date.");
+                DropDownLoader.DisplayErrorMessage(SuccessLabel,"Invalid Start Date. Please select a valid date.");
                 return;
             }
 
             int courseId;
             if (!int.TryParse(AllCourses.SelectedValue, out courseId))
             {
-                DisplayErrorMessage("Invalid Course ID. Please select a valid course.");
+                DropDownLoader.DisplayErrorMessage(SuccessLabel,"Invalid Course ID. Please select a valid course.");
                 return;
             }
 
             string type = Convert.ToString(makeupDropDown.SelectedValue);
             if (string.IsNullOrEmpty(type))
             {
-                DisplayErrorMessage("Type is required");
+                DropDownLoader.DisplayErrorMessage(SuccessLabel, "Type is required");
                 return;
             }
                 string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();

@@ -76,7 +76,6 @@
     </style>
 </head>
 <body>
-
     <div id="sidebar">
         <ul>
         <li><a href="/Admin_ListAllAdvisors.aspx">Show All Advisors</a></li>

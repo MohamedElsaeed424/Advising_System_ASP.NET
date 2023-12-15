@@ -70,12 +70,24 @@
         <h2>Graduation Plans</h2>
         <div style="display: flex; justify-content: flex-end; margin-bottom: 20px;">
             <asp:Button ID="BackHome" runat="server" OnClick="BackAdvisorHome" Text="Back" />
+            <br />
         </div>
         <div>
-            <asp:DropDownList ID="Students" runat="server" AppendDataBoundItems="True" AutoPostBack="True" OnSelectedIndexChanged="majors_SelectedIndexChanged">
-            </asp:DropDownList>
+            <asp:Button ID="AddNew" runat="server" Text="Add New Graduation Plan" OnClick="AddNew_Click" />
         </div>
-        <asp:GridView ID="StudentsWithMajor" runat="server" ShowHeaderWhenEmpty="True">
+        <%--<div>
+            <asp:DropDownList ID="Students" runat="server" AppendDataBoundItems="True" AutoPostBack="True" >
+            </asp:DropDownList>
+        </div>--%>
+        <asp:GridView ID="GradPlans" runat="server" ShowHeaderWhenEmpty="True" OnRowDataBound="GP_RowDataBound" >
+            <Columns>
+                <asp:TemplateField HeaderText="Edit">
+                    <ItemTemplate>
+                        <asp:Button ID="ExDate" runat="server" Text="Edit Date" CssClass="action-button" OnClick="ExDate_Click"/>
+                        <asp:Button ID="Course" runat="server" Text="Edit Courses" CssClass="action-button" OnClick="Course_Click"/>
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
         </asp:GridView>
     </form>
 </body>

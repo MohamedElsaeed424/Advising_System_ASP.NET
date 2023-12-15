@@ -24,13 +24,13 @@ namespace Advising_System
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// CoursesWithCorrespondingSlotsAndInsrucrors control.
+        /// CoursesWithCorrespondingSlotsAndInstructors control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView CoursesWithCorrespondingSlotsAndInsrucrors;
+        protected global::System.Web.UI.WebControls.GridView CoursesWithCorrespondingSlotsAndInstructors;
 
         /// <summary>
         /// BackAdminHome5 control.

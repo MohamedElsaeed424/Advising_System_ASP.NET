@@ -30,16 +30,7 @@
                  <asp:Button ID="AllStudentsWMajor" runat="server" Text="View all students assigned to you from a certain major along with their taken courses" OnClick="AllStudentsWMajor_Click" />
             </div>
             <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-                 <asp:Button ID="AllRequests" runat="server" Text="View All Requests" OnClick="AllRequests_Click" />
-            </div>
-            <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-                 <asp:Button ID="AllPendingRequests" runat="server" Text="View all Pending Requests" OnClick="AllPendingRequests_Click" />
-            </div>
-            <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-                 <asp:Button ID="RespondCHReq" runat="server" Text="Approve/ reject extra credit hours request" OnClick="RespondCHReq_Click" />
-            </div>
-            <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-                 <asp:Button ID="RespondCourseReq" runat="server" Text="Approve/ reject extra courses request" OnClick="RespondCourseReq_Click" />
+                 <asp:Button ID="Requests" runat="server" Text="View Requests" OnClick="Requests_Click" />
         </div>
       </div>
     </form>

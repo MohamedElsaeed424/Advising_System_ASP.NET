@@ -31,14 +31,22 @@ namespace Advising_System
 
             Button btn = (Button)sender;
             GridViewRow row = (GridViewRow)btn.NamingContainer;
-            int id = Int32.Parse(row.Cells[0].Text);
+            int id = Int32.Parse(row.Cells[1].Text);
             string connectionString = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
                 {
-                    SqlCommand approveReject = new SqlCommand("Procedures_AdvisorApproveRejectCourseRequest", connection);
+                    // check which procedure to use by type column
+                    string proc = "";
+                    string type = row.Cells[2].Text;
+                    if (type.Equals("course"))
+                        proc = "Procedures_AdvisorApproveRejectCourseRequest";
+                    else
+                        proc = "Procedures_AdvisorApproveRejectCHRequest";
+
+                    SqlCommand approveReject = new SqlCommand(proc, connection);
                     approveReject.CommandType = CommandType.StoredProcedure;
                     connection.Open();
 
@@ -48,11 +56,12 @@ namespace Advising_System
                     int rowsAffected = approveReject.ExecuteNonQuery();
 
                     if (rowsAffected > 0) { updateGrid(); }
+                    else { DropDownLoader.DisplayErrorMessage(SuccessLabel, "Already responded"); }
                 }
                 catch (Exception ex)
                 {
                     // Handle the exception - e.g., show an error message to the user
-                    Debug.WriteLine(ex.ToString());
+                    DropDownLoader.DisplayErrorMessage(SuccessLabel, ex.Message);
                 }
             }
 
@@ -76,11 +85,27 @@ namespace Advising_System
             SqlConnection connection = new SqlConnection(connectionStirng);
             try
             {
-                SqlCommand CourseRequest = new SqlCommand("SELECT * FROM Request WHERE type LIKE 'course%'", connection);
-                CourseRequest.CommandType = CommandType.Text;
+                SqlCommand Requests;
+                string pending = "'%'";
+                if (Pending.Checked)
+                    pending = "'pending'";
+
+                if (All.Checked)
+                {
+                    Requests = new SqlCommand($"SELECT * FROM  FN_Advisors_Requests({Session["UserID"]}) Where status LIKE {pending}", connection); //type LIKE 'course%'"
+                }
+                else if(Course.Checked)
+                {
+                    Requests = new SqlCommand($"SELECT * FROM  FN_Advisors_Requests({Session["UserID"]}) WHERE type LIKE 'course%' AND status LIKE {pending}", connection); //type LIKE 'course
+                }
+                else
+                {
+                    Requests = new SqlCommand($"SELECT * FROM  FN_Advisors_Requests({Session["UserID"]}) WHERE type LIKE 'credit%' AND status LIKE {pending}", connection); //type LIKE 'course
+                }
+                Requests.CommandType = CommandType.Text;
                 connection.Open();
 
-                SqlDataReader reader = CourseRequest.ExecuteReader(CommandBehavior.CloseConnection);
+                SqlDataReader reader = Requests.ExecuteReader(CommandBehavior.CloseConnection);
 
                 DataTable dt = new DataTable();
                 dt.Load(reader);
@@ -91,7 +116,7 @@ namespace Advising_System
             }
             catch (Exception ex)
             {
-                Debug.WriteLine(ex.ToString());
+                DropDownLoader.DisplayErrorMessage(SuccessLabel, ex.Message);
             }
             finally { connection.Close(); }
         }

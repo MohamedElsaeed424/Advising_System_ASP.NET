@@ -66,5 +66,10 @@ namespace Advising_System
         {
             Response.Redirect("/Advisor_extraCourseRequest.aspx");
         }
+
+        protected void Requests_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Advisor_RequestStuff.aspx");
+        }
     }
 }

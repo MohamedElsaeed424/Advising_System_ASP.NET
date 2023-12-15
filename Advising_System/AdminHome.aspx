@@ -191,7 +191,8 @@ body {
     <div id="footer">
         &copy; 2023 Admin Portal
     </div>
-    <div id="toggle-btn"></div>
+
+    <div id="toggle-btn">&#9654;</div>
 
     <script>
         const sidebar = document.getElementById('sidebar');

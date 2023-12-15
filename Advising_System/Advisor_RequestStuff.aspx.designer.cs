@@ -11,7 +11,7 @@ namespace Advising_System
 {
 
 
-    public partial class AdvisorHome
+    public partial class Advisor_extraCourse
     {
 
         /// <summary>
@@ -24,66 +24,66 @@ namespace Advising_System
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// AllStudents control.
+        /// BackHome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AllStudents;
+        protected global::System.Web.UI.WebControls.Button BackHome;
 
         /// <summary>
-        /// InsertNewGrad control.
+        /// SuccessLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button InsertNewGrad;
+        protected global::System.Web.UI.WebControls.Label SuccessLabel;
 
         /// <summary>
-        /// InserCourseinGP control.
+        /// Pending control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button InserCourseinGP;
+        protected global::System.Web.UI.WebControls.CheckBox Pending;
 
         /// <summary>
-        /// UpdateGradDate control.
+        /// All control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button UpdateGradDate;
+        protected global::System.Web.UI.WebControls.RadioButton All;
 
         /// <summary>
-        /// DeleteCourseGP control.
+        /// Course control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button DeleteCourseGP;
+        protected global::System.Web.UI.WebControls.RadioButton Course;
 
         /// <summary>
-        /// AllStudentsWMajor control.
+        /// Credit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AllStudentsWMajor;
+        protected global::System.Web.UI.WebControls.RadioButton Credit;
 
         /// <summary>
-        /// Requests control.
+        /// CourseRequests control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Requests;
+        protected global::System.Web.UI.WebControls.GridView CourseRequests;
     }
 }

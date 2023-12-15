@@ -9,96 +9,151 @@
     <title>Admin Portal</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #FFD700, #FF6347); /* Gradient background */
+            background: linear-gradient(to right, #16a085, #3498db);
             display: flex;
         }
 
-        #sidebar {
-            background: #444; /* Navigation background color */
-            padding: 1em;
-            height: 100vh; /* Full height of the viewport */
-            width: 200px; /* Adjust the width as needed */
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Add a shadow for separation */
-            position: fixed;
-            left: -200px; /* Initially hide the sidebar */
-            transition: left 0.3s ease;
-        }
+#sidebar {
+    background: #2c3e50;
+    padding: 1em;
+    height: 100vh;
+    width: 240px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    left: -240px;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+    color: #ecf0f1;
+}
 
-        #sidebar ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
+#sidebar-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #3498db;
+}
 
-        #sidebar li {
-            margin-bottom: 10px; /* Adjust the spacing between links */
-        }
+#sidebar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
 
-        #sidebar a {
-            display: block;
-            color: white;
-            text-decoration: none;
-        }
+#sidebar li {
+    margin-bottom: 12px;
+}
 
-        #sidebar a:hover {
-            background: #555; /* Change the background color on hover */
-        }
+#sidebar a {
+    display: block;
+    color: #ecf0f1;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 8px;
+    transition: background 0.3s ease, color 0.3s ease; /* Added color transition */
+}
 
-        #content {
-            padding: 20px;
-            background: #f0f0f0; /* Content background color */
-            margin-left: 200px; /* Adjust margin to account for sidebar width */
-            flex: 1; /* Take up the remaining space */
-            transition: margin-left 0.3s ease;
-        }
+#sidebar a:hover {
+    background: #34495e;
+    color: #3498db; /* Adjusted text color on hover */
+}
 
-        #footer {
-            background: #333; /* Footer background color */
-            color: white;
-            text-align: center;
-            padding: 1em;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
+.sidebar-opened #sidebar-header,
+.sidebar-opened #sidebar a {
+    color: #3498db; /* Adjusted text color when sidebar is opened */
+}
 
-        #toggle-btn {
-            cursor: pointer;
-            position: fixed;
-            left: 10px;
-            top: 10px;
-            z-index: 2;
-        }
+
+    #content {
+        padding: 30px; /* Increased padding for more space */
+        background: #f8f9fa; /* Lighter background color */
+        margin-left: 240px;
+        flex: 1;
+        transition: margin-left 0.3s ease;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Increased box shadow for depth */
+        border-radius: 10px; /* Rounded corners for a modern look */
+        color: #495057; /* Darker text color */
+    }
+
+    #content h2 {
+        color: #3498db; /* Header text color */
+    }
+
+    #content p {
+        line-height: 1.6;
+    }
+
+
+#footer {
+    background: #2c3e50;
+    color: #ecf0f1;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#toggle-btn {
+    cursor: pointer;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    z-index: 2;
+    color: #ecf0f1;
+    font-size: 24px;
+    padding: 12px;
+    background-color: #3498db;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease, right 0.3s ease;
+}
+
+#toggle-btn:hover {
+    background-color: #2980b9;
+}
+
+.sidebar-opened #toggle-btn {
+    nav-left: auto; 
+}
+
+
+
+
+
 
     </style>
+
 </head>
 <body>
     <div id="sidebar">
-        <ul>
-        <li><a href="/Admin_ListAllAdvisors.aspx">Show All Advisors</a></li>
-        <li><a href="/Admin_ListAllStudentsAdvisors.aspx">Show All Advisors With Students</a></li>
-        <li><a href="/Admin_ListAllPendingRequests.aspx">Show All Pending Requests</a></li>
-        <li><a href="/Admin_AddNewSemester.aspx">Add New Semester</a></li>
-        <li><a href="/Admin_AddNewCourse.aspx">Add New Course</a></li>
-        <li><a href="/Admin_ListInstructorCourse.aspx">All Instructors with their courses</a></li>
-        <li><a href="/Admin_ListAllSemestersCourses.aspx">All Offered Courses With their Semesters</a></li>
-        <li><a href="/Admin_LinkInstructorCourseSlot.aspx">Link Instructor To Course</a></li>
-        <li><a href="/Admin_LinkStudentAdvisor.aspx">Link Student To Advisor</a></li>
-        <li><a href="/Admin_LinkStudentCourseInstructor.aspx">Link Student To Course and Instructor</a></li>
-        <li><a href="/Admin_FetchSemWCourse.aspx">Fetch all semesters along with their offered courses</a></li>
-        <li><a href="/Admin_viewStudentsTranscriptDetails.aspx">View all students transcript details</a></li>
-        <li><a href="/Admin_viewPaymentDetailsForStudent.aspx">View details for all payments along with their corresponding students</a></li>
-        <li><a href="/Admin_ViewGPWadvisor.aspx">View all graduation plans along with their initiated advisors</a></li>
-        <li><a href="/Admin_fetchActiveStudents.aspx">Fetch all active students</a></li>
-        <li><a href="/Admin_DeleteCourseWSlot.aspx">Choose a course to delete with its assigned slots</a></li>
-        <li><a href="/Admin_issueInstallments.aspx">Issue installments as per the number of installments for a certain payment</a></li>
-        <li><a href="/Admin_UpdateFinancialStatus.aspx">Update a student status based on his/her financial status</a></li>
-        <li><a href="/Admin_deleteSlot.aspx">Delete a slot of a certain course</a></li>
-        <li><a href="/Admin_AddMakeupExam.aspx">Add make up exam</a></li>
-        </ul>
+        <div id="sidebar-header">Contents</div>
+            <ul>
+                <li><a href="/AdminHome.aspx">Home</a></li>
+                <li><a href="/Admin_ListAllAdvisors.aspx">Show All Advisors</a></li>
+                <li><a href="/Admin_ListAllStudentsAdvisors.aspx">Show All Advisors With Students</a></li>
+                <li><a href="/Admin_ListAllPendingRequests.aspx">Show All Pending Requests</a></li>
+                <li><a href="/Admin_AddNewSemester.aspx">Add New Semester</a></li>
+                <li><a href="/Admin_AddNewCourse.aspx">Add New Course</a></li>
+                <li><a href="/Admin_ListInstructorCourse.aspx">All Instructors with their courses</a></li>
+                <li><a href="/Admin_ListAllSemestersCourses.aspx">All Offered Courses With their Semesters</a></li>
+                <li><a href="/Admin_LinkInstructorCourseSlot.aspx">Link Instructor To Course</a></li>
+                <li><a href="/Admin_LinkStudentAdvisor.aspx">Link Student To Advisor</a></li>
+                <li><a href="/Admin_LinkStudentCourseInstructor.aspx">Link Student To Course and Instructor</a></li>
+                <li><a href="/Admin_FetchSemWCourse.aspx">Fetch all semesters along with their offered courses</a></li>
+                <li><a href="/Admin_viewStudentsTranscriptDetails.aspx">View all students transcript details</a></li>
+                <li><a href="/Admin_viewPaymentDetailsForStudent.aspx">View details for all payments along with their corresponding students</a></li>
+                <li><a href="/Admin_ViewGPWadvisor.aspx">View all graduation plans along with their initiated advisors</a></li>
+                <li><a href="/Admin_fetchActiveStudents.aspx">Fetch all active students</a></li>
+                <li><a href="/Admin_DeleteCourseWSlot.aspx">Choose a course to delete with its assigned slots</a></li>
+                <li><a href="/Admin_issueInstallments.aspx">Issue installments as per the number of installments for a certain payment</a></li>
+                <li><a href="/Admin_UpdateFinancialStatus.aspx">Update a student status based on his/her financial status</a></li>
+                <li><a href="/Admin_deleteSlot.aspx">Delete a slot of a certain course</a></li>
+                <li><a href="/Admin_AddMakeupExam.aspx">Add make up exam</a></li>
+            </ul>
     </div>
 
     <div id="content">

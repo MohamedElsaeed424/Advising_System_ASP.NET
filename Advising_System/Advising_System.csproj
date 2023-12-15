@@ -111,6 +111,7 @@
     <Content Include="Student_AddPhoneNum.aspx" />
     <Content Include="Student_Login.aspx" />
     <Content Include="Student_Registration.aspx" />
+    <Content Include="Student_SendRequest.aspx" />
     <Content Include="Student_ViewAllCoursesCurrentSemester.aspx" />
     <Content Include="Student_ViewAllOptionalCourses.aspx" />
     <Content Include="Student_ViewAllRequiredCourses.aspx" />
@@ -380,6 +381,7 @@
     <Compile Include="Advisor_Registration.aspx.designer.cs">
       <DependentUpon>Advisor_Registration.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DropDownLoader.cs" />
     <Compile Include="Advisor_UpdateExGradDate.aspx.cs">
       <DependentUpon>Advisor_UpdateExGradDate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -415,6 +417,13 @@
     </Compile>
     <Compile Include="Student_SecondMakeupRegister.aspx.designer.cs">
       <DependentUpon>Student_SecondMakeupRegister.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student_SendRequest.aspx.cs">
+      <DependentUpon>Student_SendRequest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student_SendRequest.aspx.designer.cs">
+      <DependentUpon>Student_SendRequest.aspx</DependentUpon>
     </Compile>
     <Compile Include="Student_ViewAllCoursesCurrentSemester.aspx.cs">
       <DependentUpon>Student_ViewAllCoursesCurrentSemester.aspx</DependentUpon>

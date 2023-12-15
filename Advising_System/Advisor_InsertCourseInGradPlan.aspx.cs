@@ -17,6 +17,8 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["UserID"] = 8;
+            Session["UserRole"] = "Advisor";
             if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Advisor")
             {
                 Response.Redirect("/404Page.aspx");
@@ -24,80 +26,12 @@ namespace Advising_System
             else
             {
                 if (IsPostBack) { return; }
-                loadStudentList();
-                loadCourseList();
+                DropDownLoader.loadStudentList(StudentID, (int)Session["UserID"], Message);
+                DropDownLoader.loadCourseList(CourseName, Message);
             }
 
 
         }
-        protected void loadStudentList()
-        {
-            string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
-            SqlConnection connection = new SqlConnection(connectionStirng);
-            try
-            {
-                SqlCommand AllStudents = new SqlCommand($"SELECT student_id, CONCAT(student_id, ' ', f_name, ' ', l_name) AS 'All' " +
-                    $"FROM Student WHERE advisor_id = {Session["UserID"]}\r\n", connection); // {Session["UserID"]} put in input of fn
-                AllStudents.CommandType = CommandType.Text;
-                connection.Open();
-
-                SqlDataReader reader = AllStudents.ExecuteReader(CommandBehavior.CloseConnection);
-
-                DataTable dt = new DataTable();
-                dt.Load(reader);
-
-                StudentID.DataSource = dt;
-                StudentID.DataTextField = "All";
-                StudentID.DataValueField = "student_id";
-                StudentID.DataBind();
-
-                StudentID.Items.Insert(0, new ListItem("Select a Student", string.Empty));
-                StudentID.SelectedIndex = 0;
-
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                Message.Visible = true;
-                Message.ForeColor = System.Drawing.Color.Red;
-                Message.Text = ex.Message;
-            }
-            finally { connection.Close(); }
-        }
-        protected void loadCourseList()
-        {
-            string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
-            SqlConnection connection = new SqlConnection(connectionStirng);
-            try
-            {
-                SqlCommand AllCourses = new SqlCommand("SELECT DISTINCT(name) FROM Course\r\n", connection); // {Session["UserID"]} put in input of fn
-                AllCourses.CommandType = CommandType.Text;
-                connection.Open();
-
-                SqlDataReader reader = AllCourses.ExecuteReader(CommandBehavior.CloseConnection);
-
-                DataTable dt = new DataTable();
-                dt.Load(reader);
-
-                CourseName.DataSource = dt;
-                CourseName.DataTextField = "name";
-                CourseName.DataValueField = "name";
-                CourseName.DataBind();
-
-                CourseName.Items.Insert(0, new ListItem("Select a Course", string.Empty));
-                CourseName.SelectedIndex = 0;
-
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                Message.Visible = true;
-                Message.ForeColor = System.Drawing.Color.Red;
-                Message.Text = ex.Message;
-            }
-            finally { connection.Close(); }
-        }
-
         protected void AddCourse_Click(object sender, EventArgs e)
         {
             Message.Visible = false;

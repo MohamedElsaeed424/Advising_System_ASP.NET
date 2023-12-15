@@ -78,16 +78,21 @@
             cursor: pointer;
             color: #2196F3; /* Blue color */
         }
-
+        
         .asp-button {
             background-color: #2196F3;
             color: white;
             padding: 15px;
             border: none;
-            border-radius: 4px;
+            border-radius: 25px; /* Adjusted border-radius for a rounder shape */
             cursor: pointer;
-
+            transition: background-color 0.3s ease;
         }
+
+        .asp-button:hover {
+            background-color: #1565C0; /* Darker blue on hover */
+        }
+
     </style>
 </head>
 <body>

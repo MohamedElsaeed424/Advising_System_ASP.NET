@@ -11,10 +11,13 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            System.Diagnostics.Debug.WriteLine(11);
             if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Student")
             {
+                System.Diagnostics.Debug.WriteLine(12);
                 Response.Redirect("/404Page.aspx");
             }
+            System.Diagnostics.Debug.WriteLine(13);
         }
         protected void ViewGradPlan(object sender, EventArgs e)
         {

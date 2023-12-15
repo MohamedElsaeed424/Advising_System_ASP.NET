@@ -26,21 +26,6 @@ namespace Advising_System
         {
             Response.Redirect("/Advisor_GraduationPlan.aspx");
         }
-        //
-        protected void InserCourseinGP_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Advisor_InsertCourseInGradPlan.aspx");
-        }
-
-        protected void UpdateGradDate_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Advisor_UpdateExGradDate.aspx");
-        }
-
-        protected void DeleteCourseGP_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("/Advisor_DeleteCourseGP.aspx");
-        }
 
         protected void AllStudentsWMajor_Click(object sender, EventArgs e)
         {

@@ -33,40 +33,13 @@ namespace Advising_System
         protected global::System.Web.UI.WebControls.Button AllStudents;
 
         /// <summary>
-        /// GradPlans control.
+        /// InsertNewGrad control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button GradPlans;
-
-        /// <summary>
-        /// InserCourseinGP control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button InserCourseinGP;
-
-        /// <summary>
-        /// UpdateGradDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button UpdateGradDate;
-
-        /// <summary>
-        /// DeleteCourseGP control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button DeleteCourseGP;
+        protected global::System.Web.UI.WebControls.Button InsertNewGrad;
 
         /// <summary>
         /// AllStudentsWMajor control.

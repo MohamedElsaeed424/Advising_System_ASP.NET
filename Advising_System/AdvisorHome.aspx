@@ -69,16 +69,7 @@
                 <asp:Button ID="AllStudents" runat="server" Text="Show All Your Students" OnClick="AllStudents_Click" />
             </div>
             <div class="button-style">
-                <asp:Button ID="InsertNewGrad" runat="server" Text="Insert New Graduation Plan" OnClick="InsertNewGrad_Click" />
-            </div>
-            <div class="button-style">
-                <asp:Button ID="InserCourseinGP" runat="server" Text="Insert courses for a specific graduation plan" OnClick="InserCourseinGP_Click" />
-            </div>
-            <div class="button-style">
-                <asp:Button ID="UpdateGradDate" runat="server" Text="Update Graduation Date for Graduation Plan" OnClick="UpdateGradDate_Click" />
-            </div>
-            <div class="button-style">
-                <asp:Button ID="DeleteCourseGP" runat="server" Text="Delete course from a certain graduation plan in a certain semester" OnClick="DeleteCourseGP_Click" />
+                <asp:Button ID="InsertNewGrad" runat="server" Text="Graduation Plans" OnClick="InsertNewGrad_Click" />
             </div>
             <div class="button-style">
                 <asp:Button ID="AllStudentsWMajor" runat="server" Text="View all students assigned to you from a certain major along with their taken courses" OnClick="AllStudentsWMajor_Click" />

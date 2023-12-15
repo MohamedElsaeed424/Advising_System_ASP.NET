@@ -10,7 +10,7 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #FFD700, #FF6347); /* Gradient background */
+            background: linear-gradient(to right, #16a085, #3498db);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -18,10 +18,9 @@
         }
 
         form {
-            background: #f0f0f0; /* Form background color */
+            background: none; /* Form background color */
             padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 80%; /* Adjusted width to be proportional */
             box-sizing: border-box;
             text-align: center;
@@ -40,16 +39,21 @@
 
         #AllAdvisorsTable {
             margin-top: 20px;
+            border-collapse: collapse;
+            width: 100%;
         }
 
         #AllAdvisorsTable th,
         #AllAdvisorsTable td {
             padding: 10px;
+            font-weight: bold; /* Set text to bold */
+            color: white;
+            border: 2px solid white; /* Set table borders to white and thicker */
         }
 
         #AllAdvisorsTable th {
-            background-color: #555; /* Table header background color */
-            color: white;
+            background-color: white; /* Table header background color */
+            color:forestgreen ;
         }
     </style>
 </head>

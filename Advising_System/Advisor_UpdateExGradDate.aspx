@@ -21,7 +21,7 @@
             <br />
         </div>
         <div>
-            <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+            <asp:GridView ID="GradPlan" runat="server"></asp:GridView>
         </div>
 
     </form>

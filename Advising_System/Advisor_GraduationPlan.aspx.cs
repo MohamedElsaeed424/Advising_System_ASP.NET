@@ -77,14 +77,20 @@ namespace Advising_System
         {
             Button btn = (Button)sender;
             GridViewRow row = (GridViewRow)btn.NamingContainer;
-            Session["Plan"] = Int32.Parse(row.Cells[1].Text);
+            // Store GradPlan information
+            Session["PlanID"] = Int32.Parse(row.Cells[1].Text);
+            Session["Semester"] = row.Cells[2].Text;
+            Session["StID"] = Int32.Parse(row.Cells[6].Text);
             Response.Redirect("/Advisor_UpdateExGradDate.aspx");
         }
         protected void Course_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
             GridViewRow row = (GridViewRow)btn.NamingContainer;
-            Session["Plan"] = Int32.Parse(row.Cells[1].Text);
+            // Store GradPlan information
+            Session["PlanID"] = Int32.Parse(row.Cells[1].Text);
+            Session["Semester"] = row.Cells[2].Text;
+            Session["StID"] = Int32.Parse(row.Cells[6].Text);
             Response.Redirect("/Advisor_InsertCourseInGradPlan.aspx");
         }
     }

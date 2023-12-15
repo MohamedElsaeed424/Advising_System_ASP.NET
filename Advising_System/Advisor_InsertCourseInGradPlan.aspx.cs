@@ -17,8 +17,6 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["UserID"] = 8;
-            Session["UserRole"] = "Advisor";
             if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Advisor")
             {
                 Response.Redirect("/404Page.aspx");
@@ -26,7 +24,6 @@ namespace Advising_System
             else
             {
                 if (IsPostBack) { return; }
-                DropDownLoader.loadStudentList(StudentID, (int)Session["UserID"], Message);
                 DropDownLoader.loadCourseList(CourseName, Message);
             }
 
@@ -35,12 +32,9 @@ namespace Advising_System
         protected void AddCourse_Click(object sender, EventArgs e)
         {
             Message.Visible = false;
-            string stID = StudentID.SelectedValue;
-            string semCode = SemesterCode.Text;
             string cName = CourseName.SelectedValue;
 
-            if(string.IsNullOrEmpty(stID) || string.IsNullOrEmpty(semCode)
-                || string.IsNullOrEmpty(cName)) 
+            if(string.IsNullOrEmpty(cName)) 
             { 
                 Message.ForeColor = System.Drawing.Color.Red;
                 Message.Visible = true;
@@ -52,12 +46,12 @@ namespace Advising_System
             SqlConnection connection = new SqlConnection(connectionStirng);
             try
             {
-                SqlCommand InsertGradPlan = new SqlCommand("Procedures_AdvisorAddCourseGP", connection); // {Session["UserID"]} put in input of fn
+                SqlCommand InsertGradPlan = new SqlCommand("Procedures_AdvisorAddCourseGP", connection); 
                 InsertGradPlan.CommandType = CommandType.StoredProcedure;
                 connection.Open();
 
-                InsertGradPlan.Parameters.AddWithValue("@student_Id", stID);
-                InsertGradPlan.Parameters.AddWithValue("@Semester_code", semCode);
+                InsertGradPlan.Parameters.AddWithValue("@student_Id", Session["StID"]);
+                InsertGradPlan.Parameters.AddWithValue("@Semester_code", Session["Semester"]);
                 InsertGradPlan.Parameters.AddWithValue("@course_name", cName);
 
                 int nRowsAffected = InsertGradPlan.ExecuteNonQuery();

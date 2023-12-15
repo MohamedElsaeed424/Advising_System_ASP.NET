@@ -75,10 +75,6 @@
         <div>
             <asp:Button ID="AddNew" runat="server" Text="Add New Graduation Plan" OnClick="AddNew_Click" />
         </div>
-        <%--<div>
-            <asp:DropDownList ID="Students" runat="server" AppendDataBoundItems="True" AutoPostBack="True" >
-            </asp:DropDownList>
-        </div>--%>
         <asp:GridView ID="GradPlans" runat="server" ShowHeaderWhenEmpty="True" OnRowDataBound="GP_RowDataBound" >
             <Columns>
                 <asp:TemplateField HeaderText="Edit">

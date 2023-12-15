@@ -15,7 +15,7 @@
                  <asp:Button ID="AllStudents" runat="server" Text="Show All Your Students" OnClick="AllStudents_Click" />
             </div>
             <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
-                 <asp:Button ID="InsertNewGrad" runat="server" Text=" Insert New Graduation Plan " OnClick="InsertNewGrad_Click" />
+                 <asp:Button ID="GradPlans" runat="server" Text="Graduation Plans" OnClick="InsertNewGrad_Click" />
             </div>
             <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
                  <asp:Button ID="InserCourseinGP" runat="server" Text="Insert courses for a specific graduation plan" OnClick="InserCourseinGP_Click" />
@@ -31,7 +31,7 @@
             </div>
             <div style="display: flex; align-items: center; justify-content: center; margin: 20px; resize: vertical;">
                  <asp:Button ID="Requests" runat="server" Text="View Requests" OnClick="Requests_Click" />
-        </div>
+            </div>
       </div>
     </form>
 </body>

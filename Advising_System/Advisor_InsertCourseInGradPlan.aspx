@@ -19,7 +19,14 @@
             <br />
             <asp:Button ID="AddCourse" runat="server" Text="Add" OnClick="AddCourse_Click" />
             <asp:Label ID="Message" runat="server" Text="Label" Visible="False"></asp:Label>
-            <asp:GridView ID="GridView1" runat="server">
+            <asp:GridView ID="GradCourse" runat="server">
+                <Columns>
+                    <asp:TemplateField HeaderText="">
+                        <ItemTemplate>
+                            <asp:Button ID="Delete" runat="server" Text="Delete" CssClass="action-button" OnClick="Delete_Click"/>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
             </asp:GridView>
         </div>
     </form>

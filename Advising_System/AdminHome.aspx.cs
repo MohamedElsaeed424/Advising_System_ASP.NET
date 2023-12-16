@@ -106,5 +106,11 @@ namespace Advising_System
         {
             Response.Redirect("/Admin_AddMakeupExam.aspx");
         }
+
+        protected void LogOut_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("/Admin_Login.aspx");
+        }
     }
 }

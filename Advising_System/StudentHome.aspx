@@ -44,6 +44,7 @@
             position: fixed;
             bottom: 0;
             width: 100%;
+            z-index: -1;
         }
 
         #sidebar {
@@ -170,9 +171,8 @@
                 <li><a href="/Student_ViewMissingCourses.aspx">View Missing Courses</a></li>
                 <li><a href="/Student_ViewAllCoursesCurrentSemester.aspx">View All Available Courses in Your Current semester</a></li>
                 <li><a href="/Student_ViewAllOptionalCourses.aspx">View All Optional Courses</a></li>
+                 <li><a href="/Student_SendRequest.aspx">Student Send Request</a></li>
                 <li><a href="/Student_ViewAllRequiredCourses.aspx">View All Required Courses</a></li>
-                <li><a href="/Student_Registration.aspx">Student Regiseration</a></li>
-                <li><a href="/Student_SendRequest.aspx">Student Send Request</a></li>
             </ul>
     </div>
 

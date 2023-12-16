@@ -17,15 +17,19 @@
 
         #form1 {
             padding: 30px;
-            margin-left: 240px;
+            max-width:fit-content;
+            
+            margin-left:520px;
             flex: 1;
             transition: margin-left 0.3s ease;
             border-radius: 10px;
             color: #fff;
-        }
+              background: #f0f0f0; /* Gradient background */
+       
+            }
 
         #form1 h2 {
-            color: white ;
+            color: blue;
         }
 
         #form1 p {
@@ -43,19 +47,19 @@
 
         #form1 #CoursesAndSemestersGridView {
             margin-top: 20px;
-            border: 2px solid #fff; /* White border for the table */
+            border: 2px solid grey; /* White border for the table */
             align-content:center;
         }
 
         #form1 #CoursesAndSemestersGridView th{
-            background-color: white; /* Table header background color */
-            color:forestgreen ;
+            background-color: lightgray; /* Table header background color */
+            color:blue ;
         }
         #form1 #CoursesAndSemestersGridView td {
        
             padding: 10px;
             text-align: center;
-            color: #fff;
+            color: blue;
             font-weight: bold; /* Adjust font weight as needed */
         }
         #footer {

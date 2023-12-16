@@ -16,24 +16,25 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        color:blue;
     }
 
     #form1 {
         padding: 30px;
-        background: #f8f9fa;
+          background: #f0f0f0; /* Gradient background */
         margin: 20px;
         border-radius: 10px;
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-        color: white;
+        color: blue;
         text-align: center;
     }
 
     #form1 h2 {
-        color: #3498db;
+        color: blue;
     }
 
     #Label2, #SuccessLabel, #Label1 {
-        color: forestgreen;
+        color: blue;
     }
 
     #BackAdminHome2 {
@@ -46,6 +47,12 @@
     }
 
     #Allcourses {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+    }
+    .dropdown-list{
         width: 100%;
         padding: 10px;
         box-sizing: border-box;

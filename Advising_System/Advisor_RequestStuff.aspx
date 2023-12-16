@@ -19,7 +19,7 @@
         }
 
         form {
-            background: none; /* Form background color */
+            background: linear-gradient(to right, #4d0099, #330066);
             padding: 20px;
             border-radius: 8px;
             width: 95%; /* Adjusted width to be proportional */
@@ -39,7 +39,7 @@
 
         #BackHome {
             padding: 10px;
-            background-color: orangered;
+            background: linear-gradient(to right, #c02425, #f0cb35);
             color: white;
             border: none;
             border-radius: 4px;
@@ -108,11 +108,11 @@
 
             #CourseRequests th {
                 background-color: white; /* Table header background color */
-                color: forestgreen;
+                color: darkorange;
             }
 
         .action-button {
-            background-color: orangered; /* Orange background color */
+            background: linear-gradient(to right, #c02425, #f0cb35);
             color: white;
             padding: 8px 16px;
             border: none;
@@ -164,7 +164,7 @@
             overflow-y: auto;
             color: #ecf0f1;
             border-radius: 5px;
-            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+            background: linear-gradient(to right, #4d0099, #330066);
         }
 
             #sidebar::-webkit-scrollbar {

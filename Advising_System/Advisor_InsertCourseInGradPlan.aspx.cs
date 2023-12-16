@@ -35,7 +35,7 @@ namespace Advising_System
         {
             Button btn = (Button)sender;
             GridViewRow row = (GridViewRow)btn.NamingContainer;
-            int cID = Int32.Parse(row.Cells[4].Text);
+            int cID = Int32.Parse(row.Cells[8].Text);
 
             Message.Visible = false;
             string stID = Session["StID"].ToString();
@@ -126,9 +126,10 @@ namespace Advising_System
             }
             catch (Exception ex)
             {
+
                 Message.Visible = true;
                 Message.ForeColor = System.Drawing.Color.Red;
-                Message.Text = ex.Message;
+                Message.Text = "Course is already in plan";
             }
             finally { connection.Close(); }
         }

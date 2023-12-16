@@ -21,7 +21,7 @@
         h2 {
             text-align: center;
             margin-top: 20px;
-            color: navajowhite; /* Darker orange text color */
+            color: white;
             background: linear-gradient(to right, #c02425, #f0cb35); /* Gradient background for h2 */
             display: inline-block; /* Ensures the background spans the entire width of the container */
             padding: 10px; /* Adjust padding as needed */
@@ -33,7 +33,7 @@
         #form1 {
             max-width: 800px;
             margin: 0 auto; /* Center align the form horizontally */
-            background: linear-gradient(to right, #c02425, #f0cb35); /* Gradient background */
+           background: linear-gradient(to right, #4d0099, #330066); /* Gradient background */
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -43,7 +43,7 @@
 
 
         #BackHome {
-            background-color: orangered; /* Button background color */
+           background: linear-gradient(to right, #c02425, #f0cb35); /* Gradient background for h2 */
             color: white;
             padding: 10px;
             border: none;
@@ -61,7 +61,7 @@
             padding: 10px; /* Increased padding for better consistency with the BackHome button */
             margin-bottom: 20px;
             border: none; /* Removed border to match BackHome button */
-            background-color: orangered; /* Button background color */
+            background: linear-gradient(to right, #c02425, #f0cb35); /* Gradient background for h2 */
             color: white; /* White text color */
             border-radius: 4px;
             cursor: pointer;
@@ -92,7 +92,7 @@
             }
 
         #sidebar {
-            background: linear-gradient(to right, #2b0d12, #731d25); /* Darker gradient colors */
+            background: linear-gradient(to right, #4d0099, #330066); /* Gradient background */
             padding: 1em;
             height: 100vh;
             width: 240px;
@@ -103,8 +103,7 @@
             overflow-y: auto;
             color: #ecf0f1;
             border-radius: 5px;
-            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
-        }
+            background: linear-gradient(to right, #4d0099, #330066); /* Gradient background */
 
             #sidebar::-webkit-scrollbar {
                 width: 10px;

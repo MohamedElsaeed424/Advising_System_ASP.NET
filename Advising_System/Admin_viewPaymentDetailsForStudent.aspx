@@ -20,7 +20,7 @@
 
     #form1 {
         padding: 30px;
-        background: none;
+          background: #f0f0f0; /* Gradient background */
         margin: 20px;
         border-radius: 10px;
         color: white;
@@ -28,11 +28,11 @@
     }
 
     #form1 h2 {
-        color: white;
+        color: blue;
     }
 
     #BackAdminHomeButton {
-        background-color: #555;
+        background-color: darkgrey;
         color: white;
         padding: 10px;
         border: none;
@@ -43,15 +43,15 @@
 
     #ViewPaymentGV {
         margin-top: 20px;
-        border: 2px solid white;
+        border: 2px solid grey;
         border-collapse: collapse;
     }
 
     #ViewPaymentGV th, #ViewPaymentGV td {
         padding: 10px;
         text-align: left;
-        color: white;
-        border: 2px solid white;
+        color: blue;
+        border: 2px solid grey;
     }
     #footer {
      background: #2c3e50;

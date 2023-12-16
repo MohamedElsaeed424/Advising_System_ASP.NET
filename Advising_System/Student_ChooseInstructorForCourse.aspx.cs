@@ -18,6 +18,14 @@ namespace Advising_System
             {
                 Response.Redirect("/404Page.aspx");
             }
+            else
+            {
+                if (!IsPostBack)
+                {
+                    DropDownLoader.loadCourseListWithID(Courses, SuccessLabel);
+                    DropDownLoader.loadInstructors(Instructors, SuccessLabel);
+                }
+            }
  
         }
         private void DisplayErrorMessage(string message)
@@ -33,16 +41,16 @@ namespace Advising_System
         {
             string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
             SqlConnection connection = new SqlConnection(connectionStirng);
-                int studentId = Convert.ToInt32(Session["UserID"]);
+            int studentId = Convert.ToInt32(Session["UserID"]);
             int instructorID;
-            if (!int.TryParse(TextBox2.Text, out instructorID))
+            if (!int.TryParse(Instructors.SelectedValue, out instructorID))
             {
                 DisplayErrorMessage("Invalid Instructor ID. Please enter a valid numeric value.");
                 return;
             }
 
             int courseID;
-            if (!int.TryParse(TextBox3.Text, out courseID))
+            if (!int.TryParse(Courses.SelectedValue, out courseID))
             {
                 DisplayErrorMessage("Invalid Course ID. Please enter a valid numeric value.");
                 return;
@@ -65,10 +73,17 @@ namespace Advising_System
                 try
                 {
                     connection.Open();
-                    Procedures_ChooseInstructor.ExecuteNonQuery();
-                    SuccessLabel.Visible = true;
-                    SuccessLabel.Text = "Course Choosed successfully!";
-                    SuccessLabel.ForeColor = System.Drawing.Color.Green;
+                    int nRowsAffected = Procedures_ChooseInstructor.ExecuteNonQuery();
+                    if (nRowsAffected > 0)
+                    {
+                        SuccessLabel.Visible = true;
+                        SuccessLabel.Text = "Instructor Chosen successfully!";
+                        SuccessLabel.ForeColor = System.Drawing.Color.Green;
+                    }
+                    else
+                    {
+                        DisplayErrorMessage("You don't take this course in this semester");
+                    }
                 }
                 catch (Exception ex)
                 {

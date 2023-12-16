@@ -20,15 +20,15 @@
 
     #form1 {
         padding: 30px;
-        background: none;
+         background: #f0f0f0;/* Gradient background */
         margin: 20px;
         border-radius: 10px;
-        color: white;
+        color: blue;
         text-align: center;
     }
 
     #form1 h2 {
-        color: white;
+        color: blue;
     }
 
     #BackAdminHomeButton {
@@ -43,15 +43,15 @@
 
     #ViewGPgridView {
         margin-top: 20px;
-        border: 2px solid white;
+        border: 2px solid grey;
         border-collapse: collapse;
     }
 
     #ViewGPgridView th, #ViewGPgridView td {
         padding: 10px;
         text-align: left;
-        color: white;
-        border: 2px solid white;
+        color: blue;
+        border: 2px solid grey;
     }
     #footer {
      background: #2c3e50;

@@ -22,6 +22,7 @@ namespace Advising_System
             }
             else
             {
+                if (IsPostBack) { return; }
                 string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
                 SqlConnection connection = new SqlConnection(connectionStirng);
                 try

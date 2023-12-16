@@ -20,7 +20,10 @@ namespace Advising_System
             }
             else
             {
-                DropDownLoader.loadCourseListWithID(Courses, SuccessLabel);
+                if (!IsPostBack)
+                {
+                    DropDownLoader.loadCourseListWithID(Courses, SuccessLabel);
+                }
             }
         }
         private void DisplayErrorMessage(string message)
@@ -39,7 +42,7 @@ namespace Advising_System
             {
                 int studentId = Convert.ToInt32(Session["UserID"]);
                 int courseId;
-                if (!int.TryParse(TextBox3.Text, out courseId))
+                if (!int.TryParse(Courses.Text, out courseId))
                 {
                     DisplayErrorMessage("Invalid Course ID. Please enter a valid numeric value.");
                     return;
@@ -57,11 +60,19 @@ namespace Advising_System
                     connection.Open();
                     Procedures_StudentRegisterSecondMakeup.Parameters.AddWithValue("@StudentID", studentId);
                     Procedures_StudentRegisterSecondMakeup.Parameters.AddWithValue("@courseID", courseId);
-                    Procedures_StudentRegisterSecondMakeup.Parameters.AddWithValue("@studentCurr_sem", studentCurrentSemester);
-                    Procedures_StudentRegisterSecondMakeup.ExecuteNonQuery();
-                    SuccessLabel.Visible = true;
-                    SuccessLabel.Text = "Makeup Registered successfully!";
-                    SuccessLabel.ForeColor = System.Drawing.Color.Green;
+                    Procedures_StudentRegisterSecondMakeup.Parameters.AddWithValue("@Student_Current_Semester", studentCurrentSemester);
+
+                    int nRowsAffected = Procedures_StudentRegisterSecondMakeup.ExecuteNonQuery();
+                    if (nRowsAffected > 0)
+                    {
+                        SuccessLabel.Visible = true;
+                        SuccessLabel.Text = "Makeup Registered successfully!";
+                        SuccessLabel.ForeColor = System.Drawing.Color.Green;
+                    }
+                    else
+                    {
+                        DisplayErrorMessage("You are not eligible");
+                    }
                 }
             }
             catch (Exception ex)

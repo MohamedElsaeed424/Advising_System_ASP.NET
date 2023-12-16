@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Configuration;
@@ -61,7 +62,8 @@ namespace Advising_System
                     connection.Open();
                     Procedures_StudentRegisterFirstMakeup.Parameters.AddWithValue("@StudentID", studentId);
                     Procedures_StudentRegisterFirstMakeup.Parameters.AddWithValue("@courseID", courseId);
-                    Procedures_StudentRegisterFirstMakeup.Parameters.AddWithValue("@studentCurr_sem", studentCurrentSemester);
+                    Debug.WriteLine(studentCurrentSemester);
+                    Procedures_StudentRegisterFirstMakeup.Parameters.AddWithValue("@studentCurrentsemester", studentCurrentSemester);
                     int nRowsAffected = Procedures_StudentRegisterFirstMakeup.ExecuteNonQuery();
                     if(nRowsAffected > 0)
                     {

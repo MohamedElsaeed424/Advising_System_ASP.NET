@@ -107,6 +107,8 @@
 
         Don't Have an account?
         <asp:HyperLink ID="Register" runat="server" NavigateUrl="/Advisor_Registration.aspx">Register Here</asp:HyperLink>
+        <a href="/AppAdminstrator.aspx">Back</a>
     </form>
+    <a href="/AppAdminstrator.aspx">Back</a>
 </body>
 </html>

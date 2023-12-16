@@ -111,7 +111,10 @@
             <asp:Button ID="Login" runat="server" Text="Log In" CssClass="asp-button" OnClick="Login_Click" />
             Don't Have an account?
             <asp:HyperLink ID="Register" runat="server" NavigateUrl="/Student_Registration.aspx">Register Here</asp:HyperLink>
+             <a href="/AppAdminstrator.aspx">Back</a>
         </form>
+           
     </div>
+
 </body>
 </html>

@@ -176,7 +176,7 @@
     </div>
 
     <div id="content">
-                  <h2>Welcome, Admin!<asp:Button ID="Button1" runat="server" Text="Button" />
+                  <h2>Welcome, Admin!
                   </h2>
                   <p>This is the administration portal for the student system.</p>
     </div>

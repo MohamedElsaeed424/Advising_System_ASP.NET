@@ -63,5 +63,11 @@ namespace Advising_System
         {
             Response.Redirect("/Advisor_RequestStuff.aspx");
         }
+
+        protected void LogOut_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("/Advisor_login.aspx");
+        }
     }
 }

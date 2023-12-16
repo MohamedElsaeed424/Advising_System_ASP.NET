@@ -46,6 +46,7 @@ namespace Advising_System
             Allcourses.DataValueField = "CourseId";
             Allcourses.DataBind();
             Allcourses.Items.Insert(0, new System.Web.UI.WebControls.ListItem("Select Course", "0"));
+            Allcourses.SelectedIndex = 0;
 
         }
         private List<Course> GetCoursesFromDatabase()
@@ -104,6 +105,7 @@ namespace Advising_System
             }
 
             DeleteSelectedCourseFromDb(courseId);
+            BindCoursesToDropDown();
 
         }
 

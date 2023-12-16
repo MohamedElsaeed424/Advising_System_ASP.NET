@@ -29,8 +29,8 @@ namespace Advising_System
                 public string Day { get; set; }
                 public string Time { get; set; }
                 public string Location { get; set; }
-                public int CourseId { get; set; }
-                public int InstructorId { get; set; }
+                public Nullable<int> CourseId { get; set; }
+                public Nullable<int> InstructorId { get; set; }
                 public string FormattedText => $"Day: {Day}, Time: {Time}, Location: {Location}";
             }
 
@@ -80,14 +80,14 @@ namespace Advising_System
                         while (reader.Read())
                         {
                             
-                            Slot slot = new Slot
+                            Slot slot = new Slot()
                             {
                                 SlotId = Convert.ToInt32(reader["slot_id"]),
-                                Day = Convert.ToString(reader["day"]),
-                                Time = Convert.ToString(reader["time"]),
-                                Location = Convert.ToString(reader["location"]),
-                                CourseId = Convert.ToInt32(reader["course_id"]),
-                                InstructorId = Convert.ToInt32(reader["instructor_id"])
+                                Day = reader["day"] is DBNull ? null :  Convert.ToString(reader["day"]),
+                                Time = reader["time"] is DBNull ? null : Convert.ToString(reader["time"]),
+                                Location = reader["location"] is DBNull ? null : Convert.ToString(reader["location"]),
+                                CourseId = reader["course_id"] is DBNull? 0 : Convert.ToInt32(reader["course_id"]),
+                                InstructorId = reader["course_id"] is DBNull ? 0 : Convert.ToInt32(reader["instructor_id"])
                             };
 
                             slots.Add(slot);

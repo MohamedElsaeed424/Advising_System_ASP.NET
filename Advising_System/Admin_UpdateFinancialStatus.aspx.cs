@@ -16,6 +16,7 @@ namespace Advising_System
         public class StudentFS
         {
             public int ID{ get; set; }
+            public string Name { get; set; }
         }
 
 
@@ -38,7 +39,7 @@ namespace Advising_System
             List<StudentFS> students = getStudentsFromDatabase();
 
             AllStudents.DataSource = students;
-            AllStudents.DataTextField = "ID";
+            AllStudents.DataTextField = "Name";
             AllStudents.DataValueField = "ID";
             AllStudents.DataBind();
             AllStudents.Items.Insert(0, new System.Web.UI.WebControls.ListItem("Select Student", "0"));
@@ -55,7 +56,7 @@ namespace Advising_System
             using (connection)
             {
 
-                string query = "Select * from Student";
+                string query = "SELECT student_id, CONCAT(student_id, '- ', f_name, ' ', l_name) AS 'All' from Student";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -67,7 +68,8 @@ namespace Advising_System
 
                             StudentFS student = new StudentFS
                             {
-                                ID = Convert.ToInt16(reader["student_id"])
+                                ID = Convert.ToInt16(reader["student_id"]),
+                                Name = Convert.ToString(reader["All"])
                             };
 
                             students.Add(student);

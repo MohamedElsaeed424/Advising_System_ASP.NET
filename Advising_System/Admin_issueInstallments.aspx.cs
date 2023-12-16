@@ -45,6 +45,7 @@ namespace Advising_System
             AllPayment.DataValueField = "PaymentId";
             AllPayment.DataBind();
             AllPayment.Items.Insert(0, new System.Web.UI.WebControls.ListItem("select payment", "0"));
+            AllPayment.SelectedIndex = 0;
 
         }
 
@@ -58,7 +59,7 @@ namespace Advising_System
             using (connection)
             {
 
-                string query = "SELECT payment_id FROM Payment";
+                string query = "SELECT payment_id FROM Payment WHERE payment_id not in (Select payment_id from Installment)";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -96,7 +97,7 @@ namespace Advising_System
                 DisplayErrorMessage("Invalid Payment Selection");
                 return;
             }
-            System.Diagnostics.Debug.WriteLine(payment_id);
+            Debug.WriteLine(payment_id);
 
 
             IssuePaymentInDatabase(payment_id);
@@ -128,7 +129,7 @@ namespace Advising_System
 
                             // Add parameters
                             Procedures_AdminIssueInstallment.Parameters
-                                .Add(new SqlParameter("@paymentID", SqlDbType.VarChar)).Value = Payment_id;
+                                .Add(new SqlParameter("@payment_id", SqlDbType.VarChar)).Value = Payment_id;
 
 
                             try
@@ -149,6 +150,7 @@ namespace Advising_System
                             }
                             finally
                             {
+                                BindPaymentToDropDown();
                                 connection.Close();
                             }
                         }

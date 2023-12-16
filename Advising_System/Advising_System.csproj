@@ -92,7 +92,6 @@
     <Content Include="Admin_ListInstructorCourse.aspx" />
     <Content Include="Admin_AddNewSemester.aspx" />
     <Content Include="AdvisorHome.aspx" />
-    <Content Include="Advisor_DeleteCourseGP.aspx" />
     <Content Include="Advisor_GraduationPlan.aspx" />
     <Content Include="Advisor_InsertCourseInGradPlan.aspx" />
     <Content Include="Advisor_AllStudentsMajorCourse.aspx" />
@@ -102,6 +101,7 @@
     <Content Include="Advisor_login.aspx" />
     <Content Include="Advisor_Registration.aspx" />
     <Content Include="Advisor_UpdateExGradDate.aspx" />
+    <Content Include="AppAdminstrator.aspx" />
     <Content Include="images\EujDw0.jpg" />
     <Content Include="images\advisor.png" />
     <Content Include="images\guc2.png" />
@@ -290,13 +290,6 @@
     <Compile Include="AdvisorHome.aspx.designer.cs">
       <DependentUpon>AdvisorHome.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Advisor_DeleteCourseGP.aspx.cs">
-      <DependentUpon>Advisor_DeleteCourseGP.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Advisor_DeleteCourseGP.aspx.designer.cs">
-      <DependentUpon>Advisor_DeleteCourseGP.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Advisor_GraduationPlan.aspx.cs">
       <DependentUpon>Advisor_GraduationPlan.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -367,6 +360,13 @@
     <Compile Include="Advisor_Registration.aspx.designer.cs">
       <DependentUpon>Advisor_Registration.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AppAdminstrator.aspx.cs">
+      <DependentUpon>AppAdminstrator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AppAdminstrator.aspx.designer.cs">
+      <DependentUpon>AppAdminstrator.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DropDownLoader.cs" />
     <Compile Include="Advisor_UpdateExGradDate.aspx.cs">
       <DependentUpon>Advisor_UpdateExGradDate.aspx</DependentUpon>
@@ -375,6 +375,7 @@
     <Compile Include="Advisor_UpdateExGradDate.aspx.designer.cs">
       <DependentUpon>Advisor_UpdateExGradDate.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ErrorDisplayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentHome.aspx.cs">
       <DependentUpon>StudentHome.aspx</DependentUpon>

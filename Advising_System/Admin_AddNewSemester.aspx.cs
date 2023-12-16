@@ -44,6 +44,10 @@ namespace Advising_System
                 DisplayErrorMessage("End Date is required");
                 return;
             }
+            if(startDate > endDate)
+            {
+                DisplayErrorMessage("End Date can't be less than Start Date");
+            }
 
             // Validate Semester Code
             if (string.IsNullOrEmpty(semesterCode))

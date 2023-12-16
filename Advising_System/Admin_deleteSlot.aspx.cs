@@ -28,7 +28,7 @@ namespace Advising_System
             }
             else
             {
-                {
+                if(!IsPostBack){
                     BindCoursesToDropDown();
                 }
             }

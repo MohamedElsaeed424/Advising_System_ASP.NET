@@ -138,6 +138,15 @@
         .sidebar-opened #toggle-btn {
             left: 240px;
         }
+        #LogOut {
+            background-color: #555; /* Button background color */
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
 
     </style>
 
@@ -176,7 +185,10 @@
 
     <div id="content">
                   <h2>Welcome, Admin!</h2>
-                  <p>This is the administration portal for the student system.</p>
+                  <p>This is the administration portal for the student system.s</p>
+        <form id="registrationForm" runat="server">
+            <asp:Button ID="LogOut" runat="server" Text="Log Out" OnClick="LogOut_Click" />
+        </form>
     </div>
 
     <div id="footer">
@@ -201,6 +213,10 @@
                 content.style.marginLeft = `${sidebarWidth}px`;
             }
         });
+        window.addEventListener('load', () => {
+            sidebar.style.left = '0';
+            content.style.marginLeft = `${sidebarWidth}px`;
+        })
     </script>
 </body>
 </html>

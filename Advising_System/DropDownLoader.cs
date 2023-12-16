@@ -45,6 +45,38 @@ namespace Advising_System
             }
             finally { connection.Close(); }
         }
+        public static void loadInstructors(DropDownList instructorList, Label success)
+        {
+            string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
+            SqlConnection connection = new SqlConnection(connectionStirng);
+            try
+            {
+                SqlCommand AllInstructors = new SqlCommand($"SELECT instructor_id, CONCAT(instructor_id, '- ', name) AS 'All' " +
+                    $"FROM Instructor \r\n", connection); // {Session["UserID"]} put in input of fn
+                AllInstructors.CommandType = CommandType.Text;
+                connection.Open();
+
+                SqlDataReader reader = AllInstructors.ExecuteReader(CommandBehavior.CloseConnection);
+
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+
+                instructorList.DataSource = dt;
+                instructorList.DataTextField = "All";
+                instructorList.DataValueField = "instructor_id";
+                instructorList.DataBind();
+
+                instructorList.Items.Insert(0, new ListItem("Select a Student", string.Empty));
+                instructorList.SelectedIndex = 0;
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                DisplayErrorMessage(success, ex.Message);
+            }
+            finally { connection.Close(); }
+        }
         public static void loadCourseList(DropDownList CourseName, Label success)
         {
             string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
@@ -151,6 +183,7 @@ namespace Advising_System
             }
             finally { connection.Close(); }
         }
+
 
     }
 }

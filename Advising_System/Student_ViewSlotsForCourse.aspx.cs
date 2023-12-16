@@ -18,6 +18,11 @@ namespace Advising_System
             {
                 Response.Redirect("/404Page.aspx");
             }
+            else
+            {
+                DropDownLoader.loadCourseList(Courses, SuccessLabel);
+                DropDownLoader.loadInstructors(Instructors, SuccessLabel);
+            }
         }
         private void DisplayErrorMessage(string message)
         {
@@ -33,13 +38,13 @@ namespace Advising_System
             try
             {
                 int courseID;
-                if (!int.TryParse(TextBox1.Text, out courseID))
+                if (!int.TryParse(Courses.SelectedValue, out courseID))
                 {
                     DisplayErrorMessage("Invalid Course ID. Please enter a valid numeric value.");
                     return;
                 }
                 int insructorID;
-                if (!int.TryParse(TextBox2.Text, out insructorID))
+                if (!int.TryParse(Instructors.SelectedValue, out insructorID))
                 {
                     DisplayErrorMessage("Invalid Insructor ID. Please enter a valid numeric value.");
                     return;

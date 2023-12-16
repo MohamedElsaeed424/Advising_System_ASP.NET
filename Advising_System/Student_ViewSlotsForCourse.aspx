@@ -96,6 +96,12 @@
             color: black;
             border: 2px solid #4CAF50;
         }
+        .dropdown-list{
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
 
         .styled-label {
             display: flex;
@@ -252,11 +258,11 @@
             <h2>Search For Slots</h2>
             <div class="styled-label">
                 <asp:Label ID="Label1" runat="server" Text="Course ID"></asp:Label>
-                &nbsp;<asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                &nbsp;<asp:DropDownList ID="Courses" runat="server" CssClass="dropdown-list"></asp:DropDownList>
             </div>
             <div class="styled-label">
                 <asp:Label ID="Label2" runat="server" Text="Instructor ID"></asp:Label>
-                &nbsp;<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                &nbsp;<asp:DropDownList ID="Instructors" runat="server" CssClass="dropdown-list"></asp:DropDownList>
             </div>
             <div class="grid-container">
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="True"></asp:GridView>

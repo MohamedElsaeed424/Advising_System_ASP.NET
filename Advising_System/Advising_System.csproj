@@ -367,6 +367,7 @@
     <Compile Include="Advisor_UpdateExGradDate.aspx.designer.cs">
       <DependentUpon>Advisor_UpdateExGradDate.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ErrorDisplayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentHome.aspx.cs">
       <DependentUpon>StudentHome.aspx</DependentUpon>

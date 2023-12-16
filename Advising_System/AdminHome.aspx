@@ -143,6 +143,7 @@
 
 </head>
 <body>
+    <form id="form1" runat="server">
     <div id="sidebar">
         <div id="sidebar-header">Contents</div>
             <ul>
@@ -175,7 +176,8 @@
     </div>
 
     <div id="content">
-                  <h2>Welcome, Admin!</h2>
+                  <h2>Welcome, Admin!<asp:Button ID="Button1" runat="server" Text="Button" />
+                  </h2>
                   <p>This is the administration portal for the student system.</p>
     </div>
 
@@ -202,5 +204,6 @@
             }
         });
     </script>
+    </form>
 </body>
 </html>

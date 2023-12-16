@@ -104,7 +104,7 @@ namespace Advising_System
         }
         protected void BackAdvisorHome(object sender, EventArgs e)
         {
-            Response.Redirect("/AdvisorHome.aspx");
+            Response.Redirect("/Advisor_GraduationPlan.aspx");
         }
     }
 }

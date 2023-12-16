@@ -6,88 +6,94 @@
 <head runat="server">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Advisor Registration Form</title>
+    <title>Advisor Login</title>
+
     <style>
         body {
-            font-family: Arial, sans-serif;
-           background: url('Images/logo.png') center center fixed;
-          background-size: cover;
-          background-repeat: no-repeat;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
+            background: linear-gradient(to right, #c02425, #f0cb35); /* Gradient background */
             display: flex;
-            flex-direction: column;
             align-items: center;
-            height: 100vh;
+            justify-content: center;
+            min-height: 100vh; /* Set a minimum height for the body */
+            overflow: hidden;
         }
 
         header {
-            background-color: red;
-            color: white;
             text-align: center;
-            padding: 10px;
-            margin-bottom: 20px;
-            margin-top:10px;
-            border-radius: 8px 8px 0 0;
-            width: 100%;
-            margin-left:-12px;
+            margin-top: 20px;
+            color: navajowhite; /* Darker orange text color */
+            background: linear-gradient(to right, #c02425, #f0cb35); /* Gradient background for h2 */
+            display: inline-block; /* Ensures the background spans the entire width of the container */
+            padding: 10px; /* Adjust padding as needed */
+            border-radius: 8px; /* Add border-radius for rounded corners */
         }
 
-        form {
-            background-color: #fff;
+
+
+        #registrationForm {
+            max-width: 800px;
+            margin: 0 auto; /* Center align the form horizontally */
+            background: linear-gradient(to right, #c02425, #f0cb35); /* Gradient background */
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 400px;
-            box-sizing: border-box;
-            margin-top:200px;
+            text-align: center; /* Center align the form content */
+        }
+
+
+        header {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
         }
 
         label {
             display: block;
             margin-bottom: 8px;
             font-weight: bold;
-            color: black; /* Blue color */
+            color: #555;
         }
 
-        input, select {
+        .form-control {
             width: 100%;
-            padding: 8px;
-            margin-bottom: 16px;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
             box-sizing: border-box;
-            border: 1px solid #2196F3; /* Blue color */
-            border-radius: 4px;
-            color: red; /* Blue color */
         }
 
-        button {
-            background-color: red; /* Blue color */
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
+.asp-button {
+    background-color: #b52b27; /* Darker shade of orange */
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+            .asp-button:hover {
+                background-color: lightcoral; /* Even darker shade on hover */
+            }
+
+
+        .register-link {
+            color: dimgray;
+            text-decoration: none;
+            font-weight: bold;
         }
 
-        .asp-button {
-            background-color: red; /* Blue color */
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .asp-button:hover {
-            background-color: darkred ; /* Darker blue on hover */
-        }
-
-        a {
-            color: darkkhaki; /* Blue color */
-        }
-
-        a:hover {
-            color: saddlebrown; /* Darker blue on hover */
+        #BackHome {
+            display: block;
+            margin-top: 20px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -95,7 +101,7 @@
     <form id="registrationForm" runat="server">
         <header>Advisor Login</header>
 
-        <asp:Label ID="SuccessLabel" runat="server" Text="Choose Inputs" ForeColor="Blue" Visible="true"></asp:Label>
+        <asp:Label ID="SuccessLabel" runat="server" Text="Choose Inputs" ForeColor="Blue" Visible="false"></asp:Label>
 
         <label for="AdvisorID">UserID:</label>
         <asp:TextBox ID="AdvisorID" runat="server" CssClass="form-control"></asp:TextBox>
@@ -105,10 +111,14 @@
 
         <asp:Button ID="Login" runat="server" Text="Log In" CssClass="asp-button" OnClick="Login_Click" />
 
-        Don't Have an account?
-        <asp:HyperLink ID="Register" runat="server" NavigateUrl="/Advisor_Registration.aspx">Register Here</asp:HyperLink>
-        <a href="/AppAdminstrator.aspx">Back</a>
+        <div>
+            <br />
+            <label>Don't Have an account?</label>
+
+            <asp:HyperLink ID="Register" runat="server" NavigateUrl="/Advisor_Registration.aspx" CssClass="register-link">Register Here</asp:HyperLink>
+        </div>
+
+        <a href="/AppAdminstrator.aspx" id="BackHome">Back</a>
     </form>
-    <a href="/AppAdminstrator.aspx">Back</a>
 </body>
 </html>

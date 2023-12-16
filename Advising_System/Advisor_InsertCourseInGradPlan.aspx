@@ -10,10 +10,8 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background: url('Images/gucblurred.png') center center fixed;
-            background-size: cover;
-            background-repeat: no-repeat;
-            color: black; /* Set text color to black for better visibility */
+            background: linear-gradient(to right, #c02425, #f0cb35);
+            color: white; /* Set text color to black for better visibility */
         }
 
         h2 {
@@ -24,14 +22,14 @@
         #form1 {
             max-width: 800px;
             margin: 0 auto;
-            background-color: none;
+             background: linear-gradient(to right, #4d0099, #330066);
             padding: 20px;
             border-radius: 8px;
         }
 
         #BackHome {
             padding: 8px 16px;
-            background-color: orangered;
+            background: linear-gradient(to right, #c02425, #f0cb35);
             color: white;
             border: none;
             border-radius: 4px;
@@ -63,7 +61,7 @@
 
         #AddCourse {
             padding: 10px 20px;
-            background-color: orangered;
+            background: linear-gradient(to right, #c02425, #f0cb35);
             color: white;
             border: none;
             border-radius: 4px;
@@ -75,7 +73,7 @@
         }
 
         #Message {
-            color: red;
+            color: white ;
             margin-top: 10px;
         }
       
@@ -91,7 +89,7 @@
              overflow-y: auto;
              color: #ecf0f1;
              border-radius: 5px;
-             background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+            background: linear-gradient(to right, #4d0099, #330066);
          }
 
          #sidebar::-webkit-scrollbar {

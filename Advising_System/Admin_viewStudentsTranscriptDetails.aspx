@@ -16,21 +16,21 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        color: white
+        color: blue;
     }
 
     #form1 {
         padding: 30px;
-        background: none;
+          background: #f0f0f0; /* Gradient background */
         margin: 20px;
         border-radius: 10px;
      
-        color: white;
+        color: forestgreen;
         text-align: center;
     }
 
     #form1 h2 {
-        color: white;
+        color:blue;
     }
 
     #BackAdminHomeButton {
@@ -52,8 +52,8 @@
     #viewTransGV th, #viewTransGV td {
         padding: 10px;
         text-align: left;
-        color: white;
-        border: 2px solid white;
+        color: blue;
+        border: 2px solid grey;
     }
     #footer {
      background: #2c3e50;

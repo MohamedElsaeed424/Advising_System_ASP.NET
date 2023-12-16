@@ -15,11 +15,11 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            color: forestgreen
+            color: blue;
         }
 
         form {
-            background: #f0f0f0; /* Form background color */
+             background: #f0f0f0; /* Gradient background */
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -50,7 +50,7 @@
             padding: 10px;
             box-sizing: border-box;
             margin-bottom: 20px;
-            color: forestgreen
+            color: blue;
         }
 
         .submit-button {
@@ -63,7 +63,7 @@
         }
         #footer {
      background: #2c3e50;
-     color: #ecf0f1;
+     color: white;
      text-align: center;
      padding: 1em;
      position: fixed;

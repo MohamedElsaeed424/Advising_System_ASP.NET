@@ -18,7 +18,7 @@
         }
 
         form {
-            background: #f0f0f0; /* Form background color */
+            background: #f0f0f0; /* Gradient background */
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -26,7 +26,7 @@
             box-sizing: border-box;
             text-align: center;
             max-width: 800px; /* Set a maximum width for larger screens */
-            color: forestgreen;
+            color: blue;
         }
 
         #BackAdminHome3 {

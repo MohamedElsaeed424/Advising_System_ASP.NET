@@ -15,11 +15,11 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            color: white; /* Set text color to white */
+            color: blue; /* Set text color to white */
         }
 
         form {
-            background: none; /* Form background color */
+             background: #f0f0f0; /* Gradient background */
             padding: 20px;
             border-radius: 8px;
             width: 80%; /* Adjusted width to be proportional */
@@ -48,13 +48,13 @@
         #CoursesAndInstructorsGridView td {
             padding: 10px;
             font-weight: bold; /* Set text to bold */
-            color: white;
-            border: 2px solid white; /* Set table borders to white and thicker */
+            color: blue;
+            border: 2px solid grey; /* Set table borders to white and thicker */
         }
 
         #CoursesAndInstructorsGridView th {
-            background-color: white; /* Table header background color */
-            color: forestgreen;
+            background-color: lightgray; /* Table header background color */
+            color: blue;
         }
         #footer {
      background: #2c3e50;

@@ -119,5 +119,38 @@ namespace Advising_System
             successLabel.ForeColor = color;
             successLabel.Visible = true;
         }
+        public static void loadPaymentsWOInstallments(DropDownList CourseIDs, Label success)
+        {
+            string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
+            SqlConnection connection = new SqlConnection(connectionStirng);
+            try
+            {
+                SqlCommand AllCourses = new SqlCommand("SELECT payment_id FROM Payment" +
+                    "WHERE payment_id not in (Select payment_id from Installment)\r\n", connection); // {Session["UserID"]} put in input of fn
+                AllCourses.CommandType = CommandType.Text;
+                connection.Open();
+
+                SqlDataReader reader = AllCourses.ExecuteReader(CommandBehavior.CloseConnection);
+
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+
+                CourseIDs.DataSource = dt;
+                CourseIDs.DataTextField = "payment_id";
+                CourseIDs.DataValueField = "payment_id";
+                CourseIDs.DataBind();
+
+                CourseIDs.Items.Insert(0, new ListItem("Select a payment", string.Empty));
+                CourseIDs.SelectedIndex = 0;
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                DisplayErrorMessage(success, ex.Message);
+            }
+            finally { connection.Close(); }
+        }
+
     }
 }

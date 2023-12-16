@@ -58,7 +58,7 @@ namespace Advising_System
             using (connection)
             {
 
-                string query = "SELECT payment_id FROM Payment";
+                string query = "SELECT payment_id FROM Payment WHERE payment_id not in (Select payment_id from Installment)";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {

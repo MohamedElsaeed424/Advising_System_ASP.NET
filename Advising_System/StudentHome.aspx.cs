@@ -12,11 +12,11 @@ namespace Advising_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine(11);
+            System.Diagnostics.Debug.WriteLine(Session["UserRole"] +" "+ Session["UserID"] );
             if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Student")
-            { 
+            {
                 Response.Redirect("/404Page.aspx");
-            }
+            }   
             else
             {
                 if (!IsPostBack)

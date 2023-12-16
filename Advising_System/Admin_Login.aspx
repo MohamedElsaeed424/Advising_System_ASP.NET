@@ -103,7 +103,9 @@
             <asp:TextBox ID="password" runat="server" TextMode="Password" CssClass="form-control" EnableViewState="true" ViewStateMode="Enabled"></asp:TextBox>
 
             <asp:Button ID="Login" runat="server" Text="Log In" CssClass="asp-button" OnClick="Login_Click" />
+            <a href="/AppAdminstrator.aspx">Back</a>
         </form>
     </div>
+    <a href="/AppAdminstrator.aspx">Back</a>
 </body>
 </html>

@@ -15,6 +15,13 @@ namespace Advising_System
             {
                 Response.Redirect("/404Page.aspx");
             }
+            else
+            {
+                if (!IsPostBack)
+                {
+                    name.InnerText = "Welcome, " + Session["UserName"].ToString();
+                }
+            }
         }
 
         protected void AllStudents_Click(object sender, EventArgs e)

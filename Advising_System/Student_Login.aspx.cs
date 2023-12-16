@@ -57,8 +57,8 @@ namespace Advising_System
                            
                             command.Parameters.AddWithValue("@Student_id", id);
                             command.Parameters.AddWithValue("@password", password);
-                            
 
+                            SqlCommand getName = new SqlCommand($"SELECT f_name + ' ' + l_name as name FROM Student WHERE student_id = {id}", connection);
 
                             connection.Open();
                             SqlDataReader reader = command.ExecuteReader();
@@ -68,14 +68,21 @@ namespace Advising_System
                                 success = Convert.ToInt32(reader["Success"]);
                                 System.Diagnostics.Debug.WriteLine(5);
                             }
-                            System.Diagnostics.Debug.WriteLine(success);
                             reader.Close();
-                            System.Diagnostics.Debug.WriteLine(6);
+                            // gets Student's name
+                            reader = getName.ExecuteReader();
+                            string name = string.Empty;
+                            if (reader.Read())
+                            {
+                                name = reader["name"].ToString();
+                            }
+                            reader.Close();
                             if (success == 1)
                             {
                                 System.Diagnostics.Debug.WriteLine(7);
                                 Session["UserID"] = id;
                                 Session["UserRole"] = "Student";
+                                Session["UserName"] = name;
                                 System.Diagnostics.Debug.WriteLine(Session["UserID"]);
                                 Response.Redirect("/StudentHome.aspx");
 

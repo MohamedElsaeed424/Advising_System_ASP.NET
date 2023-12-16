@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
 
 namespace Advising_System
 {
@@ -13,11 +14,16 @@ namespace Advising_System
         {
             System.Diagnostics.Debug.WriteLine(11);
             if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Student")
-            {
-                System.Diagnostics.Debug.WriteLine(12);
+            { 
                 Response.Redirect("/404Page.aspx");
             }
-            System.Diagnostics.Debug.WriteLine(13);
+            else
+            {
+                if (!IsPostBack)
+                {
+                    welcome.InnerText = "Welcome, " + Session["UserName"].ToString();
+                }
+            }
         }
         protected void ViewGradPlan(object sender, EventArgs e)
         {

@@ -176,7 +176,7 @@
             </ul>
         </div>
     <div id="content">
-              <h2>Welcome, Advisor!</h2>
+              <h2 runat="server" id="name">Welcome, Advisor!</h2>
               <p>This is the Advisor portal for the advising student system.</p>
     </div>
     <div id="footer">
@@ -200,6 +200,10 @@
                 sidebar.style.left = '0';
                 content.style.marginLeft = `${sidebarWidth}px`;
             }
+        });
+        window.addEventListener('load', function () {
+            sidebar.style.left = '0';
+            content.style.marginLeft = `${sidebarWidth}px`;
         });
     </script>
 </body>

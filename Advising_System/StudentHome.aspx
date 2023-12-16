@@ -168,7 +168,7 @@
     </div>
 
     <div id="content">
-                  <h2>Welcome, Student!</h2>
+                  <h2 runat="server" id="welcome">Welcome, Student!</h2>
                   <p>This is the student portal for the student system.</p>
     </div>
 
@@ -194,6 +194,11 @@
                 content.style.marginLeft = `${sidebarWidth}px`;
             }
         });
+        window.addEventListener('load', function () {
+            sidebar.style.left = '0';
+            content.style.marginLeft = `${sidebarWidth}px`;
+        });
+
     </script>
 </body>
 </html>

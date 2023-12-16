@@ -26,7 +26,7 @@ namespace Advising_System
                 SqlConnection connection = new SqlConnection(connectionStirng);
                 try
                 {
-                    SqlCommand AllStudents = new SqlCommand($"SELECT student_id, CONCAT(student_id, '-', f_name, ' ', l_name) AS 'All' " +
+                    SqlCommand AllStudents = new SqlCommand($"SELECT student_id, CONCAT(student_id, '- ', f_name, ' ', l_name) AS 'All' " +
                         $"FROM Student WHERE advisor_id = {Session["UserID"]}\r\n", connection); // {Session["UserID"]} put in input of fn
                     AllStudents.CommandType = CommandType.Text;
                     connection.Open();
@@ -89,9 +89,20 @@ namespace Advising_System
                 InsertGradPlan.Parameters.AddWithValue("@studentid", StID);
 
                 int nRowsAffected = InsertGradPlan.ExecuteNonQuery();
-                Error.Visible = true;
-                Error.ForeColor = System.Drawing.Color.Green;
-                Error.Text = "Succesfully inserted Graduation Plan";
+                if(nRowsAffected > 0)
+                {
+                    Error.Visible = true;
+                    Error.ForeColor = System.Drawing.Color.Green;
+                    Error.Text = "Succesfully inserted Graduation Plan";
+                }
+                else
+                {
+                    Error.Visible = true;
+                    Error.ForeColor = System.Drawing.Color.Red;
+                    Error.Text = "Student doesn't have enough credit hours";
+                }
+
+                
             }
             catch (Exception ex)
             {

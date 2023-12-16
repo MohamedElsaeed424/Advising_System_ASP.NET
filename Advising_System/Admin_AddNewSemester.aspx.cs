@@ -44,7 +44,7 @@ namespace Advising_System
                 DisplayErrorMessage("End Date is required");
                 return;
             }
-            if(startDate > endDate)
+            if(DateTime.Compare(startDate, endDate) >= 0)
             {
                 DisplayErrorMessage("End Date can't be less than Start Date");
             }

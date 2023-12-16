@@ -168,6 +168,12 @@
  .sidebar-opened #toggle-btn {
      left: 240px;
  }
+ .dropdown-list{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
     </style>
 </head>
 <body>
@@ -201,7 +207,7 @@
 
 
         <label for="PhoneNum"> New Phone Number :</label>
-        <asp:TextBox ID="PhoneNum" runat="server" CssClass="form-control"></asp:TextBox>
+        <asp:TextBox ID="PhoneNum" runat="server" CssClass="dropdown-list" TextMode="Phone"></asp:TextBox>
 
         <asp:Button ID="Add" runat="server" Text="Add" CssClass="asp-button" OnClick="AddPhoneNum"/>
         <div style="display: flex; justify-content: center; margin-top: 20px;">

@@ -74,6 +74,12 @@ form {
             color: black;
             border: 2px solid #4CAF50;
         }
+        .dropdown-list{
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
          #sidebar {
      background: #2c3e50;
      padding: 1em;
@@ -201,7 +207,7 @@ form {
 
             <div>
                 <asp:Label ID="Label2" runat="server" Text="Course ID"></asp:Label>
-                &nbsp;<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                &nbsp;<asp:DropDownList ID="Courses" runat="server" CssClass="dropdown-list"></asp:DropDownList>
             </div>
 
             <div>

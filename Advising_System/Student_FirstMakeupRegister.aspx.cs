@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Configuration;
@@ -17,6 +18,13 @@ namespace Advising_System
             if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Student")
             {
                 Response.Redirect("/404Page.aspx");
+            }
+            else
+            {
+                if (!IsPostBack)
+                {
+                    DropDownLoader.loadCourseListWithID(Courses, SuccessLabel);
+                }
             }
 
         }
@@ -36,7 +44,7 @@ namespace Advising_System
             {   
                 int studentId = Convert.ToInt32(Session["UserID"]);
                 int courseId ;
-                if (!int.TryParse(TextBox3.Text, out courseId))
+                if (!int.TryParse(Courses.SelectedValue, out courseId))
                 {
                     DisplayErrorMessage("Invalid Course ID. Please enter a valid numeric value.");
                     return;
@@ -52,14 +60,21 @@ namespace Advising_System
                     SqlCommand Procedures_StudentRegisterFirstMakeup = new SqlCommand("Procedures_StudentRegisterFirstMakeup", connection);
                     Procedures_StudentRegisterFirstMakeup.CommandType = CommandType.StoredProcedure;
                     connection.Open();
-                    SqlDataReader reader = Procedures_StudentRegisterFirstMakeup.ExecuteReader(CommandBehavior.CloseConnection);
                     Procedures_StudentRegisterFirstMakeup.Parameters.AddWithValue("@StudentID", studentId);
                     Procedures_StudentRegisterFirstMakeup.Parameters.AddWithValue("@courseID", courseId);
-                    Procedures_StudentRegisterFirstMakeup.Parameters.AddWithValue("@studentCurr_sem", studentCurrentSemester);
-                    Procedures_StudentRegisterFirstMakeup.ExecuteNonQuery();
-                    SuccessLabel.Visible = true;
-                    SuccessLabel.Text = "Makeup Registered successfully!";
-                    SuccessLabel.ForeColor = System.Drawing.Color.Green;
+                    Debug.WriteLine(studentCurrentSemester);
+                    Procedures_StudentRegisterFirstMakeup.Parameters.AddWithValue("@studentCurrentsemester", studentCurrentSemester);
+                    int nRowsAffected = Procedures_StudentRegisterFirstMakeup.ExecuteNonQuery();
+                    if(nRowsAffected > 0)
+                    {
+                        SuccessLabel.Visible = true;
+                        SuccessLabel.Text = "Makeup Registered successfully!";
+                        SuccessLabel.ForeColor = System.Drawing.Color.Green;
+                    }
+                    else
+                    {
+                        DisplayErrorMessage("You are not eligible");
+                    }
                 }
             }
             catch (Exception ex)

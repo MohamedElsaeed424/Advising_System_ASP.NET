@@ -98,13 +98,14 @@
              background-color: #2980b9;
          }
 
-         #sidebar-header {
-             font-size: 20px;
-             font-weight: bold;
-             margin-bottom: 10px;
-             text-align: center;
-             color: #3498db;
-         }
+#sidebar-header {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #e67e22; /* Set to your desired orange color */
+}
+
 
 
          #sidebar ul {
@@ -128,11 +129,13 @@
              transition: transform 0.2s ease-in-out;
          }
 
-         #sidebar a:hover {
-             background: #34495e;
-             color: #3498db;
-             transform: scale(1.1);
-         }
+        #sidebar a:hover {
+            background: #d35400; /* Darker shade of orange for hover */
+            color: #ecf0f1; /* Lighter complementary color for text */
+            transform: scale(1.1);
+        }
+
+
 
          #toggle-btn {
            cursor: pointer;
@@ -140,7 +143,7 @@
            top: 20px;
            left: 20px;
            z-index: 3;
-           color: cornflowerblue;
+           color: #ff7f50;
            font-size: 20px; /* Reduced font size for smaller button */
            border: none;
            border-radius: 50%; /* Maintains round shape */
@@ -151,7 +154,7 @@
 
 
          #toggle-btn:hover {
-             background-color: #2980b9;
+             background-color: #d35400;
          }
 
          #toggle-btn::before {

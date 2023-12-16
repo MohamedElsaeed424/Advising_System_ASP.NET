@@ -14,14 +14,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            color: white
+            color: blue;
                 
           
         }
 
         #form1 {
             padding: 30px;
-            background: none;
+              background: #f0f0f0;/* Gradient background */
             margin: 20px;
             border-radius: 10px;
             color: #495057;
@@ -31,7 +31,7 @@
         }
 
             #form1 h2 {
-                color: white;
+                color: blue;
                 font-weight: bold;
                 
             }
@@ -52,11 +52,11 @@
         }
 
         #AllsemWCoursesGV th
-        {background-color: white
+        {background-color: lightgray
         } #AllsemWCoursesGV td {
             padding: 10px;
             text-align: left;
-            color:white;
+            color:blue;
                 }
           #footer {
      background: #2c3e50;

@@ -139,13 +139,17 @@
             left: 240px;
         }
         #LogOut {
-            background-color: #555; /* Button background color */
-            color: white;
+            background-color: white; /* Button background color */
+            color: darkcyan;
             padding: 10px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             margin-right: 10px;
+            margin-bottom:10px;
+            align-content:center;
+           
+            
         }
 
     </style>
@@ -186,13 +190,15 @@
     <div id="content">
                   <h2>Welcome, Admin!</h2>
                   <p>This is the administration portal for the student system.s</p>
+        </div>
         <form id="registrationForm" runat="server">
             <asp:Button ID="LogOut" runat="server" Text="Log Out" OnClick="LogOut_Click" />
         </form>
-    </div>
+    
 
     <div id="footer">
         &copy; 2023 Admin Portal
+
     </div>
 
     <div id="toggle-btn"></div>

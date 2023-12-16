@@ -19,7 +19,7 @@
         }
 
         form {
-            background: none; /* Form background color */
+             background: linear-gradient(to right, #4d0099, #330066); 
             padding: 20px;
             border-radius: 8px;
             width: 95%; /* Adjusted width to be proportional */
@@ -96,11 +96,11 @@
 
         #GradPlans th {
             background-color: white; /* Table header background color */
-            color: forestgreen;
+            color: darkorange;
         }
 
         #sidebar {
-            background: linear-gradient(to right, #2b0d12, #731d25); /* Darker gradient colors */
+            background: linear-gradient(to right, #4d0099, #330066); 
             padding: 1em;
             height: 100vh;
             width: 240px;
@@ -111,7 +111,7 @@
             overflow-y: auto;
             color: #ecf0f1;
             border-radius: 5px;
-            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+             background: linear-gradient(to right, #4d0099, #330066); 
         }
 
         #sidebar::-webkit-scrollbar {

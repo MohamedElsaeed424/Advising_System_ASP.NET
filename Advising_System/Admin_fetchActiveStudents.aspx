@@ -16,16 +16,18 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
+            color:blue;
         }
 
         form {
-            background: none; /* Removed background color */
+             background: #f0f0f0;/* Gradient background */
             padding: 20px;
             border-radius: 8px;
             width: 80%; /* Adjusted width to be proportional */
             box-sizing: border-box;
             text-align: center;
             max-width: 800px; /* Set a maximum width for larger screens */
+            min-width:fit-content;
         }
 
         #BackAdminHomeButton {

@@ -20,16 +20,16 @@
 
     #form1 {
         padding: 30px;
-        background: #f8f9fa;
+         background: #f0f0f0;/* Gradient background */
         margin: 20px;
         border-radius: 10px;
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-        color: forestgreen;
+        color: blue;
         text-align: center;
     }
 
     h2, #SuccessLabel, #Label1 {
-        color: forestgreen;
+        color: blue;
     }
 
     #BackAdminHomeButton {

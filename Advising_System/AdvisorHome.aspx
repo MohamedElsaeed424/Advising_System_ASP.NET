@@ -64,7 +64,7 @@
         }
 
         #footer {
-            background: #2c3e50;
+            background: linear-gradient(to right, #4d0099, #330066); 
             color: #ecf0f1;
             text-align: center;
             padding: 1em;
@@ -74,7 +74,7 @@
         }
 
 #sidebar {
-    background: linear-gradient(to right, #010101, #060101);
+     background: linear-gradient(to right, #4d0099, #330066); 
 
     /* Darker gradient colors */
     padding: 1em;
@@ -87,7 +87,7 @@
     overflow-y: auto;
     color: #ecf0f1;
     border-radius: 5px;
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+     background: linear-gradient(to right, #4d0099, #330066); 
 }
 
 
@@ -195,7 +195,7 @@
             line-height: 1.6;
         }
         #LogOut {
-            background-color: #555; /* Button background color */
+           background: linear-gradient(to right, #4d0099, #330066); 
             color: white;
             padding: 10px;
             border: none;

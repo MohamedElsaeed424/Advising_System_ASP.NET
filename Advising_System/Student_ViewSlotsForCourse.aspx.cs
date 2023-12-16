@@ -20,8 +20,11 @@ namespace Advising_System
             }
             else
             {
-                DropDownLoader.loadCourseList(Courses, SuccessLabel);
-                DropDownLoader.loadInstructors(Instructors, SuccessLabel);
+                if (!IsPostBack)
+                {
+                    DropDownLoader.loadCourseListWithID(Courses, SuccessLabel);
+                    DropDownLoader.loadInstructors(Instructors, SuccessLabel);
+                }
             }
         }
         private void DisplayErrorMessage(string message)
@@ -54,11 +57,15 @@ namespace Advising_System
                     SqlCommand FN_StudentViewSlot = new SqlCommand("SELECT * FROM FN_StudentViewSlot(@CourseID,@InstructorID);", connection);
                     FN_StudentViewSlot.CommandType = CommandType.Text;
                     connection.Open();
+
                     FN_StudentViewSlot.Parameters.AddWithValue("@CourseID", courseID);
                     FN_StudentViewSlot.Parameters.AddWithValue("@InstructorID", insructorID);
+
                     SqlDataReader reader = FN_StudentViewSlot.ExecuteReader(CommandBehavior.CloseConnection);
+
                     DataTable dataTable = new DataTable();
                     dataTable.Load(reader);
+
                     GridView1.DataSource = dataTable;
                     GridView1.DataBind();
                     SuccessLabel.Visible = true;

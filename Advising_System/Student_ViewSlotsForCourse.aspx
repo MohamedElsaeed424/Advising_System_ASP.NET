@@ -266,9 +266,9 @@
             </div>
             <div class="grid-container">
                 <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="True"></asp:GridView>
-                <div class="styled-label">
-                    <asp:Label ID="SuccessLabel" runat="server" Text="Add Inputs" ForeColor="Blue" Visible="false"></asp:Label>
-                </div>
+            </div>
+            <div class="styled-label">
+                <asp:Label ID="SuccessLabel" runat="server" Text="Add Inputs" ForeColor="Blue" Visible="false"></asp:Label>
             </div>
             <div class="styled-label">
                 <asp:Button ID="Button1" runat="server" OnClick="SearchForSlots" Text="Search" CssClass="styled-button" />

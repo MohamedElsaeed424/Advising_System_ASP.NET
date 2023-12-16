@@ -18,7 +18,7 @@ namespace Advising_System
         protected void Page_Load(object sender, EventArgs e)
         {
             
-            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Advisor")
+            if (Session["UserID"] == null || Session["UserRole"] == null || Session["UserRole"].ToString() != "Advisor" || Session["PlanID"] is null)
             {
                 Response.Redirect("/404Page.aspx");
             }

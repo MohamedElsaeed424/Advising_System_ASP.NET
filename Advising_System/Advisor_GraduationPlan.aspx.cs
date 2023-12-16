@@ -39,7 +39,7 @@ namespace Advising_System
                 connection.Open();
 
                 SqlDataReader reader = gP.ExecuteReader(CommandBehavior.CloseConnection);
-
+                //reader["expected_grad_date"] = (DateTime)(reader["expected_grad_date"]).ToShortDateString();
                 DataTable dt = new DataTable();
                 dt.Load(reader);
 

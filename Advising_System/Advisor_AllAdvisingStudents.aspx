@@ -6,35 +6,36 @@
 <head runat="server">
     <title>Advising Students</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(to right, #c02425, #f0cb35); /* Gradient background */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
-        }
+  body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to right, #c02425, #f0cb35); /* Gradient background */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh; /* Set a minimum height for the body */
+        overflow: hidden;
+    }
 
-        form {
-            background: none; /* Form background color */
-            padding: 20px;
-            border-radius: 8px;
-            width: 80%; /* Adjusted width to be proportional */
-            box-sizing: border-box;
-            text-align: center;
-            max-width: 1200px; /* Set a maximum width for larger screens */
-            color: white;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        }
+    form {
+        background: none; /* Form background color */
+        padding: 20px;
+        border-radius: 8px;
+        width: 95%; /* Adjusted width to be proportional */
+        box-sizing: border-box;
+        text-align: center;
+        max-width: 1500px; /* Set a maximum width for larger screens */
+        color: white;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        margin: 20px; /* Added margin for better spacing */
+    }
 
-        h2 {
-            text-align: center;
-            margin-top: 20px;
-            color: white; /* Text color */
-        }
+    h2 {
+        text-align: center;
+        margin-top: 20px;
+        color: white; /* Text color */
+    }
 
         #BackHome {
             background-color: orangered; /* Button background color */
@@ -49,34 +50,25 @@
         #BackHome:hover {
             background-color: darkred;
         }
-
         #AllAdvisingStudents {
             margin-top: 20px;
-            width: 100%;
             border-collapse: collapse;
-            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
-            table-layout: fixed; /* Fixed table layout for consistent column widths */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            
         }
 
         #AllAdvisingStudents th,
         #AllAdvisingStudents td {
-            padding: 20px; /* Increased padding for better spacing */
+            padding: 10px;
             font-weight: bold; /* Set text to bold */
-            color: white; /* Updated text color for better visibility */
-            border-bottom: 2px solid white; /* Thick white border */
+            color: white;
+            border: 2px solid white; /* Set table borders to white and thicker */
         }
 
         #AllAdvisingStudents th {
-            background-color: #d35400; /* Updated table header background color */
-            font-size: 20px; /* Increased font size */
+            background-color: white; /* Table header background color */
+            color:forestgreen ;
         }
-
-        #AllAdvisingStudents td {
-            font-size: 18px; /* Increased font size */
-        }
-
-
         #sidebar {
             background: linear-gradient(to right, #2b0d12, #731d25); /* Darker gradient colors */
             padding: 1em;

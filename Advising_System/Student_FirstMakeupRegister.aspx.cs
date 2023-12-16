@@ -18,6 +18,10 @@ namespace Advising_System
             {
                 Response.Redirect("/404Page.aspx");
             }
+            else
+            {
+                DropDownLoader.loadCourseListWithID(Courses, SuccessLabel);
+            }
 
         }
         private void DisplayErrorMessage(string message)

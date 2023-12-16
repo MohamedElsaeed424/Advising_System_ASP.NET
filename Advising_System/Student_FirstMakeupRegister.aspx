@@ -30,16 +30,22 @@
         }
 
         form {
-    background-color: #f0f2f5; /* Slightly dark grey */
-    padding: 50px;
-    border-radius: 70px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-    text-align: center;
-    width: 100%; /* Adjusted width to be proportional */
-    max-width: 400px; /* Set a maximum width for larger screens */
-    border: 10px solid white; /* Thin white border */
-}
+            background-color: #f0f2f5; /* Slightly dark grey */
+            padding: 50px;
+            border-radius: 70px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            text-align: center;
+            width: 100%; /* Adjusted width to be proportional */
+            max-width: 400px; /* Set a maximum width for larger screens */
+            border: 10px solid white; /* Thin white border */
+        }
+        .dropdown-list{
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
 
         label {
             margin-bottom: 10px;
@@ -202,7 +208,7 @@
 
             <div>
                 <asp:Label ID="Label2" runat="server" Text="Course ID"></asp:Label>
-                &nbsp;<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                &nbsp;<asp:DropDownList ID="Courses" runat="server" CssClass="dropdown-list"></asp:DropDownList> <%--<asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>--%>
             </div>
 
             <div>

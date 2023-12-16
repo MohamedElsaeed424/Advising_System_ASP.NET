@@ -51,6 +51,12 @@
         box-sizing: border-box;
         margin-bottom: 20px;
     }
+    .dropdown-list{
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+    }
 
     #DeleteCourse {
         background-color: #555;

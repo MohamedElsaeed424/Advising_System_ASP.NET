@@ -194,6 +194,15 @@
             font-size: 14px;
             line-height: 1.6;
         }
+        #LogOut {
+            background-color: #555; /* Button background color */
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
     </style>
 </head>
 <body>
@@ -210,6 +219,9 @@
     <div id="content">
         <h2 runat="server" id="name">Welcome, Advisor!</h2>
         <p>This is the Advisor portal for the advising student system. Explore the menu on the left to access different features.</p>
+     <form id="registrationForm" runat="server">
+         <asp:Button ID="LogOut" runat="server" Text="Log Out" OnClick="LogOut_Click" />
+     </form>
     </div>
     <div id="footer">
         &copy; 2023 Advisor Portal

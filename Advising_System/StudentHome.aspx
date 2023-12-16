@@ -139,6 +139,15 @@
         .sidebar-opened #toggle-btn {
             left: 240px;
         }
+        #LogOut {
+            background-color: #555; /* Button background color */
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
 
     </style>
 
@@ -170,6 +179,9 @@
     <div id="content">
                   <h2 runat="server" id="welcome">Welcome, Student!</h2>
                   <p>This is the student portal for the student system.</p>
+        <form id="registrationForm" runat="server">
+            <asp:Button ID="LogOut" runat="server" Text="Log Out" OnClick="LogOut_Click" />
+        </form>
     </div>
 
     <div id="footer">

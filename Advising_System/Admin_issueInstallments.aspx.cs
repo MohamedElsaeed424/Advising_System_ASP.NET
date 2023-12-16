@@ -128,7 +128,7 @@ namespace Advising_System
 
                             // Add parameters
                             Procedures_AdminIssueInstallment.Parameters
-                                .Add(new SqlParameter("@paymentID", SqlDbType.VarChar)).Value = Payment_id;
+                                .Add(new SqlParameter("@payment_id", SqlDbType.VarChar)).Value = Payment_id;
 
 
                             try

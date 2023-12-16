@@ -90,8 +90,10 @@ namespace Advising_System
             Response.Redirect("/Student_SendRequest.aspx");
         }
 
-
-
-
+        protected void LogOut_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("/Student_Login.aspx");
+        }
     }
 }

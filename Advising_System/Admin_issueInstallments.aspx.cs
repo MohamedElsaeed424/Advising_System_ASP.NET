@@ -45,6 +45,7 @@ namespace Advising_System
             AllPayment.DataValueField = "PaymentId";
             AllPayment.DataBind();
             AllPayment.Items.Insert(0, new System.Web.UI.WebControls.ListItem("select payment", "0"));
+            AllPayment.SelectedIndex = 0;
 
         }
 
@@ -96,7 +97,7 @@ namespace Advising_System
                 DisplayErrorMessage("Invalid Payment Selection");
                 return;
             }
-            System.Diagnostics.Debug.WriteLine(payment_id);
+            Debug.WriteLine(payment_id);
 
 
             IssuePaymentInDatabase(payment_id);
@@ -149,6 +150,7 @@ namespace Advising_System
                             }
                             finally
                             {
+                                BindPaymentToDropDown();
                                 connection.Close();
                             }
                         }

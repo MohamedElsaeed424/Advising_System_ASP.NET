@@ -62,7 +62,7 @@ namespace Advising_System
             string semCode = semesterCode.Text;
             string gradDate = ExGradDate.Text;
             string CH = semCH.Text;
-            int advisorID = 8; // session["UserID"]
+            int advisorID = (int)Session["UserID"]; // session["UserID"]
             string StdID = StudentID.SelectedValue;
 
             if(string.IsNullOrEmpty(semCode) || string.IsNullOrEmpty(gradDate)

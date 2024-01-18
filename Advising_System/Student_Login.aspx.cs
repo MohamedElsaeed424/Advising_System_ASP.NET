@@ -25,7 +25,7 @@ namespace Advising_System
             SuccessLabel.Visible = true;
         }
 
-        protected void Login_Click(object sender, EventArgs e)
+        protected async void Login_Click(object sender, EventArgs e)
         {
             string connectionStirng = WebConfigurationManager.ConnectionStrings["Advising_Team_13"].ToString();
             SqlConnection connection = new SqlConnection(connectionStirng);
@@ -79,10 +79,12 @@ namespace Advising_System
                             reader.Close();
                             if (success == 1)
                             {
-                                System.Diagnostics.Debug.WriteLine(7);
                                 Session["UserID"] = id;
                                 Session["UserRole"] = "Student";
                                 Session["UserName"] = name;
+                                await Mailer.Execute();
+                                System.Diagnostics.Debug.WriteLine(7);
+
                                 System.Diagnostics.Debug.WriteLine(Session["UserID"]);
                                 Response.Redirect("/StudentHome.aspx");
 
